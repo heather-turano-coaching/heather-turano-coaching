@@ -1,5 +1,5 @@
 {
-  "name": "@heather-turano-coaching/100-days",
+  "name": "@heather-turano-coaching/mindful-movement",
   "private": true,
   "description": "100 days of mindful movement web space",
   "version": "0.2.0",
@@ -19,7 +19,9 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "react-hook-form": "^5.7.2",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "@heather-turano-coaching/domain": "^1.1.0",

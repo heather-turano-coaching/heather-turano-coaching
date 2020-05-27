@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-svgr",
       options: {
-        dimensions: false,
+        dimensions: true,
       },
     },
     `gatsby-plugin-typescript`,
@@ -50,7 +50,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#fff`,
         display: `Mindful Movement 100`,
-        icon: `src/static/favicon.png`, // This path is relative to the root of the site.
+        icon: `static/favicon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
