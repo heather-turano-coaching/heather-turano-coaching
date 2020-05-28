@@ -12,9 +12,9 @@ export const permissions = shield({
   Query: {
     "*": isAuthenticated,
     feed: allow,
+    // checkout: allow,
   },
   Mutation: {
     "*": isAuthenticated,
-    // checkout: allow,
   },
 });

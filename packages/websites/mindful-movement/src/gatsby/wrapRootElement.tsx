@@ -1,6 +1,9 @@
+import { ApolloProvider } from "@apollo/client";
 import { makeReset } from "@heather-turano-coaching/design-system";
 import React, { ReactNode } from "react";
 import { createGlobalStyle } from "styled-components";
+
+import { client } from "../apollo";
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -34,11 +37,9 @@ const GlobalStyle = createGlobalStyle`
 
 export const wrapRootElement = ({ element }: { element: ReactNode }) => {
   return (
-    // <ErrorBoundary>
-    <>
+    <ApolloProvider client={client}>
       <GlobalStyle />
       {element}
-    </>
-    // </ErrorBoundary>
+    </ApolloProvider>
   );
 };
