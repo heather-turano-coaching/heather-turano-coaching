@@ -8,6 +8,7 @@
     "packages/**"
   ],
   "scripts": {
+    "postinstall": "source .env && lerna run postinstall",
     "clean": "lerna clean --yes && lerna exec -- rimraf lib/ dist/",
     "bootstrap": "lerna bootstrap --hoist && rimraf **/@types/react-native",
     "bootstrap:ci": "lerna bootstrap --hoist",
@@ -39,10 +40,17 @@
     "start:api": "cd packages/api && yarn start",
     "start:domain": "cd packages/domain && yarn start",
     "start:hooks": "cd packages/hooks && yarn start",
+    "start:platform": "lerna run dev --scope=@heather-turano-coaching/platform --stream --",
     "preview:live-life-mindful": "yarn build:packages && cd packages/websites/live-life-mindful && yarn serve",
     "preview:mindful-movement": "yarn build:packages && cd packages/websites/mindful-movement && yarn serve",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "generate:platform": "lerna run generate --scope=@heather-turano-coaching/platform --stream --",
+    "serve:platform": "lerna run start --scope=@heather-turano-coaching/platform --stream --",
+    "create-migration": "cd packages/platform && yarn migrate -- ",
+    "run-migrations": "cd packages/platform && yarn migrate:up",
+    "solution:bootstrap": "source scripts/bootstrap.sh",
+    "solution:reset": "source scripts/reset.sh"
   },
   "repository": {
     "type": "git",
@@ -57,6 +65,9 @@
     "heather",
     "turano"
   ],
+  "resolutions": {
+    "graphql": "14.6.0"
+  },
   "author": "Drew DeCarme (drew@imaginedelements.com)",
   "license": "ISC",
   "devDependencies": {

@@ -8,6 +8,7 @@ import { NavLogo } from "../components/NavLogo";
 import { About } from "../features/about";
 import { Hero } from "../features/Hero";
 import { Introduction } from "../features/Introduction";
+import { Pricing } from "../features/Pricing";
 import { WhoWeAre } from "../features/WhoAreWe";
 
 const IndexPage = () => {

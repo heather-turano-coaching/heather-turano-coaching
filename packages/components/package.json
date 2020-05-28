@@ -44,7 +44,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -58,10 +58,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.10.1",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
