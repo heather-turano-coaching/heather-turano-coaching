@@ -7,6 +7,13 @@ input BooleanFilter {
   not: Boolean
 }
 
+type CheckoutSession {
+  """
+  The checkout session id that is used when a customer clicks on a product purchase button
+  """
+  id: String!
+}
+
 input IntFilter {
   equals: Int
   gt: Int
@@ -117,6 +124,7 @@ input PostWhereUniqueInput {
 }
 
 type Query {
+  checkout: CheckoutSession!
   feed: [Post!]!
   feedSecured: [Post!]!
   filterPosts(searchString: String): [Post!]!

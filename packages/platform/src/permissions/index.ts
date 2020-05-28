@@ -10,9 +10,8 @@ export const isAuthenticated = rule("isAuthenticated", {
 
 export const permissions = shield({
   Query: {
-    "*": isAuthenticated,
     feed: allow,
-    // checkout: allow,
+    checkout: allow,
   },
   Mutation: {
     "*": isAuthenticated,

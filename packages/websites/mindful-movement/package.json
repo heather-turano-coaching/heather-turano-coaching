@@ -29,6 +29,7 @@
   "devDependencies": {
     "@heather-turano-coaching/domain": "^1.1.0",
     "@heather-turano-coaching/typescript": "^0.2.1",
+    "@stripe/stripe-js": "^1.5.0",
     "typescript": "3.9.3"
   },
   "license": "MIT",

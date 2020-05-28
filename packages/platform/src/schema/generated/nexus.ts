@@ -139,6 +139,9 @@ export interface NexusGenEnums {
 }
 
 export interface NexusGenRootTypes {
+  CheckoutSession: { // root type
+    id: string; // String!
+  }
   Mutation: {};
   Post: { // root type
     content?: string | null; // String
@@ -180,6 +183,9 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 }
 
 export interface NexusGenFieldTypes {
+  CheckoutSession: { // field return type
+    id: string; // String!
+  }
   Mutation: { // field return type
     createDraft: NexusGenRootTypes['Post']; // Post!
     deleteOnePost: NexusGenRootTypes['Post'] | null; // Post
@@ -195,6 +201,7 @@ export interface NexusGenFieldTypes {
     title: string; // String!
   }
   Query: { // field return type
+    checkout: NexusGenRootTypes['CheckoutSession']; // CheckoutSession!
     feed: NexusGenRootTypes['Post'][]; // [Post!]!
     feedSecured: NexusGenRootTypes['Post'][]; // [Post!]!
     filterPosts: NexusGenRootTypes['Post'][]; // [Post!]!
@@ -248,7 +255,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Mutation" | "Post" | "Query" | "User";
+export type NexusGenObjectNames = "CheckoutSession" | "Mutation" | "Post" | "Query" | "User";
 
 export type NexusGenInputNames = "BooleanFilter" | "IntFilter" | "NullableStringFilter" | "PostCreateManyWithoutAuthorInput" | "PostCreateWithoutAuthorInput" | "PostScalarWhereInput" | "PostUpdateManyDataInput" | "PostUpdateManyWithWhereNestedInput" | "PostUpdateManyWithoutAuthorInput" | "PostUpdateWithWhereUniqueWithoutAuthorInput" | "PostUpdateWithoutAuthorDataInput" | "PostUpsertWithWhereUniqueWithoutAuthorInput" | "PostWhereUniqueInput" | "StringFilter" | "UserCreateInput" | "UserUpdateInput" | "UserWhereUniqueInput";
 

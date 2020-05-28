@@ -5,22 +5,45 @@ import {
   Section,
   Typography,
 } from "@heather-turano-coaching/components";
-import { FC, useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { FC, useEffect, useState } from "react";
 import React from "react";
 
+const stripePromise = loadStripe(
+  process.env.GATSBY_HTC_STRIPE_PUBLISHABLE_KEY as string
+);
+
 const CHECKOUT = gql`
-  query GetGreeting {
-    feed {
-      title
+  query testCheckout {
+    checkout {
+      id
     }
   }
 `;
 
+const handleStripeRedirect = async (
+  sessionId: string
+): Promise<void | string> => {
+  // When the customer clicks on the button, redirect them to Checkout.
+  const stripe = await stripePromise;
+  if (stripe) {
+    const { error } = await stripe.redirectToCheckout({
+      sessionId,
+    });
+
+    if (error) {
+      return error.message;
+    }
+  }
+};
+
 export const Pricing: FC = () => {
-  const [
-    runCheckoutQuery,
-    { called, loading, data, error },
-  ] = useLazyQuery(CHECKOUT, { ssr: false });
+  const [runCheckoutQuery, { called, loading, data, error }] = useLazyQuery<{
+    checkout: { id: string };
+  }>(CHECKOUT, { ssr: false });
+  const [stripeCheckoutFailure, setStripeCheckoutFailure] = useState<
+    string | undefined
+  >(undefined);
 
   const handleClick = () => () => {
     runCheckoutQuery();
@@ -28,8 +51,13 @@ export const Pricing: FC = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data);
+      handleStripeRedirect(data.checkout.id).then((stripeError) => {
+        if (stripeError) {
+          setStripeCheckoutFailure(stripeError);
+        }
+      });
     }
+
     if (error) {
       console.log(JSON.stringify(error));
     }
@@ -52,6 +80,7 @@ export const Pricing: FC = () => {
         onClick={handleClick()}
         disabled={called && loading}
       />
+      {stripeCheckoutFailure && <span>{stripeCheckoutFailure}</span>}
     </Section>
   );
 };
