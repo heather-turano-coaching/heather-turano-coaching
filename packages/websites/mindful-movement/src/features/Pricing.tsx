@@ -39,7 +39,12 @@ const handleStripeRedirect = async (
   }
 };
 
-type ProductOffering = { name: string; id: string; images: string };
+type ProductOffering = {
+  id: string;
+  name: string;
+  description: string;
+  price: { unit_amount: number; currency: string; id: string };
+};
 
 const StyledContainer = styled.div`
   text-align: center;
@@ -54,10 +59,10 @@ export const Pricing: FC = () => {
   >(CHECKOUT, { ssr: false });
 
   const {
-    allStripeProduct: { nodes: products },
+    allStripeProductAndPrice: { nodes: products },
     contentfulPageHome,
   } = useStaticQuery<{
-    allStripeProduct: { nodes: ProductOffering[] };
+    allStripeProductAndPrice: { nodes: ProductOffering[] };
     contentfulPageHome: {
       pricingTitle: string;
       pricingDescription: { pricingDescription: string };
@@ -70,11 +75,16 @@ export const Pricing: FC = () => {
           pricingDescription
         }
       }
-      allStripeProduct {
+      allStripeProductAndPrice {
         nodes {
-          name
           id
-          images
+          name
+          description
+          price {
+            unit_amount
+            currency
+            id
+          }
         }
       }
     }
@@ -116,8 +126,9 @@ export const Pricing: FC = () => {
         </Typography>
         {products.map((product) => (
           <Button
+            key={product.id}
             label={product.name}
-            onClick={handleClick(product.id)}
+            onClick={handleClick(product.price.id)}
             disabled={called && loading}
           />
         ))}

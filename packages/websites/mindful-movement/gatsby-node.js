@@ -33,7 +33,7 @@ exports.sourceNodes = async ({
         // convert to cents
         price: stripePricesData.data.filter(
           (price) => price.product !== product.id
-        ),
+        )[0],
       })
     )
   );

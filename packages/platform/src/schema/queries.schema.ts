@@ -54,7 +54,7 @@ export const queries = objectType({
             payment_method_types: ["card"],
             line_items: [
               {
-                price: "price_HMMGGk0XDsrAkI",
+                price: priceId,
                 quantity: 1,
               },
             ],
