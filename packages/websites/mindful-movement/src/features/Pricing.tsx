@@ -41,9 +41,13 @@ const handleStripeRedirect = async (
 
 type ProductOffering = {
   id: string;
-  name: string;
-  description: string;
-  price: { unit_amount: number; currency: string; id: string };
+  productDetails: {
+    name: string;
+    color: string;
+    features: string[];
+    logo: { fields: { file: { url: string } } };
+  };
+  price: { unit_amount: string; id: string };
 };
 
 const StyledContainer = styled.div`
@@ -78,11 +82,20 @@ export const Pricing: FC = () => {
       allStripeProductAndPrice {
         nodes {
           id
-          name
-          description
+          productDetails {
+            name
+            color
+            features
+            logo {
+              fields {
+                file {
+                  url
+                }
+              }
+            }
+          }
           price {
             unit_amount
-            currency
             id
           }
         }
@@ -125,12 +138,36 @@ export const Pricing: FC = () => {
           {contentfulPageHome.pricingDescription.pricingDescription}
         </Typography>
         {products.map((product) => (
-          <Button
-            key={product.id}
-            label={product.name}
-            onClick={handleClick(product.price.id)}
-            disabled={called && loading}
-          />
+          <div
+            style={{
+              textAlign: "center",
+              border: "1px solid #ccc",
+              padding: "10px 0",
+              margin: "25px 0",
+              background: "#FFF",
+            }}
+          >
+            <Typography variant="label">
+              {product.productDetails.name}
+            </Typography>
+            <img
+              height={150}
+              style={{ display: "block", margin: "0 auto" }}
+              src={product.productDetails.logo.fields.file.url}
+              alt={product.productDetails.name}
+            />
+            <ul>
+              {product.productDetails.features.map((feature, i) => (
+                <li key={i.toString()}>{feature}</li>
+              ))}
+            </ul>
+            <Button
+              key={product.id}
+              label="Purchase"
+              onClick={handleClick(product.price.id)}
+              disabled={called && loading}
+            />
+          </div>
         ))}
         {stripeCheckoutFailure && <span>{stripeCheckoutFailure}</span>}
       </Section>

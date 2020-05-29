@@ -25,8 +25,6 @@ export const Introduction: FC = () => {
     }
   `);
 
-  console.log(contentfulPageHome);
-
   return (
     <Section styleType="blank">
       <div id="#about"></div>
