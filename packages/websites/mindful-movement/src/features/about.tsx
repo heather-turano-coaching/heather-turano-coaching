@@ -3,27 +3,50 @@ import {
   Section,
   Typography,
 } from "@heather-turano-coaching/components";
+import { graphql, useStaticQuery } from "gatsby";
 import { FC } from "react";
 import React from "react";
 
-export const About: FC = () => (
-  <Section
-    styleType="blank"
-    background={{ scalable: { color: "secondary", scale: 0 } }}
-  >
-    <div id="#about"></div>
-    <Heading
-      fontSize="h1"
-      fontFamily="Playfair Display"
-      fontColor={{ fixed: "light" }}
-    >
-      So what's it all about?
-    </Heading>
-    <br />
-    <Typography variant="label" fontSize="md" fontColor={{ fixed: "light" }}>
-      Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec
-      sed odio dui. Curabitur blandit tempus porttitor. Cras justo odio, dapibus
-      ac facilisis in, egestas eget quam.
-    </Typography>
-  </Section>
-);
+export const About: FC = () => {
+  const { contentfulPageHome } = useStaticQuery<{
+    contentfulPageHome: {
+      aboutTitle: string;
+      aboutDescription: { aboutDescription: string };
+    };
+  }>(graphql`
+    {
+      contentfulPageHome {
+        aboutTitle
+        aboutDescription {
+          aboutDescription
+        }
+      }
+    }
+  `);
+
+  return (
+    <>
+      <div id="#about"></div>
+      <Section
+        styleType="blank"
+        background={{ scalable: { color: "secondary", scale: 0 } }}
+      >
+        <Heading
+          fontSize="h1"
+          fontFamily="Playfair Display"
+          fontColor={{ fixed: "light" }}
+        >
+          {contentfulPageHome.aboutTitle}
+        </Heading>
+        <br />
+        <Typography
+          variant="label"
+          fontSize="md"
+          fontColor={{ fixed: "light" }}
+        >
+          {contentfulPageHome.aboutDescription.aboutDescription}
+        </Typography>
+      </Section>
+    </>
+  );
+};

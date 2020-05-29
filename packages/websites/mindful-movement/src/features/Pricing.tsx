@@ -6,16 +6,18 @@ import {
   Typography,
 } from "@heather-turano-coaching/components";
 import { loadStripe } from "@stripe/stripe-js";
+import { graphql, useStaticQuery } from "gatsby";
 import { FC, useEffect, useState } from "react";
 import React from "react";
+import styled from "styled-components";
 
 const stripePromise = loadStripe(
   process.env.GATSBY_HTC_STRIPE_PUBLISHABLE_KEY as string
 );
 
 const CHECKOUT = gql`
-  query testCheckout {
-    checkout {
+  query checkout($priceId: String!) {
+    checkout(priceId: $priceId) {
       id
     }
   }
@@ -37,16 +39,52 @@ const handleStripeRedirect = async (
   }
 };
 
+type ProductOffering = { name: string; id: string; images: string };
+
+const StyledContainer = styled.div`
+  text-align: center;
+`;
+
 export const Pricing: FC = () => {
-  const [runCheckoutQuery, { called, loading, data, error }] = useLazyQuery<{
-    checkout: { id: string };
-  }>(CHECKOUT, { ssr: false });
+  const [runCheckoutQuery, { called, loading, data, error }] = useLazyQuery<
+    {
+      checkout: { id: string };
+    },
+    { priceId: string }
+  >(CHECKOUT, { ssr: false });
+
+  const {
+    allStripeProduct: { nodes: products },
+    contentfulPageHome,
+  } = useStaticQuery<{
+    allStripeProduct: { nodes: ProductOffering[] };
+    contentfulPageHome: {
+      pricingTitle: string;
+      pricingDescription: { pricingDescription: string };
+    };
+  }>(graphql`
+    {
+      contentfulPageHome {
+        pricingTitle
+        pricingDescription {
+          pricingDescription
+        }
+      }
+      allStripeProduct {
+        nodes {
+          name
+          id
+          images
+        }
+      }
+    }
+  `);
   const [stripeCheckoutFailure, setStripeCheckoutFailure] = useState<
     string | undefined
   >(undefined);
 
-  const handleClick = () => () => {
-    runCheckoutQuery();
+  const handleClick = (priceId: ProductOffering["id"]) => () => {
+    runCheckoutQuery({ variables: { priceId } });
   };
 
   useEffect(() => {
@@ -64,23 +102,27 @@ export const Pricing: FC = () => {
   }, [data, error]);
 
   return (
-    <Section styleType="blank">
-      <div id="#about"></div>
-      <Heading fontSize="h1" fontFamily="Playfair Display">
-        Pricing
-      </Heading>
-      <br />
-      <Typography variant="label" fontSize="md">
-        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-        Donec sed odio dui. Curabitur blandit tempus porttitor. Cras justo odio,
-        dapibus ac facilisis in, egestas eget quam.
-      </Typography>
-      <Button
-        label="test stripe"
-        onClick={handleClick()}
-        disabled={called && loading}
-      />
-      {stripeCheckoutFailure && <span>{stripeCheckoutFailure}</span>}
-    </Section>
+    <StyledContainer id="#about">
+      <Section
+        styleType="blank"
+        background={{ scalable: { color: "light", scale: 2 } }}
+      >
+        <Heading fontSize="h1" fontFamily="Playfair Display">
+          {contentfulPageHome.pricingTitle}
+        </Heading>
+        <br />
+        <Typography variant="label" fontSize="md">
+          {contentfulPageHome.pricingDescription.pricingDescription}
+        </Typography>
+        {products.map((product) => (
+          <Button
+            label={product.name}
+            onClick={handleClick(product.id)}
+            disabled={called && loading}
+          />
+        ))}
+        {stripeCheckoutFailure && <span>{stripeCheckoutFailure}</span>}
+      </Section>
+    </StyledContainer>
   );
 };

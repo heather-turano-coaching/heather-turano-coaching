@@ -124,7 +124,7 @@ input PostWhereUniqueInput {
 }
 
 type Query {
-  checkout: CheckoutSession!
+  checkout(priceId: String!): CheckoutSession!
   feed: [Post!]!
   feedSecured: [Post!]!
   filterPosts(searchString: String): [Post!]!

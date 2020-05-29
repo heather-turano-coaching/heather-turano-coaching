@@ -45,7 +45,10 @@ export const queries = objectType({
 
     t.field("checkout", {
       type: CheckoutSession,
-      resolve: async (_, args, ctx) => {
+      args: {
+        priceId: stringArg({ required: true }),
+      },
+      resolve: async (_, { priceId }, ctx) => {
         try {
           const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],

@@ -4,11 +4,17 @@ import { FC, memo } from "react";
 import React from "react";
 
 export const Hero: FC = memo(() => {
-  const { contentful100Days: queryData } = useStaticQuery<{
-    contentful100Days: { heroImage: { file: { url: string } } };
+  const {
+    contentfulPageHome: {
+      heroImage: {
+        file: { url },
+      },
+    },
+  } = useStaticQuery<{
+    contentfulPageHome: { heroImage: { file: { url: string } } };
   }>(graphql`
     {
-      contentful100Days {
+      contentfulPageHome {
         heroImage {
           file {
             url
@@ -17,7 +23,5 @@ export const Hero: FC = memo(() => {
       }
     }
   `);
-  return (
-    <Image src={queryData.heroImage.file.url} alt="hero" manualWidth="100%" />
-  );
+  return <Image src={url} alt="hero" manualWidth="100%" />;
 });

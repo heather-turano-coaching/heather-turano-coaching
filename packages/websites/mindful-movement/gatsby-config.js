@@ -1,7 +1,7 @@
 const path = require("path");
 
 require("dotenv").config({
-  path: path.resolve(__dirname, "../../../.env"),
+  path: path.resolve(__dirname, `../../../.env`),
 });
 
 module.exports = {
@@ -27,8 +27,8 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID,
+        accessToken: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -51,6 +51,14 @@ module.exports = {
         theme_color: `#fff`,
         display: `Mindful Movement 100`,
         icon: `static/favicon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ["Product"],
+        secretKey: process.env.HTC_STRIPE_SECRET_KEY,
+        downloadFiles: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

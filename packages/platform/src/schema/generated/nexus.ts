@@ -238,6 +238,9 @@ export interface NexusGenArgTypes {
     }
   }
   Query: {
+    checkout: { // args
+      priceId: string; // String!
+    }
     filterPosts: { // args
       searchString?: string | null; // String
     }
