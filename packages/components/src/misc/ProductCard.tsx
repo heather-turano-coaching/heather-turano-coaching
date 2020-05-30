@@ -64,6 +64,7 @@ const StyledProductPrice = styled.header<{ productColor: string }>`
   ${makeInset({ vertical: "sm", horizontal: "sm" })};
 
   p {
+    display: inline-block;
     color: ${({ productColor }) => productColor};
     font-weight: 800;
   }
@@ -100,9 +101,24 @@ export const ProductCard: FC<ProductCardProps> = memo(
           )}
         </StyledProductHeader>
         <StyledProductPrice productColor={color}>
-          <Typography variant="paragraph" fontSize="h2">{`${
-            priceInCents === 0 ? "FREE!" : `$${(priceInCents / 100).toFixed(2)}`
-          }`}</Typography>
+          {priceInCents === 0 && (
+            <Typography variant="paragraph" fontSize="h2">
+              FREE!
+            </Typography>
+          )}
+          {priceInCents !== 0 && (
+            <>
+              <Typography variant="paragraph" fontSize="xs">
+                $
+              </Typography>
+              <Typography variant="paragraph" fontSize="h2">
+                {priceInCents / 100}
+              </Typography>
+              <Typography variant="paragraph" fontSize="xs">
+                .00
+              </Typography>
+            </>
+          )}
         </StyledProductPrice>
         <List>
           {useMemo(
