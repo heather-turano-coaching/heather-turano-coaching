@@ -14,6 +14,7 @@ import {
 } from "../shared";
 import { HTMLInput } from "../types";
 import { Control, Error, ErrorProps, Label } from "./base";
+import { SelectProps } from "./Select";
 import { TextareaProps } from "./Textarea";
 
 export type InputProps = Partial<Omit<HTMLInput, "ref" | "type">> &
@@ -45,7 +46,7 @@ export const CSSPlaceholders = css`
   }
 `;
 
-export const CSSInputValidity = css<InputProps | TextareaProps>`
+export const CSSInputValidity = css<InputProps | TextareaProps | SelectProps>`
   ${({ isValid }) =>
     !isValid &&
     css`
@@ -58,7 +59,7 @@ export const CSSInputValidity = css<InputProps | TextareaProps>`
  * This is done like this so we can share this base style with
  * the Textarea component
  */
-export const CSSInputStyle = css<InputProps | TextareaProps>`
+export const CSSInputStyle = css<InputProps | TextareaProps | SelectProps>`
   box-sizing: border-box;
   ${CSSPlaceholders};
   ${makeReset("input")};

@@ -44,6 +44,7 @@ const handleStripeRedirect = async (
 type ProductOffering = {
   name: string;
   description: string;
+  order: number;
   color: string;
   features: string[];
   stripePriceId: string;
@@ -101,6 +102,7 @@ export const Pricing: FC = () => {
           name
           features
           color
+          order
           logo {
             fields {
               file {
@@ -142,8 +144,11 @@ export const Pricing: FC = () => {
     }
   }, [data, error]);
 
+  const sortedProducts = products.sort((a, b) => a.order - b.order);
+  console.log(sortedProducts);
+
   return (
-    <StyledContainer id="#about">
+    <StyledContainer>
       <Section
         styleType="blank"
         background={{ scalable: { color: "light", scale: 2 } }}
@@ -156,22 +161,20 @@ export const Pricing: FC = () => {
           {contentfulPageHome.pricingDescription.pricingDescription}
         </Typography>
         <StyledCardContainer>
-          {useMemo(
-            () =>
-              products.reverse().map((product) => (
-                <ProductCard
-                  name={product.name}
-                  // description={product.description}
-                  priceInCents={product.stripePrice.unit_amount}
-                  features={product.features}
-                  onClick={handleClick(product.stripePriceId)}
-                  color={product.color}
-                  img={product.logo.fields.file.url}
-                  imgAlt={product.name.split(" ").join("-")}
-                />
-              )),
-            [products, handleClick]
-          )}
+          {sortedProducts.map((product) => {
+            return (
+              <ProductCard
+                key={product.stripeProductId}
+                name={product.name}
+                priceInCents={product.stripePrice.unit_amount}
+                features={product.features}
+                onClick={handleClick(product.stripePriceId)}
+                color={product.color}
+                img={product.logo.fields.file.url}
+                imgAlt={product.name.split(" ").join("-")}
+              />
+            );
+          })}
         </StyledCardContainer>
         {stripeCheckoutFailure && <span>{stripeCheckoutFailure}</span>}
       </Section>

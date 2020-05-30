@@ -6,7 +6,7 @@ import {
   makeSize,
 } from "@heather-turano-coaching/design-system";
 import { rgba } from "polished";
-import React, { FC, memo, useMemo } from "react";
+import React, { FC, Fragment, memo, useMemo } from "react";
 import styled, { css } from "styled-components";
 
 import { List, ListItem } from "../lists";
@@ -124,10 +124,10 @@ export const ProductCard: FC<ProductCardProps> = memo(
           {useMemo(
             () =>
               features.map((feature, i) => (
-                <>
-                  <ListItem key={i.toString()} label={feature} />
+                <Fragment key={i.toString()}>
+                  <ListItem key={feature} label={feature} />
                   {i !== features.length - 1 && <Line />}
-                </>
+                </Fragment>
               )),
             [features]
           )}

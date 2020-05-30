@@ -25,28 +25,21 @@ export const About: FC = () => {
   `);
 
   return (
-    <>
-      <div id="#about"></div>
-      <Section
-        styleType="blank"
-        background={{ scalable: { color: "secondary", scale: 0 } }}
+    <Section
+      styleType="blank"
+      background={{ scalable: { color: "secondary", scale: 0 } }}
+    >
+      <Heading
+        fontSize="h1"
+        fontFamily="Playfair Display"
+        fontColor={{ fixed: "light" }}
       >
-        <Heading
-          fontSize="h1"
-          fontFamily="Playfair Display"
-          fontColor={{ fixed: "light" }}
-        >
-          {contentfulPageHome.aboutTitle}
-        </Heading>
-        <br />
-        <Typography
-          variant="label"
-          fontSize="md"
-          fontColor={{ fixed: "light" }}
-        >
-          {contentfulPageHome.aboutDescription.aboutDescription}
-        </Typography>
-      </Section>
-    </>
+        {contentfulPageHome.aboutTitle}
+      </Heading>
+      <br />
+      <Typography variant="label" fontSize="md" fontColor={{ fixed: "light" }}>
+        {contentfulPageHome.aboutDescription.aboutDescription}
+      </Typography>
+    </Section>
   );
 };

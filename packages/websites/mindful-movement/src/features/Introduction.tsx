@@ -27,7 +27,6 @@ export const Introduction: FC = () => {
 
   return (
     <Section styleType="blank">
-      <div id="#about"></div>
       <Heading fontSize="h1" fontFamily="Playfair Display">
         {contentfulPageHome.introductionTitle}
       </Heading>

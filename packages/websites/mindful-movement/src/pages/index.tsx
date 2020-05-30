@@ -9,6 +9,7 @@ import { About } from "../features/about";
 import { Hero } from "../features/Hero";
 import { Introduction } from "../features/Introduction";
 import { Pricing } from "../features/Pricing";
+import { Schedule } from "../features/Schedule";
 import { WhoWeAre } from "../features/WhoAreWe";
 
 const IndexPage = () => {
@@ -34,6 +35,8 @@ const IndexPage = () => {
       <WhoWeAre />
       <div id="pricing" />
       <Pricing />
+      <div id="schedule" />
+      <Schedule />
     </Layout>
   );
 };

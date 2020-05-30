@@ -35,7 +35,7 @@ const LeftPane = styled.div`
 const RightPane = styled.div`
   flex: 1;
   align-items: center;
-  ${makeInset({ horizontal: 32 })};
+  ${makeInset({ horizontal: 32, bottom: 100 })};
 
   ${makeResponsive({
     beginAt: "tabletPortrait",
@@ -71,25 +71,22 @@ export const WhoWeAre: FC = () => {
   `);
 
   return (
-    <>
-      <div id="#about" />
-      <Section styleType="split">
-        <LeftPane>
-          <img
-            src={contentfulPageHome.whoAreWeImage.file.url}
-            alt="heather-and-amanda"
-          />
-        </LeftPane>
-        <RightPane>
-          <Heading fontSize="h1" fontFamily="Playfair Display">
-            {contentfulPageHome.whoAreWeTitle}
-          </Heading>
-          <br />
-          <Typography variant="label" fontSize="md">
-            {contentfulPageHome.whoAreWeDescription.whoAreWeDescription}
-          </Typography>
-        </RightPane>
-      </Section>
-    </>
+    <Section styleType="split">
+      <LeftPane>
+        <img
+          src={contentfulPageHome.whoAreWeImage.file.url}
+          alt="heather-and-amanda"
+        />
+      </LeftPane>
+      <RightPane>
+        <Heading fontSize="h1" fontFamily="Playfair Display">
+          {contentfulPageHome.whoAreWeTitle}
+        </Heading>
+        <br />
+        <Typography variant="label" fontSize="md">
+          {contentfulPageHome.whoAreWeDescription.whoAreWeDescription}
+        </Typography>
+      </RightPane>
+    </Section>
   );
 };
