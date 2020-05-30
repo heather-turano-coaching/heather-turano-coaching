@@ -45,7 +45,6 @@ export const Schedule: FC = () => {
     }
   `);
   const [activeCoach, setActiveCoach] = useState<Coach>();
-  console.log(data);
 
   const handleChange = useCallback(
     ({ target: { value } }) => {
@@ -77,13 +76,18 @@ export const Schedule: FC = () => {
       )}
       <StyledFormContainer>
         <FormContainer>
-          <Select id="select-coach" name="select-coach" onChange={handleChange}>
-            <option value="" disabled selected>
+          <Select
+            id="select-coach"
+            name="select-coach"
+            onChange={handleChange}
+            defaultValue=""
+          >
+            <option value="" disabled>
               Select a coach
             </option>
             {useMemo(
               () =>
-                data.coaches.map((coach: Coach) => (
+                data.coaches.reverse().map((coach: Coach) => (
                   <option key={coach.id} value={coach.id}>
                     {coach.name}
                   </option>

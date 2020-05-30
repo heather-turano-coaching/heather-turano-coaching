@@ -144,9 +144,6 @@ export const Pricing: FC = () => {
     }
   }, [data, error]);
 
-  const sortedProducts = products.sort((a, b) => a.order - b.order);
-  console.log(sortedProducts);
-
   return (
     <StyledContainer>
       <Section
@@ -161,20 +158,26 @@ export const Pricing: FC = () => {
           {contentfulPageHome.pricingDescription.pricingDescription}
         </Typography>
         <StyledCardContainer>
-          {sortedProducts.map((product) => {
-            return (
-              <ProductCard
-                key={product.stripeProductId}
-                name={product.name}
-                priceInCents={product.stripePrice.unit_amount}
-                features={product.features}
-                onClick={handleClick(product.stripePriceId)}
-                color={product.color}
-                img={product.logo.fields.file.url}
-                imgAlt={product.name.split(" ").join("-")}
-              />
-            );
-          })}
+          {useMemo(
+            () =>
+              products
+                .sort((a, b) => a.order - b.order)
+                .map((product) => {
+                  return (
+                    <ProductCard
+                      key={product.stripeProductId}
+                      name={product.name}
+                      priceInCents={product.stripePrice.unit_amount}
+                      features={product.features}
+                      onClick={handleClick(product.stripePriceId)}
+                      color={product.color}
+                      img={product.logo.fields.file.url}
+                      imgAlt={product.name.split(" ").join("-")}
+                    />
+                  );
+                }),
+            [products, handleClick]
+          )}
         </StyledCardContainer>
         {stripeCheckoutFailure && <span>{stripeCheckoutFailure}</span>}
       </Section>
