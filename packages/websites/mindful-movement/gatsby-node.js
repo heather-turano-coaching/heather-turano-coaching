@@ -25,43 +25,43 @@ exports.sourceNodes = async ({
     }),
   ]);
 
-  stripeProductsData.data.forEach((product) => {
-    const price = stripePricesData.data.reduce((accum, price) => {
-      if (price.product === product.id) {
-        return price;
-      }
-      return accum;
-    }, {});
-
-    const productDetails = contentfulProductInformation.items.reduce(
-      (accum, contentfulProduct) => {
+  contentfulProductInformation.items.forEach(
+    ({ fields: contentfulProduct }) => {
+      const stripePrice = stripePricesData.data.reduce((accum, price) => {
         if (
-          contentfulProduct.fields.stripeProductId === product.id &&
-          contentfulProduct.fields.stripePriceId === price.id
+          price.product === contentfulProduct.stripeProductId &&
+          price.id === contentfulProduct.stripePriceId
         ) {
-          return contentfulProduct.fields;
+          return price;
         }
         return accum;
-      },
-      {}
-    );
+      }, {});
 
-    const nodeMeta = {
-      parent: null,
-      children: [],
-      internal: {
-        type: `StripeProductAndPrice`,
-        mediaType: `text/html`,
-        content: JSON.stringify(product),
-        contentDigest: createContentDigest(product),
-      },
-    };
+      const stripeProduct = stripeProductsData.data.reduce((accum, product) => {
+        if (contentfulProduct.stripeProductId === product.id) {
+          return product;
+        }
+        return accum;
+      }, {});
 
-    createNode({
-      ...product,
-      ...nodeMeta,
-      price,
-      productDetails,
-    });
-  });
+      const nodeMeta = {
+        id: createNodeId(stripeProduct.id),
+        parent: null,
+        children: [],
+        internal: {
+          type: `StripeProductAndPrice`,
+          mediaType: `text/html`,
+          content: JSON.stringify(contentfulProduct),
+          contentDigest: createContentDigest(contentfulProduct),
+        },
+      };
+
+      createNode({
+        ...contentfulProduct,
+        ...nodeMeta,
+        stripePrice,
+        stripeProduct,
+      });
+    }
+  );
 };

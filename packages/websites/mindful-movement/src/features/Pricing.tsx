@@ -1,15 +1,17 @@
 import { gql, useLazyQuery } from "@apollo/client";
 import {
-  Button,
   Heading,
+  ProductCard,
   Section,
   Typography,
+  makeFlex,
 } from "@heather-turano-coaching/components";
+import { makeResponsive } from "@heather-turano-coaching/design-system";
 import { loadStripe } from "@stripe/stripe-js";
 import { graphql, useStaticQuery } from "gatsby";
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const stripePromise = loadStripe(
   process.env.GATSBY_HTC_STRIPE_PUBLISHABLE_KEY as string
@@ -40,22 +42,37 @@ const handleStripeRedirect = async (
 };
 
 type ProductOffering = {
-  id: string;
-  productDetails: {
-    name: string;
-    color: string;
-    features: string[];
-    logo: { fields: { file: { url: string } } };
+  name: string;
+  description: string;
+  color: string;
+  features: string[];
+  stripePriceId: string;
+  stripeProductId: string;
+  stripePrice: {
+    unit_amount: number;
   };
-  price: { unit_amount: string; id: string };
+  logo: { fields: { file: { url: string } } };
 };
 
 const StyledContainer = styled.div`
   text-align: center;
 `;
 
+const StyledCardContainer = styled.div`
+  ${makeResponsive({
+    beginAt: "tabletPortrait",
+    style: css`
+      ${makeFlex("row", "space-between", "flex-start")};
+
+      & > * {
+        width: 33.333%;
+      }
+    `,
+  })}
+`;
+
 export const Pricing: FC = () => {
-  const [runCheckoutQuery, { called, loading, data, error }] = useLazyQuery<
+  const [runCheckoutQuery, { data, error }] = useLazyQuery<
     {
       checkout: { id: string };
     },
@@ -81,22 +98,20 @@ export const Pricing: FC = () => {
       }
       allStripeProductAndPrice {
         nodes {
-          id
-          productDetails {
-            name
-            color
-            features
-            logo {
-              fields {
-                file {
-                  url
-                }
+          name
+          features
+          color
+          logo {
+            fields {
+              file {
+                url
               }
             }
           }
-          price {
+          stripePriceId
+          stripeProductId
+          stripePrice {
             unit_amount
-            id
           }
         }
       }
@@ -106,9 +121,12 @@ export const Pricing: FC = () => {
     string | undefined
   >(undefined);
 
-  const handleClick = (priceId: ProductOffering["id"]) => () => {
-    runCheckoutQuery({ variables: { priceId } });
-  };
+  const handleClick = useCallback(
+    (priceId: ProductOffering["stripePriceId"]) => () => {
+      runCheckoutQuery({ variables: { priceId } });
+    },
+    [runCheckoutQuery]
+  );
 
   useEffect(() => {
     if (data) {
@@ -137,38 +155,24 @@ export const Pricing: FC = () => {
         <Typography variant="label" fontSize="md">
           {contentfulPageHome.pricingDescription.pricingDescription}
         </Typography>
-        {products.map((product) => (
-          <div
-            style={{
-              textAlign: "center",
-              border: "1px solid #ccc",
-              padding: "10px 0",
-              margin: "25px 0",
-              background: "#FFF",
-            }}
-          >
-            <Typography variant="label">
-              {product.productDetails.name}
-            </Typography>
-            <img
-              height={150}
-              style={{ display: "block", margin: "0 auto" }}
-              src={product.productDetails.logo.fields.file.url}
-              alt={product.productDetails.name}
-            />
-            <ul>
-              {product.productDetails.features.map((feature, i) => (
-                <li key={i.toString()}>{feature}</li>
-              ))}
-            </ul>
-            <Button
-              key={product.id}
-              label="Purchase"
-              onClick={handleClick(product.price.id)}
-              disabled={called && loading}
-            />
-          </div>
-        ))}
+        <StyledCardContainer>
+          {useMemo(
+            () =>
+              products.reverse().map((product) => (
+                <ProductCard
+                  name={product.name}
+                  // description={product.description}
+                  priceInCents={product.stripePrice.unit_amount}
+                  features={product.features}
+                  onClick={handleClick(product.stripePriceId)}
+                  color={product.color}
+                  img={product.logo.fields.file.url}
+                  imgAlt={product.name.split(" ").join("-")}
+                />
+              )),
+            [products, handleClick]
+          )}
+        </StyledCardContainer>
         {stripeCheckoutFailure && <span>{stripeCheckoutFailure}</span>}
       </Section>
     </StyledContainer>
