@@ -54,7 +54,7 @@ services:
     env: node
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: npm run build:platform
+    buildCommand: npm install && npm run build:platform
     startCommand: npm run serve:platform
     domains:
       - api.heatherturanocoaching.com

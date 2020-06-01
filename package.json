@@ -32,7 +32,7 @@
     "publish:api:dev": "lerna run publish:dev --scope=@heather-turano-coaching/api --stream",
     "publish:api:prod": "lerna run publish:prod --scope=@heather-turano-coaching/api --stream",
     "publish:api:all": "yarn publish:api:dev && yarn publish:api:prod",
-    "build:platform": "lerna run build --scope=@heather-turano-coaching/platform --stream --",
+    "build:platform": "yarn && yarn build:domain && lerna run build --scope=@heather-turano-coaching/platform --stream --",
     "start:ds": "lerna run start --scope=@heather-turano-coaching/design-system --stream",
     "start:components": "source .env && yarn build:ds && yarn build:hooks && cd ./packages/components && yarn start",
     "start:components:storybook": "source .env && yarn build:ds && yarn build:hooks && cd ./packages/components && yarn buildDevUtils && yarn start:storybook",
