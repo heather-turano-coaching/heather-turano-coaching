@@ -4,7 +4,7 @@ services:
     name: Design System
     env: static
     branch: master
-    repo: git@github.com:heather-turano-coaching/heather-turano-coaching.git
+    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
     buildCommand: npm run build:components:storybook
     staticPublishPath: ./packages/components/storybook-static
     domains:
@@ -17,7 +17,7 @@ services:
     name: Live Life Mindful
     env: static
     branch: master
-    repo: git@github.com:heather-turano-coaching/heather-turano-coaching.git
+    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
     buildCommand: npm run build:live-life-mindful
     staticPublishPath: ./packages/websites/live-life-mindful/public
     domains:
@@ -33,7 +33,7 @@ services:
     name: 100 Days of Mindful Movement
     env: static
     branch: master
-    repo: git@github.com:heather-turano-coaching/heather-turano-coaching.git
+    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
     buildCommand: npm run build:mindful-movement
     staticPublishPath: ./packages/websites/mindful-movement/public
     domains:
@@ -53,7 +53,7 @@ services:
     name: Api
     env: node
     branch: master
-    repo: git@github.com:heather-turano-coaching/heather-turano-coaching.git
+    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
     buildCommand: npm run build:platform
     startCommand: npm run serve:platform
     domains:
@@ -72,7 +72,7 @@ services:
     dockerfilePath: ./ghost/Dockerfile
     dockerContext: ./ghost
     branch: master
-    repo: git@github.com:heather-turano-coaching/heather-turano-coaching.git
+    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
     domains:
       - admin.blog.livelifemindful.com
     disk:
@@ -105,7 +105,7 @@ services:
     dockerfilePath: ./commento/Dockerfile
     dockerContext: ./commento
     branch: master
-    repo: git@github.com:heather-turano-coaching/heather-turano-coaching.git
+    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
     domains:
       - community.blog.livelifemindful.com
     envVars:
