@@ -53,7 +53,7 @@ services:
     domains:
       - api.heatherturanocoaching.com
     envVars:
-      - key: COMMENTO_POSTGRES
+      - key: HTC_DB_CONNECTION_STRING
         fromDatabase:
           name: htc-db
           property: connectionString
