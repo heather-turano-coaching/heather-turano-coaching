@@ -1,51 +1,31 @@
-import {
-  makeFontFace,
-  makeResponsive,
-} from "@heather-turano-coaching/design-system";
-import React, { FC, ReactNode } from "react";
-import { Helmet } from "react-helmet";
-import { createGlobalStyle } from "styled-components";
+import React, { FC } from "react";
 
-const GlobalStyle = createGlobalStyle`
-  html,body {
-    margin: 0;
-    padding: 0;
-  }
-
-  html{
-    ${makeResponsive({
-      beginAt: "desktop",
-      style: `
-        font-size: 18px;
-      `,
-    })}
-  }
-
-  body {
-    overflow-x: hidden;
-  }
-`;
-
-const fontFaceDefs = makeFontFace();
-const fontFaceLinks = fontFaceDefs.reduce(
-  (accum, fontFaceDef, i) =>
-    typeof fontFaceDef === "string"
-      ? [
-          ...accum,
-          <link
-            key={`link-${i.toString()}`}
-            rel="stylesheet"
-            href={fontFaceDef.split('("')[1].split('")')[0]}
-          />,
-        ]
-      : accum,
-  [] as ReactNode[]
-);
+import { NavBar } from "./NavBar";
+import NavBarLink from "./NavBarLink";
+import { NavBarSection } from "./NavBarSection";
+import { NavLogo } from "./NavLogo";
 
 export const Layout: FC = ({ children }) => (
-  <>
-    <Helmet>{fontFaceLinks}</Helmet>
-    <GlobalStyle />
+  <div id="htc-root">
+    <NavBar>
+      <NavBarSection>
+        <NavLogo />
+      </NavBarSection>
+      <NavBarSection component="ul" collapse>
+        <NavBarLink to="#about" variant="anchor">
+          About
+        </NavBarLink>
+        <NavBarLink to="#who-we-are" variant="anchor">
+          Who we are
+        </NavBarLink>
+        <NavBarLink to="#pricing" variant="anchor">
+          Pricing
+        </NavBarLink>
+        <NavBarLink to="#schedule" variant="anchor">
+          Schedule
+        </NavBarLink>
+      </NavBarSection>
+    </NavBar>
     {children}
-  </>
+  </div>
 );

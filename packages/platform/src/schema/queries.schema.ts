@@ -50,6 +50,7 @@ export const queries = objectType({
       },
       resolve: async (_, { priceId }, ctx) => {
         try {
+          console.log(priceId);
           const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
             line_items: [
@@ -59,12 +60,12 @@ export const queries = objectType({
               },
             ],
             mode: "payment",
-            success_url:
-              "https://example.com/success?session_id={CHECKOUT_SESSION_ID}",
-            cancel_url: "https://example.com/cancel",
+            success_url: `${process.env.GATSBY_HTC_API}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.GATSBY_HTC_API}/cancel-payment`,
           });
           return session;
         } catch (error) {
+          console.log(error);
           throw new Error(error);
         }
       },

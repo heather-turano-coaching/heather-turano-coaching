@@ -22,7 +22,6 @@ export interface ProductCardProps {
   color: string;
   img: string;
   imgAlt: string;
-  purchaseText?: string;
 }
 
 const StyledProductCard = styled.div`
@@ -87,7 +86,6 @@ export const ProductCard: FC<ProductCardProps> = memo(
     img,
     imgAlt,
     description,
-    purchaseText = "Purchase",
   }) => {
     return (
       <StyledProductCard>
@@ -134,7 +132,7 @@ export const ProductCard: FC<ProductCardProps> = memo(
         </List>
         <StyledProductFooter>
           <Button
-            label={purchaseText}
+            label={priceInCents === 0 ? "Sign up" : "Purchase"}
             onClick={onClick}
             styleType="secondary"
           />
