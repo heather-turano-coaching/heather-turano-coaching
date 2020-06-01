@@ -25,7 +25,6 @@ const props: ProductCardProps = {
   img:
     "//images.ctfassets.net/kdlm6cvqwimx/4WMm6C5LkQNLgTprZCr4f2/c7311619fe4b2e684fc43d9f027a6e61/MM100_inspired_logo-1024.png",
   imgAlt: "firefox",
-  purchaseText: "Purchase",
 };
 
 export const base = () => (
