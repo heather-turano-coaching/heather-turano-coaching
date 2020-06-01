@@ -46,7 +46,7 @@ services:
       - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN
         sync: false
       - key: GATSBY_HTC_API
-        sync: https://api.heatherturanocoaching.com
+        value: https://api.heatherturanocoaching.com
 
   # API
   - type: web
