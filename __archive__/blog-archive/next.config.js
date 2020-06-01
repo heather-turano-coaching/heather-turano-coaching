@@ -7,7 +7,7 @@ module.exports = {
     NEXT_CONTENTFUL_SPACE_ID: process.env.NEXT_CONTENTFUL_SPACE_ID,
     NEXT_CONTENTFUL_ACCESS_TOKEN: process.env.NEXT_CONTENTFUL_ACCESS_TOKEN,
     COMMENTO_ORIGIN: process.env.COMMENTO_ORIGIN,
-    SERVERLESS_API: process.env.SERVERLESS_API
+    SERVERLESS_API: process.env.SERVERLESS_API,
   },
   async generateBuildId() {
     return require("./package.json").version;
@@ -23,15 +23,15 @@ module.exports = {
         {
           loader: "@svgr/webpack",
           options: {
-            dimensions: false
-          }
+            dimensions: false,
+          },
         },
-        "url-loader"
-      ]
+        "url-loader",
+      ],
     });
     config.module.rules.push({
       test: /\.(png|jpg|jpeg)$/,
-      use: ["url-loader"]
+      use: ["url-loader"],
     });
 
     return config;
@@ -42,7 +42,7 @@ module.exports = {
         api.getAllAuthors(),
         api.getAllPosts(),
         api.getAllCategories(),
-        api.getAllTags()
+        api.getAllTags(),
       ]);
 
       const authorPages = authors.reduce(
@@ -50,8 +50,8 @@ module.exports = {
           ...accum,
           [`/authors/${author.slug}`]: {
             page: "/authors/[slug]",
-            query: { slug: author.slug }
-          }
+            query: { slug: author.slug },
+          },
         }),
         {}
       );
@@ -61,8 +61,8 @@ module.exports = {
           ...accum,
           [`/post/${post.slug}`]: {
             page: "/post/[slug]",
-            query: { slug: post.slug }
-          }
+            query: { slug: post.slug },
+          },
         }),
         {}
       );
@@ -72,8 +72,8 @@ module.exports = {
           ...accum,
           [`/categories/${category.slug}`]: {
             page: "/categories/[slug]",
-            query: { slug: category.slug }
-          }
+            query: { slug: category.slug },
+          },
         }),
         {}
       );
@@ -83,8 +83,8 @@ module.exports = {
           ...accum,
           [`/tags/${tag.slug}`]: {
             page: "/tags/[slug]",
-            query: { slug: tag.slug }
-          }
+            query: { slug: tag.slug },
+          },
         }),
         {}
       );
@@ -94,9 +94,9 @@ module.exports = {
         ...postPages,
         ...categoryPages,
         ...tagPages,
-        "/": { page: "/" }
+        "/": { page: "/" },
       };
     }
     return defaultPathMap;
-  }
+  },
 };
