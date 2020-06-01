@@ -10,7 +10,7 @@ services:
     domains:
       - design.livelifemindful.com
     envVars:
-      - fromGroup: npm
+      - fromGroup: htc-npm
 
   # Websites
   - type: web
@@ -23,7 +23,7 @@ services:
     domains:
       - livelifemindful.com
     envVars:
-      - fromGroup: npm
+      - fromGroup: htc-npm
       - fromGroup: htc-ghost
       - fromGroup: htc-contentful
       - key: COMMENTO_ORIGIN
@@ -39,7 +39,7 @@ services:
     domains:
       - mindfulmovement100.com
     envVars:
-      - fromGroup: npm
+      - fromGroup: htc-npm
       - fromGroup: htc-contentful
       - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID
         sync: false
