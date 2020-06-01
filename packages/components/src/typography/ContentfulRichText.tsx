@@ -1,5 +1,6 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { makeRhythm } from "@heather-turano-coaching/design-system";
 import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 
@@ -8,6 +9,14 @@ import { Typography, TypographyProps } from "./Typography";
 const StyledRichText = styled.div`
   strong {
     font-weight: 500;
+  }
+
+  p {
+    ${makeRhythm({
+      top: 0,
+      bottom: 1,
+      fontSize: "md",
+    })}
   }
 `;
 
