@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "author": "Ghost Foundation",
   "dependencies": {
-    "@babel/runtime": "7.10.1",
+    "@babel/runtime": "7.10.2",
     "bluebird": "3.7.2",
     "sharp": "0.25.3"
   },
@@ -23,7 +23,7 @@
   "license": "MIT",
   "main": "index.js",
   "peerDependencies": {
-    "gatsby": ">2.22.11"
+    "gatsby": ">2.22.15"
   },
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",

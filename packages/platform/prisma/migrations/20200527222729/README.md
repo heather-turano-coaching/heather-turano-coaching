@@ -29,7 +29,7 @@ migration ..20200527222729
 @@ -1,0 +1,24 @@
 +datasource db {
 +  provider = "postgresql"
-+  url      = env("DATABASE_URL")
++  url      = env("HTC_DB_CONNECTION_STRING")
 +}
 +
 +generator client {
@@ -52,5 +52,3 @@ migration ..20200527222729
 +  authorId  String
 +}
 ```
-
-

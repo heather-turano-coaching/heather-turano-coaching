@@ -1,6 +1,20 @@
 services:
+  # Design System
   - type: web
-    name: HTC | Live Life Mindful | Blog (Static)
+    name: Design System
+    env: static
+    branch: master
+    repo: git@github.com:heather-turano-coaching/heather-turano-coaching.git
+    buildCommand: npm run build:components:storybook
+    staticPublishPath: ./packages/components/storybook-static
+    domains:
+      - design.livelifemindful.com
+    envVars:
+      - fromGroup: npm
+
+  # Websites
+  - type: web
+    name: Live Life Mindful
     env: static
     branch: master
     repo: git@github.com:heather-turano-coaching/heather-turano-coaching.git
@@ -28,20 +42,26 @@ services:
       - fromGroup: npm
       - fromGroup: htc-contentful
 
+  # API
   - type: web
-    name: HTC | Live Life Mindful | Design
-    env: static
+    name: Api
+    env: node
     branch: master
     repo: git@github.com:heather-turano-coaching/heather-turano-coaching.git
-    buildCommand: npm run build:components:storybook
-    staticPublishPath: ./packages/components/storybook-static
+    buildCommand: npm run build:platform
+    startCommand: npm run serve:platform
     domains:
-      - design.livelifemindful.com
+      - api.heatherturanocoaching.com
     envVars:
-      - fromGroup: npm
+      - key: COMMENTO_POSTGRES
+        fromDatabase:
+          name: htc-db
+          property: connectionString
+      - key: HTC_MINDFUL_MOVEMENT_REDIRECT_ROOT_URL
+        value: https://mindfulmovement100.com
 
   - type: web
-    name: HTC | Live Life Mindful | Blog (CMS)
+    name: Ghost
     env: docker
     dockerfilePath: ./ghost/Dockerfile
     dockerContext: ./ghost
@@ -74,7 +94,7 @@ services:
         sync: false
 
   - type: web
-    name: HTC | Live Life Mindful | Blog (Comments)
+    name: Commento
     env: docker
     dockerfilePath: ./commento/Dockerfile
     dockerContext: ./commento
@@ -104,3 +124,6 @@ databases:
   - name: htc-commento-db-prod
     databaseName: htc_commento_db_prod
     user: admin_prod
+  - name: htc-db
+    databaseName: htc_db
+    user: admin
