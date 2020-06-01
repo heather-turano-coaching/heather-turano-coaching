@@ -1,5 +1,6 @@
 const contentful = require("contentful");
 const stripe = require("stripe")(process.env.HTC_STRIPE_SECRET_KEY);
+const path = require("path");
 
 const contentfulClient = contentful.createClient({
   space: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID,
@@ -56,6 +57,8 @@ exports.sourceNodes = async ({
         },
       };
 
+      console.log(contentfulProduct);
+
       createNode({
         ...contentfulProduct,
         ...nodeMeta,
@@ -65,3 +68,47 @@ exports.sourceNodes = async ({
     }
   );
 };
+
+// exports.createPages = async ({ graphql, actions: { createPage } }) => {
+//   // **Note:** The graphql function call returns a Promise
+//   // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
+//   const result = await graphql(`
+//     query {
+//       contentfulPageHome {
+//         pricingTitle
+//         pricingDescription {
+//           pricingDescription
+//         }
+//       }
+//       allStripeProductAndPrice {
+//         nodes {
+//           name
+//           features
+//           color
+//           order
+//           logo {
+//             fields {
+//               file {
+//                 url
+//               }
+//             }
+//           }
+//           stripePriceId
+//           stripeProductId
+//           stripePrice {
+//             unit_amount
+//           }
+//           couponOg
+//         }
+//       }
+//     }
+//   `);
+
+//   createPage({
+//     path: "/coupon",
+//     component: path.resolve(`./src/templates/coupon.tsx`),
+//     context: {
+//       data: result,
+//     },
+//   });
+// };

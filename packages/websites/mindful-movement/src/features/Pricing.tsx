@@ -7,17 +7,18 @@ import {
   makeFlex,
 } from "@heather-turano-coaching/components";
 import { makeResponsive } from "@heather-turano-coaching/design-system";
+import { navigate } from "@reach/router";
 import { loadStripe } from "@stripe/stripe-js";
 import { graphql, useStaticQuery } from "gatsby";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import React from "react";
 import styled, { css } from "styled-components";
 
-const stripePromise = loadStripe(
+export const stripePromise = loadStripe(
   process.env.GATSBY_HTC_STRIPE_PUBLISHABLE_KEY as string
 );
 
-const CHECKOUT = gql`
+export const CHECKOUT = gql`
   query checkout($priceId: String!) {
     checkout(priceId: $priceId) {
       id
@@ -25,7 +26,7 @@ const CHECKOUT = gql`
   }
 `;
 
-const handleStripeRedirect = async (
+export const handleStripeRedirect = async (
   sessionId: string
 ): Promise<void | string> => {
   // When the customer clicks on the button, redirect them to Checkout.
@@ -41,7 +42,7 @@ const handleStripeRedirect = async (
   }
 };
 
-type ProductOffering = {
+export type ProductOffering = {
   name: string;
   description: string;
   order: number;
@@ -59,7 +60,7 @@ const StyledContainer = styled.div`
   text-align: center;
 `;
 
-const StyledCardContainer = styled.div`
+export const StyledCardContainer = styled.div`
   ${makeResponsive({
     beginAt: "tabletPortrait",
     style: css`
@@ -124,8 +125,15 @@ export const Pricing: FC = () => {
   >(undefined);
 
   const handleClick = useCallback(
-    (priceId: ProductOffering["stripePriceId"]) => () => {
-      runCheckoutQuery({ variables: { priceId } });
+    (
+      priceId: ProductOffering["stripePriceId"],
+      priceInCents: ProductOffering["stripePrice"]["unit_amount"]
+    ) => () => {
+      if (priceInCents === 0) {
+        navigate("sign-up");
+      } else {
+        runCheckoutQuery({ variables: { priceId } });
+      }
     },
     [runCheckoutQuery]
   );
@@ -169,7 +177,10 @@ export const Pricing: FC = () => {
                       name={product.name}
                       priceInCents={product.stripePrice.unit_amount}
                       features={product.features}
-                      onClick={handleClick(product.stripePriceId)}
+                      onClick={handleClick(
+                        product.stripePriceId,
+                        product.stripePrice.unit_amount
+                      )}
                       color={product.color}
                       img={product.logo.fields.file.url}
                       imgAlt={product.name.split(" ").join("-")}

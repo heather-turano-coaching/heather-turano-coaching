@@ -35,7 +35,7 @@ const IndexPage = () => {
   `);
   return (
     <Layout>
-      <SEO title="Home" description="home page for 100 days" />
+      <SEO title="Payment Success" description="Successful payment page" />
       <StyledSectionContainer>
         <Section styleType="layered">
           <Heading fontSize="h1" fontFamily="Playfair Display">
