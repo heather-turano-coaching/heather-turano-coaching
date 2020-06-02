@@ -10,7 +10,6 @@ import {
   makeInset,
   makeOutset,
   makeResponsive,
-  makeSize,
 } from "@heather-turano-coaching/design-system";
 import { darken } from "polished";
 import React, { FC } from "react";

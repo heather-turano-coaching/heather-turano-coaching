@@ -4,3 +4,4 @@ packages/components/storybook-static
 .env.development
 .env.production
 **/dist
+yarn-error.log
