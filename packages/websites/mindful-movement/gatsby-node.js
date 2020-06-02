@@ -38,6 +38,8 @@ exports.sourceNodes = async ({
           ? contentfulProduct.stripePriceIdProd
           : contentfulProduct.stripePriceId;
 
+      console.log(process.env.NODE_ENV, stripeProductId, stripePriceId);
+
       const stripePrice = stripePricesData.data.reduce((accum, price) => {
         if (price.product === stripeProductId && price.id === stripePriceId) {
           return price;
@@ -70,11 +72,11 @@ exports.sourceNodes = async ({
         stripePrice,
         stripeProduct,
       });
-
-      console.log("----------     Success!   --------------");
-      console.log("----------------------------------------");
     }
   );
+
+  console.log("----------     Success!   --------------");
+  console.log("----------------------------------------");
 };
 
 // exports.createPages = async ({ graphql, actions: { createPage } }) => {
