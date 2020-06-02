@@ -5,7 +5,7 @@ services:
     env: static
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: npm run build:components:storybook
+    buildCommand: yarn build:components:storybook
     staticPublishPath: ./packages/components/storybook-static
     domains:
       - design.livelifemindful.com
@@ -18,7 +18,7 @@ services:
     env: static
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: npm run build:live-life-mindful
+    buildCommand: yarn build:live-life-mindful
     staticPublishPath: ./packages/websites/live-life-mindful/public
     domains:
       - livelifemindful.com
@@ -34,7 +34,7 @@ services:
     env: static
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: npm run build:mindful-movement
+    buildCommand: yarn build:mindful-movement
     staticPublishPath: ./packages/websites/mindful-movement/public
     domains:
       - mindfulmovement100.com
@@ -54,8 +54,8 @@ services:
     env: node
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: npm install && npm run build:platform
-    startCommand: npm run serve:platform
+    buildCommand: yarn install && yarn build:platform
+    startCommand: yarn serve:platform
     domains:
       - api.heatherturanocoaching.com
     envVars:
@@ -146,6 +146,10 @@ envVarGroups:
       - key: CONTENTFUL_SPACE_ID
         sync: false
       - key: CONTENTFUL_ACCESS_TOKEN
+        sync: false
+      - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID
+        sync: false
+      - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN
         sync: false
   - name: htc-npm
     envVars:
