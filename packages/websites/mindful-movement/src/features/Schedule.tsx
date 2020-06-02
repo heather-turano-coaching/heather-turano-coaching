@@ -67,7 +67,7 @@ export const Schedule: FC = () => {
             </Heading>
             <br />
             <ContentfulRichText
-              copyProps={{ variant: "paragraph", fontSize: "md" }}
+              copyProps={{ variant: "paragraph" }}
               richText={data.scheduleDescription.json}
             />
           </>

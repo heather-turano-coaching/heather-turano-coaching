@@ -1,7 +1,7 @@
 import {
+  ContentfulRichText,
   Heading,
   Section,
-  Typography,
 } from "@heather-turano-coaching/components";
 import { graphql, useStaticQuery } from "gatsby";
 import { FC } from "react";
@@ -11,14 +11,14 @@ export const About: FC = () => {
   const { contentfulPageHome } = useStaticQuery<{
     contentfulPageHome: {
       aboutTitle: string;
-      aboutDescription: { aboutDescription: string };
+      aboutDescription: { json: string };
     };
   }>(graphql`
     {
       contentfulPageHome {
         aboutTitle
         aboutDescription {
-          aboutDescription
+          json
         }
       }
     }
@@ -37,9 +37,14 @@ export const About: FC = () => {
         {contentfulPageHome.aboutTitle}
       </Heading>
       <br />
-      <Typography variant="label" fontSize="md" fontColor={{ fixed: "light" }}>
-        {contentfulPageHome.aboutDescription.aboutDescription}
-      </Typography>
+      <ContentfulRichText
+        richText={contentfulPageHome.aboutDescription.json}
+        copyProps={{
+          variant: "paragraph",
+          fontColor: { fixed: "light" },
+          fontSize: "sm",
+        }}
+      />
     </Section>
   );
 };

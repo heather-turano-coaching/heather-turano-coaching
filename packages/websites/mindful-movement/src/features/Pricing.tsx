@@ -1,5 +1,6 @@
 import { gql, useLazyQuery } from "@apollo/client";
 import {
+  ContentfulRichText,
   Heading,
   ProductCard,
   Section,
@@ -88,14 +89,14 @@ export const Pricing: FC = () => {
     allStripeProductAndPrice: { nodes: ProductOffering[] };
     contentfulPageHome: {
       pricingTitle: string;
-      pricingDescription: { pricingDescription: string };
+      pricingDescription: { json: string };
     };
   }>(graphql`
     {
       contentfulPageHome {
         pricingTitle
         pricingDescription {
-          pricingDescription
+          json
         }
       }
       allStripeProductAndPrice {
@@ -162,9 +163,13 @@ export const Pricing: FC = () => {
           {contentfulPageHome.pricingTitle}
         </Heading>
         <br />
-        <Typography variant="label" fontSize="md">
-          {contentfulPageHome.pricingDescription.pricingDescription}
-        </Typography>
+        <ContentfulRichText
+          richText={contentfulPageHome.pricingDescription.json}
+          copyProps={{
+            variant: "paragraph",
+            fontSize: "sm",
+          }}
+        />
         <StyledCardContainer>
           {useMemo(
             () =>

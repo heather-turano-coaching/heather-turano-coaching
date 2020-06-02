@@ -6,7 +6,7 @@ import {
 } from "@heather-turano-coaching/design-system";
 import React, { ReactNode } from "react";
 import { Helmet } from "react-helmet";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
 import { client } from "../apollo";
 
@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
 
     ${makeResponsive({
-      beginAt: "desktop",
+      beginAt: "laptop",
       style: `
         font-size: 18px;
       `,

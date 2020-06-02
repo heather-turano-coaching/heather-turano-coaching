@@ -1,7 +1,7 @@
 import {
+  ContentfulRichText,
   Heading,
   Section,
-  Typography,
 } from "@heather-turano-coaching/components";
 import {
   makeInset,
@@ -46,13 +46,13 @@ const RightPane = styled.div`
 `;
 
 export const WhoWeAre: FC = () => {
-  const { contentfulPageHome } = useStaticQuery<{
+  const { contentfulPageHome: data } = useStaticQuery<{
     contentfulPageHome: {
       whoAreWeTitle: string;
       whoAreWeImage: {
         file: { url: string };
       };
-      whoAreWeDescription: { whoAreWeDescription: string };
+      whoAreWeDescription: { json: string };
     };
   }>(graphql`
     {
@@ -64,7 +64,7 @@ export const WhoWeAre: FC = () => {
           }
         }
         whoAreWeDescription {
-          whoAreWeDescription
+          json
         }
       }
     }
@@ -73,19 +73,17 @@ export const WhoWeAre: FC = () => {
   return (
     <Section styleType="split">
       <LeftPane>
-        <img
-          src={contentfulPageHome.whoAreWeImage.file.url}
-          alt="heather-and-amanda"
-        />
+        <img src={data.whoAreWeImage.file.url} alt="heather-and-amanda" />
       </LeftPane>
       <RightPane>
         <Heading fontSize="h1" fontFamily="Playfair Display">
-          {contentfulPageHome.whoAreWeTitle}
+          {data.whoAreWeTitle}
         </Heading>
         <br />
-        <Typography variant="label" fontSize="md">
-          {contentfulPageHome.whoAreWeDescription.whoAreWeDescription}
-        </Typography>
+        <ContentfulRichText
+          copyProps={{ variant: "label" }}
+          richText={data.whoAreWeDescription.json}
+        />
       </RightPane>
     </Section>
   );
