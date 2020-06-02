@@ -14,16 +14,6 @@ exports.sourceNodes = async ({
   const { createNode } = actions;
 
   console.log("---- Getting Stripe Prices and Data ----");
-  console.log("----------------------------------------");
-  console.log(
-    "HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID",
-    process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID
-  );
-  console.log(
-    "HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN",
-    process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN
-  );
-  console.log("HTC_STRIPE_SECRET_KEY", process.env.HTC_STRIPE_SECRET_KEY);
 
   const [
     stripePricesData,
@@ -36,12 +26,6 @@ exports.sourceNodes = async ({
       content_type: "package",
     }),
   ]);
-
-  console.log(
-    stripePricesData,
-    stripeProductsData,
-    contentfulProductInformation
-  );
 
   contentfulProductInformation.items.forEach(
     ({ fields: contentfulProduct }) => {
@@ -63,7 +47,7 @@ exports.sourceNodes = async ({
       }, {});
 
       const nodeMeta = {
-        id: createNodeId(stripeProduct.id),
+        id: createNodeId(contentfulProduct.stripeProductId),
         parent: null,
         children: [],
         internal: {
@@ -82,6 +66,9 @@ exports.sourceNodes = async ({
         stripePrice,
         stripeProduct,
       });
+
+      console.log("----------     Success!   --------------");
+      console.log("----------------------------------------");
     }
   );
 };
