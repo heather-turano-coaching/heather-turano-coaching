@@ -26,6 +26,7 @@ services:
       - fromGroup: htc-npm
       - fromGroup: htc-ghost
       - fromGroup: htc-contentful
+      - fromGroup: htc-stripe
       - key: COMMENTO_ORIGIN
         sync: false
 
@@ -41,10 +42,7 @@ services:
     envVars:
       - fromGroup: htc-npm
       - fromGroup: htc-contentful
-      - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID
-        sync: false
-      - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN
-        sync: false
+      - fromGroup: htc-stripe
       - key: GATSBY_HTC_API
         value: https://api.heatherturanocoaching.com
 
@@ -60,6 +58,7 @@ services:
       - api.heatherturanocoaching.com
     envVars:
       - fromGroup: htc-npm
+      - fromGroup: htc-stripe
       - key: HTC_DB_CONNECTION_STRING
         fromDatabase:
           name: htc-db
@@ -155,4 +154,10 @@ envVarGroups:
   - name: htc-npm
     envVars:
       - key: FONTAWESOME_NPM_AUTH_TOKEN
+        sync: false
+  - name: htc-stripe
+    envVars:
+      - key: GATSBY_HTC_STRIPE_PUBLISHABLE_KEY
+        sync: false
+      - key: HTC_STRIPE_SECRET_KEY
         sync: false
