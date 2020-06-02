@@ -132,6 +132,7 @@ export const Pricing: FC = () => {
       if (priceInCents === 0) {
         navigate("sign-up");
       } else {
+        debugger;
         runCheckoutQuery({ variables: { priceId } });
       }
     },

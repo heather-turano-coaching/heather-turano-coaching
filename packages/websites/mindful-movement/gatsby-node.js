@@ -54,6 +54,8 @@ exports.sourceNodes = async ({
         return accum;
       }, {});
 
+      console.log(stripeProduct, stripePrice);
+
       const nodeMeta = {
         id: createNodeId(stripeProductId),
         parent: null,
