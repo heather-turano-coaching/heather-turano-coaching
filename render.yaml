@@ -59,6 +59,7 @@ services:
     domains:
       - api.heatherturanocoaching.com
     envVars:
+      - fromGroup: htc-npm
       - key: HTC_DB_CONNECTION_STRING
         fromDatabase:
           name: htc-db
