@@ -29,35 +29,36 @@ exports.sourceNodes = async ({
 
   contentfulProductInformation.items.forEach(
     ({ fields: contentfulProduct }) => {
-      const stripeProductId =
+      const resolvedProductId =
         process.env.NODE_ENV === "production"
           ? contentfulProduct.stripeProductIdProd
           : contentfulProduct.stripeProductId;
-      const stripePriceId =
+      const resolvedPriceId =
         process.env.NODE_ENV === "production"
           ? contentfulProduct.stripePriceIdProd
           : contentfulProduct.stripePriceId;
 
-      console.log(process.env.NODE_ENV, stripeProductId, stripePriceId);
+      console.log(resolvedProductId, resolvedPriceId);
 
       const stripePrice = stripePricesData.data.reduce((accum, price) => {
-        if (price.product === stripeProductId && price.id === stripePriceId) {
+        if (
+          price.product === resolvedProductId &&
+          price.id === resolvedPriceId
+        ) {
           return price;
         }
         return accum;
       }, {});
 
       const stripeProduct = stripeProductsData.data.reduce((accum, product) => {
-        if (stripeProductId === product.id) {
+        if (resolvedProductId === product.id) {
           return product;
         }
         return accum;
       }, {});
 
-      console.log(stripeProduct, stripePrice);
-
       const nodeMeta = {
-        id: createNodeId(stripeProductId),
+        id: createNodeId(resolvedProductId),
         parent: null,
         children: [],
         internal: {
@@ -70,6 +71,8 @@ exports.sourceNodes = async ({
 
       createNode({
         ...contentfulProduct,
+        stripeProductId: resolvedProductId,
+        stripePriceId: resolvedPriceId,
         ...nodeMeta,
         stripePrice,
         stripeProduct,
