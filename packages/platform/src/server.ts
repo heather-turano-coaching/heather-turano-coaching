@@ -4,7 +4,7 @@ import { ApolloServer } from "apollo-server-express";
 import express from "express";
 import { applyMiddleware } from "graphql-middleware";
 
-import { createContext } from "./context";
+import { Context } from "./context";
 import { createDataSources } from "./data-sources";
 import { authorize } from "./middleware";
 import { permissions } from "./permissions";
@@ -20,7 +20,7 @@ const schema = applyMiddleware(baseSchema, permissions);
 const server = new ApolloServer({
   schema,
   dataSources: createDataSources,
-  context: createContext,
+  context: Context,
 });
 
 server.applyMiddleware({ app, path: "/" });

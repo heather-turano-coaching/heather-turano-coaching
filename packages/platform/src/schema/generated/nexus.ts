@@ -187,10 +187,7 @@ export interface NexusGenFieldTypes {
     id: string; // String!
   }
   Mutation: { // field return type
-    createDraft: NexusGenRootTypes['Post']; // Post!
     deleteOnePost: NexusGenRootTypes['Post'] | null; // Post
-    loadUser: NexusGenRootTypes['User']; // User!
-    publish: NexusGenRootTypes['Post'] | null; // Post
     signupUser: NexusGenRootTypes['User']; // User!
     updateOneUser: NexusGenRootTypes['User'] | null; // User
   }
@@ -204,7 +201,6 @@ export interface NexusGenFieldTypes {
     checkout: NexusGenRootTypes['CheckoutSession']; // CheckoutSession!
     feed: NexusGenRootTypes['Post'][]; // [Post!]!
     feedSecured: NexusGenRootTypes['Post'][]; // [Post!]!
-    filterPosts: NexusGenRootTypes['Post'][]; // [Post!]!
     post: NexusGenRootTypes['Post'] | null; // Post
     user: NexusGenRootTypes['User'] | null; // User
   }
@@ -218,16 +214,8 @@ export interface NexusGenFieldTypes {
 
 export interface NexusGenArgTypes {
   Mutation: {
-    createDraft: { // args
-      authorEmail?: string | null; // String
-      content?: string | null; // String
-      title: string; // String!
-    }
     deleteOnePost: { // args
       where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
-    }
-    publish: { // args
-      id?: string | null; // ID
     }
     signupUser: { // args
       data: NexusGenInputs['UserCreateInput']; // UserCreateInput!
@@ -240,9 +228,6 @@ export interface NexusGenArgTypes {
   Query: {
     checkout: { // args
       priceId: string; // String!
-    }
-    filterPosts: { // args
-      searchString?: string | null; // String
     }
     post: { // args
       where: NexusGenInputs['PostWhereUniqueInput']; // PostWhereUniqueInput!
@@ -271,7 +256,7 @@ export type NexusGenScalarNames = "Boolean" | "Float" | "ID" | "Int" | "String";
 export type NexusGenUnionNames = never;
 
 export interface NexusGenTypes {
-  context: Context.Context;
+  context: Context.HTCApiContext;
   inputTypes: NexusGenInputs;
   rootTypes: NexusGenRootTypes;
   argTypes: NexusGenArgTypes;

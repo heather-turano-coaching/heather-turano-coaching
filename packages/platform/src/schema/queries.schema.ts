@@ -69,22 +69,5 @@ export const queries = objectType({
         }
       },
     });
-
-    t.list.field("filterPosts", {
-      type: "Post",
-      args: {
-        searchString: stringArg({ nullable: true }),
-      },
-      resolve: (_, { searchString }, ctx) => {
-        return ctx.prisma.post.findMany({
-          where: {
-            OR: [
-              { title: { contains: searchString } },
-              { content: { contains: searchString } },
-            ],
-          },
-        });
-      },
-    });
   },
 });

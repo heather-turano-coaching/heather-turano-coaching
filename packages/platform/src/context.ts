@@ -16,7 +16,7 @@ export type DynamicResolverContext = HTCApiContext & {
   dataSources: DataSources;
 };
 
-export const createContext = ({
+export const Context = ({
   req,
   res,
 }: {

@@ -6,7 +6,8 @@
     "lib": ["esnext", "dom"],
     "esModuleInterop": true,
     "strict": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "skipLibCheck": true
   },
   "include": ["src/**/*", "./types/index.d.ts"]
 }

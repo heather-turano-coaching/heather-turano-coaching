@@ -15,7 +15,7 @@ export const schema = makeSchema({
     typegen: path.resolve(__dirname, "./generated/nexus.ts"),
   },
   typegenAutoConfig: {
-    contextType: "Context.Context",
+    contextType: "Context.HTCApiContext",
     sources: [
       {
         source: "@prisma/client",

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/server",
     "clean": "rm -rf dist",
-    "build": "npm -s run clean && npm -s run generate",
+    "build": "npm -s run clean && npm -s run generate && tsc",
     "migrate": "prisma migrate save --experimental",
     "migrate:up": "prisma migrate up --experimental && yarn generate",
     "generate": "npm -s run generate:prisma && npm -s run generate:nexus",

@@ -52,7 +52,7 @@ services:
     env: node
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: yarn install && yarn build:platform
+    buildCommand: yarn && yarn build:platform
     startCommand: yarn serve:platform
     domains:
       - api.heatherturanocoaching.com
