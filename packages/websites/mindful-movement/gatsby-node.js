@@ -58,7 +58,14 @@ exports.sourceNodes = async ({
         },
       };
 
-      console.log(contentfulProduct);
+      const node = {
+        ...contentfulProduct,
+        ...nodeMeta,
+        stripePrice,
+        stripeProduct,
+      };
+
+      console.log(node);
 
       createNode({
         ...contentfulProduct,
