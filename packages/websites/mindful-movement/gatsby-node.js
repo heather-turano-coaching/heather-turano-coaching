@@ -1,6 +1,5 @@
 const contentful = require("contentful");
 const stripe = require("stripe")(process.env.HTC_STRIPE_SECRET_KEY);
-const path = require("path");
 
 const contentfulClient = contentful.createClient({
   space: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID,
@@ -14,6 +13,18 @@ exports.sourceNodes = async ({
 }) => {
   const { createNode } = actions;
 
+  console.log("---- Getting Stripe Prices and Data ----");
+  console.log("----------------------------------------");
+  console.log(
+    "HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID",
+    process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID
+  );
+  console.log(
+    "HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN",
+    process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN
+  );
+  console.log("HTC_STRIPE_SECRET_KEY", process.env.HTC_STRIPE_SECRET_KEY);
+
   const [
     stripePricesData,
     stripeProductsData,
@@ -25,6 +36,12 @@ exports.sourceNodes = async ({
       content_type: "package",
     }),
   ]);
+
+  console.log(
+    stripePricesData,
+    stripeProductsData,
+    contentfulProductInformation
+  );
 
   contentfulProductInformation.items.forEach(
     ({ fields: contentfulProduct }) => {
