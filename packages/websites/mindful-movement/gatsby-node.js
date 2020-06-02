@@ -29,25 +29,31 @@ exports.sourceNodes = async ({
 
   contentfulProductInformation.items.forEach(
     ({ fields: contentfulProduct }) => {
+      const stripeProductId =
+        process.env.NODE_ENV === "production"
+          ? contentfulProduct.stripeProductIdProd
+          : contentfulProduct.stripeProductId;
+      const stripePriceId =
+        process.env.NODE_ENV === "production"
+          ? contentfulProduct.stripePriceIdProd
+          : contentfulProduct.stripePriceId;
+
       const stripePrice = stripePricesData.data.reduce((accum, price) => {
-        if (
-          price.product === contentfulProduct.stripeProductId &&
-          price.id === contentfulProduct.stripePriceId
-        ) {
+        if (price.product === stripeProductId && price.id === stripePriceId) {
           return price;
         }
         return accum;
       }, {});
 
       const stripeProduct = stripeProductsData.data.reduce((accum, product) => {
-        if (contentfulProduct.stripeProductId === product.id) {
+        if (stripeProductId === product.id) {
           return product;
         }
         return accum;
       }, {});
 
       const nodeMeta = {
-        id: createNodeId(contentfulProduct.stripeProductId),
+        id: createNodeId(stripeProductId),
         parent: null,
         children: [],
         internal: {
@@ -57,15 +63,6 @@ exports.sourceNodes = async ({
           contentDigest: createContentDigest(contentfulProduct),
         },
       };
-
-      const node = {
-        ...contentfulProduct,
-        ...nodeMeta,
-        stripePrice,
-        stripeProduct,
-      };
-
-      console.log(node);
 
       createNode({
         ...contentfulProduct,
