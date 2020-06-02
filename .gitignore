@@ -2,4 +2,3 @@ node_modules
 packages/components/storybook-static
 .env
 **/dist
-.npmrc
