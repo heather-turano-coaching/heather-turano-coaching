@@ -13,15 +13,21 @@ import { List, ListItem } from "../lists";
 import { Line } from "./Line";
 import { Button, Heading, Typography } from "..";
 
+export interface HTCPackagePrice {
+  id: string;
+  unit_amount: number;
+}
+
 export interface ProductCardProps {
   description?: string;
   name: string;
-  priceInCents: number;
   features: string[];
-  onClick: () => void;
   color: string;
   img: string;
   imgAlt: string;
+  basePrice: HTCPackagePrice;
+  couponPrice?: HTCPackagePrice;
+  handleClick: (priceId: string, priceInCents: number) => () => void;
 }
 
 const StyledProductCard = styled.div`
@@ -59,13 +65,28 @@ const StyledProductHeader = styled.header<{ productColor: string }>`
   }
 `;
 
-const StyledProductPrice = styled.header<{ productColor: string }>`
+const StyledProductPrice = styled.header<{
+  productColor: string;
+  strike?: boolean;
+}>`
   ${makeInset({ vertical: "sm", horizontal: "sm" })};
 
   p {
     display: inline-block;
     color: ${({ productColor }) => productColor};
     font-weight: 800;
+  }
+
+  & > div {
+    &:first-child {
+      p {
+        ${({ strike = false }) =>
+          strike &&
+          css`
+            text-decoration: line-through;
+          `}
+      }
+    }
   }
 `;
 
@@ -79,14 +100,19 @@ const StyledProductFooter = styled.footer`
 export const ProductCard: FC<ProductCardProps> = memo(
   ({
     name,
-    priceInCents,
+    basePrice,
+    couponPrice,
     features,
-    onClick,
+    handleClick,
     color,
     img,
     imgAlt,
     description,
   }) => {
+    const priceId = couponPrice?.id || basePrice.id;
+    const unitAmount = couponPrice?.unit_amount || basePrice.unit_amount;
+    const onClick = handleClick(priceId, unitAmount);
+
     return (
       <StyledProductCard>
         <StyledProductImage src={img} alt={imgAlt} />
@@ -98,24 +124,48 @@ export const ProductCard: FC<ProductCardProps> = memo(
             </Typography>
           )}
         </StyledProductHeader>
-        <StyledProductPrice productColor={color}>
-          {priceInCents === 0 && (
-            <Typography variant="paragraph" fontSize="h2">
-              FREE!
-            </Typography>
-          )}
-          {priceInCents !== 0 && (
-            <>
-              <Typography variant="paragraph" fontSize="xs">
-                $
-              </Typography>
+        <StyledProductPrice productColor={color} strike={!!couponPrice?.id}>
+          <div>
+            {basePrice.unit_amount === 0 && (
               <Typography variant="paragraph" fontSize="h2">
-                {priceInCents / 100}
+                FREE!
               </Typography>
-              <Typography variant="paragraph" fontSize="xs">
-                .00
-              </Typography>
-            </>
+            )}
+            {basePrice.unit_amount !== 0 && (
+              <>
+                <Typography variant="paragraph" fontSize="xs">
+                  $
+                </Typography>
+                <Typography variant="paragraph" fontSize="h2">
+                  {basePrice.unit_amount / 100}
+                </Typography>
+                <Typography variant="paragraph" fontSize="xs">
+                  .00
+                </Typography>
+              </>
+            )}
+          </div>
+          {couponPrice?.id && (
+            <div>
+              {couponPrice.unit_amount === 0 && (
+                <Typography variant="paragraph" fontSize="h2">
+                  FREE!
+                </Typography>
+              )}
+              {couponPrice.unit_amount !== 0 && (
+                <>
+                  <Typography variant="paragraph" fontSize="xs">
+                    $
+                  </Typography>
+                  <Typography variant="paragraph" fontSize="h2">
+                    {couponPrice.unit_amount / 100}
+                  </Typography>
+                  <Typography variant="paragraph" fontSize="xs">
+                    .00
+                  </Typography>
+                </>
+              )}
+            </div>
           )}
         </StyledProductPrice>
         <List>
@@ -132,8 +182,8 @@ export const ProductCard: FC<ProductCardProps> = memo(
         </List>
         <StyledProductFooter>
           <Button
-            label={priceInCents === 0 ? "Sign up" : "Purchase"}
-            onClick={onClick}
+            label={basePrice.unit_amount === 0 ? "Sign up" : "Purchase"}
+            onClick={() => onClick()}
             styleType="secondary"
           />
         </StyledProductFooter>

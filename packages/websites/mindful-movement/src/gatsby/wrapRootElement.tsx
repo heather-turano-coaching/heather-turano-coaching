@@ -37,9 +37,23 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
 
     ${makeResponsive({
-      beginAt: "laptop",
+      beginAt: "tabletPortrait",
       style: `
         font-size: 18px;
+      `,
+    })};
+
+    ${makeResponsive({
+      beginAt: "laptop",
+      style: `
+        font-size: 20px;
+      `,
+    })};
+
+    ${makeResponsive({
+      beginAt: "desktop",
+      style: `
+        font-size: 22px;
       `,
     })}
   }
