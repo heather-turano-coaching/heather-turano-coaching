@@ -88,6 +88,17 @@ exports.sourceNodes = async ({
         return accum;
       }, {});
 
+      const node = {
+        ...contentfulProduct,
+        logo: contentfulProduct.logo.fields.file.url,
+        productId: resolvedProductId,
+        basePrice: {
+          ...stripePrice,
+          product: stripeProduct,
+        },
+        couponPrice: undefined,
+      };
+
       const nodeMeta = {
         id: createNodeId(resolvedProductId),
         parent: null,
@@ -95,18 +106,14 @@ exports.sourceNodes = async ({
         internal: {
           type: `StripeProductAndPrice`,
           mediaType: `text/html`,
-          content: JSON.stringify(contentfulProduct),
-          contentDigest: createContentDigest(contentfulProduct),
+          content: JSON.stringify(node),
+          contentDigest: createContentDigest(node),
         },
       };
 
       createNode({
-        ...contentfulProduct,
-        stripeProductId: resolvedProductId,
-        stripePriceId: stripePrice.id,
+        ...node,
         ...nodeMeta,
-        stripePrice,
-        stripeProduct,
       });
     }
   );
@@ -142,7 +149,7 @@ exports.sourceNodes = async ({
     });
   });
 
-  console.log("creating coupons from price meta data... complete.");
+  console.log("> creating coupons from price meta data... complete.");
   console.log("----------------------------------------");
 };
 
@@ -160,14 +167,13 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           stripeProductId__production
           order
           name
+          features
+          color
           logo {
             file {
               url
             }
           }
-          features
-          contentfulTitle
-          color
         }
       }
       allStripePrice {
@@ -201,6 +207,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         return {
           productId,
           ...productMetaData,
+          logo: productMetaData.logo.file.url,
           basePrice: result.data.allStripePrice.nodes.reduce((accum, price) => {
             if (
               price.product.id === productId &&
@@ -231,11 +238,11 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
     createPage({
       path: `/${coupon.slug}`,
-      component: path.resolve(`./src/templates/coupon.tsx`),
+      component: path.resolve(`./src/templates/Packages.tsx`),
       context: {
-        data: {
-          packages,
-        },
+        title: "MM100 - Coupon",
+        description: coupon.slug.split("-").join(" ").toUpperCase(),
+        packages,
       },
     });
   });
