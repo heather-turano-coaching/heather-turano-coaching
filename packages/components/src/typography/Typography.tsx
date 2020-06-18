@@ -60,12 +60,14 @@ export const Typography: FC<TypographyProps> = ({
   fontColor = { scalable: { color: "gray" } },
   lineHeight,
   children = undefined,
+  ...restProps
 }) => (
   <StyledTypography
     variant={variant}
     fontSize={fontSize}
     fontColor={fontColor}
     lineHeight={lineHeight}
+    {...restProps}
   >
     {children}
   </StyledTypography>

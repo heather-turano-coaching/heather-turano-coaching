@@ -1,3 +1,3 @@
 export { Footer } from "./Footer";
 export { FooterSection } from "./FooterSection";
-export { FooterSectionLink } from "./FooterSectionLink";
+export { FooterText } from "./FooterText";

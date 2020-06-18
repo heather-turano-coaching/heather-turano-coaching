@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Footer, FooterSection, FooterSectionLink } from ".";
+import { Footer, FooterSection, FooterText } from ".";
 
 export default {
   component: Footer,
@@ -16,42 +16,45 @@ export const with1Section = () => (
 export const with1SectionWithLinks = () => (
   <Footer>
     <FooterSection title="footer section">
-      <FooterSectionLink>
+      <FooterText>
         <a href="#location">testing...</a>
-      </FooterSectionLink>
+      </FooterText>
+      <FooterText>
+        <a href="#location">testing...</a>
+      </FooterText>
     </FooterSection>
   </Footer>
 );
 export const with2SectionsWithLInks = () => (
   <Footer>
     <FooterSection title="footer section">
-      <FooterSectionLink>
+      <FooterText>
         <a href="#location">testing...</a>
-      </FooterSectionLink>
+      </FooterText>
     </FooterSection>
     <FooterSection title="footer section">
-      <FooterSectionLink>
+      <FooterText>
         <a href="#location">testing...</a>
-      </FooterSectionLink>
+      </FooterText>
     </FooterSection>
   </Footer>
 );
 export const with3SectionsWithLInks = () => (
   <Footer>
     <FooterSection title="footer section">
-      <FooterSectionLink>
+      <FooterText>
         <a href="#location">testing...</a>
-      </FooterSectionLink>
+      </FooterText>
     </FooterSection>
     <FooterSection title="footer section">
-      <FooterSectionLink>
+      <FooterText>
         <a href="#location">testing...</a>
-      </FooterSectionLink>
+      </FooterText>
     </FooterSection>
     <FooterSection title="footer section">
-      <FooterSectionLink>
+      <FooterText>
         <a href="#location">testing...</a>
-      </FooterSectionLink>
+      </FooterText>
     </FooterSection>
   </Footer>
 );
