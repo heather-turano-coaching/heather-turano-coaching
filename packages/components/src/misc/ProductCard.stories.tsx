@@ -11,7 +11,10 @@ const props: ProductCardProps = {
   description:
     "Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.",
   name: "Inspired Mover",
-  priceInCents: 17900,
+  basePrice: {
+    id: "TEST",
+    unit_amount: 17900,
+  },
   features: [
     "hall tight tobacco step milk",
     "pleasant birth space arrive practice",
@@ -20,7 +23,9 @@ const props: ProductCardProps = {
     "kitchen ground cut available wild",
     "bet there spirit from continent",
   ],
-  onClick: () => {},
+  handleClick: (priceId: string, priceInCents: number) => () => {
+    console.log(priceId, priceInCents);
+  },
   color: "#ebae5b",
   img:
     "//images.ctfassets.net/kdlm6cvqwimx/4WMm6C5LkQNLgTprZCr4f2/c7311619fe4b2e684fc43d9f027a6e61/MM100_inspired_logo-1024.png",

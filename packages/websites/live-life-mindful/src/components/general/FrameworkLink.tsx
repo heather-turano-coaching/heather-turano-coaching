@@ -1,5 +1,5 @@
+import { GatsbyLinkProps, Link } from "gatsby";
 import React, { FC } from "react";
-import { Link, GatsbyLinkProps } from "gatsby";
 
 export const FrameworkLink: FC<GatsbyLinkProps<{}>> = ({
   children,

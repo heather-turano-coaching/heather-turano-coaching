@@ -1,7 +1,5 @@
 {
-  "cSpell.words": [
-    "Carme"
-  ],
+  "cSpell.words": ["Carme"],
   "typescript.tsdk": "node_modules/typescript/lib",
   "sqltools.connections": [
     {
@@ -18,5 +16,6 @@
       "dialect": "PostgreSQL",
       "name": "htc-local"
     }
-  ]
+  ],
+  "editor.formatOnSave": true
 }
