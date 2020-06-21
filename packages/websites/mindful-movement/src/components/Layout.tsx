@@ -19,10 +19,10 @@ export const Layout: FC = ({ children }) => (
         <NavLogo />
       </NavBarSection>
       <NavBarSection component="ul" collapse>
-        <NavBarLinkAnchor href="#about">About</NavBarLinkAnchor>
-        <NavBarLinkAnchor href="#who-we-are">Who we are</NavBarLinkAnchor>
-        <NavBarLinkAnchor href="#pricing">Pricing</NavBarLinkAnchor>
-        <NavBarLinkAnchor href="#schedule">Schedule</NavBarLinkAnchor>
+        <NavBarLinkAnchor href="/#about">About</NavBarLinkAnchor>
+        <NavBarLinkAnchor href="/#who-we-are">Who we are</NavBarLinkAnchor>
+        <NavBarLinkAnchor href="/#pricing">Pricing</NavBarLinkAnchor>
+        <NavBarLinkAnchor href="/#schedule">Schedule</NavBarLinkAnchor>
       </NavBarSection>
     </NavBar>
     {children}
@@ -63,17 +63,17 @@ export const Layout: FC = ({ children }) => (
         <ul>
           <li>
             <FooterText>
-              <Link to="security-summary">Summary</Link>
+              <Link to="/security-overview">Summary</Link>
             </FooterText>
           </li>
           <li>
             <FooterText>
-              <Link to="privacy-policy">Privacy Policy</Link>
+              <Link to="/privacy-policy">Privacy Policy</Link>
             </FooterText>
           </li>
           <li>
             <FooterText>
-              <Link to="terms-and-conditions">Terms and Conditions</Link>
+              <Link to="/terms-and-conditions">Terms and Conditions</Link>
             </FooterText>
           </li>
         </ul>

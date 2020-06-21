@@ -18,13 +18,15 @@ const StyledFooterSection = styled.div<Pick<FooterSectionProps, "sectionSize">>`
   ${({ sectionSize }) => css`
     flex: ${sectionSize};
   `}
+  ${makeInset({ left: 16, right: 16 })};
+
   ${makeResponsive({
     endAt: "tabletPortrait",
     style: `
       width: 100%;
       
       &:not(:first-child){
-        ${makeInset({ bottom: 40 })};
+        ${makeInset({ bottom: 40, left: 16, right: 16 })};
       }
     `,
   })}
@@ -33,10 +35,6 @@ const StyledFooterSection = styled.div<Pick<FooterSectionProps, "sectionSize">>`
     ${makeOutset({ bottom: 24 })}
     font-weight: 700;
     text-transform: uppercase;
-  }
-
-  &:not(:first-child) {
-    margin-left: ${makeSize({ custom: 32 })};
   }
 `;
 
