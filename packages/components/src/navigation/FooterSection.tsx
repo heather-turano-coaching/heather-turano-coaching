@@ -34,6 +34,10 @@ const StyledFooterSection = styled.div<Pick<FooterSectionProps, "sectionSize">>`
     font-weight: 700;
     text-transform: uppercase;
   }
+
+  &:not(:first-child) {
+    margin-left: ${makeSize({ custom: 32 })};
+  }
 `;
 
 const StyledFooterSectionTitle = styled.div`

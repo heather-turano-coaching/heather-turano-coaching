@@ -1,3 +1,10 @@
+import {
+  Footer,
+  FooterSection,
+  FooterText,
+} from "@heather-turano-coaching/components";
+import { makeColor } from "@heather-turano-coaching/design-system";
+import { Link } from "gatsby";
 import React, { FC } from "react";
 
 import { NavBar } from "./NavBar";
@@ -19,5 +26,80 @@ export const Layout: FC = ({ children }) => (
       </NavBarSection>
     </NavBar>
     {children}
+    <Footer>
+      <FooterSection title="Mindful Movement 100">
+        <FooterText>
+          <span>
+            Copyright © 2020, Heather Turano Coaching, LLC, All Rights Reserved.
+            Mindful Movement 100 is a trademark of Heather Turano Coaching, LLC.
+            The use of the trademark Mindful Movement 100 outside the bounds of
+            this website requires exclusive written consent from Heather Turano
+            Coaching, LLC."
+          </span>
+        </FooterText>
+        <FooterText>
+          <span>This website was designed and developed by &nbsp;</span>
+          <div>
+            <a
+              href="https://github.com/drewdecarme"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inlineBlock",
+                textDecorationColor: `${makeColor({ fixed: "light" })}`,
+                color: `${makeColor({ fixed: "light" })}`,
+              }}
+            >
+              Drew DeCarme
+            </a>
+          </div>
+        </FooterText>
+      </FooterSection>
+      <FooterSection title="Privacy &amp; Security">
+        <FooterText>
+          Mindful Movement 100 takes your privacy very seriously. Use the links
+          below to learn more about our policies
+        </FooterText>
+        <ul>
+          <li>
+            <FooterText>
+              <Link to="security-summary">Summary</Link>
+            </FooterText>
+          </li>
+          <li>
+            <FooterText>
+              <Link to="privacy-policy">Privacy Policy</Link>
+            </FooterText>
+          </li>
+          <li>
+            <FooterText>
+              <Link to="terms-and-conditions">Terms and Conditions</Link>
+            </FooterText>
+          </li>
+        </ul>
+      </FooterSection>
+      <FooterSection title="Sponsors">
+        <FooterText>
+          <div>Heather Turano</div>
+          <a
+            href="https://heatherturanocoaching.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Heather Turano Coaching, LLC
+          </a>
+        </FooterText>
+        <FooterText>
+          <div>Amanda Rock</div>
+          <a
+            href="http://www.thecompassconsultinggroup.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            The Compass Consulting Group
+          </a>
+        </FooterText>
+      </FooterSection>
+    </Footer>
   </div>
 );

@@ -9,6 +9,8 @@ const StyledFooterText = styled.span`
   a {
     all: inherit;
     cursor: pointer;
+    text-decoration: underline;
+    font-weight: 700;
   }
 `;
 
