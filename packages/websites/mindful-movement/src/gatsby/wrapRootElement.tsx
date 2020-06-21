@@ -6,7 +6,7 @@ import {
 } from "@heather-turano-coaching/design-system";
 import React, { ReactNode } from "react";
 import { Helmet } from "react-helmet";
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 import { client } from "../apollo";
 

@@ -2,7 +2,7 @@ import React, { FC, memo } from "react";
 
 const inputHoneypotStyle = { display: "none" };
 
-export const InputHoneypot: FC<{ botFieldName?: string }> = memo(
+export const Honeypot: FC<{ botFieldName?: string }> = memo(
   ({ botFieldName = "bot-field" }) => {
     return (
       <p style={inputHoneypotStyle}>
