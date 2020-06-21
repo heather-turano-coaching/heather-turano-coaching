@@ -21,7 +21,7 @@ const TermsOfService = () => {
             <li>
               <p>
                 <strong>
-                  <span class="underline">Introduction</span>
+                  <span>Introduction</span>
                 </strong>
               </p>
             </li>
@@ -55,11 +55,11 @@ const TermsOfService = () => {
             </p>
             <p>Thank you for being responsible.</p>
           </blockquote>
-          <ol start="2" type="1">
+          <ol start={2} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Communications</span>
+                  <span>Communications</span>
                 </strong>
               </p>
             </li>
@@ -73,11 +73,11 @@ const TermsOfService = () => {
               unsubscribe link or by emailing at.
             </p>
           </blockquote>
-          <ol start="3" type="1">
+          <ol start={3} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Purchases</span>
+                  <span>Purchases</span>
                 </strong>
               </p>
             </li>
@@ -114,13 +114,11 @@ const TermsOfService = () => {
               unauthorized or illegal transaction is suspected.
             </p>
           </blockquote>
-          <ol start="4" type="1">
+          <ol start={4} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">
-                    Contests, Sweepstakes and Promotions
-                  </span>
+                  <span>Contests, Sweepstakes and Promotions</span>
                 </strong>
               </p>
             </li>
@@ -135,11 +133,11 @@ const TermsOfService = () => {
               Terms of Service, Promotion rules will apply.
             </p>
           </blockquote>
-          <ol start="5" type="1">
+          <ol start={5} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Subscriptions</span>
+                  <span>Subscriptions</span>
                 </strong>
               </p>
             </li>
@@ -180,11 +178,11 @@ const TermsOfService = () => {
               indicated on the invoice.
             </p>
           </blockquote>
-          <ol start="6" type="1">
+          <ol start={6} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Free Trial</span>
+                  <span>Free Trial</span>
                 </strong>
               </p>
             </li>
@@ -213,11 +211,11 @@ const TermsOfService = () => {
               Trial offer, or (ii) cancel such Free Trial offer.
             </p>
           </blockquote>
-          <ol start="7" type="1">
+          <ol start={7} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Fee Changes</span>
+                  <span>Fee Changes</span>
                 </strong>
               </p>
             </li>
@@ -241,11 +239,11 @@ const TermsOfService = () => {
               Subscription fee amount.
             </p>
           </blockquote>
-          <ol start="8" type="1">
+          <ol start={8} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Refunds</span>
+                  <span>Refunds</span>
                 </strong>
               </p>
             </li>
@@ -256,11 +254,11 @@ const TermsOfService = () => {
               original purchase of the Contract.
             </p>
           </blockquote>
-          <ol start="9" type="1">
+          <ol start={9} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Content</span>
+                  <span>Content</span>
                 </strong>
               </p>
             </li>
@@ -308,11 +306,11 @@ const TermsOfService = () => {
               written permission from us.
             </p>
           </blockquote>
-          <ol start="10" type="1">
+          <ol start={10} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Prohibited Uses</span>
+                  <span>Prohibited Uses</span>
                 </strong>
               </p>
             </li>
@@ -429,18 +427,18 @@ const TermsOfService = () => {
               </p>
             </li>
           </ol>
-          <ol start="11" type="1">
+          <ol start={11} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Analytics</span>
+                  <span>Analytics</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span class="underline"> </span>
+              <span> </span>
             </p>
             <p>
               We may use third-party Service Providers to monitor and analyze
@@ -455,15 +453,15 @@ const TermsOfService = () => {
               Piwik or Matomo is a web analytics service. You can visit their
               Privacy Policy page here:{" "}
               <a href="https://matomo.org/privacy-policy">
-                <span class="underline">https://matomo.org/privacy-policy</span>
+                <span>https://matomo.org/privacy-policy</span>
               </a>
             </p>
           </blockquote>
-          <ol start="12" type="1">
+          <ol start={12} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">No Use By Minors</span>
+                  <span>No Use By Minors</span>
                 </strong>
               </p>
             </li>
@@ -479,11 +477,11 @@ const TermsOfService = () => {
               old, you are prohibited from both the access and usage of Service.
             </p>
           </blockquote>
-          <ol start="13" type="1">
+          <ol start={13} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Accounts</span>
+                  <span>Accounts</span>
                 </strong>
               </p>
             </li>
@@ -518,11 +516,11 @@ const TermsOfService = () => {
               or edit content, or cancel orders in our sole discretion.
             </p>
           </blockquote>
-          <ol start="14" type="1">
+          <ol start={14} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Intellectual Property</span>
+                  <span>Intellectual Property</span>
                 </strong>
               </p>
             </li>
@@ -538,11 +536,11 @@ const TermsOfService = () => {
               prior written consent of HEATHER TURANO COACHING, LLC.
             </p>
           </blockquote>
-          <ol start="15" type="1">
+          <ol start={15} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Copyright Policy</span>
+                  <span>Copyright Policy</span>
                 </strong>
               </p>
             </li>
@@ -571,11 +569,11 @@ const TermsOfService = () => {
               your copyright.
             </p>
           </blockquote>
-          <ol start="16" type="1">
+          <ol start={16} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">
+                  <span>
                     DMCA Notice and Procedure for Copyright Infringement Claims
                   </span>
                 </strong>
@@ -636,11 +634,11 @@ const TermsOfService = () => {
               at dmca@heatherturanocoaching.com
             </p>
           </blockquote>
-          <ol start="17" type="1">
+          <ol start={17} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Error Reporting and Feedback</span>
+                  <span>Error Reporting and Feedback</span>
                 </strong>
               </p>
             </li>
@@ -681,11 +679,11 @@ const TermsOfService = () => {
               https://sentry.io/privacy/
             </p>
           </blockquote>
-          <ol start="18" type="1">
+          <ol start={18} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Links To Other Web Sites</span>
+                  <span>Links To Other Web Sites</span>
                 </strong>
               </p>
             </li>
@@ -714,11 +712,11 @@ const TermsOfService = () => {
               POLICIES OF ANY THIRD PARTY WEB SITES OR SERVICES THAT YOU VISIT.
             </p>
           </blockquote>
-          <ol start="19" type="1">
+          <ol start={19} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Disclaimer Of Warranty</span>
+                  <span>Disclaimer Of Warranty</span>
                 </strong>
               </p>
             </li>
@@ -758,11 +756,11 @@ const TermsOfService = () => {
               EXCLUDED OR LIMITED UNDER APPLICABLE LAW.
             </p>
           </blockquote>
-          <ol start="20" type="1">
+          <ol start={20} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Limitation Of Liability</span>
+                  <span>Limitation Of Liability</span>
                 </strong>
               </p>
             </li>
@@ -790,11 +788,11 @@ const TermsOfService = () => {
               EXCLUSION MAY NOT APPLY TO YOU.
             </p>
           </blockquote>
-          <ol start="21" type="1">
+          <ol start={21} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Termination</span>
+                  <span>Termination</span>
                 </strong>
               </p>
             </li>
@@ -817,11 +815,11 @@ const TermsOfService = () => {
               and limitations of liability.
             </p>
           </blockquote>
-          <ol start="22" type="1">
+          <ol start={22} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Governing Law</span>
+                  <span>Governing Law</span>
                 </strong>
               </p>
             </li>
@@ -842,11 +840,11 @@ const TermsOfService = () => {
               have had between us regarding Service.
             </p>
           </blockquote>
-          <ol start="23" type="1">
+          <ol start={23} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Changes To Service</span>
+                  <span>Changes To Service</span>
                 </strong>
               </p>
             </li>
@@ -861,11 +859,11 @@ const TermsOfService = () => {
               the entire Service, to users, including registered users.
             </p>
           </blockquote>
-          <ol start="24" type="1">
+          <ol start={24} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Amendments To Terms</span>
+                  <span>Amendments To Terms</span>
                 </strong>
               </p>
             </li>
@@ -889,11 +887,11 @@ const TermsOfService = () => {
               use Service.
             </p>
           </blockquote>
-          <ol start="25" type="1">
+          <ol start={25} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Waiver And Severability</span>
+                  <span>Waiver And Severability</span>
                 </strong>
               </p>
             </li>
@@ -914,11 +912,11 @@ const TermsOfService = () => {
               continue in full force and effect.
             </p>
           </blockquote>
-          <ol start="26" type="1">
+          <ol start={26} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Acknowledgement</span>
+                  <span>Acknowledgement</span>
                 </strong>
               </p>
             </li>
@@ -930,11 +928,11 @@ const TermsOfService = () => {
               THEM.
             </p>
           </blockquote>
-          <ol start="27" type="1">
+          <ol start={27} type="1">
             <li>
               <p>
                 <strong>
-                  <span class="underline">Contact Us</span>
+                  <span>Contact Us</span>
                 </strong>
               </p>
             </li>

@@ -26,13 +26,13 @@ const IndexPage = () => {
             <li>
               <p>
                 <strong>
-                  <span className="underline">Introduction</span>
+                  <span>Introduction</span>
                 </strong>
               </p>
             </li>
           </ol>
           <p>
-            <span className="underline"> </span>
+            <span> </span>
           </p>
           <blockquote>
             <p>
@@ -61,18 +61,18 @@ const IndexPage = () => {
               your agreement with us (“<strong>agreement</strong>”).
             </p>
           </blockquote>
-          <ol start="2" type="1">
+          <ol start={2} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Definitions</span>
+                  <span>Definitions</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               <strong>SERVICE </strong>means the livelifemindful.com
@@ -116,38 +116,36 @@ const IndexPage = () => {
               Personal Data.
             </p>
           </blockquote>
-          <ol start="3" type="1">
+          <ol start={3} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">
-                    Information Collection and Use
-                  </span>
+                  <span>Information Collection and Use</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               We collect several different types of information for various
               purposes to provide and improve our Service to you.
             </p>
           </blockquote>
-          <ol start="4" type="1">
+          <ol start={4} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Types of Data Collected</span>
+                  <span>Types of Data Collected</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               <strong>Personal Data</strong>
@@ -257,17 +255,17 @@ const IndexPage = () => {
               </p>
             </li>
           </ol>
-          <ol start="5" type="1">
+          <ol start={5} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Use of Data</span>
+                  <span>Use of Data</span>
                 </strong>
               </p>
             </li>
           </ol>
           <p>
-            <span className="underline"> </span>
+            <span> </span>
           </p>
           <blockquote>
             <p>
@@ -338,17 +336,17 @@ const IndexPage = () => {
               <p>for any other purpose with your consent.</p>
             </li>
           </ol>
-          <ol start="6" type="1">
+          <ol start={6} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Retention of Data</span>
+                  <span>Retention of Data</span>
                 </strong>
               </p>
             </li>
           </ol>
           <p>
-            <span className="underline"> </span>
+            <span> </span>
           </p>
           <blockquote>
             <p>
@@ -367,18 +365,18 @@ const IndexPage = () => {
               retain this data for longer time periods.
             </p>
           </blockquote>
-          <ol start="7" type="1">
+          <ol start={7} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Transfer of Data</span>
+                  <span>Transfer of Data</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               Your information, including Personal Data, may be transferred to –
@@ -404,18 +402,18 @@ const IndexPage = () => {
               of your data and other personal information.
             </p>
           </blockquote>
-          <ol start="8" type="1">
+          <ol start={8} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Disclosure of Data</span>
+                  <span>Disclosure of Data</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               We may disclose personal information that we collect, or you
@@ -436,7 +434,7 @@ const IndexPage = () => {
               requests by public authorities.
             </p>
           </blockquote>
-          <ol start="2" type="a">
+          <ol start={2} type="a">
             <li>
               <p>
                 <strong>Business Transaction.</strong>
@@ -449,7 +447,7 @@ const IndexPage = () => {
               asset sale, your Personal Data may be transferred.
             </p>
           </blockquote>
-          <ol start="3" type="a">
+          <ol start={3} type="a">
             <li>
               <blockquote>
                 <p>
@@ -478,17 +476,17 @@ const IndexPage = () => {
               </ol>
             </li>
           </ol>
-          <ol start="9" type="1">
+          <ol start={9} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Security of Data</span>
+                  <span>Security of Data</span>
                 </strong>
               </p>
             </li>
           </ol>
           <p>
-            <span className="underline"> </span>
+            <span> </span>
           </p>
           <blockquote>
             <p>
@@ -499,11 +497,11 @@ const IndexPage = () => {
               guarantee its absolute security.
             </p>
           </blockquote>
-          <ol start="10" type="1">
+          <ol start={10} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">
+                  <span>
                     Your Data Protection Rights Under General Data Protection
                     Regulation (GDPR)
                   </span>
@@ -513,7 +511,7 @@ const IndexPage = () => {
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               If you are a resident of the European Union (EU) and European
@@ -589,11 +587,11 @@ const IndexPage = () => {
               in the European Economic Area (EEA).
             </p>
           </blockquote>
-          <ol start="11" type="1">
+          <ol start={11} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">
+                  <span>
                     Your Data Protection Rights under the California Privacy
                     Protection Act (CalOPPA)
                   </span>
@@ -603,7 +601,7 @@ const IndexPage = () => {
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               CalOPPA is the first state law in the nation to require commercial
@@ -656,18 +654,18 @@ const IndexPage = () => {
               or Settings page of your web browser.
             </p>
           </blockquote>
-          <ol start="12" type="1">
+          <ol start={12} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Service Providers</span>
+                  <span>Service Providers</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               We may employ third party companies and individuals to facilitate
@@ -681,18 +679,18 @@ const IndexPage = () => {
               disclose or use it for any other purpose.
             </p>
           </blockquote>
-          <ol start="13" type="1">
+          <ol start={13} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Analytics</span>
+                  <span>Analytics</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               We may use third-party Service Providers to monitor and analyze
@@ -708,11 +706,11 @@ const IndexPage = () => {
               Privacy Policy page here: https://matomo.org/privacy-policy
             </p>
           </blockquote>
-          <ol start="14" type="1">
+          <ol start={14} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">CI/CD tools</span>
+                  <span>CI/CD tools</span>
                 </strong>
               </p>
             </li>
@@ -733,24 +731,24 @@ const IndexPage = () => {
             <p>
               For more information on what data GitHub collects for what purpose
               and how the protection of the data is ensured, please visit GitHub
-              Privacy Policy page: <span className="underline"> </span>{" "}
+              Privacy Policy page: <span> </span>{" "}
               <a href="https://help.github.com/en/articles/github-privacy-statement">
                 https://help.github.com/en/articles/github-privacy-statement.
               </a>
             </p>
           </blockquote>
-          <ol start="15" type="1">
+          <ol start={15} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Payments</span>
+                  <span>Payments</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               We may provide paid products and/or services within Service. In
@@ -774,18 +772,18 @@ const IndexPage = () => {
               https://stripe.com/us/privacy
             </p>
           </blockquote>
-          <ol start="16" type="1">
+          <ol start={16} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Links to Other Sites</span>
+                  <span>Links to Other Sites</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               Our Service may contain links to other sites that are not operated
@@ -795,7 +793,7 @@ const IndexPage = () => {
             </p>
           </blockquote>
           <p>
-            <span className="underline"> </span>
+            <span> </span>
           </p>
           <blockquote>
             <p>
@@ -804,11 +802,11 @@ const IndexPage = () => {
               services.
             </p>
           </blockquote>
-          <ol start="17" type="1">
+          <ol start={17} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Children's Privacy</span>
+                  <span>Children's Privacy</span>
                 </strong>
               </p>
             </li>
@@ -827,20 +825,18 @@ const IndexPage = () => {
               information from our servers.
             </p>
           </blockquote>
-          <ol start="18" type="1">
+          <ol start={18} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">
-                    Changes to This Privacy Policy
-                  </span>
+                  <span>Changes to This Privacy Policy</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               We may update our Privacy Policy from time to time. We will notify
@@ -848,7 +844,7 @@ const IndexPage = () => {
             </p>
           </blockquote>
           <p>
-            <span className="underline"> </span>
+            <span> </span>
           </p>
           <blockquote>
             <p>
@@ -862,18 +858,18 @@ const IndexPage = () => {
               are posted on this page.
             </p>
           </blockquote>
-          <ol start="19" type="1">
+          <ol start={19} type="1">
             <li>
               <p>
                 <strong>
-                  <span className="underline">Contact Us</span>
+                  <span>Contact Us</span>
                 </strong>
               </p>
             </li>
           </ol>
           <blockquote>
             <p>
-              <span className="underline"> </span>
+              <span> </span>
             </p>
             <p>
               If you have any questions about this Privacy Policy, please
