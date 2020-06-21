@@ -9,8 +9,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Container, sectionVSpace } from "../layout";
-import { sharedHorizontalBodyPadding } from "../utils/vars";
-import { makeFlex } from "..";
+import { makeFlex, sharedHorizontalBodyPadding } from "../utils";
 
 const StyledFooterContainer = styled.footer`
   width: 100%;
