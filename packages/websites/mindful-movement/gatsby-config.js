@@ -51,7 +51,7 @@ module.exports = {
         name: `markdown-pages`,
         path: path.resolve(
           __dirname,
-          "../../../node_modules/@heather-turano-coaching/documents/docs"
+          "../../../node_modules/@heather-turano-coaching/documents/disclosures"
         ),
       },
     },

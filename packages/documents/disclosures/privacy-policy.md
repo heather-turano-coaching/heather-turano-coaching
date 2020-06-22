@@ -1,6 +1,9 @@
 ---
 id: "privacy-policy"
+order: 2
 slug: "/privacy-policy"
+title: "Privacy Policy"
+metaDescription: "A detailed and legal guide on how we respect your privacy"
 ---
 
 Effective Date: **June 5, 2020**

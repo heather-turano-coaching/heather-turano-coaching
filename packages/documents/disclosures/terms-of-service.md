@@ -1,6 +1,9 @@
 ---
 id: "terms-of-service"
+order: 1
 slug: "/terms-of-service"
+title: "Terms of Service"
+metaDescription: "The terms of service and conditions surrounding the things you as a user agree to."
 ---
 
 Last Updated: **June 5, 2020**
