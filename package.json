@@ -19,6 +19,7 @@
     "check": "lerna exec -- npx npm-check-updates",
     "update": "lerna exec -- npx npm-check-updates -u",
     "test": "jest",
+    "prestart": ". .env",
     "lint:fix": "eslint './packages/**/src/**/*.js' --fix",
     "build:packages": "yarn build:design-system && yarn build:components && yarn build:domain",
     "build:components": "yarn build:hooks && lerna run build --scope=@heather-turano-coaching/components  --stream",

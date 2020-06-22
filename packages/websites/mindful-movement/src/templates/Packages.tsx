@@ -14,8 +14,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
 import styled, { css } from "styled-components";
 
-import { Layout } from "../components/Layout";
-
 export const stripePromise = loadStripe(
   process.env.GATSBY_HTC_STRIPE_PUBLISHABLE_KEY as string
 );

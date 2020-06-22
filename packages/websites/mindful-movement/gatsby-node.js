@@ -153,7 +153,11 @@ exports.sourceNodes = async ({
   console.log("----------------------------------------");
 };
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
+exports.createPages = async ({
+  graphql,
+  actions: { createPage },
+  reporter,
+}) => {
   const result = await graphql(`
     query {
       allStripeCouponFromMeta {
@@ -245,5 +249,37 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         packages,
       },
     });
+  });
+
+  // Disclosures
+  const disclosureResult = await graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  if (disclosureResult.errors) {
+    reporter.panicOnBuild(`Error while querying for disclosure documents`);
+    return;
+  }
+
+  disclosureResult.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    if (node.frontmatter.slug) {
+      createPage({
+        path: node.frontmatter.slug,
+        component: require.resolve(`./src/templates/Disclosures.tsx`),
+        context: {
+          slug: node.frontmatter.slug,
+        },
+      });
+    }
   });
 };

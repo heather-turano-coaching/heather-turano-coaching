@@ -6,7 +6,8 @@
     "outDir": "./dist",
     "declaration": true,
     "declarationMap": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "skipLibCheck": true
   },
   "exclude": ["**/*.spec.ts", "**/*.stories.tsx"]
 }

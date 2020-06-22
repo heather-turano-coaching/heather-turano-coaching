@@ -1,11 +1,11 @@
 import {
+  Alert,
   Button,
   ContentfulRichText,
   FormContainer,
-  FormNotification,
+  FormGroup,
   Heading,
   Input,
-  InputGroup,
   Section,
 } from "@heather-turano-coaching/components";
 import {
@@ -66,19 +66,19 @@ const SignUpPage = () => {
         <br />
         <FormContainer>
           {error && (
-            <FormNotification type="error">
+            <Alert type="error">
               {`Oh no! It looks like something went wrong. Error: "${error.errorMessage}". If this is something that seems tough to fix, reach out to Heater at heather@livelifemindful.com`}
-            </FormNotification>
+            </Alert>
           )}
           {data && (
-            <FormNotification type="success">
+            <Alert type="success">
               Horay! Thanks for signing up! You'll receive an welcome email at
               the email address you provided.
-            </FormNotification>
+            </Alert>
           )}
           {!data && (
             <form onSubmit={handleSubmit(onSubmit)}>
-              <InputGroup layout="stacked">
+              <FormGroup layout="stacked">
                 <Input
                   id={`subscribe-first-name`}
                   name="firstName"
@@ -109,7 +109,7 @@ const SignUpPage = () => {
                   loading={loading}
                   onSubmit={handleSubmit(onSubmit)}
                 />
-              </InputGroup>
+              </FormGroup>
             </form>
           )}
         </FormContainer>
