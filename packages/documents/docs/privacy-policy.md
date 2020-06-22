@@ -1,3 +1,8 @@
+---
+id: "privacy-policy"
+slug: "/privacy-policy"
+---
+
 Effective Date: **June 5, 2020**
 
 # 1. Introduction

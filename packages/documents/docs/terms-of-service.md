@@ -1,6 +1,11 @@
+---
+id: "terms-of-service"
+slug: "/terms-of-service"
+---
+
 Last Updated: **June 5, 2020**
 
-# 3. Introduction
+# 1. Introduction
 
 Welcome to **HEATHER TURANO COACHING, LLC** (**“Company”**, **“we”**, **“our”**, **“us”**)! As you have just clicked our Terms of Service, please pause, grab a cup of coffee and carefully read the following pages. It will take you approximately 20 minutes.
 
@@ -52,7 +57,8 @@ If you do enter your billing information when signing up for Free Trial, you wil
 
 At any time and without notice, HEATHER TURANO COACHING, LLC reserves the right to (i) modify Terms of Service of Free Trial offer, or (ii) cancel such Free Trial offer.
 
-#7. Fee Changes
+# 7. Fee Changes
+
 HEATHER TURANO COACHING, LLC, in its sole discretion and at any time, may modify Subscription fees for the Subscriptions. Any Subscription fee change will become effective at the end of the then-current Billing Cycle.
 
 HEATHER TURANO COACHING, LLC will provide you with a reasonable prior notice of any change in Subscription fees to give you an opportunity to terminate your Subscription before such change becomes effective.

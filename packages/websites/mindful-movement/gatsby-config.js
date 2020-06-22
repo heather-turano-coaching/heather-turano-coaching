@@ -11,6 +11,10 @@ module.exports = {
     author: `drew@imaginedelements.com`,
   },
   plugins: [
+    `gatsby-plugin-typescript`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
@@ -23,7 +27,6 @@ module.exports = {
         dimensions: true,
       },
     },
-    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -31,7 +34,6 @@ module.exports = {
         accessToken: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -39,8 +41,20 @@ module.exports = {
         name: `images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
+    /**
+     * @todo Turn this into a plugin inside of it's own directory
+     */
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: path.resolve(
+          __dirname,
+          "../../../node_modules/@heather-turano-coaching/documents/docs"
+        ),
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
