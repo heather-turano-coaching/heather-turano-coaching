@@ -6,6 +6,12 @@ require("dotenv").config({
 
 const siteConfig = require("./src/gatsby/site.config");
 
+const denyListedUrls = [
+  "/mindful-mover-og",
+  "/cancel-payment",
+  "/payment-success",
+];
+
 module.exports = {
   pathPrefix: siteConfig.pathPrefix,
   siteMetadata: siteConfig.siteMetadataConfig,
@@ -17,7 +23,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: ["/mindful-mover-og", "/cancel-payment", "/payment-success"],
+        exclude: denyListedUrls,
       },
     },
     {
@@ -69,11 +75,35 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        policy: [
+          {
+            userAgent: "Googlebot",
+            allow: "/",
+            disallow: denyListedUrls,
+            crawlDelay: 2,
+          },
+          {
+            userAgent: "OtherBot",
+            allow: "/",
+            disallow: denyListedUrls,
+            crawlDelay: 2,
+          },
+          {
+            userAgent: "*",
+            allow: "/",
+            disallow: denyListedUrls,
+            crawlDelay: 10,
+            cleanParam: "ref /articles/",
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: siteConfig.manifestConfig,
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     {
       resolve: `gatsby-plugin-offline`,
       options: {
