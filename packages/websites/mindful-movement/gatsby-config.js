@@ -4,12 +4,12 @@ require("dotenv").config({
   path: path.resolve(__dirname, `../../../.env`),
 });
 
+const siteConfig = require("./src/gatsby/site.config");
+console.log(siteConfig);
+
 module.exports = {
-  siteMetadata: {
-    title: `100 Days of Mindful Movement`,
-    description: `Signup to join the 100 Days of Mindful Movement!`,
-    author: `drew@imaginedelements.com`,
-  },
+  pathPrefix: siteConfig.pathPrefix,
+  siteMetadata: siteConfig.siteMetadataConfig,
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
@@ -56,18 +56,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `100 Days of Mindful Movement`,
-        short_name: `Mindful Movement 100`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#fff`,
-        display: `Mindful Movement 100`,
-        icon: `static/favicon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ["Product"],
@@ -75,8 +63,27 @@ module.exports = {
         downloadFiles: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: siteConfig.manifestConfig,
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [
+          "/404",
+          "/cancel-payment",
+          "/index",
+          "/payment-success",
+          "/sign-up",
+        ],
+        workboxConfig: {
+          cacheId: `mm100-offline-cache`,
+          globPatterns: ["**/*"],
+        },
+      },
+    },
   ],
 };

@@ -85,7 +85,7 @@ export const Layout: FC = ({ children }) => {
           </FooterText>
           <ul>
             {disclosurePages.map((page) => (
-              <li>
+              <li key={page.frontmatter.slug}>
                 <FooterText>
                   <Link to={page.frontmatter.slug}>
                     {page.frontmatter.title}

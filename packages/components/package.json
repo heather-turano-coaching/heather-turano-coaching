@@ -4,6 +4,10 @@
   "description": "React component library for Heather Turano Coaching, LLC",
   "author": "Drew DeCarme (drew@imaginedelements.com)",
   "license": "MIT",
+  "files": [
+    "dist",
+    "seo"
+  ],
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "repository": {

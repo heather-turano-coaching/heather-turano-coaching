@@ -1,6 +1,7 @@
+import { SEO } from "@heather-turano-coaching/gatsby";
 import React from "react";
 
-import { Layout, SEO } from "../components";
+import { Layout } from "../components";
 import { About } from "../features/about";
 import { Hero } from "../features/Hero";
 import { Introduction } from "../features/Introduction";
@@ -11,7 +12,10 @@ import { WhoWeAre } from "../features/WhoAreWe";
 const IndexPage = () => {
   return (
     <Layout>
-      <SEO title="Home" description="home page for 100 days" />
+      <SEO
+        pageTitle="Welcome"
+        pageDescription="Welcome to Mindful Movement 100. We're here to help you re-invent your relationship with exercise."
+      />
       <Hero />
       <Introduction />
       <div id="about" />

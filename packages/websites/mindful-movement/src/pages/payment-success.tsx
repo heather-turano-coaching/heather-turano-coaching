@@ -3,11 +3,12 @@ import {
   Heading,
   Section,
 } from "@heather-turano-coaching/components";
+import { SEO } from "@heather-turano-coaching/gatsby";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { Layout, SEO } from "../components";
+import { Layout } from "../components";
 
 const StyledSectionContainer = styled.div`
   height: 100%;
@@ -35,7 +36,7 @@ const IndexPage = () => {
   `);
   return (
     <Layout>
-      <SEO title="Payment Success" description="Successful payment page" />
+      <SEO pageTitle="Payment Successful!" />
       <StyledSectionContainer>
         <Section styleType="layered">
           <Heading fontSize="h1" fontFamily="Playfair Display">
