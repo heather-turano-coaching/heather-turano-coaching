@@ -1,0 +1,19 @@
+{
+  "name": "@heather-turano-coaching/gatsby",
+  "version": "1.0.0",
+  "description": "Gatsby specific components to be used throughout all gatsby websites",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/heather-turano-coaching/heather-turano-coaching.git"
+  },
+  "author": "Drew DeCarme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
+  },
+  "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme"
+}

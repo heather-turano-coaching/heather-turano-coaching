@@ -4,12 +4,13 @@ import {
   Heading,
   Section,
 } from "@heather-turano-coaching/components";
+import { SEO } from "@heather-turano-coaching/gatsby";
 import { navigate } from "@reach/router";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useCallback } from "react";
 import styled from "styled-components";
 
-import { Layout, SEO } from "../components";
+import { Layout } from "../components";
 
 const StyledSectionContainer = styled.div`
   height: 100%;
@@ -44,7 +45,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Payment cancelled" description="Confirm cancelled payment" />
+      <SEO pageTitle="Payment Cancelled" />
       <StyledSectionContainer>
         <Section styleType="layered">
           <Heading fontSize="h1" fontFamily="Playfair Display">

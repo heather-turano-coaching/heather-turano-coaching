@@ -1,8 +1,9 @@
 import { Content, Heading, Section } from "@heather-turano-coaching/components";
+import { SEO } from "@heather-turano-coaching/gatsby";
 import { graphql } from "gatsby";
 import React, { FC } from "react";
 
-import { Layout, SEO } from "../components";
+import { Layout } from "../components";
 
 interface DisclosuresTemplateData {
   data: {
@@ -26,7 +27,7 @@ const DisclosuresTemplate: FC<DisclosuresTemplateData> = ({
 }) => {
   return (
     <Layout>
-      <SEO title={title} description={metaDescription} />
+      <SEO pageTitle={title} pageDescription={metaDescription} />
       <Section styleType="layered">
         <Heading fontSize="h1" fontFamily="Playfair Display">
           {title}

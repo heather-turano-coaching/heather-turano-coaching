@@ -12,13 +12,14 @@ import {
   SubscribeRequest,
   SubscribeResponse,
 } from "@heather-turano-coaching/domain";
+import { SEO } from "@heather-turano-coaching/gatsby";
 import { useApi } from "@heather-turano-coaching/hooks";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { useForm } from "react-hook-form";
 
 import { subscribeToBlog } from "../api";
-import { Layout, SEO } from "../components";
+import { Layout } from "../components";
 
 const SignUpPage = () => {
   const { contentfulPageSignUp: queryData } = useStaticQuery<{
@@ -50,7 +51,10 @@ const SignUpPage = () => {
 
   return (
     <Layout>
-      <SEO title="Payment cancelled" description="Confirm cancelled payment" />
+      <SEO
+        pageTitle="Sign Up"
+        pageDescription="Sign up for the next 100 days of Mindful Movement and get back to the honeymoon phase between you and your workouts!"
+      />
       <Section styleType="layered">
         <Heading fontSize="h1" fontFamily="Playfair Display">
           {queryData.title}
