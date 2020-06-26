@@ -10,6 +10,7 @@ const denyListedUrls = [
   "/mindful-mover-og",
   "/cancel-payment",
   "/payment-success",
+  "/404",
 ];
 
 module.exports = {
