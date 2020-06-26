@@ -5,7 +5,6 @@ require("dotenv").config({
 });
 
 const siteConfig = require("./src/gatsby/site.config");
-console.log(siteConfig);
 
 module.exports = {
   pathPrefix: siteConfig.pathPrefix,
@@ -15,6 +14,12 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: ["/mindful-mover-og", "/cancel-payment", "/payment-success"],
+      },
+    },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
