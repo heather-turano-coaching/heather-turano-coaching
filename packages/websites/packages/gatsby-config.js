@@ -6,12 +6,7 @@ require("dotenv").config({
 
 const siteConfig = require("./src/gatsby/site.config");
 
-const denyListedUrls = [
-  "/mindful-mover-og",
-  "/cancel-payment",
-  "/payment-success",
-  "/404",
-];
+const denyListedUrls = ["/cancel-payment", "/payment-success", "/404"];
 
 module.exports = {
   pathPrefix: siteConfig.pathPrefix,

@@ -98,7 +98,11 @@ export const PackagesTemplate: FC<PackagesTemplateProps> = ({
       priceId: HTCPackagePrice["id"],
       priceInCents: HTCPackagePrice["unit_amount"]
     ) => () => {
-      runCheckoutQuery({ variables: { priceId } });
+      if (priceInCents === 0) {
+        navigate("sign-up");
+      } else {
+        runCheckoutQuery({ variables: { priceId } });
+      }
     },
     [runCheckoutQuery]
   );
