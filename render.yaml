@@ -46,6 +46,22 @@ services:
       - key: GATSBY_HTC_API
         value: https://api.heatherturanocoaching.com
 
+  - type: web
+    name: Packages
+    env: static
+    branch: master
+    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
+    buildCommand: yarn build:packages
+    staticPublishPath: ./packages/websites/packages/public
+    domains:
+      - packages.heatherturanocoaching.com
+    envVars:
+      - fromGroup: htc-npm
+      - fromGroup: htc-contentful
+      - fromGroup: htc-stripe
+      - key: GATSBY_HTC_API
+        value: https://api.heatherturanocoaching.com
+
   # API
   - type: web
     name: Api
