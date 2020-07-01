@@ -22,7 +22,7 @@ export interface ProductCardProps {
   name: string;
   features: string[];
   color: string;
-  img: string;
+  img?: string;
   imgAlt: string;
   basePrice: HTCPackagePrice;
   couponPrice?: HTCPackagePrice;
@@ -114,7 +114,7 @@ export const ProductCard: FC<ProductCardProps> = memo(
 
     return (
       <StyledProductCard>
-        <StyledProductImage src={img} alt={imgAlt} />
+        {img && <StyledProductImage src={img} alt={imgAlt} />}
         <StyledProductHeader productColor={color}>
           <Heading fontSize="h5">{name}</Heading>
           {description && (
