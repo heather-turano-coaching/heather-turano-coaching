@@ -21,7 +21,7 @@ services:
     buildCommand: yarn build:live-life-mindful
     staticPublishPath: ./packages/websites/live-life-mindful/public
     domains:
-      - livelifemindful.com
+      - dev.livelifemindful.com
     envVars:
       - fromGroup: htc-npm
       - fromGroup: htc-ghost
@@ -90,14 +90,14 @@ services:
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
     domains:
-      - admin.blog.livelifemindful.com
+      - blog.livelifemindful.com
     disk:
       name: ghost
       mountPath: /var/lib/ghost/content
       sizeGB: 10
     envVars:
       - key: url
-        value: https://admin.blog.livelifemindful.com
+        value: https://blog.livelifemindful.com
       - key: mail__transport
         value: SMTP
       - key: mail__from
@@ -123,10 +123,10 @@ services:
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
     domains:
-      - community.blog.livelifemindful.com
+      - community.livelifemindful.com
     envVars:
       - key: COMMENTO_ORIGIN
-        value: https://community.blog.livelifemindful.com
+        value: https://community.livelifemindful.com
       - key: COMMENTO_SMTP_HOST
         value: smtp.mailgun.org
       - key: COMMENTO_SMTP_PORT
