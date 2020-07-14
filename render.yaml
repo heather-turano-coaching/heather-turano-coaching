@@ -154,7 +154,7 @@ envVarGroups:
   - name: htc-ghost
     envVars:
       - key: GHOST_API_URL
-        value: https://admin.blog.livelifemindful.com
+        value: https://blog.livelifemindful.com
       - key: GHOST_CONTENT_API_KEY
         sync: false
   - name: htc-contentful
