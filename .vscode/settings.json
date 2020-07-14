@@ -1,21 +1,4 @@
 {
   "cSpell.words": ["Carme"],
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "sqltools.connections": [
-    {
-      "database": "yello",
-      "dialect": "PostgreSQL",
-      "name": "yello-local",
-      "password": "postgres",
-      "port": 5432,
-      "server": "localhost",
-      "username": "postgres"
-    },
-    {
-      "connectString": "postgres://postgres:postgres@localhost:5432/htc_db",
-      "dialect": "PostgreSQL",
-      "name": "htc-local"
-    }
-  ],
-  "editor.formatOnSave": true
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

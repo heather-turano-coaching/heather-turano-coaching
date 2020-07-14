@@ -1,7 +1,7 @@
 import React from "react";
 
+import { Typography } from "../typography";
 import { Stepper } from "./Stepper";
-import { Typography } from "./Typography";
 
 export default {
   component: Stepper,
