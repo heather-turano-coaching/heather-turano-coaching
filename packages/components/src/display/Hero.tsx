@@ -1,4 +1,3 @@
-import { createImageBorder } from "@heather-turano-coaching/components";
 import { ColorProperties } from "@heather-turano-coaching/design-system";
 import {
   makeColor,
@@ -7,6 +6,8 @@ import {
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
+
+import { createImageBorder } from "../utils";
 
 export interface HeroProps {
   image: string;
