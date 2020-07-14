@@ -93,7 +93,7 @@ services:
       - blog.livelifemindful.com
     disk:
       name: ghost
-      mountPath: /var/lib/ghost/data
+      mountPath: /var/lib/ghost/ghost_content
       sizeGB: 10
     envVars:
       - key: url
