@@ -1,0 +1,20 @@
+{
+  "name": "@heather-turano-coaching/documents",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Markdown document repository for shared documents such as terms of service, privacy policies, agreements, etc...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/heather-turano-coaching/heather-turano-coaching.git"
+  },
+  "author": "Drew DeCarme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
+  },
+  "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme"
+}

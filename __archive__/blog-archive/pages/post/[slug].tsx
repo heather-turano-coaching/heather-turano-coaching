@@ -1,22 +1,23 @@
-import React from "react";
-import { NextPage } from "next";
-import { getPostBySlug } from "../../api";
-import { PostOrPage } from "@tryghost/content-api";
 import {
+  BlogCardAvatar,
+  BlogSocialLinks,
+  Content,
+  Heading,
   Hero,
   Section,
-  BlogCardAvatar,
-  Heading,
-  BlogSocialLinks,
-  Content
 } from "@heather-turano-coaching/components";
-import { formatLongDate } from "../../utils";
-import { TagsSection } from "../../components";
-import styled from "styled-components";
 import {
+  makeColor,
   makeRhythm,
-  makeColor
 } from "@heather-turano-coaching/design-system/utils";
+import { PostOrPage } from "@tryghost/content-api";
+import { NextPage } from "next";
+import React from "react";
+import styled from "styled-components";
+
+import { getPostBySlug } from "../../api";
+import { TagsSection } from "../../components";
+import { formatLongDate } from "../../utils";
 
 interface BlogPostProps {
   blogPost: PostOrPage;
@@ -39,8 +40,8 @@ const BlogPost: NextPage<BlogPostProps> = ({
     published_at,
     title,
     html,
-    tags
-  }
+    tags,
+  },
 }) => (
   <>
     <StyledBlogHero>
@@ -64,7 +65,7 @@ const BlogPost: NextPage<BlogPostProps> = ({
           facebook: "test-facebook",
           twitter: "test-twitter",
           pinterest: "test-pinterest",
-          instagram: "test-instagram"
+          instagram: "test-instagram",
         }}
       />
     </Section>

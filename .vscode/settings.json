@@ -1,6 +1,4 @@
 {
-  "cSpell.words": [
-    "Carme"
-  ],
+  "cSpell.words": ["Carme"],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

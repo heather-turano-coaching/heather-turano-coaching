@@ -4,6 +4,10 @@
   "description": "React component library for Heather Turano Coaching, LLC",
   "author": "Drew DeCarme (drew@imaginedelements.com)",
   "license": "MIT",
+  "files": [
+    "dist",
+    "seo"
+  ],
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "repository": {
@@ -44,9 +48,11 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.1"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^14.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/pro-duotone-svg-icons": "^5.13.0",
@@ -58,10 +64,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hook-form": "^5.7.2",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.10.1",
     "@storybook/addon-a11y": "^5.3.19",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",

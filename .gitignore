@@ -1,4 +1,7 @@
 node_modules
 packages/components/storybook-static
 .env
+.env.development
+.env.production
 **/dist
+yarn-error.log

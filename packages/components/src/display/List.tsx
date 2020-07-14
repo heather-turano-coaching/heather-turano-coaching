@@ -1,0 +1,9 @@
+import { makeReset } from "@heather-turano-coaching/design-system";
+import React, { FC } from "react";
+import styled from "styled-components";
+
+const StyledList = styled.ul`
+  ${makeReset("list")}
+`;
+
+export const List: FC = ({ children }) => <StyledList>{children}</StyledList>;
