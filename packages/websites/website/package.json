@@ -8,9 +8,10 @@
     "node": ">= 8.9.0"
   },
   "scripts": {
-    "serve": "gatsby build && NODE_ENV=production gatsby serve",
-    "build": "gatsby build",
-    "start": "gatsby develop"
+    "prebuild": "tsc --project ./tsconfig.configs.json",
+    "serve": "yarn prebuild && gatsby build && NODE_ENV=production gatsby serve",
+    "build": "yarn prebuild && gatsby build",
+    "start": "yarn prebuild && gatsby develop"
   },
   "devDependencies": {
     "@heather-turano-coaching/domain": "^1.1.0",
@@ -49,6 +50,7 @@
     "gatsby-plugin-styled-components": "^3.3.2",
     "gatsby-plugin-svgr": "^2.0.2",
     "gatsby-plugin-typescript": "^2.4.3",
+    "gatsby-plugin-typescript-checker": "^1.1.1",
     "gatsby-source-contentful": "^2.3.12",
     "gatsby-source-filesystem": "2.3.8",
     "gatsby-source-ghost": "4.0.4",

@@ -130,7 +130,7 @@ const AuthorPage: FC<{ data: any; location: Location; pageContext: any }> = ({
                 </StyledBioBlock>
               </LayoutBlockContent>
             </LayoutBlock>
-            <BlockRecentPosts posts={posts} />
+            <BlockRecentPosts />
           </LayoutColumn>
           <LayoutColumn>
             <BlockSubscribe />

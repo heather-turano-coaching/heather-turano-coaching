@@ -4,13 +4,12 @@ require("dotenv").config({
   path: path.resolve(__dirname, "../../../.env"),
 });
 
-const config = require(`./src/utils/siteConfig`);
+const { websiteConfig } = require("./configs/site.config.js");
 // const generateRSSFeed = require(`./src/utils/rss/generate-feed`);
 
 module.exports = {
-  siteMetadata: {
-    siteUrl: config.siteUrl,
-  },
+  pathPrefix: websiteConfig.pathPrefix,
+  siteMetadata: websiteConfig.siteMetadataConfig,
   plugins: [
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -24,7 +23,8 @@ module.exports = {
         dimensions: false,
       },
     },
-    `gatsby-plugin-typescript`,
+    "gatsby-plugin-typescript",
+    "gatsby-plugin-typescript-checker",
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -32,29 +32,13 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    // default
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.join(__dirname, `src`, `pages`),
-        name: `pages`,
-      },
-    },
-    // https://www.gatsbyjs.org/packages/gatsby-image/
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.join(__dirname, `src`, `assets`, `images`),
+        path: path.join(__dirname, `src`, `images`),
         name: `images`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: path.join(__dirname, `src`, `assets`, `icons`),
-    //     name: `icons`,
-    //   },
-    // },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
@@ -65,35 +49,8 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-ghost-manifest`,
-      options: {
-        short_name: config.shortTitle,
-        start_url: `/`,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: `minimal-ui`,
-        icon: `static/${config.siteIcon}`,
-        legacy: true,
-        query: `
-                {
-                    allGhostSettings {
-                        edges {
-                            node {
-                                title
-                                description
-                            }
-                        }
-                    }
-                }
-              `,
-      },
+      resolve: `gatsby-plugin-manifest`,
+      options: { ...websiteConfig.manifestConfig, cache_busting_mode: "none" },
     },
     // {
     //   resolve: `gatsby-plugin-feed`,

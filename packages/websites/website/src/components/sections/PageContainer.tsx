@@ -1,10 +1,4 @@
-import { sharedHorizontalBodyPadding } from "@heather-turano-coaching/components";
-import {
-  makeInset,
-  makeResponsive,
-  makeSize,
-  makeSpace,
-} from "@heather-turano-coaching/design-system";
+import { makeSize, makeSpace } from "@heather-turano-coaching/design-system";
 import styled, { css } from "styled-components";
 
 const mandala = require("../../../static/images/mandala.png").default;

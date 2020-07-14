@@ -1,6 +1,4 @@
 import {
-  BlogCardAvatar,
-  BlogSocialLinks,
   Content,
   Heading,
   Hero,
@@ -13,7 +11,13 @@ import React, { FC } from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
 
-import { Layout, MetaData, TagsSection } from "../components";
+import {
+  BlogCardAvatar,
+  BlogSocialLinks,
+  Layout,
+  MetaData,
+  TagsSection,
+} from "../components";
 import { formatLongDate } from "../utils";
 
 interface BlogPostProps {

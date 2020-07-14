@@ -1,18 +1,17 @@
-import React, { FC } from "react";
-import { useForm } from "react-hook-form";
-import { useStaticQuery, graphql } from "gatsby";
-
 import {
-  InputGroup,
-  Input,
+  Alert,
   Button,
-  FormNotification
+  FormGroup,
+  Input,
 } from "@heather-turano-coaching/components";
-import { useApi } from "@heather-turano-coaching/hooks";
 import {
   SubscribeRequest,
-  SubscribeResponse
+  SubscribeResponse,
 } from "@heather-turano-coaching/domain";
+import { useApi } from "@heather-turano-coaching/hooks";
+import { graphql, useStaticQuery } from "gatsby";
+import React, { FC } from "react";
+import { useForm } from "react-hook-form";
 
 import { subscribeToBlog } from "../../api";
 
@@ -43,19 +42,19 @@ export const FormSubscribe: FC<FormSubscribeProps> = ({ fieldPrefix }) => {
   return (
     <>
       {error && (
-        <FormNotification type="error">
+        <Alert type="error">
           {`Oh no! It looks like something went wrong. Error: "${error.errorMessage}"`}
-        </FormNotification>
+        </Alert>
       )}
       {data && (
-        <FormNotification type="success">
+        <Alert type="success">
           Horay! Thank you for signing up! You're going to recieve a welcome
           email at the address you provided.
-        </FormNotification>
+        </Alert>
       )}
       {!data && (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <InputGroup layout="stacked">
+          <FormGroup layout="stacked">
             <Input
               id={`${fieldPrefix}-subscribe-first-name`}
               name="firstName"
@@ -86,7 +85,7 @@ export const FormSubscribe: FC<FormSubscribeProps> = ({ fieldPrefix }) => {
               loading={loading}
               onSubmit={handleSubmit(onSubmit)}
             />
-          </InputGroup>
+          </FormGroup>
         </form>
       )}
     </>

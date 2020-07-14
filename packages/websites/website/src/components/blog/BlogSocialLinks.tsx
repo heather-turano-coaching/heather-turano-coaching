@@ -1,3 +1,4 @@
+import { Icon, makeFlex } from "@heather-turano-coaching/components";
 import {
   ColorProperties,
   SizeProperties,
@@ -12,8 +13,6 @@ import {
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-import { Icon } from "../typography";
-import { makeFlex } from "../utils";
 import { BlogSocialOptions } from "./blog.types";
 
 type BlogSocialLinksProps = Partial<BlogSocialOptions> & {

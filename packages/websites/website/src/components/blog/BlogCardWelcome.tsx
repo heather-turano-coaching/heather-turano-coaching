@@ -62,7 +62,7 @@ export const BlogCardWelcome: FC<BlogCardWelcomeProps> = ({
       <StyledBlogCardWelcome>
         <div>
           <Heading
-            fontFamily="Covered by your Grace"
+            fontFamily="Covered By Your Grace"
             fontColor={{ scalable: { color: "primary", scale: 0 } }}
           >
             {title}

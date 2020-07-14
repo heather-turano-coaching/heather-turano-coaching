@@ -1,3 +1,4 @@
+import { Typography } from "@heather-turano-coaching/components";
 import {
   makeColor,
   makeInset,
@@ -9,8 +10,6 @@ import {
 import { rgba } from "polished";
 import React, { FC } from "react";
 import styled from "styled-components";
-
-import { Typography } from "../typography";
 
 export interface BlogCategory {
   rawLabel: string;

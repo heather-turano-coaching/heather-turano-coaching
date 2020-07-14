@@ -1,4 +1,9 @@
 import {
+  Avatar,
+  Typography,
+  makeFlex,
+} from "@heather-turano-coaching/components";
+import {
   makeInset,
   makeOutset,
   makeSize,
@@ -7,9 +12,6 @@ import { ColorProperties } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-import { Avatar } from "../assets";
-import { Typography } from "../typography";
-import { makeFlex } from "../utils";
 import { BlogAuthor, BlogMetaInformation } from "./blog.types";
 
 type BlogCardAvatarProps = BlogAuthor &

@@ -28,7 +28,6 @@ import {
   LayoutBlockTitle,
 } from "../../components/layout";
 import { destructureNodes } from "../../utils";
-import { BlogWelcome } from "../blog";
 
 interface BlockFeaturedPostsProps {
   featuredPosts: PostOrPage[];

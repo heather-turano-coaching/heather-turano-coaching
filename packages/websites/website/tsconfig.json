@@ -1,6 +1,11 @@
 {
   "extends": "@heather-turano-coaching/typescript/tsconfig.react.json",
-  "include": ["src/**/*.ts", "src/**/*.tsx", "types/"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "types/",
+    "src/components/meta/index.ts"
+  ],
   "compilerOptions": {
     "noEmit": true,
     "isolatedModules": true,

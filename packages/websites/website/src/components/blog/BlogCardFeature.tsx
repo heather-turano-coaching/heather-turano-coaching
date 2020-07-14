@@ -1,6 +1,5 @@
 import {
   Avatar,
-  BlogCardAvatar,
   Button,
   Heading,
   Typography,
@@ -21,8 +20,9 @@ import React, { FC } from "react";
 import styled from "styled-components";
 
 import { formatLongDate } from "../../utils";
+import { FrameworkLink } from "../general";
 import { TagsSection } from "../sections";
-import { FrameworkLink } from "..";
+import { BlogCardAvatar } from "./BlogCardAvatar";
 
 interface BlogCardFeatureProps {
   featuredPost: PostOrPage;

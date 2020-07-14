@@ -1,5 +1,4 @@
 import {
-  Heading,
   Image,
   Section,
   SectionCopy,

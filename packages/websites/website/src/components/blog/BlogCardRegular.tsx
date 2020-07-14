@@ -1,5 +1,4 @@
 import {
-  BlogCardAvatar,
   Heading,
   Typography,
   makeFlex,
@@ -20,7 +19,7 @@ import styled from "styled-components";
 
 import { formatLongDate } from "../../utils";
 import { FrameworkLink } from "../general";
-import { TagsSection } from "..";
+import { BlogCardAvatar, TagsSection } from "..";
 
 interface BlogPost {
   post: PostOrPage;

@@ -6,7 +6,6 @@ import {
   makeOutset,
   makeReset,
   makeResponsive,
-  makeRhythm,
   makeSize,
   makeSpace,
 } from "@heather-turano-coaching/design-system";

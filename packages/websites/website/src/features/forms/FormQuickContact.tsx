@@ -1,8 +1,8 @@
 import {
+  Alert,
   Button,
-  FormNotification,
+  FormGroup,
   Input,
-  InputGroup,
 } from "@heather-turano-coaching/components";
 import {
   QuickContactRequest,
@@ -37,19 +37,19 @@ export const FormQuickContact: FC<FormQuickContactProps> = ({
   return (
     <>
       {error && (
-        <FormNotification type="error">
+        <Alert type="error">
           {`Oh no! It looks like something went wrong. Error: "${error.errorMessage}"`}
-        </FormNotification>
+        </Alert>
       )}
       {data && (
-        <FormNotification type="success">
+        <Alert type="success">
           Horay! Thank you for signing up! You're going to recieve a welcome
           email at the address you provided.
-        </FormNotification>
+        </Alert>
       )}
       {!data && (
         <form onSubmit={handleSubmit(onSubmit)}>
-          <InputGroup layout="stacked">
+          <FormGroup layout="stacked">
             <Input
               id={`quick-contact-first-name`}
               name="firstName"
@@ -80,7 +80,7 @@ export const FormQuickContact: FC<FormQuickContactProps> = ({
               loading={loading}
               onSubmit={handleSubmit(onSubmit)}
             />
-          </InputGroup>
+          </FormGroup>
         </form>
       )}
     </>
