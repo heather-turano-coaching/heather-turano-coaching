@@ -83,7 +83,7 @@ services:
         value: https://mindfulmovement100.com
 
   - type: web
-    name: Ghost
+    name: Blog
     env: docker
     dockerfilePath: ./ghost/Dockerfile
     dockerContext: ./ghost
