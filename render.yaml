@@ -18,8 +18,8 @@ services:
     env: static
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: yarn build:live-life-mindful
-    staticPublishPath: ./packages/websites/live-life-mindful/public
+    buildCommand: yarn build:website
+    staticPublishPath: ./packages/websites/website/public
     domains:
       - dev.livelifemindful.com
     envVars:
