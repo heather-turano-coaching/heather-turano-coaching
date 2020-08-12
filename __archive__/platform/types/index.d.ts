@@ -1,4 +1,4 @@
-// import { AuthContext } from '@yellostack/common-services';
+// import { AuthContext } from '@heather-turano-coaching/common-services';
 export {};
 
 declare global {

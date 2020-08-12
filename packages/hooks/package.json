@@ -39,6 +39,6 @@
     "@heather-turano-coaching/typescript": "^0.2.1"
   },
   "dependencies": {
-    "@heather-turano-coaching/eslint-config-htc": "^0.0.1"
+    "@heather-turano-coaching": "^0.0.1"
   }
 }

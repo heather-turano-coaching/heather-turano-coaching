@@ -1,3 +1,7 @@
 module.exports = {
-  extends: "@heather-turano-coaching/eslint-config-htc",
+  extends: "@heather-turano-coaching",
+  parserOptions: {
+    project: ["./tsconfig.json"],
+  },
+  root: true,
 };

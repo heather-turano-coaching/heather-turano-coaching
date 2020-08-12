@@ -1,5 +1,5 @@
 {
-  "name": "@heather-turano-coaching/eslint-config-htc",
+  "name": "@heather-turano-coaching/eslint-config",
   "version": "0.0.1",
   "description": "TS + ESLint configuration for Heather Turano Coaching projects",
   "main": "index.js",

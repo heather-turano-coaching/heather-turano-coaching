@@ -1,4 +1,0 @@
-{
-  "extends": "@heather-turano-coaching/typescript",
-  "exclude": ["packages/__archive__/**", "node_modules"]
-}

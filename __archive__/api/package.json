@@ -1,0 +1,23 @@
+{
+  "name": "@heather-turano-coaching/api",
+  "private": true,
+  "version": "0.6.0",
+  "description": "TS Cloudflare serverless API router",
+  "main": "dist/worker.prod.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack --config=webpack.config.dev.js --watch",
+    "start": "wrangler preview --watch",
+    "publish:dev": "npm run build && wrangler publish",
+    "publish:prod": "npm run build && wrangler publish --env=production"
+  },
+  "author": "Drew DeCarme <drewdecarme@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@heather-turano-coaching": "^0.0.1",
+    "query-string": "^6.12.1"
+  },
+  "devDependencies": {
+    "@heather-turano-coaching/domain": "^1.1.0"
+  }
+}
