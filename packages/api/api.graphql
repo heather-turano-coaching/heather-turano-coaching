@@ -19,9 +19,6 @@ type Message {
 }
 
 type Mutation {
-  """An authorize endpoint for Sign in with apple"""
-  authorizeApple: Boolean
-
   """
   Validates the token against the users email address and set's the users account to CONFIRMED
   """
