@@ -2,14 +2,14 @@ import {
   Typography,
   makeFlex,
   sectionVSpace,
-  sharedHorizontalBodyPadding,
+  sharedHorizontalBodyPadding
 } from "@heather-turano-coaching/components";
 import { ColorProperties } from "@heather-turano-coaching/design-system";
 import {
   makeColor,
   makeInset,
   makeOutset,
-  makeResponsive,
+  makeResponsive
 } from "@heather-turano-coaching/design-system";
 import { darken } from "polished";
 import React, { FC } from "react";
@@ -33,7 +33,7 @@ interface FooterProps {
 }
 
 export const fontColor: ColorProperties = {
-  fixed: "light",
+  fixed: "light"
 };
 
 const StyledFooterContainer = styled.footer`
@@ -41,7 +41,7 @@ const StyledFooterContainer = styled.footer`
   background: ${darken(0.1, makeColor({ scalable: { color: "secondary" } }))};
   ${makeInset({
     vertical: 40,
-    horizontal: sharedHorizontalBodyPadding.phone,
+    horizontal: sharedHorizontalBodyPadding.phone
   })};
 
   ${makeResponsive({
@@ -49,9 +49,9 @@ const StyledFooterContainer = styled.footer`
     style: `
       ${makeInset({
         vertical: sectionVSpace.tabletPortrait,
-        horizontal: sharedHorizontalBodyPadding.tabletPortrait,
+        horizontal: sharedHorizontalBodyPadding.tabletPortrait
       })};
-    `,
+    `
   })}
 `;
 
@@ -80,7 +80,7 @@ const StyledFooter = styled.div`
           flex: 2;
         }
       }
-    `,
+    `
   })};
 `;
 
@@ -88,7 +88,7 @@ export const FooterNav: FC<FooterProps> = ({
   attribution,
   usefulLinks,
   // mainMenu,
-  createdBy,
+  createdBy
 }) => (
   <StyledFooterContainer>
     <StyledFooter>
@@ -106,7 +106,7 @@ export const FooterNav: FC<FooterProps> = ({
             style={{
               display: "inlineBlock",
               textDecorationColor: `${makeColor(fontColor)}`,
-              color: `${makeColor(fontColor)}`,
+              color: `${makeColor(fontColor)}`
             }}
           >
             {createdBy.name}

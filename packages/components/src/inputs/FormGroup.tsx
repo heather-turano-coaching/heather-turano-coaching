@@ -1,7 +1,7 @@
 import {
   makeOutset,
   makeResponsive,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import { Layout } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
@@ -72,10 +72,10 @@ const CSSFormGroupMap: {
             }
           }
         }
-      `,
+      `
     })}
   `,
-  standalone: css``,
+  standalone: css``
 };
 
 const StyledFormGroup = styled.div<FormGroupProps>`
@@ -84,5 +84,5 @@ const StyledFormGroup = styled.div<FormGroupProps>`
 
 export const FormGroup: FC<FormGroupProps> = ({
   layout = "stacked",
-  children,
+  children
 }) => <StyledFormGroup layout={layout}>{children}</StyledFormGroup>;

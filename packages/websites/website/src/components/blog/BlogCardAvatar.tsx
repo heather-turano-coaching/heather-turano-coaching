@@ -1,12 +1,12 @@
 import {
   Avatar,
   Typography,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import {
   makeInset,
   makeOutset,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { ColorProperties } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
@@ -22,7 +22,7 @@ type BlogCardAvatarProps = BlogAuthor &
 
 const avatarSize: { [key in BlogCardAvatarProps["layoutType"]]: number } = {
   stacked: 144,
-  inline: 60,
+  inline: 60
 };
 
 const StyledBlogCardAvatar = styled.div<
@@ -69,7 +69,7 @@ export const BlogCardAvatar: FC<BlogCardAvatarProps> = ({
   avatarImg,
   authorName,
   datePublished,
-  themeType = "dark",
+  themeType = "dark"
 }) => {
   const copyColor: ColorProperties =
     themeType === "dark"

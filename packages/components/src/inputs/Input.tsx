@@ -3,7 +3,7 @@ import {
   makeFont,
   makeInset,
   makeReset,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";
@@ -11,7 +11,7 @@ import styled, { css } from "styled-components";
 import { HTMLInput } from "../types";
 import {
   shareButtonAndInputFontSize,
-  sharedButtonAndInputVerticalPadding,
+  sharedButtonAndInputVerticalPadding
 } from "../utils/vars";
 import { InputControl } from "./InputControl";
 import { InputError, InputErrorProps } from "./InputError";
@@ -67,7 +67,7 @@ export const CSSInputStyle = css<InputProps | TextareaProps | SelectProps>`
   ${makeReset("input")};
   ${makeInset({
     vertical: sharedButtonAndInputVerticalPadding,
-    horizontal: 12,
+    horizontal: 12
   })};
   ${makeFont({ fontSize: shareButtonAndInputFontSize })};
   border: 1px solid ${makeColor({ scalable: { color: "gray", scale: 3 } })};

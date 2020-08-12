@@ -26,7 +26,7 @@ export const TagCardSection: FC<TagCardSectionProps> = ({
 }) => (
   <StyledTagCardSection>
     <TagGroup>
-      {tags.map(tag => (
+      {tags.map((tag) => (
         <FrameworkLink key={tag.id} to={`/${page}/${tag.slug}`}>
           <TagCard type={tagType} name={tag.name as string} />
         </FrameworkLink>

@@ -4,7 +4,7 @@ import {
   makeOutset,
   makeReset,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { Author } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
@@ -17,7 +17,7 @@ import {
   LayoutColumn,
   LayoutContainer,
   PageContainer,
-  PageHeader,
+  PageHeader
 } from "../components";
 import { universalHover } from "../styles";
 import { destructureNodes } from "../utils";
@@ -29,7 +29,7 @@ const StyledAuthorPageContent = styled.ul`
     beginAt: "tabletPortrait",
     style: `
       ${makeFlex("row", "flex-start", "flex-start")};
-    `,
+    `
   })}
 
   & > li {
@@ -40,7 +40,7 @@ const StyledAuthorPageContent = styled.ul`
       endAt: "tabletPortrait",
       style: `
         ${makeOutset({ bottom: 24 })};
-      `,
+      `
     })}
 
     ${makeResponsive({
@@ -53,14 +53,14 @@ const StyledAuthorPageContent = styled.ul`
         &:not(:last-child) {
           ${makeInset({ right: 12 })};
         }
-      `,
+      `
     })}
 
     ${makeResponsive({
       beginAt: "tabletLandscape",
       style: `
       flex-basis: 33.33%;
-    `,
+    `
     })}
 
     a {
@@ -75,7 +75,7 @@ const StyledAuthorPageContent = styled.ul`
 
 export const AuthorsPage: FC = () => {
   const {
-    allGhostAuthor: { edges },
+    allGhostAuthor: { edges }
   } = useStaticQuery(graphql`
     {
       allGhostAuthor(filter: { postCount: { gt: 0 } }) {

@@ -4,7 +4,7 @@ import { Input } from "./Input";
 
 export default {
   component: Input,
-  title: "Inputs|Input",
+  title: "Inputs|Input"
 };
 
 export const base = () => <Input name="default" />;

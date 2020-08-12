@@ -6,11 +6,11 @@ import {
   SectionFooter,
   SectionSpacer,
   Title,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import {
   makeInset,
-  makeResponsive,
+  makeResponsive
 } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, useMemo } from "react";
@@ -33,7 +33,7 @@ const StyledAboutMyClientsTitle = styled.div`
     style: `
       ${makeInset({ horizontal: 60, vertical: 60 })};
       max-width: 60%;
-    `,
+    `
   })}
 `;
 
@@ -63,7 +63,7 @@ const StyledClientImage = styled.div`
           height: 100%;
         }
       }
-    `,
+    `
   })}
 `;
 

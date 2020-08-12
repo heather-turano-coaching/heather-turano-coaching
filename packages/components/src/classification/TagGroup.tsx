@@ -2,7 +2,7 @@ import {
   makeInset,
   makeOutset,
   makeReset,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import { Position } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
@@ -59,7 +59,7 @@ const StyledTagGroup = styled.ul<Required<Pick<TagGroupProps, "alignment">>>`
 export const TagGroup: FC<TagGroupProps> = ({
   tags = [],
   alignment = "left",
-  children,
+  children
 }) => (
   <>
     {tags && tags.length !== 0 && (

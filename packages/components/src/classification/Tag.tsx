@@ -3,7 +3,7 @@ import {
   makeInset,
   makeResponsive,
   makeSize,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled, { SimpleInterpolation, css } from "styled-components";
@@ -22,7 +22,7 @@ const CSSTag: { [key in TagType]: SimpleInterpolation } = {
     ${makeInset({ horizontal: 12 })};
     transition: background 0.15s ease-in-out;
     background: ${makeColor({
-      scalable: { color: "secondary", scale: 3 },
+      scalable: { color: "secondary", scale: 3 }
     })};
 
     ${makeResponsive({
@@ -30,17 +30,17 @@ const CSSTag: { [key in TagType]: SimpleInterpolation } = {
       style: `
         &:hover {
           background: ${makeColor({
-            scalable: { color: "secondary", scale: 2 },
+            scalable: { color: "secondary", scale: 2 }
           })};
         }
-      `,
+      `
     })}
   `,
   tag: css`
     ${makeInset({ horizontal: 12 })};
     transition: background 0.15s ease-in-out;
     background: ${makeColor({
-      scalable: { color: "primary", scale: 3 },
+      scalable: { color: "primary", scale: 3 }
     })};
 
     ${makeResponsive({
@@ -48,10 +48,10 @@ const CSSTag: { [key in TagType]: SimpleInterpolation } = {
       style: `
         &:hover {
           background: ${makeColor({
-            scalable: { color: "primary", scale: 2 },
+            scalable: { color: "primary", scale: 2 }
           })};
         }
-      `,
+      `
     })}
   `,
   list: css`
@@ -59,9 +59,9 @@ const CSSTag: { [key in TagType]: SimpleInterpolation } = {
     background: ${makeColor({ fixed: "bright-green" })};
     border: ${makeSize({ custom: 1 })} solid
       ${makeColor({
-        scalable: { color: "secondary" },
+        scalable: { color: "secondary" }
       })};
-  `,
+  `
 };
 
 export const StyledTag = styled.div<Required<Pick<TagProps, "tagType">>>`

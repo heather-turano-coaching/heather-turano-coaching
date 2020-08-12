@@ -4,7 +4,7 @@ import { Alert } from "./Alert";
 
 export default {
   component: Alert,
-  title: "Messaging|Alert",
+  title: "Messaging|Alert"
 };
 
 export const success = () => <Alert type="success">We did it!</Alert>;

@@ -3,7 +3,7 @@ import {
   makeColor,
   makeInset,
   makeReset,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import { Color } from "@heather-turano-coaching/design-system";
 import { darken } from "polished";
@@ -14,7 +14,7 @@ import { Icon, Typography } from "../display";
 import { HTMLButton } from "../types";
 import {
   shareButtonAndInputFontSize,
-  sharedButtonAndInputVerticalPadding,
+  sharedButtonAndInputVerticalPadding
 } from "../utils/vars";
 
 type ButtonStyleTypes = Extract<
@@ -44,7 +44,7 @@ const buttonStyleMap: {
     bgColorActive: makeColor({ scalable: { color: "secondary", scale: 2 } }),
     borderColor: makeColor({ scalable: { color: "gray" } }),
     borderColorHover: makeColor({ scalable: { color: "gray" } }),
-    borderColorActive: makeColor({ scalable: { color: "gray" } }),
+    borderColorActive: makeColor({ scalable: { color: "gray" } })
   },
   secondary: {
     bgColor: makeColor({ scalable: { color: "secondary" } }),
@@ -52,7 +52,7 @@ const buttonStyleMap: {
     bgColorActive: darken(0.1, makeColor({ scalable: { color: "secondary" } })),
     borderColor: makeColor({ scalable: { color: "secondary" } }),
     borderColorHover: makeColor({ scalable: { color: "secondary" } }),
-    borderColorActive: makeColor({ scalable: { color: "secondary" } }),
+    borderColorActive: makeColor({ scalable: { color: "secondary" } })
   },
   accent: {
     bgColor: makeColor({ scalable: { color: "accent" } }),
@@ -60,7 +60,7 @@ const buttonStyleMap: {
     bgColorActive: makeColor({ scalable: { color: "accent", scale: 2 } }),
     borderColor: makeColor({ scalable: { color: "accent" } }),
     borderColorHover: makeColor({ scalable: { color: "accent" } }),
-    borderColorActive: makeColor({ scalable: { color: "accent" } }),
+    borderColorActive: makeColor({ scalable: { color: "accent" } })
   },
   warning: {
     bgColor: makeColor({ scalable: { color: "warning" } }),
@@ -68,7 +68,7 @@ const buttonStyleMap: {
     bgColorActive: darken(0.1, makeColor({ scalable: { color: "warning" } })),
     borderColor: makeColor({ scalable: { color: "warning" } }),
     borderColorHover: makeColor({ scalable: { color: "warning" } }),
-    borderColorActive: makeColor({ scalable: { color: "warning" } }),
+    borderColorActive: makeColor({ scalable: { color: "warning" } })
   },
   error: {
     bgColor: makeColor({ scalable: { color: "error" } }),
@@ -76,8 +76,8 @@ const buttonStyleMap: {
     bgColorActive: darken(0.1, makeColor({ scalable: { color: "error" } })),
     borderColor: makeColor({ scalable: { color: "error" } }),
     borderColorHover: makeColor({ scalable: { color: "error" } }),
-    borderColorActive: makeColor({ scalable: { color: "error" } }),
-  },
+    borderColorActive: makeColor({ scalable: { color: "error" } })
+  }
 };
 
 export const StyledButton = styled.button<
@@ -86,7 +86,7 @@ export const StyledButton = styled.button<
   ${makeReset("button")}
   ${makeInset({
     vertical: sharedButtonAndInputVerticalPadding,
-    horizontal: 28,
+    horizontal: 28
   })};
   border-radius: ${makeSpace({ custom: 2 })};
   transition: all ease-in-out 0.15s;

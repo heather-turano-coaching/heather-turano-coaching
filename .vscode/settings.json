@@ -1,11 +1,4 @@
 {
-  "cSpell.words": ["Carme"],
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/.git/subtree-cache/**": true,
-    "**/.hg/store/**": true
-  },
   "eslint.workingDirectories": [
     "packages/api",
     "packages/components",
@@ -17,5 +10,7 @@
     "packages/websites/mindful-movement",
     "packages/websites/packages",
     "packages/websites/website"
-  ]
+  ],
+  "prettier.packageManager": "yarn",
+  "prettier.trailingComma": "none"
 }

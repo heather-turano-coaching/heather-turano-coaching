@@ -4,7 +4,7 @@ import { Carousel, CarouselFooter } from "./Carousel";
 
 export default {
   component: Carousel,
-  title: "Display|Carousel",
+  title: "Display|Carousel"
 };
 
 const items = ["item1", "item2", "item3", "item4"];

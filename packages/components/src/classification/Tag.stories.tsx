@@ -6,7 +6,7 @@ import { TagGroup } from "./TagGroup";
 
 export default {
   component: Tag,
-  title: "Classification|Tags",
+  title: "Classification|Tags"
 };
 
 export const baseDefault = () => <Tag text="mindfulness" />;
@@ -24,7 +24,7 @@ export const groupedWithTagArray = () => (
       { text: "mission" },
       { text: "day" },
       { text: "walk" },
-      { text: "stems" },
+      { text: "stems" }
     ]}
   />
 );
@@ -70,7 +70,7 @@ export const listGroupedWithTagArray = () => (
       { tagType: "list", text: "mission" },
       { tagType: "list", text: "day" },
       { tagType: "list", text: "walk" },
-      { tagType: "list", text: "stems" },
+      { tagType: "list", text: "stems" }
     ]}
   />
 );

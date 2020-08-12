@@ -4,7 +4,7 @@ import { Icon } from "./Icon";
 
 export default {
   component: Icon,
-  title: "Display|Icon",
+  title: "Display|Icon"
 };
 
 export const icon = () => (

@@ -35,7 +35,7 @@ const StyledContainer = styled.div`
 `;
 
 export const TestimonialCarousel: FC<{ testimonials: Testimonial[] }> = ({
-  testimonials,
+  testimonials
 }) => {
   const [currentEntry, setCurrentEntry] = useState<number>(0);
   const goToEntry = (index: number) => setCurrentEntry(index);

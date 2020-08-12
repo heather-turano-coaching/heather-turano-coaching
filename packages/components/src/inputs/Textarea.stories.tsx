@@ -4,7 +4,7 @@ import { Textarea } from "./Textarea";
 
 export default {
   component: Textarea,
-  title: "Inputs|Textarea",
+  title: "Inputs|Textarea"
 };
 
 export const base = () => <Textarea name="default" />;

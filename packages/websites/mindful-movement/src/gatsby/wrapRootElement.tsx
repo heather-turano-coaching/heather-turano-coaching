@@ -2,7 +2,7 @@ import { ApolloProvider } from "@apollo/client";
 import {
   makeFontFace,
   makeReset,
-  makeResponsive,
+  makeResponsive
 } from "@heather-turano-coaching/design-system";
 import React, { ReactNode } from "react";
 import { Helmet } from "react-helmet";
@@ -20,7 +20,7 @@ const fontFaceLinks = fontFaceDefs.reduce(
             key={`link-${i.toString()}`}
             rel="stylesheet"
             href={fontFaceDef.split('("')[1].split('")')[0]}
-          />,
+          />
         ]
       : accum,
   [] as ReactNode[]
@@ -40,21 +40,21 @@ const GlobalStyle = createGlobalStyle`
       beginAt: "tabletPortrait",
       style: `
         font-size: 18px;
-      `,
+      `
     })};
 
     ${makeResponsive({
       beginAt: "laptop",
       style: `
         font-size: 20px;
-      `,
+      `
     })};
 
     ${makeResponsive({
       beginAt: "desktop",
       style: `
         font-size: 22px;
-      `,
+      `
     })}
   }
 

@@ -4,7 +4,7 @@ import { Button } from "./Button";
 
 export default {
   component: Button,
-  title: "Inputs|Button",
+  title: "Inputs|Button"
 };
 
 export const allTypes = () => (

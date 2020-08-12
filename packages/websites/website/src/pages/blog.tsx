@@ -6,7 +6,7 @@ import {
   LayoutColumn,
   LayoutContainer,
   MetaData,
-  PageContainer,
+  PageContainer
 } from "../components";
 import {
   BlockContributors,
@@ -15,7 +15,7 @@ import {
   BlockRecentPosts,
   BlockSubscribe,
   BlockTagsList,
-  BockDailyInspiration,
+  BockDailyInspiration
 } from "../features";
 
 // @ts-ignore

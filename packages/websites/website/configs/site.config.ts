@@ -1,6 +1,6 @@
 import {
   ManifestProperties,
-  SiteSEOProperties,
+  SiteSEOProperties
 } from "@heather-turano-coaching/gatsby";
 
 interface WebsiteConfig {
@@ -24,7 +24,7 @@ export const websiteConfig: WebsiteConfig = {
     siteOgLanguage: "en_US",
     siteAuthor: "Imagined Elements, LLC",
     siteBaseKeywords: ["Heather Turano Coaching"],
-    twitterHandle: "@heatherturanocoaching",
+    twitterHandle: "@heatherturanocoaching"
   },
   manifestConfig: {
     name: "Heather Turano Coaching",
@@ -33,6 +33,6 @@ export const websiteConfig: WebsiteConfig = {
     start_url: "/",
     background_color: "#fff",
     display: "standalone",
-    theme_color: "#fff",
-  },
+    theme_color: "#fff"
+  }
 };

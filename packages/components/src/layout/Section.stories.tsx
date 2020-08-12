@@ -4,7 +4,7 @@ import { Section } from "./Section";
 
 export default {
   component: Section,
-  title: "Layout|Section",
+  title: "Layout|Section"
 };
 
 const Container: FC = ({ children }) => (

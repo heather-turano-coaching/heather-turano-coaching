@@ -1,23 +1,23 @@
 module.exports = {
   globals: {
-    __PATH_PREFIX__: true,
+    __PATH_PREFIX__: true
   },
   parser: "@typescript-eslint/parser",
   env: { browser: true, es6: true, node: true, jest: true },
   parserOptions: {
     ecmaFeatures: {
       modules: true,
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: "module"
   },
   extends: [
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
     "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ],
   plugins: [
     "@typescript-eslint",
@@ -25,7 +25,7 @@ module.exports = {
     "import",
     "jsx-a11y",
     "jsdoc",
-    "react-hooks",
+    "react-hooks"
   ],
   rules: {
     // TypeScript Rules
@@ -35,7 +35,7 @@ module.exports = {
     "no-console": "warn",
     "@typescript-eslint/explicit-function-return-type": [
       "warn",
-      { allowTypedFunctionExpressions: true, allowExpressions: true },
+      { allowTypedFunctionExpressions: true, allowExpressions: true }
     ],
     "react/jsx-filename-extension": ["error", { extensions: [".tsx"] }],
     "@typescript-eslint/ban-ts-ignore": "off",
@@ -47,7 +47,7 @@ module.exports = {
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/no-unused-vars": [
       "warn",
-      { argsIgnorePattern: "^_", ignoreRestSiblings: true },
+      { argsIgnorePattern: "^_", ignoreRestSiblings: true }
     ],
     "@typescript-eslint/no-use-before-define": ["error", { functions: false }],
     // React Rules
@@ -56,9 +56,9 @@ module.exports = {
     "import/no-extraneous-dependencies": [
       "error",
       {
-        devDependencies: ["src/**/*.spec.ts*", "src/**/*.stories.tsx"],
-      },
-    ],
+        devDependencies: ["src/**/*.spec.ts*", "src/**/*.stories.tsx"]
+      }
+    ]
     // JSDoc Rules
     // "jsdoc/require-jsdoc": [
     //   "warn",
@@ -79,8 +79,8 @@ module.exports = {
       files: ["*.js"],
       rules: {
         "@typescript-eslint/no-var-requires": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
-      },
-    },
-  ],
+        "@typescript-eslint/explicit-function-return-type": "off"
+      }
+    }
+  ]
 };

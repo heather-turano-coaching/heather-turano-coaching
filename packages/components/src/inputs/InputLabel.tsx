@@ -18,7 +18,7 @@ const StyledInputLabel = styled.label`
 export const InputLabel: FC<InputLabelProps> = ({
   label = undefined,
   htmlFor,
-  isValid = true,
+  isValid = true
 }) => (
   <>
     {label && (
@@ -28,8 +28,8 @@ export const InputLabel: FC<InputLabelProps> = ({
           fontSize="sm"
           fontColor={{
             scalable: {
-              color: isValid ? "secondary" : "error",
-            },
+              color: isValid ? "secondary" : "error"
+            }
           }}
         >
           {label}

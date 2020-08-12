@@ -8,7 +8,7 @@ const Moana = require("../../.storybook/assets/moana.jpg");
 
 export default {
   component: Avatar,
-  title: "Display|Avatar",
+  title: "Display|Avatar"
 };
 
 export const base = () => <Avatar image={Moana} alt="moana" />;

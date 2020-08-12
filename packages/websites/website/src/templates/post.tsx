@@ -2,7 +2,7 @@ import {
   Content,
   Heading,
   Hero,
-  Section,
+  Section
 } from "@heather-turano-coaching/components";
 import { makeColor, makeRhythm } from "@heather-turano-coaching/design-system";
 import { PostOrPage } from "@tryghost/content-api";
@@ -16,7 +16,7 @@ import {
   BlogSocialLinks,
   Layout,
   MetaData,
-  TagsSection,
+  TagsSection
 } from "../components";
 import { formatLongDate } from "../utils";
 
@@ -52,7 +52,7 @@ const PostPage: FC<BlogPostProps> = ({ data, location }) => {
     published_at,
     title,
     html,
-    tags,
+    tags
   }: PostOrPage = data.ghostPost;
 
   return (
@@ -83,7 +83,7 @@ const PostPage: FC<BlogPostProps> = ({ data, location }) => {
               facebook: "test-facebook",
               twitter: "test-twitter",
               pinterest: "test-pinterest",
-              instagram: "test-instagram",
+              instagram: "test-instagram"
             }}
           />
         </Section>

@@ -41,8 +41,8 @@ const CategoryPage: FC<CategoryPageProps> = ({ data, location }) => {
   const posts = destructureNodes(data.allGhostPost.edges);
 
   const tags = posts
-    .filter(post =>
-      post.tags?.find(tag => {
+    .filter((post) =>
+      post.tags?.find((tag) => {
         return tag.slug === category.slug;
       })
     )

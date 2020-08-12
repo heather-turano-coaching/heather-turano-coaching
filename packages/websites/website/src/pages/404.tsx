@@ -2,7 +2,7 @@ import {
   Heading,
   Image,
   Section,
-  Typography,
+  Typography
 } from "@heather-turano-coaching/components";
 import { makeRhythm, makeSize } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";

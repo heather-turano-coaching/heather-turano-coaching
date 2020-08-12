@@ -28,14 +28,14 @@ const AuthorMeta = ({ data, settings, canonical }) => {
           "@type": `ImageObject`,
           url: shareImage,
           width: config.shareImageWidth,
-          height: config.shareImageHeight,
+          height: config.shareImageHeight
         }
       : undefined,
     mainEntityOfPage: {
       "@type": `WebPage`,
-      "@id": config.siteUrl,
+      "@id": config.siteUrl
     },
-    description,
+    description
   };
 
   return (
@@ -80,15 +80,15 @@ AuthorMeta.propTypes = {
     profile_image: PropTypes.string,
     website: PropTypes.string,
     twitter: PropTypes.string,
-    facebook: PropTypes.string,
+    facebook: PropTypes.string
   }).isRequired,
   settings: PropTypes.shape({
     title: PropTypes.string,
     twitter: PropTypes.string,
     description: PropTypes.string,
-    allGhostSettings: PropTypes.object.isRequired,
+    allGhostSettings: PropTypes.object.isRequired
   }).isRequired,
-  canonical: PropTypes.string.isRequired,
+  canonical: PropTypes.string.isRequired
 };
 
 const AuthorMetaQuery = (props) => (

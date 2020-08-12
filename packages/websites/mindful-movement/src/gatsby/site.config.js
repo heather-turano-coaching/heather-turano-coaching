@@ -14,9 +14,9 @@ module.exports = {
     siteBaseKeywords: [
       "Mindful Movement 100",
       "Heather Turano Coaching",
-      "Amanda Rock",
+      "Amanda Rock"
     ],
-    twitterHandle: "@mm100",
+    twitterHandle: "@mm100"
   },
   manifestConfig: {
     name: "Mindful Movement 100",
@@ -25,6 +25,6 @@ module.exports = {
     start_url: "/",
     background_color: "#fff",
     display: "standalone",
-    theme_color: "#fff",
-  },
+    theme_color: "#fff"
+  }
 };

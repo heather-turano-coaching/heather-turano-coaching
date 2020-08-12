@@ -13,7 +13,7 @@ const StyledInputError = styled.div`
 `;
 
 export const InputError: FC<InputErrorProps> = ({
-  errorMessage = undefined,
+  errorMessage = undefined
 }) => (
   <>
     {errorMessage && (

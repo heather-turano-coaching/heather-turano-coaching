@@ -3,13 +3,13 @@ import {
   ButtonAction,
   ButtonGroup,
   Heading,
-  Typography,
+  Typography
 } from "@heather-turano-coaching/components";
 import { FontProperties } from "@heather-turano-coaching/design-system";
 import {
   makeColor,
   makeInset,
-  makeRhythm,
+  makeRhythm
 } from "@heather-turano-coaching/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { Tag } from "@tryghost/content-api";
@@ -21,7 +21,7 @@ import {
   FrameworkLink,
   LayoutBlock,
   LayoutBlockContent,
-  LayoutBlockTitle,
+  LayoutBlockTitle
 } from "../../components";
 import { destructureNodes, featuredCategoryDelimiter } from "../../utils";
 
@@ -45,7 +45,7 @@ const StyledBlockFeaturedCategory = styled.div`
 
 export const BlockFeaturedCategory: FC = () => {
   const {
-    allGhostTag: { edges },
+    allGhostTag: { edges }
   } = useStaticQuery(graphql`
     {
       allGhostTag(

@@ -6,6 +6,6 @@ import { prisma } from "nexus-plugin-prisma";
 
 // load the environment variables
 dotenv.config({
-  path: path.resolve(__dirname, "../../../.env"),
+  path: path.resolve(__dirname, "../../../.env")
 });
 app.use(prisma());

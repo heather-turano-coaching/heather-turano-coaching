@@ -3,7 +3,7 @@ import {
   makeInset,
   makeOutset,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { rgba } from "polished";
 import React, { FC, Fragment, memo, useMemo } from "react";
@@ -43,7 +43,7 @@ const StyledProductCard = styled.div`
     style: css`
       margin-left: 0;
       margin-right: 0;
-    `,
+    `
   })}
 `;
 
@@ -106,7 +106,7 @@ export const ProductCard: FC<ProductCardProps> = memo(
     color,
     img,
     imgAlt,
-    description,
+    description
   }) => {
     const priceId = couponPrice?.id || basePrice.id;
     const unitAmount = couponPrice?.unit_amount || basePrice.unit_amount;

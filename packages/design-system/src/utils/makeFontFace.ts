@@ -180,14 +180,14 @@ type CreateGoogleFontVariantString = (
 const createGoogleFontVariantString: CreateGoogleFontVariantString = ({
   italic = [],
   normal = []
-}) => [...italic.map(weightValue => `${weightValue}i`), normal].join(",");
+}) => [...italic.map((weightValue) => `${weightValue}i`), normal].join(",");
 
-const createGoogleFontFace: CreateGoogleFontFace = fontFamilyDef =>
+const createGoogleFontFace: CreateGoogleFontFace = (fontFamilyDef) =>
   `@import url("https://fonts.googleapis.com/css?family=${
     fontFamilyDef.family
   }:${createGoogleFontVariantString(fontFamilyDef.variants)}");`;
 
-const createCustomFontFace: CreateCustomFontFace = fontFaceConfig =>
+const createCustomFontFace: CreateCustomFontFace = (fontFaceConfig) =>
   fontFace(fontFaceConfig);
 
 // ALWAYS PROVIDE A SYSTEM FONT FACE DEFINITION

@@ -5,7 +5,7 @@ export type RandomColor = Extract<Color, "primary" | "secondary" | "accent">;
 const possibleColor: [RandomColor, RandomColor, RandomColor] = [
   "primary",
   "secondary",
-  "accent",
+  "accent"
 ];
 
 export const generateRandomColor = () => {

@@ -1,7 +1,7 @@
 import {
   makeColor,
   makeInset,
-  makeResponsive,
+  makeResponsive
 } from "@heather-turano-coaching/design-system";
 import { darken } from "polished";
 import { FC } from "react";
@@ -17,7 +17,7 @@ const StyledFooterContainer = styled.footer`
   background: ${darken(0.1, makeColor({ scalable: { color: "secondary" } }))};
   ${makeInset({
     vertical: 40,
-    horizontal: sharedHorizontalBodyPadding.phone,
+    horizontal: sharedHorizontalBodyPadding.phone
   })};
 
   * {
@@ -29,9 +29,9 @@ const StyledFooterContainer = styled.footer`
     style: `
       ${makeInset({
         vertical: sectionVSpace.tabletPortrait,
-        horizontal: sharedHorizontalBodyPadding.tabletPortrait,
+        horizontal: sharedHorizontalBodyPadding.tabletPortrait
       })};
-    `,
+    `
   })}
 `;
 
@@ -44,7 +44,7 @@ const StyledFooter = styled.div`
     ${makeFlex("row", "flex-start", "flex-start")};
       padding-bottom: 0;
       margin: 0 auto;
-    `,
+    `
   })};
 `;
 

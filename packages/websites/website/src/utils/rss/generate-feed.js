@@ -16,7 +16,7 @@ const generateItem = function generateItem(post) {
     url: itemUrl,
     date: post.published_at,
     categories: _.map(
-      tagsHelper(post, { visibility: `public`, fn: tag => tag }),
+      tagsHelper(post, { visibility: `public`, fn: (tag) => tag }),
       `name`
     ),
     author: post.primary_author ? post.primary_author.name : null,
@@ -55,7 +55,7 @@ const generateItem = function generateItem(post) {
 const generateRSSFeed = function generateRSSFeed(siteConfig) {
   return {
     serialize: ({ query: { allGhostPost } }) =>
-      allGhostPost.edges.map(edge =>
+      allGhostPost.edges.map((edge) =>
         Object.assign({}, generateItem(edge.node))
       ),
     setup: ({ query: { allGhostSettings } }) => {

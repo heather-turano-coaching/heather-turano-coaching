@@ -4,7 +4,7 @@ const path = require("path");
 
 const contentfulClient = contentful.createClient({
   space: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN,
+  accessToken: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN
 });
 
 const reduceProductsToSingleProductById = (products, productId) =>
@@ -18,7 +18,7 @@ const reduceProductsToSingleProductById = (products, productId) =>
 exports.sourceNodes = async ({
   actions,
   createNodeId,
-  createContentDigest,
+  createContentDigest
 }) => {
   const { createNode } = actions;
 
@@ -27,13 +27,13 @@ exports.sourceNodes = async ({
   const [
     stripePricesData,
     stripeProductsData,
-    contentfulProductInformation,
+    contentfulProductInformation
   ] = await Promise.all([
     stripe.prices.list({ type: "one_time" }),
     stripe.products.list(),
     contentfulClient.getEntries({
-      content_type: "package",
-    }),
+      content_type: "package"
+    })
   ]);
 
   console.log("> creating stripe prices...");
@@ -43,7 +43,7 @@ exports.sourceNodes = async ({
       product: reduceProductsToSingleProductById(
         stripeProductsData.data,
         price.product
-      ),
+      )
       // metadata: {
       //   ...defaultPriceMetadata,
       //   ...stripe.metadata,
@@ -56,12 +56,12 @@ exports.sourceNodes = async ({
         type: `StripePrice`,
         mediaType: `text/html`,
         content: JSON.stringify(priceNode),
-        contentDigest: createContentDigest(priceNode),
-      },
+        contentDigest: createContentDigest(priceNode)
+      }
     };
     createNode({
       ...priceNode,
-      ...nodeMeta,
+      ...nodeMeta
     });
   });
   console.log("> creating stripe prices... complete.");
@@ -94,9 +94,9 @@ exports.sourceNodes = async ({
         productId: resolvedProductId,
         basePrice: {
           ...stripePrice,
-          product: stripeProduct,
+          product: stripeProduct
         },
-        couponPrice: undefined,
+        couponPrice: undefined
       };
 
       const nodeMeta = {
@@ -107,13 +107,13 @@ exports.sourceNodes = async ({
           type: `StripeProductAndPrice`,
           mediaType: `text/html`,
           content: JSON.stringify(node),
-          contentDigest: createContentDigest(node),
-        },
+          contentDigest: createContentDigest(node)
+        }
       };
 
       createNode({
         ...node,
-        ...nodeMeta,
+        ...nodeMeta
       });
     }
   );
@@ -139,13 +139,13 @@ exports.sourceNodes = async ({
         type: `StripeCouponFromMeta`,
         mediaType: `text/html`,
         content: JSON.stringify(couponSlug),
-        contentDigest: createContentDigest(couponSlug),
-      },
+        contentDigest: createContentDigest(couponSlug)
+      }
     };
 
     createNode({
       slug: couponSlug,
-      ...nodeMeta,
+      ...nodeMeta
     });
   });
 
@@ -156,7 +156,7 @@ exports.sourceNodes = async ({
 exports.createPages = async ({
   graphql,
   actions: { createPage },
-  reporter,
+  reporter
 }) => {
   const result = await graphql(`
     query {
@@ -233,7 +233,7 @@ exports.createPages = async ({
               return accum;
             },
             {}
-          ),
+          )
         };
       }
     );
@@ -246,8 +246,8 @@ exports.createPages = async ({
       context: {
         title: "MM100 - Coupon",
         description: coupon.slug.split("-").join(" ").toUpperCase(),
-        packages,
-      },
+        packages
+      }
     });
   });
 
@@ -277,8 +277,8 @@ exports.createPages = async ({
         path: node.frontmatter.slug,
         component: require.resolve(`./src/templates/Disclosures.tsx`),
         context: {
-          slug: node.frontmatter.slug,
-        },
+          slug: node.frontmatter.slug
+        }
       });
     }
   });

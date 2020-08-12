@@ -8,7 +8,7 @@ import { Input } from "./Input";
 
 export default {
   component: Input,
-  title: "Inputs|Form Container",
+  title: "Inputs|Form Container"
 };
 
 interface FormData {

@@ -4,10 +4,10 @@ export const featuredCategoryDelimiter = "__FEATURE__";
 
 export const getFeaturedCategories = (categories: Tag[]) =>
   categories
-    .filter(category =>
+    .filter((category) =>
       (category.description || "").includes(featuredCategoryDelimiter)
     )
-    .map(category => ({
+    .map((category) => ({
       ...category,
       description: (category.description as string).split(
         featuredCategoryDelimiter

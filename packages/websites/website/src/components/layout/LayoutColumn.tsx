@@ -1,7 +1,7 @@
 import {
   makeOutset,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -29,7 +29,7 @@ const StyledLayoutColumn = styled.div<LayoutColumnProps>`
                 ? makeSize({ custom: colWidth })
                 : colWidth
             };
-          `,
+          `
         })};
       `;
     }
@@ -44,7 +44,7 @@ const StyledLayoutColumn = styled.div<LayoutColumnProps>`
       &:not(:first-child) {
         ${makeOutset({ left: gutter })};
       }
-    `,
+    `
   })}
 `;
 

@@ -21,9 +21,9 @@ const DisclosuresTemplate: FC<DisclosuresTemplateData> = ({
   data: {
     markdownRemark: {
       html,
-      frontmatter: { title, metaDescription },
-    },
-  },
+      frontmatter: { title, metaDescription }
+    }
+  }
 }) => {
   return (
     <Layout>

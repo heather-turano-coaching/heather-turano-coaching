@@ -1,7 +1,7 @@
 import {
   Heading,
   Section,
-  Typography,
+  Typography
 } from "@heather-turano-coaching/components";
 import { SEO } from "@heather-turano-coaching/gatsby";
 import React from "react";
@@ -38,7 +38,7 @@ const IndexPage = () => {
           <br />
           <div
             dangerouslySetInnerHTML={{
-              __html: `<iframe src="https://heather-turano-website-purchase.youcanbook.me/?noframe=true&skipHeaderFooter=true" id="ycbmiframeheather-turano-website-purchase" style="width:100%;height:1000px;border:0px;background-color:transparent;" frameborder="0" allowtransparency="true"></iframe><script>window.addEventListener && window.addEventListener("message", function(event){if (event.origin === "https://heather-turano-website-purchase.youcanbook.me"){document.getElementById("ycbmiframeheather-turano-website-purchase").style.height = event.data + "px";}}, false);</script>`,
+              __html: `<iframe src="https://heather-turano-website-purchase.youcanbook.me/?noframe=true&skipHeaderFooter=true" id="ycbmiframeheather-turano-website-purchase" style="width:100%;height:1000px;border:0px;background-color:transparent;" frameborder="0" allowtransparency="true"></iframe><script>window.addEventListener && window.addEventListener("message", function(event){if (event.origin === "https://heather-turano-website-purchase.youcanbook.me"){document.getElementById("ycbmiframeheather-turano-website-purchase").style.height = event.data + "px";}}, false);</script>`
             }}
           ></div>
         </Section>

@@ -6,7 +6,7 @@ import { TagGroup } from "./TagGroup";
 
 export default {
   component: TagCard,
-  title: "Classification|Tag Card",
+  title: "Classification|Tag Card"
 };
 
 export const category = () => <TagCard type="category" name="Motherhood" />;

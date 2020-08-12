@@ -15,7 +15,7 @@ const StyledRichText = styled.div`
     ${makeRhythm({
       top: 0,
       bottom: 1,
-      fontSize: "md",
+      fontSize: "md"
     })}
   }
 `;
@@ -29,13 +29,13 @@ export const ContentfulRichText: FC<{
     <StyledRichText>
       {documentToReactComponents(json, {
         renderMark: {
-          [MARKS.BOLD]: (text: ReactNode): ReactNode => <strong>{text}</strong>,
+          [MARKS.BOLD]: (text: ReactNode): ReactNode => <strong>{text}</strong>
         },
         renderNode: {
           [BLOCKS.PARAGRAPH]: (_node: any, children: ReactNode): ReactNode => (
             <Typography {...copyProps}>{children}</Typography>
-          ),
-        },
+          )
+        }
       })}
     </StyledRichText>
   );

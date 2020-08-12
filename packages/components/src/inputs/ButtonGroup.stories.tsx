@@ -5,7 +5,7 @@ import { ButtonGroup } from "./ButtonGroup";
 
 export default {
   component: ButtonGroup,
-  title: "Inputs|Button Group",
+  title: "Inputs|Button Group"
 };
 
 export const base = () => (

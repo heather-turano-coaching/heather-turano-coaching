@@ -33,7 +33,7 @@ module.exports = async ({ config }) => {
    *
    * The below strips out SVG and then uses SVGR to load SVGs
    */
-  config.module.rules = config.module.rules.map(rule => {
+  config.module.rules = config.module.rules.map((rule) => {
     if (
       String(rule.test) ===
       String(

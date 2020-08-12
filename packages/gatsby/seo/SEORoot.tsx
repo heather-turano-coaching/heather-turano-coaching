@@ -12,11 +12,11 @@ export const SEO: FC<PageSEOProperties> = ({
   pageDescription,
   pageImage = null,
   pageKeywords = [],
-  pageAuthor = null,
+  pageAuthor = null
 }) => {
   const { pathname } = useLocation();
   const {
-    site: { siteMetadata },
+    site: { siteMetadata }
   } = useStaticQuery<{
     site: {
       siteMetadata: SiteSEOProperties;

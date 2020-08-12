@@ -1,12 +1,12 @@
 import {
   ContentfulRichText,
   Heading,
-  Section,
+  Section
 } from "@heather-turano-coaching/components";
 import {
   makeInset,
   makeOutset,
-  makeResponsive,
+  makeResponsive
 } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
@@ -27,7 +27,7 @@ const LeftPane = styled.div`
       style: css`
         height: 100%;
         width: auto;
-      `,
+      `
     })}
   }
 `;
@@ -41,7 +41,7 @@ const RightPane = styled.div`
     beginAt: "tabletPortrait",
     style: css`
       ${makeInset({ right: 32 })};
-    `,
+    `
   })}
 `;
 

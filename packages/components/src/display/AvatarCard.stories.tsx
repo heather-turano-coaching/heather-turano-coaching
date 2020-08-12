@@ -8,7 +8,7 @@ const Ocean = require("../../.storybook/assets/stock/beach-nature-ocean.jpg");
 
 export default {
   component: AvatarCard,
-  title: "Display|Avatar Cards",
+  title: "Display|Avatar Cards"
 };
 
 const Conatiner = styled.div`

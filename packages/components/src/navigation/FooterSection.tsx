@@ -4,7 +4,7 @@ import {
   makeOutset,
   makeReset,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC, useMemo } from "react";
 import styled, { css } from "styled-components";
@@ -28,7 +28,7 @@ const StyledFooterSection = styled.div<Pick<FooterSectionProps, "sectionSize">>`
       &:not(:first-child){
         ${makeInset({ bottom: 40, left: 16, right: 16 })};
       }
-    `,
+    `
   })}
 
   & > p {
@@ -77,7 +77,7 @@ const StyledFooterSectionBody = styled.div`
 export const FooterSection: FC<FooterSectionProps> = ({
   title,
   sectionSize = "1",
-  children,
+  children
 }) => (
   <StyledFooterSection sectionSize={sectionSize}>
     {useMemo(

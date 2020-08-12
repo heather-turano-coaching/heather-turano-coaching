@@ -4,11 +4,11 @@ import {
   ProductCard,
   Section,
   Typography,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import {
   makeColor,
-  makeResponsive,
+  makeResponsive
 } from "@heather-turano-coaching/design-system";
 import { SEO } from "@heather-turano-coaching/gatsby";
 import React from "react";
@@ -49,49 +49,49 @@ const individualCoachingPackages: HTCPackage[] = [
         "price_1H050REQ8UKSDRmCoEwSE0uv",
         "price_1H05u4EQ8UKSDRmCszA0wiI8"
       ),
-      unit_amount: devAndProdValues<number>(9900, 9900),
-    },
+      unit_amount: devAndProdValues<number>(9900, 9900)
+    }
   },
   {
     productId: devAndProdValues("prod_HZDZ2KleQok6oo", "prod_HZEMgHWvNfebcT"),
     name: "Coaching Package - 8 Sessions",
     logo: "",
     features: [
-      "8, 45-min coaching sessions. Discount of $72 when you purchase 8 sessions. Each session is $90 with the package",
+      "8, 45-min coaching sessions. Discount of $72 when you purchase 8 sessions. Each session is $90 with the package"
     ],
     color: makeColor({ scalable: { color: "secondary" } }),
     basePrice: {
       id: devAndProdValues("null", "null"),
-      unit_amount: devAndProdValues<number>(79200, 79200),
+      unit_amount: devAndProdValues<number>(79200, 79200)
     },
     couponPrice: {
       id: devAndProdValues(
         "price_1H058pEQ8UKSDRmCPWQzvAPE",
         "price_1H05tyEQ8UKSDRmCY3VXWHXN"
       ),
-      unit_amount: devAndProdValues<number>(72000, 72000),
-    },
+      unit_amount: devAndProdValues<number>(72000, 72000)
+    }
   },
   {
     productId: devAndProdValues("prod_HZDf5Eh5TI3Bgv", "prod_HZEMGuZalSifGo"),
     name: "Coaching Package - 10 Sessions",
     logo: "",
     features: [
-      "10, 45-min coaching sessions. Discount of $190 when you purchase 10 sessions. Each session is $80 with this package.",
+      "10, 45-min coaching sessions. Discount of $190 when you purchase 10 sessions. Each session is $80 with this package."
     ],
     color: makeColor({ scalable: { color: "accent" } }),
     basePrice: {
       id: devAndProdValues("null", "null"),
-      unit_amount: devAndProdValues<number>(99000, 99000),
+      unit_amount: devAndProdValues<number>(99000, 99000)
     },
     couponPrice: {
       id: devAndProdValues(
         "price_1H05DqEQ8UKSDRmC0zLbKouZ",
         "price_1H05tpEQ8UKSDRmCEBRTGliG"
       ),
-      unit_amount: devAndProdValues<number>(79900, 79900),
-    },
-  },
+      unit_amount: devAndProdValues<number>(79900, 79900)
+    }
+  }
 ];
 
 export const StyledCardContainer = styled.div`
@@ -103,7 +103,7 @@ export const StyledCardContainer = styled.div`
       & > * {
         width: 33.333%;
       }
-    `,
+    `
   })}
 `;
 
@@ -135,7 +135,7 @@ const IndexPage = () => {
               couponPrice,
               features,
               color,
-              logo,
+              logo
             }) => (
               <ProductCard
                 key={productId}

@@ -1,7 +1,7 @@
 import {
   ContentfulRichText,
   Heading,
-  Section,
+  Section
 } from "@heather-turano-coaching/components";
 import { graphql, useStaticQuery } from "gatsby";
 import { FC } from "react";
@@ -42,7 +42,7 @@ export const About: FC = () => {
         copyProps={{
           variant: "paragraph",
           fontColor: { fixed: "light" },
-          fontSize: "sm",
+          fontSize: "sm"
         }}
       />
     </Section>

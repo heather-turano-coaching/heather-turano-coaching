@@ -1,6 +1,6 @@
 import {
   makeOutset,
-  makeResponsive,
+  makeResponsive
 } from "@heather-turano-coaching/design-system";
 import { Layout } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
@@ -16,11 +16,11 @@ const StyledFormContainer = styled.div<FormContainerProps>`
 
   ${makeResponsive({
     beginAt: "tabletPortrait",
-    style: makeOutset({ vertical: 32, horizontal: "auto" }),
+    style: makeOutset({ vertical: 32, horizontal: "auto" })
   })}
 `;
 
 export const FormContainer: FC<FormContainerProps> = ({
   layout = "stacked",
-  children,
+  children
 }) => <StyledFormContainer layout={layout}>{children}</StyledFormContainer>;

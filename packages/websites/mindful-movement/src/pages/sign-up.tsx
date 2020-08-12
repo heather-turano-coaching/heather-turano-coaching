@@ -6,11 +6,11 @@ import {
   FormGroup,
   Heading,
   Input,
-  Section,
+  Section
 } from "@heather-turano-coaching/components";
 import {
   SubscribeRequest,
-  SubscribeResponse,
+  SubscribeResponse
 } from "@heather-turano-coaching/domain";
 import { SEO } from "@heather-turano-coaching/gatsby";
 import { useApi } from "@heather-turano-coaching/hooks";
@@ -64,7 +64,7 @@ const SignUpPage = () => {
           richText={queryData.description.json}
           copyProps={{
             variant: "label",
-            fontSize: "md",
+            fontSize: "md"
           }}
         />
         <br />

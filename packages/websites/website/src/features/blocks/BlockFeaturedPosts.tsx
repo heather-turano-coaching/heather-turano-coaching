@@ -1,12 +1,12 @@
 import {
   makeFlex,
-  sharedHorizontalBodyPadding,
+  sharedHorizontalBodyPadding
 } from "@heather-turano-coaching/components";
 import {
   makeColor,
   makeOutset,
   makeReset,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { PostOrPage } from "@tryghost/content-api";
@@ -20,12 +20,12 @@ import styled, { CSSProperties } from "styled-components";
 
 import {
   BlogCardFeature,
-  BlogCardFeatureSelector,
+  BlogCardFeatureSelector
 } from "../../components/blog";
 import {
   LayoutBlock,
   LayoutBlockContent,
-  LayoutBlockTitle,
+  LayoutBlockTitle
 } from "../../components/layout";
 import { destructureNodes } from "../../utils";
 
@@ -59,8 +59,8 @@ const StyledBubble = styled.li<{ isActive: boolean }>`
   background: ${({ isActive }) =>
     makeColor({
       scalable: {
-        color: isActive ? "secondary" : "light",
-      },
+        color: isActive ? "secondary" : "light"
+      }
     })};
 
   &:not(:first-child) {
@@ -78,7 +78,7 @@ type BlogFeaturedMobileProps = BlockFeaturedPostsProps & {
 const BlogFeaturedMobile: FC<BlogFeaturedMobileProps> = ({
   featuredPosts,
   gutterWidth,
-  layoutType = "middle",
+  layoutType = "middle"
 }) => {
   const initialSelectedCardIndex = 0;
   const [containerHeight, setContainerHeight] = useState<number>();
@@ -153,7 +153,7 @@ const BlogFeaturedMobile: FC<BlogFeaturedMobileProps> = ({
     x: getPosition(cardNum, movement),
     scale: getScale(cardNum),
     overlay: getOverlay(cardNum),
-    filter: getFilter(cardNum),
+    filter: getFilter(cardNum)
   });
 
   const [springProps, set] = useSprings(numberOfCards, (i) => setSprings(i));
@@ -202,7 +202,7 @@ const BlogFeaturedMobile: FC<BlogFeaturedMobileProps> = ({
               width: "100%",
               height: "100%",
               top: 0,
-              left: 0,
+              left: 0
             };
             return (
               <animated.div
@@ -214,14 +214,14 @@ const BlogFeaturedMobile: FC<BlogFeaturedMobileProps> = ({
                   bottom: 0,
                   transform: x.interpolate((xv) => `translate3d(${xv}px,0,0)`),
                   zIndex: getZ(i),
-                  filter: filter.interpolate((f) => `blur(${f}px)`),
+                  filter: filter.interpolate((f) => `blur(${f}px)`)
                 }}
               >
                 <animated.div
                   ref={cardRef}
                   style={{
                     position: "relative",
-                    transform: scale.interpolate((s) => `scale(${s})`),
+                    transform: scale.interpolate((s) => `scale(${s})`)
                   }}
                 >
                   <BlogCardFeature featuredPost={featuredPosts[i]} />
@@ -232,7 +232,7 @@ const BlogFeaturedMobile: FC<BlogFeaturedMobileProps> = ({
                       pointerEvents: "none",
                       background: overlay.interpolate((ov) =>
                         rgba(makeColor({ fixed: "dark" }), ov)
-                      ),
+                      )
                     }}
                   />
                 </animated.div>
@@ -247,7 +247,7 @@ const BlogFeaturedMobile: FC<BlogFeaturedMobileProps> = ({
 
 export const BlockFeaturedPosts: FC = () => {
   const {
-    allGhostPost: { edges },
+    allGhostPost: { edges }
   } = useStaticQuery(graphql`
     {
       allGhostPost(filter: { featured: { eq: true } }) {

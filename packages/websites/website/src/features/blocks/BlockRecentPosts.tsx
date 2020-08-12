@@ -1,11 +1,11 @@
 import {
   makeColor,
   makeSize,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import {
   useProgressiveLoader,
-  useSticky,
+  useSticky
 } from "@heather-turano-coaching/hooks";
 import { PostOrPage } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
@@ -18,7 +18,7 @@ import {
   LayoutBlockContent,
   LayoutBlockTitle,
   LoadMorePostsButton,
-  headerNavVerticalPadding,
+  headerNavVerticalPadding
 } from "../../components";
 import { destructureNodes } from "../../utils";
 
@@ -53,10 +53,10 @@ const StyledStickyTarget = styled.div<{ isSticky: boolean }>`
 `;
 
 export const BlockRecentPosts: FC<BlockRecentPostsProps> = ({
-  title = "recent posts",
+  title = "recent posts"
 }) => {
   const {
-    allGhostPost: { edges },
+    allGhostPost: { edges }
   } = useStaticQuery(graphql`
     {
       allGhostPost {
@@ -75,7 +75,7 @@ export const BlockRecentPosts: FC<BlockRecentPostsProps> = ({
   const targetRef = useRef<HTMLDivElement>(null);
   const isSticky = useSticky<HTMLDivElement>({
     ref: wrapperRef,
-    offset: headerNavVerticalPadding,
+    offset: headerNavVerticalPadding
   });
 
   const [postList, loadMorePosts, morePostsExist] = useProgressiveLoader<

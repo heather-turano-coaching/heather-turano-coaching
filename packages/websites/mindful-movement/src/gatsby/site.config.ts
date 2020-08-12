@@ -1,6 +1,6 @@
 import {
   ManifestProperties,
-  SiteSEOProperties,
+  SiteSEOProperties
 } from "@heather-turano-coaching/gatsby";
 
 interface WebsiteConfig {
@@ -25,9 +25,9 @@ export const websiteConfig: WebsiteConfig = {
     siteBaseKeywords: [
       "Mindful Movement 100",
       "Heather Turano Coaching",
-      "Amanda Rock",
+      "Amanda Rock"
     ],
-    twitterHandle: "@mm100",
+    twitterHandle: "@mm100"
   },
   manifestConfig: {
     name: "Mindful Movement 100",
@@ -36,6 +36,6 @@ export const websiteConfig: WebsiteConfig = {
     start_url: "/",
     background_color: "#fff",
     display: "standalone",
-    theme_color: "#fff",
-  },
+    theme_color: "#fff"
+  }
 };

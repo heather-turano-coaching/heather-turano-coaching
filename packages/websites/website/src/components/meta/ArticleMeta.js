@@ -36,7 +36,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
       "@type": `Person`,
       name: author.name,
       image: author.image ? author.image : undefined,
-      sameAs: author.sameAsArray ? author.sameAsArray : undefined,
+      sameAs: author.sameAsArray ? author.sameAsArray : undefined
     },
     keywords: publicTags.length ? publicTags.join(`, `) : undefined,
     headline: ghostPost.meta_title || ghostPost.title,
@@ -48,7 +48,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
           "@type": `ImageObject`,
           url: shareImage,
           width: config.shareImageWidth,
-          height: config.shareImageHeight,
+          height: config.shareImageHeight
         }
       : undefined,
     publisher: {
@@ -58,14 +58,14 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
         "@type": `ImageObject`,
         url: publisherLogo,
         width: 60,
-        height: 60,
-      },
+        height: 60
+      }
     },
     description: ghostPost.meta_description || ghostPost.excerpt,
     mainEntityOfPage: {
       "@type": `WebPage`,
-      "@id": config.siteUrl,
-    },
+      "@id": config.siteUrl
+    }
   };
 
   return (
@@ -161,25 +161,25 @@ ArticleMetaGhost.propTypes = {
       PropTypes.shape({
         name: PropTypes.string,
         slug: PropTypes.string,
-        visibility: PropTypes.string,
+        visibility: PropTypes.string
       })
     ),
     primaryTag: PropTypes.shape({
-      name: PropTypes.string,
+      name: PropTypes.string
     }),
     og_title: PropTypes.string,
     og_description: PropTypes.string,
     twitter_title: PropTypes.string,
     twitter_description: PropTypes.string,
-    excerpt: PropTypes.string.isRequired,
+    excerpt: PropTypes.string.isRequired
   }).isRequired,
   settings: PropTypes.shape({
     logo: PropTypes.object,
     title: PropTypes.string,
     twitter: PropTypes.string,
-    allGhostSettings: PropTypes.object.isRequired,
+    allGhostSettings: PropTypes.object.isRequired
   }).isRequired,
-  canonical: PropTypes.string.isRequired,
+  canonical: PropTypes.string.isRequired
 };
 
 const ArticleMetaQuery = (props) => (

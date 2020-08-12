@@ -4,7 +4,7 @@ import { ButtonAction } from "./ButtonAction";
 
 export default {
   component: ButtonAction,
-  title: "Inputs|Button Action",
+  title: "Inputs|Button Action"
 };
 
 export const base = () => <ButtonAction label="This is an action button" />;

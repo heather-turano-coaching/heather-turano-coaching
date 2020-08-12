@@ -53,7 +53,7 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scalable, fixed }) => (
     {scalable &&
       scalable.map((colorBlocks, index) => (
         <div key={index.toString()}>
-          {colorBlocks.map(colorCard => (
+          {colorBlocks.map((colorCard) => (
             <ColorCard key={colorCard.color} {...colorCard} />
           ))}
         </div>
@@ -61,7 +61,7 @@ export const ColorPalette: FC<ColorPaletteProps> = ({ scalable, fixed }) => (
     {fixed &&
       fixed.map((colorBlocks, index) => (
         <div key={index.toString()}>
-          {colorBlocks.map(colorCard => (
+          {colorBlocks.map((colorCard) => (
             <ColorCard key={colorCard.color} {...colorCard} />
           ))}
         </div>

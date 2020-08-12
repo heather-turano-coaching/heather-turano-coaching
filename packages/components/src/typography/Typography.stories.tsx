@@ -4,7 +4,7 @@ import { Typography } from "./Typography";
 
 export default {
   component: Typography,
-  title: "Core|Typography/Typography",
+  title: "Core|Typography/Typography"
 };
 
 export const caption = () => (

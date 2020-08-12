@@ -1,6 +1,6 @@
 import {
   ResponsiveBreakpoints,
-  responsiveBreakpoints,
+  responsiveBreakpoints
 } from "@heather-turano-coaching/design-system";
 import { useEffect, useState } from "react";
 

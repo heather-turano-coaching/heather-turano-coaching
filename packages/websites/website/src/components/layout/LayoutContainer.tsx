@@ -1,12 +1,12 @@
 import {
   makeFlex,
-  sharedHorizontalBodyPadding,
+  sharedHorizontalBodyPadding
 } from "@heather-turano-coaching/components";
 import {
   makeInset,
   makeResponsive,
   makeSize,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -25,7 +25,7 @@ const StyledLayoutContainer = styled.section<Required<LayoutContainerProps>>`
 
   ${makeInset({
     horizontal: sharedHorizontalBodyPadding.phone,
-    top: sharedHorizontalBodyPadding.phone,
+    top: sharedHorizontalBodyPadding.phone
   })};
 
   ${makeResponsive({
@@ -33,9 +33,9 @@ const StyledLayoutContainer = styled.section<Required<LayoutContainerProps>>`
     style: `
       ${makeInset({
         horizontal: 0,
-        top: sharedHorizontalBodyPadding.phone,
+        top: sharedHorizontalBodyPadding.phone
       })};
-    `,
+    `
   })}
 
   &:last-child {
@@ -49,7 +49,7 @@ const StyledLayoutContainer = styled.section<Required<LayoutContainerProps>>`
           beginAt: "tabletLandscape",
           style: `
             ${makeFlex("row", "flex-start", "flex-start")};
-          `,
+          `
         })}
       `;
     }
@@ -59,7 +59,7 @@ const StyledLayoutContainer = styled.section<Required<LayoutContainerProps>>`
 
 export const LayoutContainer: FC<LayoutContainerProps> = ({
   layoutType = "inline",
-  children,
+  children
 }) => (
   <StyledLayoutContainer layoutType={layoutType}>
     {children}

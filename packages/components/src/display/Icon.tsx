@@ -7,7 +7,7 @@ import { fas } from "@fortawesome/pro-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   ColorProperties,
-  FontProperties,
+  FontProperties
 } from "@heather-turano-coaching/design-system";
 import { makeColor, makeFont } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
@@ -54,7 +54,7 @@ export const Icon: FC<IconProps> = ({
   iconWeight = "fal",
   iconSize = "sm",
   iconColor = { scalable: { color: "gray" } },
-  spin = false,
+  spin = false
 }) => (
   <StyledIcon iconSize={iconSize} iconColor={iconColor}>
     <FontAwesomeIcon icon={[iconWeight, icon]} spin={spin} />

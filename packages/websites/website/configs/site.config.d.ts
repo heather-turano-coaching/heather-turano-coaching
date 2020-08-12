@@ -1,8 +1,11 @@
-import { ManifestProperties, SiteSEOProperties } from "@heather-turano-coaching/gatsby";
+import {
+  ManifestProperties,
+  SiteSEOProperties
+} from "@heather-turano-coaching/gatsby";
 interface WebsiteConfig {
-    pathPrefix: string;
-    siteMetadataConfig: SiteSEOProperties;
-    manifestConfig: ManifestProperties;
+  pathPrefix: string;
+  siteMetadataConfig: SiteSEOProperties;
+  manifestConfig: ManifestProperties;
 }
 export declare const websiteConfig: WebsiteConfig;
 export {};

@@ -140,13 +140,13 @@ const createSizes = () => {
 
   return {
     size: createSizeUnitMap(
-      size => snappedLineHeightMap[size]
+      (size) => snappedLineHeightMap[size]
     ) as SizeMap["size"],
     lineHeight: createSizeUnitMap(
-      size => snappedLineHeightMap[size]
+      (size) => snappedLineHeightMap[size]
     ) as SizeMap["lineHeight"],
     fontSize: createSizeUnitMap(
-      size => snappedFontSizeMap[size]
+      (size) => snappedFontSizeMap[size]
     ) as SizeMap["fontSize"]
   };
 };

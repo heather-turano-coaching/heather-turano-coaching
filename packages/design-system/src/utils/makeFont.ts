@@ -3,14 +3,14 @@ import {
   ColorProperties,
   FontFamily,
   FontProperties,
-  FontStyle,
+  FontStyle
 } from "../types/composite";
 import { Size } from "../types/primitive";
 import { makeColor } from "./makeColor";
 import {
   convertHeadingSizeToSize,
   createCustomSize,
-  sizeMap,
+  sizeMap
 } from "./makeSize";
 
 const createFontColor = (
@@ -23,7 +23,7 @@ export const makeFont = ({
   fontFamily = fontConfig.defaults.fontFamily,
   fontWeight = fontConfig.defaults.fontWeight,
   fontStyle = fontConfig.defaults.fontStyle,
-  fontColor = fontConfig.defaults.fontColor,
+  fontColor = fontConfig.defaults.fontColor
 }: FontProperties): {
   fontSize: string;
   lineHeight: string;
@@ -39,21 +39,21 @@ export const makeFont = ({
     if (typeof fontSize === "object" && typeof lineHeight === "object") {
       return {
         fontSize: createCustomSize(fontSize.custom),
-        lineHeight: createCustomSize(lineHeight.custom),
+        lineHeight: createCustomSize(lineHeight.custom)
       };
     }
 
     if (typeof fontSize === "object" && typeof lineHeight === "undefined") {
       return {
         fontSize: createCustomSize(fontSize.custom),
-        lineHeight: sizeConfig.lineHeight.toString(),
+        lineHeight: sizeConfig.lineHeight.toString()
       };
     }
 
     if (typeof fontSize === "object" && typeof lineHeight === "string") {
       return {
         fontSize: createCustomSize(fontSize.custom),
-        lineHeight: sizeMap.lineHeight[lineHeight][sizeConfig.sizeUnits],
+        lineHeight: sizeMap.lineHeight[lineHeight][sizeConfig.sizeUnits]
       };
     }
 
@@ -80,7 +80,7 @@ export const makeFont = ({
     const convertedFs = convertHeadingSizeToSize(fontSize as Size);
     return {
       fontSize: sizeMap.fontSize[convertedFs][sizeConfig.sizeUnits],
-      lineHeight: sizeMap.lineHeight[lineHeight as Size][sizeConfig.sizeUnits],
+      lineHeight: sizeMap.lineHeight[lineHeight as Size][sizeConfig.sizeUnits]
     };
   };
 
@@ -89,6 +89,6 @@ export const makeFont = ({
     ...createFontColor(fontColor),
     fontFamily,
     fontWeight: Number(fontConfig.fontWeightMap[fontWeight]),
-    fontStyle,
+    fontStyle
   };
 };

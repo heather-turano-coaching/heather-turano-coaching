@@ -5,7 +5,7 @@ import {
   makeOutset,
   makeReset,
   makeSize,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import { rgba } from "polished";
 import React, { FC } from "react";

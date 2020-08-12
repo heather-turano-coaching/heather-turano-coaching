@@ -2,11 +2,11 @@ import {
   Alert,
   Button,
   FormGroup,
-  Input,
+  Input
 } from "@heather-turano-coaching/components";
 import {
   SubscribeRequest,
-  SubscribeResponse,
+  SubscribeResponse
 } from "@heather-turano-coaching/domain";
 import { useApi } from "@heather-turano-coaching/hooks";
 import { graphql, useStaticQuery } from "gatsby";

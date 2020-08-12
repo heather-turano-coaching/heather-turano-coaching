@@ -1,7 +1,7 @@
 import {
   Footer,
   FooterSection,
-  FooterText,
+  FooterText
 } from "@heather-turano-coaching/components";
 import { makeColor } from "@heather-turano-coaching/design-system";
 import { Link, graphql, useStaticQuery } from "gatsby";
@@ -14,7 +14,7 @@ import { NavLogo } from "./NavLogo";
 
 export const Layout: FC = ({ children }) => {
   const {
-    allMarkdownRemark: { nodes: disclosurePages },
+    allMarkdownRemark: { nodes: disclosurePages }
   } = useStaticQuery<{
     allMarkdownRemark: {
       nodes: { frontmatter: { slug: string; title: string } }[];
@@ -70,7 +70,7 @@ export const Layout: FC = ({ children }) => {
                 style={{
                   display: "inlineBlock",
                   textDecorationColor: `${makeColor({ fixed: "light" })}`,
-                  color: `${makeColor({ fixed: "light" })}`,
+                  color: `${makeColor({ fixed: "light" })}`
                 }}
               >
                 Drew DeCarme
