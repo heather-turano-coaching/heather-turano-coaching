@@ -8,6 +8,5 @@
     "declarationMap": true,
     "noUnusedLocals": true,
     "skipLibCheck": true
-  },
-  "exclude": ["**/*.spec.ts", "**/*.stories.tsx"]
+  }
 }

@@ -60,6 +60,7 @@
     "@fortawesome/pro-regular-svg-icons": "^5.13.0",
     "@fortawesome/pro-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "@heather-turano-coaching/design-system": "^0.2.5",
     "@heather-turano-coaching/eslint-config": "^0.0.1",
     "polished": "^3.6.3",
     "react": "^16.13.1",
