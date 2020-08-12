@@ -12,6 +12,7 @@
     "nanoid": "^3.1.10",
     "nexus": "0.25.0",
     "nexus-plugin-prisma": "^0.16.1",
+    "stripe": "^8.84.0",
     "uuid": "^8.2.0"
   },
   "scripts": {

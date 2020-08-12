@@ -16,6 +16,11 @@
     "strict": true,
     "noEmit": true,
     "plugins": [{ "name": "nexus/typescript-language-service" }],
-    "typeRoots": ["node_modules/@types", "types", "../../node_modules/@types"]
+    "typeRoots": [
+      "node_modules/@types",
+      "types",
+      "types.d.ts",
+      "../../node_modules/@types"
+    ]
   }
 }

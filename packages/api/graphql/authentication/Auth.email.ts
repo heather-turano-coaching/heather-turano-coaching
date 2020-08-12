@@ -1,6 +1,6 @@
 import { send, setApiKey } from "@sendgrid/mail";
 
-setApiKey(process.env.SENDGRID_API_KEY);
+setApiKey(process.env.SENDGRID_API_KEY as string);
 
 export const sendConfirmAccountEmail = async ({
   firstName,
@@ -14,12 +14,14 @@ export const sendConfirmAccountEmail = async ({
   try {
     const message = {
       to: emailAddress,
-      from: process.env.SENDGRID_FROM_EMAIL,
-      templateId:
-        process.env.SENDGRID_TRANSACTIONAL_EMAIL__CONFIRM_EMAIL_ADDRESS,
+      from: process.env.SENDGRID_FROM_EMAIL as string,
+      templateId: process.env
+        .SENDGRID_TRANSACTIONAL_EMAIL__CONFIRM_EMAIL_ADDRESS as string,
       dynamicTemplateData: {
         firstName,
-        link: `${process.env.SENDGRID_ROOT_DOMAIN}/confirm?emailAddress=${emailAddress}&token=${confirmationKey}`
+        link: `${
+          process.env.SENDGRID_ROOT_DOMAIN as string
+        }/confirm?emailAddress=${emailAddress}&token=${confirmationKey}`
       }
     };
 
@@ -41,11 +43,14 @@ export const sendForgotPasswordEmail = async ({
   try {
     const message = {
       to: emailAddress,
-      from: process.env.SENDGRID_FROM_EMAIL,
-      templateId: process.env.SENDGRID_TRANSACTIONAL_EMAIL__FORGOT_PASSWORD,
+      from: process.env.SENDGRID_FROM_EMAIL as string,
+      templateId: process.env
+        .SENDGRID_TRANSACTIONAL_EMAIL__FORGOT_PASSWORD as string,
       dynamicTemplateData: {
         firstName,
-        link: `${process.env.SENDGRID_ROOT_DOMAIN}/confirm?emailAddress=${emailAddress}&token=${confirmationKey}`
+        link: `${
+          process.env.SENDGRID_ROOT_DOMAIN as string
+        }/confirm?emailAddress=${emailAddress}&token=${confirmationKey}`
       }
     };
 

@@ -19,6 +19,9 @@ type Message {
 }
 
 type Mutation {
+  """Creates a stripe checkout session for a mindful movement 100 purchase"""
+  checkoutMindfulMovement(priceId: String!): StripeCheckoutSession
+
   """
   Validates the token against the users email address and set's the users account to CONFIRMED
   """
@@ -55,4 +58,11 @@ type Post {
 type Query {
   drafts: [Post!]!
   posts: [Post!]!
+}
+
+type StripeCheckoutSession {
+  """
+  The checkout session id that is used when a customer clicks on a product purchase button
+  """
+  id: String
 }

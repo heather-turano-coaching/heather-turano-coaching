@@ -20715,6 +20715,14 @@ stripe@8.32.0:
     "@types/node" ">=8.1.0"
     qs "^6.6.0"
 
+stripe@^8.84.0:
+  version "8.84.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.84.0.tgz#92fe7a9476360c712faa62010c059f3814abf381"
+  integrity sha512-2RWr/VJOlBbmAAdxh7jQwTlEZ4V5uVzPF9mL544n5hBg//HHKqwUUxIsL0X2tk0eYUEMaOVwarK78y/MsGI5pg==
+  dependencies:
+    "@types/node" ">=8.1.0"
+    qs "^6.6.0"
+
 strong-log-transformer@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/strong-log-transformer/-/strong-log-transformer-2.1.0.tgz#0f5ed78d325e0421ac6f90f7f10e691d6ae3ae10"

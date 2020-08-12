@@ -26,7 +26,7 @@ export const isAuthenticated = async (request: Request): Promise<void> =>
   new Promise((resolve, reject) => {
     verify(
       request.cookies["access_token"],
-      process.env.JWT_SECRET,
+      process.env.JWT_SECRET as string,
       {},
       function (err, decoded) {
         if (!err && decoded) {
@@ -65,7 +65,7 @@ export const verifyMaxPasswordLength = async (
 };
 
 export const verifyPasswordStrength = async (
-  password: string
+  _password: string
 ): Promise<void> => {
   try {
     // @todo
@@ -119,7 +119,7 @@ export const matchHashedPasswords = async (
 
 export const getJsonWebToken = async (claims: JwtClaims): Promise<string> => {
   try {
-    return sign(claims, process.env.JWT_SECRET, {
+    return sign(claims, process.env.JWT_SECRET as string, {
       expiresIn: "1hr"
     });
   } catch (error) {
@@ -129,7 +129,7 @@ export const getJsonWebToken = async (claims: JwtClaims): Promise<string> => {
 
 export const verifyJsonWebToken = async (token: string): Promise<boolean> =>
   new Promise((resolve, reject) => {
-    verify(token, process.env.JWT_SECRET, {}, (error, decoded) => {
+    verify(token, process.env.JWT_SECRET as string, {}, (error, decoded) => {
       if (!error && decoded) {
         resolve(true);
       } else {
@@ -142,7 +142,7 @@ export const getEmailToken = async (
   claims: JwtEmailClaims
 ): Promise<string> => {
   try {
-    return sign(claims, process.env.JWT_EMAIL_SECRET, {
+    return sign(claims, process.env.JWT_EMAIL_SECRET as string, {
       expiresIn: "1hr"
     });
   } catch (error) {
@@ -152,20 +152,25 @@ export const getEmailToken = async (
 
 export const verifyEmailToken = async (token: string): Promise<boolean> =>
   new Promise((resolve, reject) => {
-    verify(token, process.env.JWT_EMAIL_SECRET, {}, (error, decoded) => {
-      if (!error && decoded) {
-        resolve(true);
-      } else {
-        reject("Invalid token");
+    verify(
+      token,
+      process.env.JWT_EMAIL_SECRET as string,
+      {},
+      (error, decoded) => {
+        if (!error && decoded) {
+          resolve(true);
+        } else {
+          reject("Invalid token");
+        }
       }
-    });
+    );
   });
 
 export const getForgotPasswordToken = async (
   claims: JwtForgotPasswordClaims
 ): Promise<string> => {
   try {
-    return sign(claims, process.env.JWT_FORGOT_PASSWORD_SECRET, {
+    return sign(claims, process.env.JWT_FORGOT_PASSWORD_SECRET as string, {
       expiresIn: "1hr"
     });
   } catch (error) {
@@ -181,7 +186,7 @@ export const verifyForgotPasswordToken = async (
     if (token === dbToken) {
       verify(
         token,
-        process.env.JWT_FORGOT_PASSWORD_SECRET,
+        process.env.JWT_FORGOT_PASSWORD_SECRET as string,
         {},
         (error, decoded) => {
           if (!error && decoded) {
