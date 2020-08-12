@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
   },
-  "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme"
+  "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme",
+  "dependencies": {
+    "@heather-turano-coaching/eslint-config-htc": "^0.0.1"
+  }
 }

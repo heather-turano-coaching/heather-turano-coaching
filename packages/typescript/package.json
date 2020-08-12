@@ -2,7 +2,7 @@
   "name": "@heather-turano-coaching/typescript",
   "version": "0.2.1",
   "description": "Typescript configurations for Heather Turano Coaching, LLC projects",
-  "main": "index.js",
+  "main": "tsconfig.json",
   "scripts": {
     "test": "test"
   },

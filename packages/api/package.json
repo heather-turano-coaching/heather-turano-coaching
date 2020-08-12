@@ -14,6 +14,7 @@
   "author": "Drew DeCarme <drewdecarme@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@heather-turano-coaching/eslint-config-htc": "^0.0.1",
     "query-string": "^6.12.1"
   },
   "devDependencies": {

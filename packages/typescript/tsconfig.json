@@ -1,8 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "noEmit": true,
+    "isolatedModules": true,
+    "downlevelIteration": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "target": "ESNext",
+    "module": "CommonJS",
+    "lib": ["dom", "ESNext"],
     "importHelpers": true,
     "declaration": true,
     "sourceMap": true,
@@ -22,8 +27,6 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "jsx": "react",
     "esModuleInterop": true,
     "allowJs": false,
     "resolveJsonModule": true

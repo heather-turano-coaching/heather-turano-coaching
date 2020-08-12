@@ -1,5 +1,5 @@
 {
-  "extends": "@heather-turano-coaching/typescript/tsconfig.react.json",
+  "extends": "@heather-turano-coaching/typescript",
   "include": ["src"],
   "compilerOptions": {
     "module": "CommonJS",

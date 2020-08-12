@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme",
   "dependencies": {
+    "@heather-turano-coaching/eslint-config-htc": "^0.0.1",
     "@nexus/schema": "^0.13.1",
     "@prisma/cli": "^2.0.0-beta.7",
     "@prisma/client": "^2.0.0-beta.7",
