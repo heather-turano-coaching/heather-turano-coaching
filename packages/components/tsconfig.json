@@ -1,6 +1,6 @@
 {
-  "extends": "@heather-turano-coaching/typescript",
-  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.d.ts"],
+  "extends": "@heather-turano-coaching/typescript/tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.d.ts", ".eslintrc.js"],
   "compilerOptions": {
     "noEmit": false,
     "outDir": "./dist",

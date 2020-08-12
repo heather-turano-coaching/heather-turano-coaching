@@ -19,6 +19,6 @@
     "typescript": "3.9.3"
   },
   "dependencies": {
-    "@heather-turano-coaching": "^0.0.1"
+    "@heather-turano-coaching/eslint-config": "^0.0.1"
   }
 }

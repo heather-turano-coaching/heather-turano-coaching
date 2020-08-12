@@ -1,6 +1,6 @@
 {
-  "extends": "@heather-turano-coaching/typescript",
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "extends": "@heather-turano-coaching/typescript/tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx", ".eslintrc.js", "*.js"],
   "compilerOptions": {
     "noEmit": true,
     "isolatedModules": true,

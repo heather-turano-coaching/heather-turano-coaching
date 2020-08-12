@@ -1,12 +1,10 @@
 {
   "extends": "@heather-turano-coaching/typescript/tsconfig.json",
+  "include": ["seo/", ".eslintrc.js"],
   "compilerOptions": {
-    "module": "CommonJS",
+    "noEmit": false,
     "outDir": "./dist",
     "declaration": true,
-    "declarationMap": true,
-    "noUnusedLocals": true
-  },
-  "include": ["src/"],
-  "exclude": ["**/*.spec.ts"]
+    "declarationDir": "./dist"
+  }
 }

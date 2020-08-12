@@ -5,5 +5,17 @@
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/.hg/store/**": true
-  }
+  },
+  "eslint.workingDirectories": [
+    "packages/api",
+    "packages/components",
+    "packages/design-system",
+    "packages/documents",
+    "packages/domain",
+    "packages/gatsby",
+    "packages/hooks",
+    "packages/websites/mindful-movement",
+    "packages/websites/packages",
+    "packages/websites/website"
+  ]
 }

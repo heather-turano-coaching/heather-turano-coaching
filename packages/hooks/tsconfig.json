@@ -1,6 +1,6 @@
 {
   "extends": "@heather-turano-coaching/typescript",
-  "include": ["src"],
+  "include": ["src", ".eslintrc.js"],
   "compilerOptions": {
     "module": "CommonJS",
     "outDir": "./dist",

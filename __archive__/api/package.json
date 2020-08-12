@@ -14,7 +14,7 @@
   "author": "Drew DeCarme <drewdecarme@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@heather-turano-coaching": "^0.0.1",
+    "@heather-turano-coaching/eslint-config": "^0.0.1",
     "query-string": "^6.12.1"
   },
   "devDependencies": {
