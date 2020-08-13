@@ -43,7 +43,7 @@ export const Layout: FC = ({ children }) => {
         </NavBarSection>
         <NavBarSection component="ul" collapse>
           <NavBarLinkAnchor href="/#about">About</NavBarLinkAnchor>
-          <NavBarLinkAnchor href="/#who-we-are">Who we are</NavBarLinkAnchor>
+          <NavBarLinkAnchor href="/#who-we-are">Us</NavBarLinkAnchor>
           <NavBarLinkAnchor href="/#pricing">Pricing</NavBarLinkAnchor>
           <NavBarLinkAnchor href="/#schedule">Schedule</NavBarLinkAnchor>
         </NavBarSection>
