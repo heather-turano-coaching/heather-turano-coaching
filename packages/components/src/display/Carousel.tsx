@@ -2,7 +2,7 @@ import { ColorProperties } from "@heather-turano-coaching/design-system";
 import {
   makeColor,
   makeOutset,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -60,7 +60,7 @@ export const CarouselFooter: FC<CarouselFooterProps> = ({
   entries,
   currentEntry,
   goToEntry,
-  activeColor,
+  activeColor
 }) => {
   const bubbles = entries.map((_: any, index: number) => (
     <StyledCarouselBubble

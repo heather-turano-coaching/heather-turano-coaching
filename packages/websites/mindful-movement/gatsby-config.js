@@ -1,7 +1,7 @@
 const path = require("path");
 
 require("dotenv").config({
-  path: path.resolve(__dirname, `../../../.env`),
+  path: path.resolve(__dirname, `../../../.env`)
 });
 
 const siteConfig = require("./src/gatsby/site.config");
@@ -10,7 +10,7 @@ const denyListedUrls = [
   "/mindful-mover-og",
   "/cancel-payment",
   "/payment-success",
-  "/404",
+  "/404"
 ];
 
 module.exports = {
@@ -24,34 +24,34 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        exclude: denyListedUrls,
-      },
+        exclude: denyListedUrls
+      }
     },
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        displayName: true,
-      },
+        displayName: true
+      }
     },
     {
       resolve: "gatsby-plugin-svgr",
       options: {
-        dimensions: true,
-      },
+        dimensions: true
+      }
     },
     {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID,
-        accessToken: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN,
-      },
+        accessToken: process.env.HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: path.join(__dirname, `src`, `images`),
-        name: `images`,
-      },
+        name: `images`
+      }
     },
     `gatsby-transformer-remark`,
     /**
@@ -64,16 +64,16 @@ module.exports = {
         path: path.resolve(
           __dirname,
           "../../../node_modules/@heather-turano-coaching/documents/disclosures"
-        ),
-      },
+        )
+      }
     },
     {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ["Product"],
         secretKey: process.env.HTC_STRIPE_SECRET_KEY,
-        downloadFiles: true,
-      },
+        downloadFiles: true
+      }
     },
     {
       resolve: "gatsby-plugin-robots-txt",
@@ -83,43 +83,28 @@ module.exports = {
             userAgent: "Googlebot",
             allow: "/",
             disallow: denyListedUrls,
-            crawlDelay: 2,
+            crawlDelay: 2
           },
           {
             userAgent: "OtherBot",
             allow: "/",
             disallow: denyListedUrls,
-            crawlDelay: 2,
+            crawlDelay: 2
           },
           {
             userAgent: "*",
             allow: "/",
             disallow: denyListedUrls,
             crawlDelay: 10,
-            cleanParam: "ref /articles/",
-          },
-        ],
-      },
+            cleanParam: "ref /articles/"
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
-      options: siteConfig.manifestConfig,
+      options: siteConfig.manifestConfig
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [
-          "/404",
-          "/cancel-payment",
-          "/index",
-          "/payment-success",
-          "/sign-up",
-        ],
-        workboxConfig: {
-          cacheId: `mm100-offline-cache`,
-          globPatterns: ["**/*"],
-        },
-      },
-    },
-  ],
+    `gatsby-plugin-remove-serviceworker`
+  ]
 };

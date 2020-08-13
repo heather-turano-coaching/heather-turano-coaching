@@ -1,7 +1,7 @@
 import {
   ContentfulRichText,
   Heading,
-  Section,
+  Section
 } from "@heather-turano-coaching/components";
 import { SEO } from "@heather-turano-coaching/gatsby";
 import { graphql, useStaticQuery } from "gatsby";
@@ -47,7 +47,7 @@ const IndexPage = () => {
             richText={data.message.json}
             copyProps={{
               variant: "label",
-              fontSize: "md",
+              fontSize: "md"
             }}
           />
         </Section>

@@ -3,7 +3,7 @@ import {
   makeInset,
   makeOutset,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { rgba } from "polished";
 import React, { FC, Fragment, memo, useMemo } from "react";
@@ -43,7 +43,7 @@ const StyledProductCard = styled.div`
     style: css`
       margin-left: 0;
       margin-right: 0;
-    `,
+    `
   })}
 `;
 
@@ -96,47 +96,67 @@ const StyledProductFooter = styled.footer`
   }
 `;
 
-export const ProductCard: FC<ProductCardProps> = memo(
-  ({
-    name,
-    basePrice,
-    couponPrice,
-    features,
-    handleClick,
-    color,
-    img,
-    imgAlt,
-    description,
-  }) => {
-    const priceId = couponPrice?.id || basePrice.id;
-    const unitAmount = couponPrice?.unit_amount || basePrice.unit_amount;
-    const onClick = handleClick(priceId, unitAmount);
+export const ProductCard: FC<ProductCardProps> = ({
+  name,
+  basePrice,
+  couponPrice,
+  features,
+  handleClick,
+  color,
+  img,
+  imgAlt,
+  description
+}) => {
+  const priceId = couponPrice?.id || basePrice.id;
+  const unitAmount = couponPrice?.unit_amount || basePrice.unit_amount;
+  const onClick = handleClick(priceId, unitAmount);
 
-    return (
-      <StyledProductCard>
-        {img && <StyledProductImage src={img} alt={imgAlt} />}
-        <StyledProductHeader productColor={color}>
-          <Heading fontSize="h5">{name}</Heading>
-          {description && (
-            <Typography variant="paragraph" fontSize="xs">
-              {description}
+  return (
+    <StyledProductCard>
+      {img && <StyledProductImage src={img} alt={imgAlt} />}
+      <StyledProductHeader productColor={color}>
+        <Heading fontSize="h5">{name}</Heading>
+        {description && (
+          <Typography variant="paragraph" fontSize="xs">
+            {description}
+          </Typography>
+        )}
+      </StyledProductHeader>
+      <StyledProductPrice productColor={color} strike={!!couponPrice?.id}>
+        <div>
+          {basePrice.unit_amount === 0 && (
+            <Typography variant="paragraph" fontSize="h2">
+              FREE!
             </Typography>
           )}
-        </StyledProductHeader>
-        <StyledProductPrice productColor={color} strike={!!couponPrice?.id}>
+          {basePrice.unit_amount !== 0 && (
+            <>
+              <Typography variant="paragraph" fontSize="xs">
+                $
+              </Typography>
+              <Typography variant="paragraph" fontSize="h2">
+                {basePrice.unit_amount / 100}
+              </Typography>
+              <Typography variant="paragraph" fontSize="xs">
+                .00
+              </Typography>
+            </>
+          )}
+        </div>
+        {couponPrice?.id && (
           <div>
-            {basePrice.unit_amount === 0 && (
+            {couponPrice.unit_amount === 0 && (
               <Typography variant="paragraph" fontSize="h2">
                 FREE!
               </Typography>
             )}
-            {basePrice.unit_amount !== 0 && (
+            {couponPrice.unit_amount !== 0 && (
               <>
                 <Typography variant="paragraph" fontSize="xs">
                   $
                 </Typography>
                 <Typography variant="paragraph" fontSize="h2">
-                  {basePrice.unit_amount / 100}
+                  {couponPrice.unit_amount / 100}
                 </Typography>
                 <Typography variant="paragraph" fontSize="xs">
                   .00
@@ -144,49 +164,29 @@ export const ProductCard: FC<ProductCardProps> = memo(
               </>
             )}
           </div>
-          {couponPrice?.id && (
-            <div>
-              {couponPrice.unit_amount === 0 && (
-                <Typography variant="paragraph" fontSize="h2">
-                  FREE!
-                </Typography>
-              )}
-              {couponPrice.unit_amount !== 0 && (
-                <>
-                  <Typography variant="paragraph" fontSize="xs">
-                    $
-                  </Typography>
-                  <Typography variant="paragraph" fontSize="h2">
-                    {couponPrice.unit_amount / 100}
-                  </Typography>
-                  <Typography variant="paragraph" fontSize="xs">
-                    .00
-                  </Typography>
-                </>
-              )}
-            </div>
-          )}
-        </StyledProductPrice>
-        <List>
-          {useMemo(
-            () =>
-              features.map((feature, i) => (
-                <Fragment key={i.toString()}>
-                  <ListItem key={feature} label={feature} />
-                  {i !== features.length - 1 && <Line />}
-                </Fragment>
-              )),
-            [features]
-          )}
-        </List>
-        <StyledProductFooter>
-          <Button
-            label={basePrice.unit_amount === 0 ? "Sign up" : "Purchase"}
-            onClick={() => onClick()}
-            styleType="secondary"
-          />
-        </StyledProductFooter>
-      </StyledProductCard>
-    );
-  }
-);
+        )}
+      </StyledProductPrice>
+      <List>
+        {useMemo(
+          () =>
+            features.map((feature, i) => (
+              <Fragment key={i.toString()}>
+                <ListItem key={feature} label={feature} />
+                {i !== features.length - 1 && <Line />}
+              </Fragment>
+            )),
+          [features]
+        )}
+      </List>
+      <StyledProductFooter>
+        <Button
+          label={basePrice.unit_amount === 0 ? "Sign up" : "Purchase"}
+          onClick={() => onClick()}
+          styleType="secondary"
+        />
+      </StyledProductFooter>
+    </StyledProductCard>
+  );
+};
+
+export default memo(ProductCard);

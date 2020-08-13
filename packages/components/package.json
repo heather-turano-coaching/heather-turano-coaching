@@ -19,7 +19,6 @@
     "start:storybook": "start-storybook -p 6006",
     "build": "webpack",
     "build:storybook": "build-storybook",
-    "postinstall": "rm -rf node_modules/@types/react-native",
     "buildDevUtils": "tsc -p ./tsconfig.prepare.json"
   },
   "keywords": [
@@ -36,20 +35,6 @@
     "component-library",
     "typescript"
   ],
-  "peerDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-brands-svg-icons": "^5.13.0",
-    "@fortawesome/pro-duotone-svg-icons": "^5.13.0",
-    "@fortawesome/pro-light-svg-icons": "^5.13.0",
-    "@fortawesome/pro-regular-svg-icons": "^5.13.0",
-    "@fortawesome/pro-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.9",
-    "polished": "^3.6.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-hook-form": "^5.7.2",
-    "styled-components": "^5.1.1"
-  },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
@@ -60,6 +45,8 @@
     "@fortawesome/pro-regular-svg-icons": "^5.13.0",
     "@fortawesome/pro-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "@heather-turano-coaching/design-system": "^0.2.5",
+    "@heather-turano-coaching/eslint-config": "^0.0.1",
     "polished": "^3.6.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

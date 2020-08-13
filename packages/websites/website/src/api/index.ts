@@ -3,7 +3,7 @@ import {
   QuickContactResponse,
   SubscribeRequest,
   SubscribeResponse,
-  makeEndpoint,
+  makeEndpoint
 } from "@heather-turano-coaching/domain";
 import { HookApiRequest } from "@heather-turano-coaching/hooks";
 
@@ -14,8 +14,8 @@ export const subscribeToBlog: HookApiRequest<
   url: makeEndpoint("subscribe/blog"),
   options: {
     method: "POST",
-    data: body,
-  },
+    data: body
+  }
 });
 
 export const sendQuickContactRequest: HookApiRequest<
@@ -25,6 +25,6 @@ export const sendQuickContactRequest: HookApiRequest<
   url: makeEndpoint("contact/quick"),
   options: {
     method: "POST",
-    data: body,
-  },
+    data: body
+  }
 });

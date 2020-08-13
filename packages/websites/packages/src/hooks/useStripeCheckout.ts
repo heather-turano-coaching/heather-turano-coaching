@@ -23,7 +23,7 @@ export const handleStripeRedirect = async (
   const stripe = await stripePromise;
   if (stripe) {
     const { error } = await stripe.redirectToCheckout({
-      sessionId,
+      sessionId
     });
 
     if (error) {
@@ -33,7 +33,7 @@ export const handleStripeRedirect = async (
 };
 
 export const useStripeCheckout = ({
-  urlIfPriceIs0,
+  urlIfPriceIs0
 }: {
   urlIfPriceIs0: string;
 }) => {
@@ -79,6 +79,6 @@ export const useStripeCheckout = ({
   return {
     checkout: handleClick,
     stripeCheckoutFailure,
-    data,
+    data
   };
 };

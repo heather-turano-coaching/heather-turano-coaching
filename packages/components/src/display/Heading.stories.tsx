@@ -5,7 +5,7 @@ import { Heading } from "./Heading";
 
 export default {
   component: Heading,
-  title: "Display|Heading",
+  title: "Display|Heading"
 };
 
 export const heading = () => (

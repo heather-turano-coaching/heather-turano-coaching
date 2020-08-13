@@ -1,7 +1,7 @@
 import {
   Section,
   SectionCopy,
-  Title,
+  Title
 } from "@heather-turano-coaching/components";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";

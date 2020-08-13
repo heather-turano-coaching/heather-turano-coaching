@@ -16,6 +16,9 @@
   "license": "MIT",
   "devDependencies": {
     "@heather-turano-coaching/typescript": "^0.2.1",
-    "typescript": "3.9.3"
+    "typescript": "3.9.7"
+  },
+  "dependencies": {
+    "@heather-turano-coaching/eslint-config": "^0.0.1"
   }
 }

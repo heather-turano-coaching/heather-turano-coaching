@@ -1,13 +1,13 @@
 import {
   Image,
   SectionCopy,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import {
   makeColor,
   makeInset,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
@@ -45,7 +45,7 @@ const StyledTesimonialTextConatiner = styled.div`
 
   ${makeResponsive({
     beginAt: "tabletPortrait",
-    style: makeInset({ vertical: 40, horizontal: 40 }),
+    style: makeInset({ vertical: 40, horizontal: 40 })
   })}
 
   p {
@@ -58,7 +58,7 @@ export const TestimonialContent: FC<Testimonial> = ({
   // customerDescription,
   // customerLocation,
   image,
-  maskingOpacity,
+  maskingOpacity
 }) => (
   <StyledTestimonialContent>
     <Image
@@ -76,7 +76,7 @@ export const TestimonialContent: FC<Testimonial> = ({
           copy={{
             fontColor: { fixed: "light" },
             fontSize: "sm",
-            variant: "paragraph",
+            variant: "paragraph"
           }}
         />
       </StyledTesimonialTextConatiner>

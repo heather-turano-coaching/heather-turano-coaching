@@ -1,13 +1,13 @@
 import {
   Avatar,
   Typography,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import {
   makeColor,
   makeInset,
   makeOutset,
-  makeResponsive,
+  makeResponsive
 } from "@heather-turano-coaching/design-system";
 import { Author, PostOrPage } from "@tryghost/content-api";
 import { graphql } from "gatsby";
@@ -22,18 +22,18 @@ import {
   LayoutColumn,
   LayoutContainer,
   PageContainer,
-  PageHeader,
+  PageHeader
 } from "../components";
 import {
   BlockCategoriesList,
   BlockRecentPosts,
   BlockSubscribe,
-  BlockTagsList,
+  BlockTagsList
 } from "../features";
 import {
   destructureNodes,
   getCategoriesFromTags,
-  removeCategoriesFromTags,
+  removeCategoriesFromTags
 } from "../utils";
 
 const StyledBioBlock = styled.div`
@@ -48,7 +48,7 @@ const StyledBioBlock = styled.div`
     beginAt: "tabletPortrait",
     style: `
       ${makeFlex("row", "flex-start", "stretch")};
-    `,
+    `
   })}
 `;
 
@@ -64,7 +64,7 @@ const StyledBioArea = styled.div`
     beginAt: "tabletPortrait",
     style: `
     ${makeOutset({ left: 16 })};
-    `,
+    `
   })}
 `;
 
@@ -77,7 +77,7 @@ const StyledBioPlaceholder = styled.div``;
  */
 const AuthorPage: FC<{ data: any; location: Location; pageContext: any }> = ({
   data,
-  location,
+  location
   // pageContext
 }) => {
   const author: Author = data.ghostAuthor;

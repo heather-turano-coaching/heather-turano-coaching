@@ -5,3 +5,5 @@ packages/components/storybook-static
 .env.production
 **/dist
 yarn-error.log
+.npmrc
+.yarnrc

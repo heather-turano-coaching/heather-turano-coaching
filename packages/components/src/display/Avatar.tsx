@@ -1,7 +1,7 @@
 import { makeColor, makeSize } from "@heather-turano-coaching/design-system";
 import {
   FontProperties,
-  SizeProperties,
+  SizeProperties
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -33,7 +33,7 @@ const avatarSizeMap: {
   md: "sm",
   sm: "xs",
   xs: "xxs",
-  xxs: "xxs",
+  xxs: "xxs"
 };
 
 const StyledAvatar = styled.div.attrs({ className: "avatar" })<
@@ -51,7 +51,7 @@ const StyledAvatar = styled.div.attrs({ className: "avatar" })<
 
   div.this-should-have-a-svg-as-its-child {
     background: ${makeColor({
-      scalable: { color: "gray", scale: 3 },
+      scalable: { color: "gray", scale: 3 }
     })};
     svg {
       display: block;
@@ -61,12 +61,12 @@ const StyledAvatar = styled.div.attrs({ className: "avatar" })<
       path {
         &:first-child {
           fill: ${makeColor({
-            scalable: { color: "gray", scale: 3 },
+            scalable: { color: "gray", scale: 3 }
           })};
         }
         &:last-child {
           fill: ${makeColor({
-            scalable: { color: "light", scale: 0 },
+            scalable: { color: "light", scale: 0 }
           })};
         }
       }

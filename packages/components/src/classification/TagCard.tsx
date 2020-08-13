@@ -2,7 +2,7 @@ import {
   makeColor,
   makeInset,
   makeRhythm,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled, { SimpleInterpolation, css } from "styled-components";
@@ -27,7 +27,7 @@ const CSSTagCardMap: { [key in TagTypes]: SimpleInterpolation } = {
     border: ${makeSize({ custom: 1 })} solid
       ${makeColor({ scalable: { color: "primary" } })};
     background: ${makeColor({ scalable: { color: "primary", scale: 3 } })};
-  `,
+  `
 };
 
 const StyledTagCard = styled.div<Pick<TagCardProps, "type">>`

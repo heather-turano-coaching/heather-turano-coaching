@@ -8,7 +8,7 @@ import {
 export const subscribeToBlog: HookApiRequest<
   SubscribeRequest,
   SubscribeResponse
-> = body => ({
+> = (body) => ({
   url: makeEndpoint("subscribe/hundred-days"),
   options: {
     method: "POST",

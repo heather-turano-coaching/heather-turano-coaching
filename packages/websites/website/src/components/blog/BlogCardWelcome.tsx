@@ -1,12 +1,12 @@
 import {
   Heading,
   Typography,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import {
   makeColor,
   makeInset,
-  makeRhythm,
+  makeRhythm
 } from "@heather-turano-coaching/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import React, { FC } from "react";
@@ -53,7 +53,7 @@ export const BlogCardWelcome: FC<BlogCardWelcomeProps> = ({
   subTitle,
   description,
   descriptionMobilePrompt,
-  descriptionDesktopPrompt,
+  descriptionDesktopPrompt
 }) => {
   const [windowWidth, { laptop }] = useBreakpoints();
 

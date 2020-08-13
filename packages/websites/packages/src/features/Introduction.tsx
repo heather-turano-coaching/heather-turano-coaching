@@ -3,7 +3,7 @@ import {} from "graphql";
 import {
   ContentfulRichText,
   Heading,
-  Section,
+  Section
 } from "@heather-turano-coaching/components";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
@@ -35,7 +35,7 @@ export const Introduction: FC = () => {
         richText={contentfulPageHome.introductionDescription.json}
         copyProps={{
           variant: "paragraph",
-          fontSize: "sm",
+          fontSize: "sm"
         }}
       />
     </Section>

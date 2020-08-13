@@ -6,7 +6,7 @@ import {
   ProductCard,
   Section,
   Typography,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import { makeResponsive } from "@heather-turano-coaching/design-system";
 import { navigate } from "@reach/router";
@@ -33,7 +33,7 @@ export const handleStripeRedirect = async (
   const stripe = await stripePromise;
   if (stripe) {
     const { error } = await stripe.redirectToCheckout({
-      sessionId,
+      sessionId
     });
 
     if (error) {
@@ -55,7 +55,7 @@ export const StyledCardContainer = styled.div`
       & > * {
         width: 33.333%;
       }
-    `,
+    `
   })}
 `;
 
@@ -80,7 +80,7 @@ interface PackagesTemplateProps {
 }
 
 export const PackagesTemplate: FC<PackagesTemplateProps> = ({
-  pageContext: { title, description, descriptionRich, packages },
+  pageContext: { title, description, descriptionRich, packages }
 }) => {
   const [runCheckoutQuery, { data, error }] = useLazyQuery<
     {
@@ -136,7 +136,7 @@ export const PackagesTemplate: FC<PackagesTemplateProps> = ({
             richText={descriptionRich}
             copyProps={{
               variant: "paragraph",
-              fontSize: "sm",
+              fontSize: "sm"
             }}
           />
         ) : (
@@ -157,7 +157,7 @@ export const PackagesTemplate: FC<PackagesTemplateProps> = ({
                     couponPrice,
                     features,
                     color,
-                    logo,
+                    logo
                   }) => {
                     return (
                       <ProductCard

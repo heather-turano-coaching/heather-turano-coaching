@@ -2,11 +2,11 @@ import {
   Alert,
   Button,
   FormGroup,
-  Input,
+  Input
 } from "@heather-turano-coaching/components";
 import {
   QuickContactRequest,
-  QuickContactResponse,
+  QuickContactResponse
 } from "@heather-turano-coaching/domain";
 import { useApi } from "@heather-turano-coaching/hooks";
 import React, { FC } from "react";
@@ -21,7 +21,7 @@ interface FormQuickContactProps {
 
 export const FormQuickContact: FC<FormQuickContactProps> = ({
   submitButtonLabel,
-  submitButtonColor = "primary",
+  submitButtonColor = "primary"
 }) => {
   const { register, errors, handleSubmit } = useForm<QuickContactRequest>();
 

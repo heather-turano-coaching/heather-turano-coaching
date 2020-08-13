@@ -2,7 +2,7 @@ import {
   Button,
   Heading,
   Section,
-  Typography,
+  Typography
 } from "@heather-turano-coaching/components";
 import { SEO } from "@heather-turano-coaching/gatsby";
 import { navigate } from "@reach/router";

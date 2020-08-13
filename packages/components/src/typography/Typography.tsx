@@ -2,7 +2,7 @@ import {
   ColorProperties,
   FontProperties,
   makeFont,
-  makeReset,
+  makeReset
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
@@ -24,20 +24,20 @@ export const typVariantMap: {
 } = {
   paragraph: {
     fontFamily: "Muli",
-    fontWeight: "regular",
+    fontWeight: "regular"
   },
   caption: {
     fontFamily: "Muli",
-    fontWeight: "bold",
+    fontWeight: "bold"
   },
   text: {
     fontFamily: "Muli",
-    fontWeight: "light",
+    fontWeight: "light"
   },
   label: {
     fontFamily: "Muli",
-    fontWeight: "medium",
-  },
+    fontWeight: "medium"
+  }
 };
 
 const StyledTypography = styled.p<
@@ -50,7 +50,7 @@ const StyledTypography = styled.p<
       fontWeight: typVariantMap[variant].fontWeight,
       fontSize,
       fontColor,
-      lineHeight,
+      lineHeight
     })};
 `;
 
@@ -59,7 +59,7 @@ export const Typography: FC<TypographyProps> = ({
   fontSize = "sm",
   fontColor = { scalable: { color: "gray" } },
   lineHeight,
-  children = undefined,
+  children = undefined
 }) => (
   <StyledTypography
     variant={variant}

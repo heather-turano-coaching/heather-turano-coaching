@@ -3,7 +3,7 @@ import {
   makeColor,
   makeInset,
   makeOutset,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled, { SimpleInterpolation, css } from "styled-components";
@@ -26,7 +26,7 @@ const formNotificationStyleMap: {
   `,
   error: css`
     background: ${makeColor({ scalable: { color: "error" } })};
-  `,
+  `
 };
 
 const StyledAlert = styled.div<AlertProps>`

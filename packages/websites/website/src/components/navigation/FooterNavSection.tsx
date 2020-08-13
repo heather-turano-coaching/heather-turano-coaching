@@ -6,7 +6,7 @@ import {
   makeOutset,
   makeReset,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import React, { FC } from "react";
@@ -26,7 +26,7 @@ const StyledFooterNavSection = styled.div`
       &:not(:first-child){
         ${makeInset({ bottom: 40 })};
       }
-    `,
+    `
   })}
 
   & > p {
@@ -69,7 +69,7 @@ const StyledFooterSectionTitle = styled.div`
 
 export const FooterNavSection: FC<{ title: string }> = ({
   title,
-  children,
+  children
 }) => {
   const [window, { tabletPortrait }] = useBreakpoints();
 

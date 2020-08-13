@@ -43,9 +43,9 @@ export function makeResponsive<StyleType = string>({
 }: ResponsiveInterface<StyleType>): string {
   if (beginAt && endAt) {
     return `
-      @media (min-width: ${
-        responsiveBreakpoints[beginAt]
-      }px) and (max-width: ${responsiveBreakpoints[endAt] - 1}px) {
+      @media (min-width: ${responsiveBreakpoints[beginAt]}px) and (max-width: ${
+      responsiveBreakpoints[endAt] - 1
+    }px) {
         ${style}
       }
     `;

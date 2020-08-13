@@ -2,7 +2,7 @@ import {
   makeColor,
   makeInset,
   makeOutset,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
@@ -56,7 +56,7 @@ export const AvatarListItem: FC<AvatarListItemProps> = ({
   accentColor = "primary",
   image,
   alt,
-  name,
+  name
   // bio
 }) => (
   <StyledAvatarListItem accentColor={accentColor}>

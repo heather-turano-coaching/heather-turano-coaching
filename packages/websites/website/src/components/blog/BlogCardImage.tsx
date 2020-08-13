@@ -1,6 +1,6 @@
 import {
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled, { SimpleInterpolation, css } from "styled-components";
@@ -20,7 +20,7 @@ const CSSBlogCardImageMap: {
         min-width: ${makeSize({ custom: 660 })};
         width: ${makeSize({ custom: 660 })};
         max-width: ${makeSize({ custom: 660 })};
-      `,
+      `
     })}
   `,
   regular: css`
@@ -30,9 +30,9 @@ const CSSBlogCardImageMap: {
         min-width: ${makeSize({ custom: 264 })};
         width: ${makeSize({ custom: 264 })};
         max-width: ${makeSize({ custom: 264 })};
-      `,
+      `
     })}
-  `,
+  `
 };
 
 const StyledBlogCardImage = styled.div<BlogCardImageProps>`
@@ -49,11 +49,11 @@ const StyledBlogCardImage = styled.div<BlogCardImageProps>`
     style: `
       align-self: stretch;
 
-    `,
+    `
   })}
 `;
 
 export const BlogCardImage: FC<BlogCardImageProps> = ({
   blogType,
-  children,
+  children
 }) => <StyledBlogCardImage blogType={blogType}>{children}</StyledBlogCardImage>;

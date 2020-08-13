@@ -7,9 +7,9 @@ export const Hero: FC = memo(() => {
   const {
     contentfulPageHome: {
       heroImage: {
-        file: { url },
-      },
-    },
+        file: { url }
+      }
+    }
   } = useStaticQuery<{
     contentfulPageHome: { heroImage: { file: { url: string } } };
   }>(graphql`

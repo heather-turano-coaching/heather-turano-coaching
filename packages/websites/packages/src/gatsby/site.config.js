@@ -12,7 +12,7 @@ module.exports = {
     siteOgLanguage: "en_US",
     siteAuthor: "Drew DeCarme",
     siteBaseKeywords: ["Heather Turano Coaching"],
-    twitterHandle: "@heatherturanocoaching",
+    twitterHandle: "@heatherturanocoaching"
   },
   manifestConfig: {
     name: "Heather Turano Coaching",
@@ -21,6 +21,6 @@ module.exports = {
     start_url: "/",
     background_color: "#fff",
     display: "standalone",
-    theme_color: "#fff",
-  },
+    theme_color: "#fff"
+  }
 };

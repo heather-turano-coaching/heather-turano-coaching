@@ -6,7 +6,7 @@ const Moana = require("../../.storybook/assets/moana.jpg");
 
 export default {
   component: AvatarListItem,
-  title: "Display|Avatar List",
+  title: "Display|Avatar List"
 };
 
 export const base = () => (

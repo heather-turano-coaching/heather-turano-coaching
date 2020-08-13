@@ -16,7 +16,7 @@ const componentTypeMap: { [key in ComponentTypes]: any } = {
   `,
   div: styled.div`
     ${NavBarSectionCss}
-  `,
+  `
 };
 
 export type NavBarSectionProps = {
@@ -27,7 +27,7 @@ export type NavBarSectionProps = {
 export const NavBarSection: FC<NavBarSectionProps> = ({
   component = "div",
   collapse = false,
-  children,
+  children
 }) => {
   const Component = useMemo(() => componentTypeMap[component], [component]);
   const [windowWidth, { phoneLg }] = useBreakpoints();

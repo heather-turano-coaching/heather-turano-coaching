@@ -2,13 +2,13 @@ import {
   AvatarListItem,
   ButtonAction,
   RandomColor,
-  generateRandomColor,
+  generateRandomColor
 } from "@heather-turano-coaching/components";
 import {
   makeColor,
   makeOutset,
   makeReset,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { Author, PostOrPage } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
@@ -20,7 +20,7 @@ import {
   FrameworkLink,
   LayoutBlock,
   LayoutBlockContent,
-  LayoutBlockTitle,
+  LayoutBlockTitle
 } from "../../components";
 import { destructureNodes } from "../../utils";
 
@@ -53,17 +53,17 @@ const StyledLinks = styled.li<{ hoverColor: RandomColor }>`
     cursor: pointer;
     border-color: ${({ hoverColor }) =>
       makeColor({
-        scalable: { color: hoverColor, scale: 1 },
+        scalable: { color: hoverColor, scale: 1 }
       })};
   }
 `;
 
 export const BlockContributors: FC<BlockContributorsProps> = ({
   title = "Authors",
-  posts,
+  posts
 }) => {
   const {
-    allGhostAuthor: { edges },
+    allGhostAuthor: { edges }
   } = useStaticQuery(graphql`
     {
       allGhostAuthor(filter: { postCount: { gt: 0 } }) {

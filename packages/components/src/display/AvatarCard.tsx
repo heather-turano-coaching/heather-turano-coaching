@@ -1,13 +1,13 @@
 import {
   SizeProperties,
-  SpaceProperties,
+  SpaceProperties
 } from "@heather-turano-coaching/design-system";
 import {
   makeColor,
   makeInset,
   makeOutset,
   makeRhythm,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { rgba } from "polished";
 import React, { FC } from "react";
@@ -77,7 +77,7 @@ export const AvatarCard: FC<AvatarCardProps> = ({
   authorName,
   avatarImg,
   bio,
-  featureImage,
+  featureImage
 }) => {
   const randomColor = generateRandomColor();
   return (

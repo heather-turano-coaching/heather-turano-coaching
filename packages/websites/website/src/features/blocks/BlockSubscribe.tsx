@@ -3,7 +3,7 @@ import {
   makeColor,
   makeInset,
   makeRhythm,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
@@ -12,7 +12,7 @@ import styled from "styled-components";
 import {
   LayoutBlock,
   LayoutBlockContent,
-  LayoutBlockTitle,
+  LayoutBlockTitle
 } from "../../components";
 import { FormSubscribe } from "../forms";
 
@@ -44,7 +44,7 @@ const StyledContentCopy = styled.div`
 `;
 
 export const BlockSubscribe: FC<BlockSubscribeProps> = ({
-  displayBlockTitle = true,
+  displayBlockTitle = true
 }) => {
   const { contentfulBlockSubscribe: queryData } = useStaticQuery(graphql`
     {

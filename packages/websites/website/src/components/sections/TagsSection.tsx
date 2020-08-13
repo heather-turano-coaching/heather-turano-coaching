@@ -32,13 +32,13 @@ export const TagsSection: FC<TagSectionProps> = ({
     {tags.length > 0 && (
       <TagGroup {...restProps}>
         {tags
-          .filter(tag => {
+          .filter((tag) => {
             if (filter === "categories") {
               return tag.name?.includes("category-");
             }
             return !tag.name?.includes("category-");
           })
-          .map(tag => (
+          .map((tag) => (
             <FrameworkLink key={tag.id} to={`/${filter}/${tag.slug}`}>
               <Tag
                 tagType={filter === "categories" ? "category" : "tag"}

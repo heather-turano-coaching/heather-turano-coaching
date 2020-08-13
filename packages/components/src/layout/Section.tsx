@@ -5,7 +5,7 @@ import {
   makeOutset,
   makeResponsive,
   makeSize,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import { ResponsiveBreakpoints } from "@heather-turano-coaching/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
@@ -30,12 +30,12 @@ type SpaceBreakpoints = Pick<ResponsiveBreakpoints, "phone" | "tabletPortrait">;
 
 export const sectionVSpace: SpaceBreakpoints = {
   phone: 80,
-  tabletPortrait: 100,
+  tabletPortrait: 100
 };
 
 export const sectionHSpace: SpaceBreakpoints = {
   phone: 32,
-  tabletPortrait: 60,
+  tabletPortrait: 60
 };
 
 const CSSSectionMap: {
@@ -44,30 +44,30 @@ const CSSSectionMap: {
   blank: css`
     ${makeInset({
       vertical: sectionVSpace.phone,
-      horizontal: sectionHSpace.phone,
+      horizontal: sectionHSpace.phone
     })};
 
     ${makeResponsive<string>({
       beginAt: "tabletPortrait",
-      style: makeInset({ vertical: sectionVSpace.tabletPortrait }),
+      style: makeInset({ vertical: sectionVSpace.tabletPortrait })
     })}
   `,
   layered: css`
     ${makeInset({
       vertical: sectionVSpace.phone,
-      horizontal: sectionHSpace.phone,
+      horizontal: sectionHSpace.phone
     })};
 
     ${makeResponsive<string>({
       beginAt: "tabletPortrait",
-      style: makeInset({ vertical: sectionVSpace.tabletPortrait }),
+      style: makeInset({ vertical: sectionVSpace.tabletPortrait })
     })}
 
     ${makeResponsive({
       endAt: "laptop",
       style: `
         background: ${makeColor({ scalable: { color: "light", scale: 3 } })};
-      `,
+      `
     })}
   `,
   hero: css`
@@ -81,14 +81,14 @@ const CSSSectionMap: {
 
     ${makeResponsive({
       endAt: "laptop",
-      style: makeInset({ top: 160, bottom: 48, horizontal: 32 }),
+      style: makeInset({ top: 160, bottom: 48, horizontal: 32 })
     })}
   `,
   "blog-page": css`
     ${makeInset({
       top: 0,
       bottom: sectionVSpace.phone,
-      horizontal: sectionHSpace.phone,
+      horizontal: sectionHSpace.phone
     })};
   `,
   split: css`
@@ -100,9 +100,9 @@ const CSSSectionMap: {
         ${makeFlex("row", "center", "center")};
         max-width: 100%;
         width: 100%;
-      `,
+      `
     })}
-  `,
+  `
 };
 
 const CSSSectionContentMap: {
@@ -116,12 +116,12 @@ const CSSSectionContentMap: {
         position: relative;
         margin-bottom: ${makeSpace(56)};
         background: ${makeColor({
-          scalable: { color: "light", scale: 3 },
+          scalable: { color: "light", scale: 3 }
         })};
 
         & > * {
           background: ${makeColor({
-            scalable: { color: "light", scale: 3 },
+            scalable: { color: "light", scale: 3 }
           })};
           ${makeInset({ vertical: 56, horizontal: 56 })};
         }
@@ -134,11 +134,11 @@ const CSSSectionContentMap: {
           right: -${makeSize({ custom: 56 })};
           bottom: -${makeSize({ custom: 56 })};
           background: ${makeColor({
-            scalable: { color: "secondary", scale: 3 },
+            scalable: { color: "secondary", scale: 3 }
           })};
           z-index: -1;
         }
-      `,
+      `
     })}
   `,
   hero: css``,
@@ -158,9 +158,9 @@ const CSSSectionContentMap: {
       beginAt: "tabletLandscape",
       style: `
         ${makeInset({ top: sectionVSpace.tabletPortrait })};
-      `,
+      `
     })}
-  `,
+  `
 };
 
 const StyledSection = styled.article<SectionProps>`
@@ -182,7 +182,7 @@ const StyledSectionContent = styled.div<SectionProps>`
     style: `
       margin: 0 auto;
       max-width: ${makeSize({ custom: 700 })};
-    `,
+    `
   })}
 
   ${({ styleType }) => CSSSectionContentMap[styleType]};
@@ -191,7 +191,7 @@ const StyledSectionContent = styled.div<SectionProps>`
 export const Section: FC<SectionProps> = ({
   styleType,
   children,
-  background = undefined,
+  background = undefined
 }) => {
   const [windowWidth, { phoneLg }] = useBreakpoints();
 
@@ -241,7 +241,7 @@ const StyledSectionSplitPane = styled.div<SectionSplitPaneProps>`
     return css`
       ${makeInset({
         bottom: sectionVSpace.phone,
-        horizontal: sectionHSpace.phone,
+        horizontal: sectionHSpace.phone
       })};
 
       ${makeResponsive({
@@ -249,9 +249,9 @@ const StyledSectionSplitPane = styled.div<SectionSplitPaneProps>`
         style: `
           ${makeInset({
             vertical: sectionVSpace.tabletPortrait,
-            horizontal: sectionHSpace.tabletPortrait,
+            horizontal: sectionHSpace.tabletPortrait
           })};
-        `,
+        `
       })}
     `;
   }}

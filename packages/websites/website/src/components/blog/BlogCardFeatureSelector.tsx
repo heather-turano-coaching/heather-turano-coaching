@@ -7,7 +7,7 @@ import {
   makeReset,
   makeResponsive,
   makeSize,
-  makeSpace,
+  makeSpace
 } from "@heather-turano-coaching/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { PostOrPage } from "@tryghost/content-api";
@@ -27,7 +27,7 @@ const StyledFeatureBlogSelector = styled.div`
       ${makeFlex("row", "distribute-evently", "center")};
       background: ${makeColor({ fixed: "light" })};
       ${makeOutset({ bottom: 32 })};
-    `,
+    `
   })};
 `;
 
@@ -69,7 +69,7 @@ const StyledFeaturePostButton = styled.button.attrs({ type: "button" })<{
       ${makeFont({
         fontSize: "xs",
         fontFamily: "Montserrat",
-        fontWeight: isActive ? "medium" : "regular",
+        fontWeight: isActive ? "medium" : "regular"
       })}
     `}
   }
@@ -78,7 +78,7 @@ const StyledFeaturePostButton = styled.button.attrs({ type: "button" })<{
 export const BlogCardFeatureSelector: FC<BlogCardFeatureSelectorProps> = ({
   currentlySelectedPost,
   posts,
-  setFp,
+  setFp
 }) => {
   const [windowWidth, { tabletPortrait }] = useBreakpoints();
   const isWindowMobile = windowWidth < tabletPortrait;

@@ -5,7 +5,7 @@ import {
   SectionCopy,
   SectionFooter,
   Title,
-  Typography,
+  Typography
 } from "@heather-turano-coaching/components";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";

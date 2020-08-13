@@ -2,7 +2,7 @@ import {
   Button,
   ContentfulRichText,
   Heading,
-  Section,
+  Section
 } from "@heather-turano-coaching/components";
 import { SEO } from "@heather-turano-coaching/gatsby";
 import { navigate } from "@reach/router";
@@ -56,7 +56,7 @@ const IndexPage = () => {
             richText={data.message.json}
             copyProps={{
               variant: "label",
-              fontSize: "md",
+              fontSize: "md"
             }}
           />
           <br />

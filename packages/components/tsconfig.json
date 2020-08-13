@@ -1,13 +1,16 @@
 {
-  "extends": "@heather-turano-coaching/typescript/tsconfig.react.json",
-  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.d.ts"],
+  "extends": "@heather-turano-coaching/typescript/tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.d.ts", ".eslintrc.js"],
   "compilerOptions": {
     "noEmit": false,
     "outDir": "./dist",
     "declaration": true,
     "declarationMap": true,
     "noUnusedLocals": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "isolatedModules": false,
+    "target": "ES5",
+    "module": "CommonJS"
   },
-  "exclude": ["**/*.spec.ts", "**/*.stories.tsx"]
+  "exclude": ["src/**/*.stories.ts", "src/**/*.stories.tsx"]
 }

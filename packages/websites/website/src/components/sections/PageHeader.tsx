@@ -1,11 +1,11 @@
 import {
   Heading,
   Typography,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import {
   ColorProperties,
-  ColorScalePosition,
+  ColorScalePosition
 } from "@heather-turano-coaching/design-system";
 import {
   makeColor,
@@ -13,7 +13,7 @@ import {
   makeOutset,
   makeResponsive,
   makeRhythm,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { useLocation } from "@reach/router";
@@ -37,7 +37,7 @@ const StyledLayoutPageHeader = styled.header`
       beginAt: "tabletLandscape",
       style: `
         ${makeRhythm({ fontSize: "sm", top: 1, bottom: 0 })};
-      `,
+      `
     })}
 
     & > * {
@@ -48,7 +48,7 @@ const StyledLayoutPageHeader = styled.header`
 
     a {
       text-decoration-color: ${makeColor({
-        scalable: { color: "gray", scale: 2 },
+        scalable: { color: "gray", scale: 2 }
       })};
       cursor: pointer;
       transition: all 0.15s ease-in-out;
@@ -84,7 +84,7 @@ const basePathName = "blog";
 
 const copy = ({
   label,
-  scale,
+  scale
 }: {
   label: string;
   scale: ColorScalePosition;
@@ -96,8 +96,8 @@ const copy = ({
     fontColor={{
       scalable: {
         color: "gray",
-        scale: scale,
-      },
+        scale: scale
+      }
     }}
   >
     {label}
@@ -106,7 +106,7 @@ const copy = ({
 
 export const PageHeader: FC<PageHeaderProps> = ({
   pageTitle,
-  titleColor = { scalable: { color: "secondary" } },
+  titleColor = { scalable: { color: "secondary" } }
 }) => {
   const location = useLocation();
   const [windowWidth, { tabletPortrait }] = useBreakpoints();
@@ -123,18 +123,18 @@ export const PageHeader: FC<PageHeaderProps> = ({
               <FrameworkLink to={`/${route}`}>
                 {copy({
                   label: index === 0 ? basePathName : route,
-                  scale: index !== routes.length - 1 ? 3 : 0,
+                  scale: index !== routes.length - 1 ? 3 : 0
                 })}
               </FrameworkLink>
               {copy({
                 label: "/",
-                scale: 3,
+                scale: 3
               })}
             </Fragment>
           ) : (
             copy({
               label: index === 0 ? basePathName : route,
-              scale: index !== routes.length - 1 ? 3 : 0,
+              scale: index !== routes.length - 1 ? 3 : 0
             })
           )
         )}

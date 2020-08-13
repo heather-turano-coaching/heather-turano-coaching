@@ -2,13 +2,13 @@ import {
   Image,
   Section,
   SectionCopy,
-  SectionSpacer,
+  SectionSpacer
 } from "@heather-turano-coaching/components";
 import {
   makeFont,
   makeInset,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { graphql, useStaticQuery } from "gatsby";
@@ -25,7 +25,7 @@ const StyledAboutImageSection = styled.div`
     beginAt: "tabletLandscape",
     style: `
       flex: 2;
-    `,
+    `
   })}
 
   &::after {
@@ -52,7 +52,7 @@ const StyledAboutImageSection = styled.div`
         width: 50%;
         height: 100%;
         background-image: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0.00) 100%);
-      `,
+      `
     })}
   }
 `;
@@ -65,13 +65,13 @@ const StyledAboutTitleSection = styled.div`
     style: `
       ${makeInset({ horizontal: 60 })};
       max-width: ${makeSize({ custom: 500 })};
-    `,
+    `
   })}
 
   p {
     ${makeFont({
       fontSize: "h1",
-      fontFamily: "Montserrat",
+      fontFamily: "Montserrat"
     })}
   }
 `;

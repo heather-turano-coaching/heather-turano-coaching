@@ -5,7 +5,7 @@ import {
   SectionCopy,
   SectionFooter,
   Title,
-  Typography,
+  Typography
 } from "@heather-turano-coaching/components";
 import { makeColor } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";

@@ -1,7 +1,7 @@
 const path = require("path");
 
 require("dotenv").config({
-  path: path.resolve(__dirname, "../../../.env"),
+  path: path.resolve(__dirname, "../../../.env")
 });
 
 const { websiteConfig } = require("./configs/site.config.js");
@@ -14,14 +14,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        displayName: true,
-      },
+        displayName: true
+      }
     },
     {
       resolve: "gatsby-plugin-svgr",
       options: {
-        dimensions: false,
-      },
+        dimensions: false
+      }
     },
     "gatsby-plugin-typescript",
     "gatsby-plugin-typescript-checker",
@@ -29,15 +29,15 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: path.join(__dirname, `src`, `images`),
-        name: `images`,
-      },
+        name: `images`
+      }
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -45,12 +45,12 @@ module.exports = {
       resolve: `gatsby-source-ghost`,
       options: {
         apiUrl: process.env.GHOST_API_URL,
-        contentApiKey: process.env.GHOST_CONTENT_API_KEY,
-      },
+        contentApiKey: process.env.GHOST_CONTENT_API_KEY
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
-      options: { ...websiteConfig.manifestConfig, cache_busting_mode: "none" },
+      options: { ...websiteConfig.manifestConfig, cache_busting_mode: "none" }
     },
     // {
     //   resolve: `gatsby-plugin-feed`,
@@ -119,31 +119,31 @@ module.exports = {
                 }`,
         mapping: {
           allGhostPost: {
-            sitemap: `posts`,
+            sitemap: `posts`
           },
           allGhostTag: {
-            sitemap: `tags`,
+            sitemap: `tags`
           },
           allGhostAuthor: {
-            sitemap: `authors`,
+            sitemap: `authors`
           },
           allGhostPage: {
-            sitemap: `pages`,
-          },
+            sitemap: `pages`
+          }
         },
         exclude: [
           `/dev-404-page`,
           `/404`,
           `/404.html`,
-          `/offline-plugin-app-shell-fallback`,
+          `/offline-plugin-app-shell-fallback`
         ],
         createLinkInHead: true,
-        addUncaughtPages: true,
-      },
+        addUncaughtPages: true
+      }
     },
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
-    `gatsby-plugin-offline`,
-  ],
+    `gatsby-plugin-offline`
+  ]
 };

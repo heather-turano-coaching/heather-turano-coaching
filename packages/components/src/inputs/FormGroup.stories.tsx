@@ -5,7 +5,7 @@ import { Input } from "./Input";
 
 export default {
   component: FormGroup,
-  title: "Inputs|Form Group",
+  title: "Inputs|Form Group"
 };
 
 export const base = () => (

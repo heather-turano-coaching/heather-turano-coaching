@@ -1,6 +1,6 @@
 import {
   makeFontFace,
-  makeResponsive,
+  makeResponsive
 } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, ReactNode } from "react";
@@ -12,7 +12,7 @@ import {
   HeaderNav,
   HeaderNavLink,
   HeaderNavLinkContent,
-  logos,
+  logos
 } from "..";
 
 /**
@@ -35,7 +35,7 @@ const GlobalStyle = createGlobalStyle`
       beginAt: "desktop",
       style: `
         font-size: 18px;
-      `,
+      `
     })}
   }
 
@@ -54,7 +54,7 @@ const fontFaceLinks = fontFaceDefs.reduce(
             key={`link-${i.toString()}`}
             rel="stylesheet"
             href={fontFaceDef.split('("')[1].split('")')[0]}
-          />,
+          />
         ]
       : accum,
   [] as ReactNode[]
@@ -71,42 +71,42 @@ export interface NavLinkType {
 const headerNavLinks = [
   {
     label: "home",
-    route: "/",
+    route: "/"
   },
   {
     label: "about",
-    route: "/about",
+    route: "/about"
   },
   {
     label: "services",
-    route: "/services",
+    route: "/services"
   },
   {
     label: "blog",
-    route: "/blog",
-  },
+    route: "/blog"
+  }
 ];
 const usefulLinks: NavLinkType[] = [
   {
     label: "Privacy Policy",
-    route: "/privacy-policy",
+    route: "/privacy-policy"
   },
   {
     label: "Terms of Service",
-    route: "/terms-of-service",
+    route: "/terms-of-service"
   },
   {
     label: "Cookie Policy",
-    route: "/cookie-policy",
-  },
+    route: "/cookie-policy"
+  }
 ];
 
 export const Layout: FC<{ pageTitle: string }> = ({
   pageTitle = "",
-  children,
+  children
 }) => {
   const {
-    allGhostSettings: { edges },
+    allGhostSettings: { edges }
   } = useStaticQuery(graphql`
     {
       allGhostSettings {
@@ -157,7 +157,7 @@ export const Layout: FC<{ pageTitle: string }> = ({
           intro:
             "This website was designed and developed by the amazing people at",
           link: "http://www.imaginedelements.com",
-          name: "Imagined Elements, LLC",
+          name: "Imagined Elements, LLC"
         }}
         mainMenu={headerNavLinks}
         usefulLinks={usefulLinks}

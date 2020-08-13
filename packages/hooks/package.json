@@ -37,5 +37,9 @@
   },
   "devDependencies": {
     "@heather-turano-coaching/typescript": "^0.2.1"
+  },
+  "dependencies": {
+    "@heather-turano-coaching/design-system": "^0.2.5",
+    "@heather-turano-coaching/eslint-config": "^0.0.1"
   }
 }

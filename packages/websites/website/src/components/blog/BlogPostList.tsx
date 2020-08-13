@@ -8,7 +8,7 @@ interface BlogPostListProps {
 
 export const BlogPostList: FC<BlogPostListProps> = ({ posts }) => (
   <>
-    {posts.map(post => (
+    {posts.map((post) => (
       <BlogPost key={post.id} blogType="regular" post={post} />
     ))}
   </>

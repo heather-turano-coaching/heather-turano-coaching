@@ -3,7 +3,7 @@ import {
   FormContainer,
   Heading,
   Section,
-  Select,
+  Select
 } from "@heather-turano-coaching/components";
 import { makeOutset } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";
@@ -101,7 +101,7 @@ export const Schedule: FC = () => {
         <div
           dangerouslySetInnerHTML={{
             __html:
-              activeCoach.youCanBookMeEmbeddedLink.youCanBookMeEmbeddedLink,
+              activeCoach.youCanBookMeEmbeddedLink.youCanBookMeEmbeddedLink
           }}
         />
       )}

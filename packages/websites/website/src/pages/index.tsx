@@ -7,7 +7,7 @@ import {
   HomeContact,
   HomeHero,
   HomeServices,
-  HomeTestimonials,
+  HomeTestimonials
 } from "../features/home";
 
 // @ts-ignore

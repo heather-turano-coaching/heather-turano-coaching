@@ -16,7 +16,7 @@ const WebsiteMeta = ({
   title,
   description,
   image,
-  type,
+  type
 }) => {
   settings = settings.allGhostSettings.edges[0].node;
 
@@ -48,7 +48,7 @@ const WebsiteMeta = ({
           "@type": `ImageObject`,
           url: shareImage,
           width: config.shareImageWidth,
-          height: config.shareImageHeight,
+          height: config.shareImageHeight
         }
       : undefined,
     publisher: {
@@ -58,14 +58,14 @@ const WebsiteMeta = ({
         "@type": `ImageObject`,
         url: publisherLogo,
         width: 60,
-        height: 60,
-      },
+        height: 60
+      }
     },
     mainEntityOfPage: {
       "@type": `WebPage`,
-      "@id": config.siteUrl,
+      "@id": config.siteUrl
     },
-    description,
+    description
   };
 
   return (
@@ -112,20 +112,20 @@ WebsiteMeta.propTypes = {
     feature_image: PropTypes.string,
     description: PropTypes.string,
     bio: PropTypes.string,
-    profile_image: PropTypes.string,
+    profile_image: PropTypes.string
   }).isRequired,
   settings: PropTypes.shape({
     logo: PropTypes.object,
     description: PropTypes.string,
     title: PropTypes.string,
     twitter: PropTypes.string,
-    allGhostSettings: PropTypes.object.isRequired,
+    allGhostSettings: PropTypes.object.isRequired
   }).isRequired,
   canonical: PropTypes.string.isRequired,
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
-  type: PropTypes.oneOf([`WebSite`, `Series`]).isRequired,
+  type: PropTypes.oneOf([`WebSite`, `Series`]).isRequired
 };
 
 const WebsiteMetaQuery = (props) => (

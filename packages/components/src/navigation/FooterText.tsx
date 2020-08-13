@@ -15,7 +15,7 @@ const StyledFooterText = styled.span`
 `;
 
 const typographyStyle: React.CSSProperties = {
-  marginBottom: makeSize({ custom: 12 }),
+  marginBottom: makeSize({ custom: 12 })
 };
 
 export const FooterText: FC<{ children: ReactNode }> = memo(({ children }) => (

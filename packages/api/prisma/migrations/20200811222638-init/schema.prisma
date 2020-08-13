@@ -1,0 +1,37 @@
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator prisma_client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum AccountStatus {
+  CONFIRMED
+  RESET_PASSWORD
+  CONFIRM_EMAIL
+}
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  body      String
+  published Boolean
+}
+
+model User {
+  id               String        @id @default(uuid())
+  password         String
+  email_address    String        @unique
+  first_name       String
+  last_name        String
+  confirmation_key String
+  status           AccountStatus @default(CONFIRM_EMAIL)
+  role             Role          @default(USER)
+}

@@ -1,4 +1,4 @@
-import { gql, useLazyQuery } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import {
   ContentfulRichText,
   HTCPackagePrice,
@@ -6,7 +6,7 @@ import {
   ProductCard,
   Section,
   Typography,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import { makeResponsive } from "@heather-turano-coaching/design-system";
 import { navigate } from "@reach/router";
@@ -18,9 +18,9 @@ export const stripePromise = loadStripe(
   process.env.GATSBY_HTC_STRIPE_PUBLISHABLE_KEY as string
 );
 
-export const CHECKOUT = gql`
-  query checkout($priceId: String!) {
-    checkout(priceId: $priceId) {
+export const CHECKOUT_MINDFUL_MOVEMENT = gql`
+  mutation($priceId: String!) {
+    checkoutMindfulMovement(priceId: $priceId) {
       id
     }
   }
@@ -33,7 +33,7 @@ export const handleStripeRedirect = async (
   const stripe = await stripePromise;
   if (stripe) {
     const { error } = await stripe.redirectToCheckout({
-      sessionId,
+      sessionId
     });
 
     if (error) {
@@ -55,7 +55,7 @@ export const StyledCardContainer = styled.div`
       & > * {
         width: 33.333%;
       }
-    `,
+    `
   })}
 `;
 
@@ -80,14 +80,14 @@ interface PackagesTemplateProps {
 }
 
 export const PackagesTemplate: FC<PackagesTemplateProps> = ({
-  pageContext: { title, description, descriptionRich, packages },
+  pageContext: { title, description, descriptionRich, packages }
 }) => {
-  const [runCheckoutQuery, { data, error }] = useLazyQuery<
+  const [runCheckoutMutation, { data, error }] = useMutation<
     {
-      checkout: { id: string };
+      checkoutMindfulMovement: { id: string };
     },
     { priceId: string }
-  >(CHECKOUT, { ssr: false });
+  >(CHECKOUT_MINDFUL_MOVEMENT);
 
   const [stripeCheckoutFailure, setStripeCheckoutFailure] = useState<
     string | undefined
@@ -101,19 +101,21 @@ export const PackagesTemplate: FC<PackagesTemplateProps> = ({
       if (priceInCents === 0) {
         navigate("sign-up");
       } else {
-        runCheckoutQuery({ variables: { priceId } });
+        runCheckoutMutation({ variables: { priceId } });
       }
     },
-    [runCheckoutQuery]
+    [runCheckoutMutation]
   );
 
   useEffect(() => {
     if (data) {
-      handleStripeRedirect(data.checkout.id).then((stripeError) => {
-        if (stripeError) {
-          setStripeCheckoutFailure(stripeError);
+      handleStripeRedirect(data.checkoutMindfulMovement.id).then(
+        (stripeError) => {
+          if (stripeError) {
+            setStripeCheckoutFailure(stripeError);
+          }
         }
-      });
+      );
     }
 
     if (error) {
@@ -136,7 +138,7 @@ export const PackagesTemplate: FC<PackagesTemplateProps> = ({
             richText={descriptionRich}
             copyProps={{
               variant: "paragraph",
-              fontSize: "sm",
+              fontSize: "sm"
             }}
           />
         ) : (
@@ -157,7 +159,7 @@ export const PackagesTemplate: FC<PackagesTemplateProps> = ({
                     couponPrice,
                     features,
                     color,
-                    logo,
+                    logo
                   }) => {
                     return (
                       <ProductCard

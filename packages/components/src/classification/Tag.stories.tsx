@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { FC } from "react";
 
 import { Tag } from "./Tag";
 import { TagGroup } from "./TagGroup";
 
 export default {
   component: Tag,
-  title: "Classification|Tags",
+  title: "Classification|Tags"
 };
 
-export const baseDefault = () => <Tag text="mindfulness" />;
-export const tag = () => <Tag tagType="tag" text="mindfulness" />;
-export const category = () => <Tag tagType="category" text="mindfulness" />;
-export const list = () => <Tag tagType="list" text="mindfulness" />;
-export const groupedWithTagArray = () => (
+export const baseDefault: FC = () => <Tag text="mindfulness" />;
+export const tag: FC = () => <Tag tagType="tag" text="mindfulness" />;
+export const category: FC = () => <Tag tagType="category" text="mindfulness" />;
+export const list: FC = () => <Tag tagType="list" text="mindfulness" />;
+export const groupedWithTagArray: FC = () => (
   <TagGroup
     tags={[
       { text: "mindfulness" },
@@ -24,11 +24,11 @@ export const groupedWithTagArray = () => (
       { text: "mission" },
       { text: "day" },
       { text: "walk" },
-      { text: "stems" },
+      { text: "stems" }
     ]}
   />
 );
-export const groupedWithComposite = () => (
+export const groupedWithComposite: FC = () => (
   <TagGroup>
     <a>
       <Tag text="mindfulness" />
@@ -59,7 +59,7 @@ export const groupedWithComposite = () => (
     </a>
   </TagGroup>
 );
-export const listGroupedWithTagArray = () => (
+export const listGroupedWithTagArray: FC = () => (
   <TagGroup
     tags={[
       { tagType: "list", text: "mindfulness" },
@@ -70,11 +70,11 @@ export const listGroupedWithTagArray = () => (
       { tagType: "list", text: "mission" },
       { tagType: "list", text: "day" },
       { tagType: "list", text: "walk" },
-      { tagType: "list", text: "stems" },
+      { tagType: "list", text: "stems" }
     ]}
   />
 );
-export const listGroupedWithComposite = () => (
+export const listGroupedWithComposite: FC = () => (
   <TagGroup>
     <a>
       <Tag tagType="list" text="mindfulness" />

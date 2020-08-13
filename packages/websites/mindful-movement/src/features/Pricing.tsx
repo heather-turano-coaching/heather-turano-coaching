@@ -7,10 +7,7 @@ import PackagesTemplate from "../templates/Packages";
 export const Pricing: FC = () => {
   const {
     allStripeProductAndPrice: { nodes: packages },
-    contentfulPageHome: {
-      pricingTitle: title,
-      pricingDescription: description,
-    },
+    contentfulPageHome: { pricingTitle: title, pricingDescription: description }
   } = useStaticQuery<{
     allStripeProductAndPrice: { nodes: [] };
     contentfulPageHome: {
@@ -47,7 +44,7 @@ export const Pricing: FC = () => {
       pageContext={{
         title: title,
         descriptionRich: description.json,
-        packages: packages,
+        packages: packages
       }}
     />
   );

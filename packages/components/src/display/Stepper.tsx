@@ -3,7 +3,7 @@ import { ColorProperties } from "@heather-turano-coaching/design-system";
 import {
   makeColor,
   makeOutset,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC, ReactNode, useState } from "react";
 import styled from "styled-components";
@@ -89,7 +89,7 @@ const StyledProgressLine = styled.div<{
 
 const createFontColor = ({
   isActive,
-  isPassed,
+  isPassed
 }: DerrivedValue): ColorProperties => {
   if (isActive) {
     return { scalable: { color: "secondary" } };

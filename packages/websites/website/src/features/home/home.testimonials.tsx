@@ -5,7 +5,7 @@ import {
   SectionCopy,
   SectionFooter,
   SectionSplitPane,
-  Title,
+  Title
 } from "@heather-turano-coaching/components";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
@@ -48,7 +48,7 @@ export const HomeTestimonials = () => {
           <ContentfulRichText
             copy={{
               fontSize: "md",
-              variant: "text",
+              variant: "text"
             }}
             richText={queryData.testimonialsDescription.testimonialsDescription}
           />

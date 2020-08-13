@@ -1,4 +1,4 @@
-import { Icon, makeFlex } from "@heather-turano-coaching/components";
+import { makeFlex } from "@heather-turano-coaching/components";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import React, { FC, useMemo } from "react";
 import styled, { css } from "styled-components";
@@ -16,7 +16,7 @@ const componentTypeMap: { [key in ComponentTypes]: any } = {
   `,
   div: styled.div`
     ${NavBarSectionCss}
-  `,
+  `
 };
 
 export type NavBarSectionProps = {
@@ -27,21 +27,25 @@ export type NavBarSectionProps = {
 export const NavBarSection: FC<NavBarSectionProps> = ({
   component = "div",
   collapse = false,
-  children,
+  children
 }) => {
   const Component = useMemo(() => componentTypeMap[component], [component]);
   const [windowWidth, { phoneLg }] = useBreakpoints();
 
-  if (windowWidth <= phoneLg && collapse) {
-    return (
-      <button>
-        <Icon
-          icon="bars"
-          iconSize="lg"
-          iconColor={{ scalable: { color: "secondary" } }}
-        />
-      </button>
-    );
+  console.log();
+
+  if (windowWidth < phoneLg && collapse) {
+    console.log("close");
+    return <></>;
+    // return (
+    //   <button>
+    //     <Icon
+    //       icon="bars"
+    //       iconSize="lg"
+    //       iconColor={{ scalable: { color: "secondary" } }}
+    //     />
+    //   </button>
+    // );
   }
   return <Component>{children}</Component>;
 };

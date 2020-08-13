@@ -2,7 +2,7 @@ import { ColorProperties } from "@heather-turano-coaching/design-system";
 import {
   makeColor,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
@@ -28,14 +28,14 @@ const StyledHero = styled.section`
     beginAt: "tabletPortrait",
     style: `
       min-height: ${makeSize({ custom: 450 })};
-    `,
+    `
   })}
 
   ${makeResponsive({
     beginAt: "desktop",
     style: `
       min-height: ${makeSize({ custom: 450 })};
-    `,
+    `
   })}
 `;
 
@@ -75,7 +75,7 @@ export const Hero: FC<HeroProps> = ({
   alt,
   children,
   borderColor = defaultBorderColor,
-  gradient = undefined,
+  gradient = undefined
 }) => (
   <StyledHero>
     <StyledHeroImage src={image} alt={alt} />

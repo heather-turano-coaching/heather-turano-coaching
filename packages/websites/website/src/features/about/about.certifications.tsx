@@ -2,7 +2,7 @@ import {
   Image,
   Section,
   Title,
-  makeFlex,
+  makeFlex
 } from "@heather-turano-coaching/components";
 import { makeOutset } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";

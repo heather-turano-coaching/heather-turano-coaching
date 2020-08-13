@@ -57,7 +57,7 @@ export function useApi<RequestBody, ResponseObj>(
 
     axios
       .request<ResponseObj>({ url, ...options })
-      .then(response => {
+      .then((response) => {
         if (response.status >= 200 && response.status < 300) {
           setApiResponse({
             loading: false,
@@ -82,5 +82,5 @@ export function useApi<RequestBody, ResponseObj>(
       });
   }, [apiRequest]);
 
-  return [apiResponse, data => setApiRequest(request(data))];
+  return [apiResponse, (data) => setApiRequest(request(data))];
 }

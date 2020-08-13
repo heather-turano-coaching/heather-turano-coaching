@@ -1,6 +1,6 @@
 import {
   ColorProperties,
-  SizeProperties,
+  SizeProperties
 } from "@heather-turano-coaching/design-system";
 import { makeColor, makeSize } from "@heather-turano-coaching/design-system";
 import { rgba } from "polished";

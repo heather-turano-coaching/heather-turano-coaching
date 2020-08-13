@@ -3,7 +3,7 @@ import {
   makeColor,
   makeFont,
   makeOutset,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
@@ -26,7 +26,7 @@ const StyledLayoutBlockTitle = styled.header`
     left: 0;
     height: ${makeSize({ custom: 1 })};
     background: ${makeColor({
-      scalable: { color: "gray", scale: 3 },
+      scalable: { color: "gray", scale: 3 }
     })};
   }
 
@@ -36,14 +36,14 @@ const StyledLayoutBlockTitle = styled.header`
       fontSize: "sm",
       fontWeight: "bold",
       lineHeight: "lg",
-      fontColor: { fixed: "dark" },
+      fontColor: { fixed: "dark" }
     })}
   }
 `;
 
 export const LayoutBlockTitle: FC<LayoutBlockTitleProps> = ({
   title,
-  children,
+  children
 }) => (
   <StyledLayoutBlockTitle>
     <Heading fontSize="h5" fontColor={{ fixed: "dark" }}>

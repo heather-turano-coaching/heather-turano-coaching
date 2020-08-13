@@ -4,9 +4,10 @@
   "version": "0.0.2",
   "author": "Ghost Foundation",
   "dependencies": {
-    "@babel/runtime": "7.10.2",
+    "@babel/runtime": "7.11.2",
+    "@heather-turano-coaching/eslint-config": "^0.0.1",
     "bluebird": "3.7.2",
-    "sharp": "0.25.3"
+    "sharp": "0.25.4"
   },
   "keywords": [
     "gatsby",
@@ -17,13 +18,10 @@
     "progressive-web-app",
     "pwa"
   ],
-  "resolutions": {
-    "sharp": "0.22.1"
-  },
   "license": "MIT",
   "main": "index.js",
   "peerDependencies": {
-    "gatsby": ">2.22.15"
+    "gatsby": ">2.24.47"
   },
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",

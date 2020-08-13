@@ -1,7 +1,7 @@
 import { IconName } from "@fortawesome/pro-light-svg-icons";
 import {
   ColorProperties,
-  FontProperties,
+  FontProperties
 } from "@heather-turano-coaching/design-system";
 import { makeOutset, makeReset } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";

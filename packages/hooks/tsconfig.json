@@ -1,8 +1,9 @@
 {
-  "extends": "@heather-turano-coaching/typescript/tsconfig.react.json",
-  "include": ["src"],
+  "extends": "@heather-turano-coaching/typescript",
+  "include": ["src", ".eslintrc.js"],
   "compilerOptions": {
     "module": "CommonJS",
+    "target": "ES5",
     "outDir": "./dist",
     "declaration": true,
     "noEmit": false,

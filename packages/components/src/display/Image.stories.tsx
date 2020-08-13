@@ -7,7 +7,7 @@ const logo = htcLogo.default;
 
 export default {
   component: Image,
-  title: "Display|Image",
+  title: "Display|Image"
 };
 
 export const base = () => <Image src={logo} alt="htcLogo" />;
@@ -43,14 +43,14 @@ export const manualWidthIs100PercentOf30PercentContainer = () => (
     style={{
       width: "500px",
       background: "lightblue",
-      padding: 20,
+      padding: 20
     }}
   >
     <div
       style={{
         width: "30%",
         background: "white",
-        padding: 20,
+        padding: 20
       }}
     >
       <Image src={logo} alt="htcLogo" manualWidth={400} />

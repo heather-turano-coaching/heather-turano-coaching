@@ -38,7 +38,7 @@ const buttonGroupStyleMap: { [key in Layout]: SimpleInterpolation } = {
       margin-top: 1rem;
     }
   `,
-  standalone: css``,
+  standalone: css``
 };
 
 const StyledButtonGroup = styled.div<Required<ButtonGroupProps>>`
@@ -63,7 +63,7 @@ const StyledButtonGroup = styled.div<Required<ButtonGroupProps>>`
 export const ButtonGroup: FC<ButtonGroupProps> = ({
   layout = "stacked",
   align = "left",
-  children,
+  children
 }) => (
   <StyledButtonGroup layout={layout} align={align}>
     {children}

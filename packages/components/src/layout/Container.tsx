@@ -1,7 +1,7 @@
 import {
   makeInset,
   makeResponsive,
-  makeSize,
+  makeSize
 } from "@heather-turano-coaching/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
@@ -11,17 +11,17 @@ const StyledContainer = styled.div`
 
   ${makeResponsive({
     beginAt: "phoneMd",
-    style: makeInset({ horizontal: 40 }),
+    style: makeInset({ horizontal: 40 })
   })};
 
   ${makeResponsive({
     beginAt: "phoneLg",
-    style: makeInset({ horizontal: 50 }),
+    style: makeInset({ horizontal: 50 })
   })};
 
   ${makeResponsive({
     beginAt: "tabletPortrait",
-    style: makeInset({ horizontal: 60 }),
+    style: makeInset({ horizontal: 60 })
   })};
 
   ${makeResponsive({
@@ -29,7 +29,7 @@ const StyledContainer = styled.div`
     style: `
       max-width: ${makeSize({ custom: 1024 })};
       margin: 0 auto;
-    `,
+    `
   })};
 `;
 

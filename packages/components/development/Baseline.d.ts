@@ -1,1 +1,4 @@
-export declare const Baseline: import("styled-components").GlobalStyleComponent<{}, import("styled-components").DefaultTheme>;
+export declare const Baseline: import("styled-components").GlobalStyleComponent<
+  {},
+  import("styled-components").DefaultTheme
+>;

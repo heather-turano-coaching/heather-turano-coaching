@@ -4,7 +4,7 @@ import { ProductCard, ProductCardProps } from "./ProductCard";
 
 export default {
   component: ProductCard,
-  title: "Complex|Product Card",
+  title: "Complex|Product Card"
 };
 
 const props: ProductCardProps = {
@@ -13,7 +13,7 @@ const props: ProductCardProps = {
   name: "Inspired Mover",
   basePrice: {
     id: "TEST",
-    unit_amount: 17900,
+    unit_amount: 17900
   },
   features: [
     "hall tight tobacco step milk",
@@ -21,7 +21,7 @@ const props: ProductCardProps = {
     "find broad day circus tell",
     "laugh dig firm gate inch",
     "kitchen ground cut available wild",
-    "bet there spirit from continent",
+    "bet there spirit from continent"
   ],
   handleClick: (priceId: string, priceInCents: number) => () => {
     console.log(priceId, priceInCents);
@@ -29,7 +29,7 @@ const props: ProductCardProps = {
   color: "#ebae5b",
   img:
     "//images.ctfassets.net/kdlm6cvqwimx/4WMm6C5LkQNLgTprZCr4f2/c7311619fe4b2e684fc43d9f027a6e61/MM100_inspired_logo-1024.png",
-  imgAlt: "firefox",
+  imgAlt: "firefox"
 };
 
 export const base = () => (

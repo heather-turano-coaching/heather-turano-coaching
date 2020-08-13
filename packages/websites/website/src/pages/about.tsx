@@ -8,7 +8,7 @@ import {
   AboutIntro,
   AboutMyClients,
   AboutMyStory,
-  AboutMyStyle,
+  AboutMyStyle
 } from "../features/about";
 
 // @ts-ignore
