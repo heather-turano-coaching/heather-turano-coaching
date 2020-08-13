@@ -33,6 +33,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-hook-form": "^5.7.2",
+    "stripe": "^8.84.0",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

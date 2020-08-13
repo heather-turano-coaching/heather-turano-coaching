@@ -3,6 +3,7 @@
   "include": ["src", ".eslintrc.js"],
   "compilerOptions": {
     "module": "CommonJS",
+    "target": "ES5",
     "outDir": "./dist",
     "declaration": true,
     "noEmit": false,

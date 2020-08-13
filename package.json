@@ -8,7 +8,6 @@
     "packages/**"
   ],
   "scripts": {
-    "postinstall": "lerna run postinstall",
     "clean": "lerna clean --yes && lerna exec -- rimraf lib/ dist/",
     "bootstrap": "lerna bootstrap --hoist && rimraf **/@types/react-native",
     "bootstrap:ci": "lerna bootstrap --hoist",
@@ -40,8 +39,6 @@
     "start:domain": "cd packages/domain && yarn start",
     "start:hooks": "cd packages/hooks && yarn start",
     "start:platform": "lerna run dev --scope=@heather-turano-coaching/platform --stream",
-    "preview:website": "yarn build:core && cd packages/websites/website && yarn serve",
-    "preview:mindful-movement": "yarn build:core && cd packages/websites/mindful-movement && yarn serve",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "generate:platform": "lerna run generate --scope=@heather-turano-coaching/platform --stream",

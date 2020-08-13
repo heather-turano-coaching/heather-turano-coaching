@@ -5,7 +5,8 @@
     "outDir": "./dist",
     "declaration": true,
     "declarationMap": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "isolatedModules": false
   },
   "include": ["src/"],
   "exclude": ["**/*.spec.ts"]

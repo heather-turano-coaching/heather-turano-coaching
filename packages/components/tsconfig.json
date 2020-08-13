@@ -7,6 +7,10 @@
     "declaration": true,
     "declarationMap": true,
     "noUnusedLocals": true,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "isolatedModules": false,
+    "target": "ES5",
+    "module": "CommonJS"
+  },
+  "exclude": ["src/**/*.stories.ts", "src/**/*.stories.tsx"]
 }

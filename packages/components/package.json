@@ -19,7 +19,6 @@
     "start:storybook": "start-storybook -p 6006",
     "build": "webpack",
     "build:storybook": "build-storybook",
-    "postinstall": "rm -rf node_modules/@types/react-native",
     "buildDevUtils": "tsc -p ./tsconfig.prepare.json"
   },
   "keywords": [
