@@ -12,6 +12,7 @@
     "@heather-turano-coaching/eslint-config": "^0.0.1",
     "@heather-turano-coaching/gatsby": "^1.0.0",
     "@heather-turano-coaching/hooks": "^0.2.0",
+    "@types/isomorphic-fetch": "^0.0.35",
     "@types/stripe": "^7.13.23",
     "contentful": "^7.14.4",
     "gatsby": "^2.22.11",
