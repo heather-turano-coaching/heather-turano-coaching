@@ -39,21 +39,21 @@ const GlobalStyle = createGlobalStyle`
     ${makeResponsive({
       beginAt: "tabletPortrait",
       style: `
-        font-size: 18px;
+        font-size: 16px;
       `
     })};
 
     ${makeResponsive({
       beginAt: "laptop",
       style: `
-        font-size: 20px;
+        font-size: 18px;
       `
     })};
 
     ${makeResponsive({
       beginAt: "desktop",
       style: `
-        font-size: 22px;
+        font-size: 20px;
       `
     })}
   }
@@ -88,6 +88,10 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
       }
     }
+  }
+
+  a:visited {
+    color: inherit;
   }
 `;
 
