@@ -8,6 +8,7 @@
     "packages/**"
   ],
   "scripts": {
+    "postinstall": "npm rebuild sharp",
     "clean": "lerna clean --yes && lerna exec -- rimraf lib/ dist/",
     "bootstrap": "lerna bootstrap --hoist && rimraf **/@types/react-native",
     "bootstrap:ci": "lerna bootstrap --hoist",

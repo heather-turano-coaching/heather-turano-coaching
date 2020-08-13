@@ -2,11 +2,12 @@
   "extends": "@heather-turano-coaching/typescript/tsconfig.json",
   "compilerOptions": {
     "module": "CommonJS",
-    "outDir": "./dist",
+    "outDir": "dist/",
     "declaration": true,
     "declarationMap": true,
     "noUnusedLocals": true,
-    "isolatedModules": false
+    "isolatedModules": false,
+    "noEmit": false
   },
   "include": ["src/"],
   "exclude": ["**/*.spec.ts"]

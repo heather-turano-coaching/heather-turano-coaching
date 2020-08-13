@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme",
   "peerDependencies": {
-    "typescript": "3.9.5"
+    "typescript": "3.9.7"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "3.x",
@@ -26,18 +26,18 @@
     "eslint": "7.x",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "^5.2.1",
-    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-import-resolver-typescript": "^2.2.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-flow": "^2.29.1",
     "eslint-plugin-flowtype": "5.x",
-    "eslint-plugin-import": "^2.21.2",
-    "eslint-plugin-jsdoc": "^27.1.2",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^30.2.1",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "4.x",
     "prettier": "2.0.5",
-    "typescript": "3.9.5"
+    "typescript": "3.9.7"
   }
 }
