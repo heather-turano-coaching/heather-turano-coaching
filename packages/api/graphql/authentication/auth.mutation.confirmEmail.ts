@@ -1,7 +1,7 @@
 import { schema } from "nexus";
 
 import { formatError } from "../app.util";
-import { verifyEmailToken } from "./Auth.utils";
+import { verifyEmailToken } from "./auth.utils.password";
 
 schema.extendType({
   type: "Mutation",

@@ -1,8 +1,8 @@
 import { schema } from "nexus";
 
 import { formatError } from "../app.util";
-import { sendForgotPasswordEmail } from "./Auth.email";
-import { getForgotPasswordToken } from "./Auth.utils";
+import { sendForgotPasswordEmail } from "./auth.utils.email";
+import { getForgotPasswordToken } from "./auth.utils.password";
 
 schema.extendType({
   type: "Mutation",

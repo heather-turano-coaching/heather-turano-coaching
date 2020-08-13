@@ -1,12 +1,12 @@
 import { schema } from "nexus";
 
 import { formatError } from "../app.util";
-import { sendConfirmAccountEmail } from "./Auth.email";
+import { sendConfirmAccountEmail } from "./auth.utils.email";
 import {
   getEmailToken,
   hashAndSaltUsersPassword,
   validatePasswords
-} from "./Auth.utils";
+} from "./auth.utils.password";
 
 /**
  * Creates an account and

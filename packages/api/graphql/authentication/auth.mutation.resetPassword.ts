@@ -5,7 +5,7 @@ import {
   hashAndSaltUsersPassword,
   validatePasswords,
   verifyForgotPasswordToken
-} from "./Auth.utils";
+} from "./auth.utils.password";
 
 schema.extendType({
   type: "Mutation",

@@ -6,7 +6,7 @@ import {
   genericAuthError,
   getJsonWebToken,
   matchHashedPasswords
-} from "./Auth.utils";
+} from "./auth.utils.password";
 
 schema.extendType({
   type: "Mutation",
