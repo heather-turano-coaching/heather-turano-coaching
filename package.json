@@ -31,7 +31,7 @@
     "build:mindful-movement": "yarn build:core && lerna run build --scope=@heather-turano-coaching/mindful-movement --stream",
     "build:packages": "yarn build:core && lerna run build --scope=@heather-turano-coaching/packages --stream",
     "build:domain": "lerna run build --scope=@heather-turano-coaching/domain --stream",
-    "build:api": "lerna run build --scope=@heather-turano-coaching/api --stream",
+    "build:api": "cd packages/api && yarn build",
     "start:design-system": "lerna run start --scope=@heather-turano-coaching/design-system --stream",
     "start:components": "yarn build:design-system && yarn build:hooks && cd ./packages/components && yarn start",
     "start:components:storybook": "yarn build:design-system && yarn build:hooks && cd ./packages/components && yarn buildDevUtils && yarn start:storybook",
