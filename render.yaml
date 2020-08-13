@@ -68,8 +68,8 @@ services:
     env: node
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: yarn && yarn build:platform
-    startCommand: yarn serve:platform
+    buildCommand: yarn && yarn build:api
+    startCommand: yarn serve:api
     domains:
       - api.heatherturanocoaching.com
     envVars:
