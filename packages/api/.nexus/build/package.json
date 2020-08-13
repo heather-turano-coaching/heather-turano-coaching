@@ -1,0 +1,59 @@
+{
+  "name": "@heather-turano-coaching/api",
+  "description": "The Heather Turano Coaching NodeJS GraphQL API for all HTC applications",
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "dependencies": {
+    "@sendgrid/mail": "^7.2.3",
+    "bcrypt": "^5.0.0",
+    "cookie": "^0.4.1",
+    "dotenv": "^8.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "nanoid": "^3.1.12",
+    "nexus": "0.26.1",
+    "nexus-plugin-prisma": "^0.17.0",
+    "stripe": "^8.84.0",
+    "uuid": "^8.3.0"
+  },
+  "scripts": {
+    "format": "npx prettier --write './**/*.{ts,md}'",
+    "dev": "nexus dev",
+    "build": "nexus build",
+    "start": "node .nexus/build",
+    "create-migration": "prisma migrate save --experimental",
+    "migrate": "prisma migrate up --experimental",
+    "generate": "prisma generate",
+    "seed": "ts-node prisma/seed.ts",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@heather-turano-coaching/eslint-config": "^0.0.1",
+    "@heather-turano-coaching/typescript": "^0.2.1",
+    "@prisma/cli": "^2.4.1",
+    "@types/bcrypt": "^3.0.0",
+    "@types/cookie": "^0.4.0",
+    "@types/express": "^4.17.7",
+    "@types/express-serve-static-core": "^4.17.9",
+    "@types/jest": "^26.0.9",
+    "@types/jsonwebtoken": "^8.5.0",
+    "jest": "^26.4.0",
+    "jest-environment-node": "^26.3.0",
+    "pg": "^8.3.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.2.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/heather-turano-coaching/heather-turano-coaching.git"
+  },
+  "author": "Drew DeCarme",
+  "bugs": {
+    "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
+  },
+  "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme",
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "./configs/nexus-test-environment.js"
+  }
+}
