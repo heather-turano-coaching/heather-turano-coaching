@@ -104,15 +104,15 @@ services:
       - key: mail__from
         value: "'Heather Turano' <me@heatherturanocoaching.com>"
       - key: mail__options__service
-        value: Mailgun
+        value: SendGrid
       - key: mail__options__host
-        value: smtp.mailgun.org
+        value: smtp.sendgrid.net
       - key: mail__options__port
         value: 465
       - key: mail__options__secureConnection
         value: true
       - key: mail__options__auth__user
-        value: postmaster@mail.heatherturanocoaching.com
+        value: apikey
       - key: mail__options__auth__pass
         sync: false
 
