@@ -102,15 +102,13 @@ services:
       - key: mail__transport
         value: SMTP
       - key: mail__from
-        value: "'Heather Turano' <me@heatherturanocoaching.com>"
+        value: "Heather Turano <me@heatherturanocoaching.com>"
       - key: mail__options__service
         value: SendGrid
       - key: mail__options__host
         value: smtp.sendgrid.net
       - key: mail__options__port
-        value: 465
-      - key: mail__options__secureConnection
-        value: true
+        value: 587
       - key: mail__options__auth__user
         value: apikey
       - key: mail__options__auth__pass
