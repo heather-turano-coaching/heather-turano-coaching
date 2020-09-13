@@ -1,4 +1,4 @@
-import { gql, useLazyQuery } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { HTCPackagePrice } from "@heather-turano-coaching/components";
 import { loadStripe } from "@stripe/stripe-js";
 import { navigate } from "gatsby";
@@ -9,8 +9,8 @@ export const stripePromise = loadStripe(
 );
 
 export const CHECKOUT = gql`
-  query checkout($priceId: String!) {
-    checkout(priceId: $priceId) {
+  mutation checkoutHeatherTuranoCoaching($priceId: String!) {
+    checkoutHeatherTuranoCoaching(priceId: $priceId) {
       id
     }
   }
@@ -37,12 +37,12 @@ export const useStripeCheckout = ({
 }: {
   urlIfPriceIs0: string;
 }) => {
-  const [runCheckoutQuery, { data, error }] = useLazyQuery<
+  const [runCheckoutQuery, { data, error }] = useMutation<
     {
-      checkout: { id: string };
+      checkoutHeatherTuranoCoaching: { id: string };
     },
     { priceId: string }
-  >(CHECKOUT, { ssr: false });
+  >(CHECKOUT, {});
 
   const [stripeCheckoutFailure, setStripeCheckoutFailure] = useState<
     string | undefined
@@ -64,11 +64,13 @@ export const useStripeCheckout = ({
 
   useEffect(() => {
     if (data) {
-      handleStripeRedirect(data.checkout.id).then((stripeError) => {
-        if (stripeError) {
-          setStripeCheckoutFailure(stripeError);
+      handleStripeRedirect(data.checkoutHeatherTuranoCoaching.id).then(
+        (stripeError) => {
+          if (stripeError) {
+            setStripeCheckoutFailure(stripeError);
+          }
         }
-      });
+      );
     }
 
     if (error) {

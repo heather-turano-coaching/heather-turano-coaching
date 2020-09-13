@@ -19,6 +19,7 @@ require("./graphql/authentication/auth.mutation.signIn");
 require("./graphql/authentication/auth.mutation.signUp");
 require("./graphql/authentication/auth.mutation.verifyResetPasswordToken");
 require("./graphql/checkout/checkout.mutation.checkoutMindfulMovement");
+require("./graphql/checkout/checkout.mutation.heatherTuranoCoaching");
 require("./graphql/checkout/checkout.objects");
 require("./graphql/messaage/message.objects");
 require("./graphql/Post/Post");
