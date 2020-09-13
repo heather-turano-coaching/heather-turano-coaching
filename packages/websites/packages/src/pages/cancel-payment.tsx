@@ -5,7 +5,7 @@ import {
   Typography
 } from "@heather-turano-coaching/components";
 import { SEO } from "@heather-turano-coaching/gatsby";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import React, { useCallback } from "react";
 import styled from "styled-components";
 

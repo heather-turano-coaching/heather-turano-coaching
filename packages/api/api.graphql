@@ -19,6 +19,11 @@ type Message {
 }
 
 type Mutation {
+  """
+  Creates a stripe checkout session for a heather turano coaching purchase
+  """
+  checkoutHeatherTuranoCoaching(priceId: String!): StripeCheckoutSession
+
   """Creates a stripe checkout session for a mindful movement 100 purchase"""
   checkoutMindfulMovement(priceId: String!): StripeCheckoutSession
 

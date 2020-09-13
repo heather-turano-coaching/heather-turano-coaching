@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import {
   HTCPackagePrice,
   Heading,
@@ -27,33 +28,47 @@ export interface HTCPackage {
   couponPrice?: HTCPackagePrice;
 }
 
-function devAndProdValues<ValueType>(
-  devValue: ValueType,
-  prodValue: ValueType
-) {
+function devAndProdValues<ValueType = string>({
+  dev,
+  prod
+}: {
+  dev: ValueType;
+  prod: ValueType;
+}): ValueType {
   if (process.env.NODE_ENV !== "production") {
-    return devValue;
+    return dev;
   }
-  return prodValue;
+  return prod;
 }
+
+const singleCoachingSessionPrice = 16500;
 
 const individualCoachingPackages: HTCPackage[] = [
   {
-    productId: devAndProdValues("prod_HZDRpgTiOg2mST", "prod_HZEMqGcVGpspPy"),
+    productId: devAndProdValues({
+      dev: "prod_HZDRpgTiOg2mST",
+      prod: "prod_HZEMqGcVGpspPy"
+    }),
     name: "Single Coaching Session",
     logo: "",
     features: ["45 minute one-on-one coaching session"],
     color: makeColor({ scalable: { color: "primary" } }),
     basePrice: {
-      id: devAndProdValues(
-        "price_1H050REQ8UKSDRmCoEwSE0uv",
-        "price_1H05u4EQ8UKSDRmCszA0wiI8"
-      ),
-      unit_amount: devAndProdValues<number>(9900, 9900)
+      id: devAndProdValues<string>({
+        dev: "price_1H9uVuEQ8UKSDRmCorYn2eTP",
+        prod: "price_1H9uUTEQ8UKSDRmCugLrubPy"
+      }),
+      unit_amount: devAndProdValues<number>({
+        dev: singleCoachingSessionPrice,
+        prod: singleCoachingSessionPrice
+      })
     }
   },
   {
-    productId: devAndProdValues("prod_HZDZ2KleQok6oo", "prod_HZEMgHWvNfebcT"),
+    productId: devAndProdValues({
+      dev: "prod_HZDZ2KleQok6oo",
+      prod: "prod_HZEMgHWvNfebcT"
+    }),
     name: "Coaching Package - 8 Sessions",
     logo: "",
     features: [
@@ -61,19 +76,25 @@ const individualCoachingPackages: HTCPackage[] = [
     ],
     color: makeColor({ scalable: { color: "secondary" } }),
     basePrice: {
-      id: devAndProdValues("null", "null"),
-      unit_amount: devAndProdValues<number>(79200, 79200)
+      id: devAndProdValues({ dev: "null", prod: "null" }),
+      unit_amount: devAndProdValues<number>({
+        dev: singleCoachingSessionPrice * 8,
+        prod: singleCoachingSessionPrice * 8
+      })
     },
     couponPrice: {
-      id: devAndProdValues(
-        "price_1H058pEQ8UKSDRmCPWQzvAPE",
-        "price_1H05tyEQ8UKSDRmCY3VXWHXN"
-      ),
-      unit_amount: devAndProdValues<number>(72000, 72000)
+      id: devAndProdValues({
+        dev: "price_1H9uYHEQ8UKSDRmClwmwaX2z",
+        prod: "price_1H9uSgEQ8UKSDRmCFrUf8MB1"
+      }),
+      unit_amount: devAndProdValues<number>({ dev: 124000, prod: 124000 })
     }
   },
   {
-    productId: devAndProdValues("prod_HZDf5Eh5TI3Bgv", "prod_HZEMGuZalSifGo"),
+    productId: devAndProdValues({
+      dev: "prod_HZDf5Eh5TI3Bgv",
+      prod: "prod_HZEMGuZalSifGo"
+    }),
     name: "Coaching Package - 10 Sessions",
     logo: "",
     features: [
@@ -81,15 +102,18 @@ const individualCoachingPackages: HTCPackage[] = [
     ],
     color: makeColor({ scalable: { color: "accent" } }),
     basePrice: {
-      id: devAndProdValues("null", "null"),
-      unit_amount: devAndProdValues<number>(99000, 99000)
+      id: devAndProdValues({ dev: "null", prod: "null" }),
+      unit_amount: devAndProdValues<number>({
+        dev: singleCoachingSessionPrice * 10,
+        prod: singleCoachingSessionPrice * 10
+      })
     },
     couponPrice: {
-      id: devAndProdValues(
-        "price_1H05DqEQ8UKSDRmC0zLbKouZ",
-        "price_1H05tpEQ8UKSDRmCEBRTGliG"
-      ),
-      unit_amount: devAndProdValues<number>(79900, 79900)
+      id: devAndProdValues({
+        dev: "price_1H9uaaEQ8UKSDRmCEVspEDae",
+        prod: "price_1H9uLfEQ8UKSDRmCkHH2gQWb"
+      }),
+      unit_amount: devAndProdValues<number>({ dev: 150000, prod: 150000 })
     }
   }
 ];

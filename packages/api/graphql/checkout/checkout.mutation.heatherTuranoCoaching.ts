@@ -8,10 +8,10 @@ const stripe = require("stripe")(process.env.HTC_STRIPE_SECRET_KEY);
 schema.extendType({
   type: "Mutation",
   definition(t) {
-    t.field("checkoutMindfulMovement", {
+    t.field("checkoutHeatherTuranoCoaching", {
       type: "StripeCheckoutSession",
       description:
-        "Creates a stripe checkout session for a mindful movement 100 purchase",
+        "Creates a stripe checkout session for a heather turano coaching purchase",
       args: {
         priceId: stringArg({ required: true })
       },
