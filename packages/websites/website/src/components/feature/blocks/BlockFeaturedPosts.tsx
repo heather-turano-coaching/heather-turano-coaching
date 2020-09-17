@@ -72,6 +72,13 @@ type BlogFeaturedMobileProps = BlockFeaturedPostsProps & {
   layoutType: CardAnimationLayoutType;
 };
 
+const getWindowValue = (): number => {
+  if (typeof window !== "undefined") {
+    return window.innerWidth;
+  }
+  return 300;
+};
+
 const BlogFeaturedMobile: FC<BlogFeaturedMobileProps> = ({
   featuredPosts,
   gutterWidth,
@@ -91,13 +98,13 @@ const BlogFeaturedMobile: FC<BlogFeaturedMobileProps> = ({
   const cardWidth =
     layoutType === "middle"
       ? // where is this magic number coming from?
-        window.innerWidth - 48 - gutterWidth * 2
-      : window.innerWidth - gutterWidth * 2;
+        getWindowValue() - 48 - gutterWidth * 2
+      : getWindowValue() - gutterWidth * 2;
   const halfCardWidth = cardWidth / 2;
   const cardSlice = cardWidth * 0.13;
   const numberOfCards = featuredPosts.length;
   const xOffset =
-    layoutType === "middle" ? (window.innerWidth - 48) / 2 - halfCardWidth : 0;
+    layoutType === "middle" ? (getWindowValue() - 48) / 2 - halfCardWidth : 0;
   const index = useRef(initialSelectedCardIndex);
   const cardDragThreshold = 60;
 
