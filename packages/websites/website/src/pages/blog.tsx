@@ -1,13 +1,8 @@
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import React from "react";
 
-import {
-  Layout,
-  LayoutColumn,
-  LayoutContainer,
-  MetaData,
-  PageContainer
-} from "../components";
+import { MetaData, PageContainer } from "../components/content";
+import { Layout, LayoutColumn, LayoutContainer } from "../components/layout";
 import {
   BlockContributors,
   BlockFeaturedCategory,
@@ -19,7 +14,7 @@ import {
 } from "../features";
 
 // @ts-ignore
-const BlogPage = ({ location }) => {
+const BlogPage: FC = ({ location }) => {
   const [windowWidth, { tabletPortrait }] = useBreakpoints();
   const isWindowMobile = windowWidth < tabletPortrait;
 

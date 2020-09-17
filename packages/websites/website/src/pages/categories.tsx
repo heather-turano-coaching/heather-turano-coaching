@@ -1,15 +1,13 @@
-import React, { FC } from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import { Tag } from "@tryghost/content-api";
+import { graphql, useStaticQuery } from "gatsby";
+import React, { FC } from "react";
 
 import {
   PageContainer,
-  LayoutContainer,
   PageHeader,
-  LayoutColumn,
-  TagCardSection,
-  Layout
-} from "../components";
+  TagCardSection
+} from "../components/content";
+import { Layout, LayoutColumn, LayoutContainer } from "../components/layout";
 import { destructureNodes } from "../utils";
 
 const CategoriesPage: FC = () => {

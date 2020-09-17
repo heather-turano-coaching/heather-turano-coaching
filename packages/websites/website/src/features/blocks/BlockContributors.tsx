@@ -16,12 +16,12 @@ import { uniqBy } from "lodash";
 import React, { FC } from "react";
 import styled from "styled-components";
 
+import { FrameworkLink } from "../../components/content";
 import {
-  FrameworkLink,
   LayoutBlock,
   LayoutBlockContent,
   LayoutBlockTitle
-} from "../../components";
+} from "../../components/layout";
 import { destructureNodes } from "../../utils";
 
 interface BlockContributorsProps {

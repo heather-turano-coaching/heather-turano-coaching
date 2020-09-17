@@ -1,13 +1,14 @@
-import React, { FC } from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { Tag, TagGroup } from "@heather-turano-coaching/components";
 import { Tag as TagType } from "@tryghost/content-api";
-import { TagGroup, Tag } from "@heather-turano-coaching/components";
+import { graphql, useStaticQuery } from "gatsby";
+import React, { FC } from "react";
+
+import { FrameworkLink } from "../../components/content";
 import {
-  LayoutBlockTitle,
   LayoutBlock,
   LayoutBlockContent,
-  FrameworkLink
-} from "../../components";
+  LayoutBlockTitle
+} from "../../components/layout";
 import { destructureNodes } from "../../utils";
 
 interface BlockCategoriesListProps {

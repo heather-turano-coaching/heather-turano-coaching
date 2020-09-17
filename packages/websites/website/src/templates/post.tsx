@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import {
   Content,
   Heading,
@@ -14,10 +15,10 @@ import styled from "styled-components";
 import {
   BlogCardAvatar,
   BlogSocialLinks,
-  Layout,
   MetaData,
   TagsSection
-} from "../components";
+} from "../components/content";
+import { Layout } from "../components/layout";
 import { formatLongDate } from "../utils";
 
 interface BlogPostProps {
@@ -27,7 +28,7 @@ interface BlogPostProps {
   /**
    * @todo fix any
    */
-  location: any;
+  location: Record<string, unknown>;
 }
 
 const StyledBlogHero = styled.header``;

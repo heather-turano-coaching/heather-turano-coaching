@@ -14,12 +14,14 @@ import styled, { css } from "styled-components";
 
 import {
   BlogPostList,
-  LayoutBlock,
-  LayoutBlockContent,
-  LayoutBlockTitle,
   LoadMorePostsButton,
   headerNavVerticalPadding
-} from "../../components";
+} from "../../components/content";
+import {
+  LayoutBlock,
+  LayoutBlockContent,
+  LayoutBlockTitle
+} from "../../components/layout";
 import { destructureNodes } from "../../utils";
 
 interface BlockRecentPostsProps {

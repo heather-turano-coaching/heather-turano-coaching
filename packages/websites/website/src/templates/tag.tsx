@@ -1,20 +1,18 @@
-import React, { FC } from "react";
+import { useProgressiveLoader } from "@heather-turano-coaching/hooks";
+import { PostOrPage, Tag } from "@tryghost/content-api";
 import { graphql } from "gatsby";
-import { Tag, PostOrPage } from "@tryghost/content-api";
+import React, { FC } from "react";
 
 import {
-  Layout,
+  BlogPostList,
+  LoadMorePostsButton,
   MetaData,
   PageContainer,
-  LayoutContainer,
-  LayoutColumn,
-  PageHeader,
-  BlogPostList,
-  LoadMorePostsButton
-} from "../components";
-import { BlockSubscribe, BlockContributors, BlockTagsList } from "../features";
+  PageHeader
+} from "../components/content";
+import { Layout, LayoutColumn, LayoutContainer } from "../components/layout";
+import { BlockContributors, BlockSubscribe, BlockTagsList } from "../features";
 import { destructureNodes } from "../utils";
-import { useProgressiveLoader } from "@heather-turano-coaching/hooks";
 
 /**
  * Tag page (/tag/:slug)
@@ -36,8 +34,8 @@ interface TagsPageProps {
       }[];
     };
   };
-  location: any;
-  pageContext: any;
+  location: Record<string, unknown>;
+  pageContext: Record<string, unknown>;
 }
 
 const TagPage: FC<TagsPageProps> = ({ data, location }) => {

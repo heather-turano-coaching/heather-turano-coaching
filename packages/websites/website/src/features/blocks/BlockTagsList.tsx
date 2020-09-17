@@ -1,18 +1,17 @@
-import React, { FC } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import { Tag as TagType } from "@tryghost/content-api";
-
 import {
+  ButtonAction,
   Tag,
-  TagGroup,
-  ButtonAction
+  TagGroup
 } from "@heather-turano-coaching/components";
+import { Tag as TagType } from "@tryghost/content-api";
+import { graphql, useStaticQuery } from "gatsby";
+import React, { FC } from "react";
 
-import { FrameworkLink } from "../../components/general";
+import { FrameworkLink } from "../../components/content";
 import {
-  LayoutBlockTitle,
   LayoutBlock,
-  LayoutBlockContent
+  LayoutBlockContent,
+  LayoutBlockTitle
 } from "../../components/layout";
 import { destructureNodes } from "../../utils";
 
@@ -48,7 +47,7 @@ export const BlockTagsList: FC<BlockTagsListProps> = ({
   const tgs = tags || destructureNodes(edges);
 
   const ts = limit
-    ? tgs.filter((_tag: any, index: number) => index < limit)
+    ? tgs.filter((_tag: unknown, index: number) => index < limit)
     : tgs;
 
   return (

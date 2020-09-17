@@ -1,6 +1,7 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import { BlogCardWelcome } from "../../components";
+
+import { BlogCardWelcome } from "../../components/content";
 
 export const BlogWelcome: FC = () => {
   const {

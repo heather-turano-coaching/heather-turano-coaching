@@ -21,7 +21,7 @@ import styled, { CSSProperties } from "styled-components";
 import {
   BlogCardFeature,
   BlogCardFeatureSelector
-} from "../../components/blog";
+} from "../../components/content";
 import {
   LayoutBlock,
   LayoutBlockContent,

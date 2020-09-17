@@ -9,11 +9,11 @@ import {
   Title
 } from "@heather-turano-coaching/components";
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { FC } from "react";
 
 import { TestimonialCarousel } from "../../features";
 
-export const HomeTestimonials = () => {
+export const HomeTestimonials: FC = () => {
   const { contentfulPageHome: queryData } = useStaticQuery(graphql`
     {
       contentfulPageHome {

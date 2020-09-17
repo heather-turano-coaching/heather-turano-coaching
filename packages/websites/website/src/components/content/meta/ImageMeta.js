@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import config from "../../utils/siteConfig";
+import config from "../../../utils/siteConfig";
 
 const ImageMeta = ({ image }) => {
   if (!image) {

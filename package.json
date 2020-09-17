@@ -69,7 +69,7 @@
   "author": "Drew DeCarme (drew@imaginedelements.com)",
   "license": "ISC",
   "devDependencies": {
-    "lerna": "3.20.2"
+    "lerna": "3.22.1"
   },
   "dependencies": {}
 }

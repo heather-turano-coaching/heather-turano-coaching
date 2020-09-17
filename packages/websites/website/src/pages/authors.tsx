@@ -13,12 +13,10 @@ import styled from "styled-components";
 
 import {
   FrameworkLink,
-  Layout,
-  LayoutColumn,
-  LayoutContainer,
   PageContainer,
   PageHeader
-} from "../components";
+} from "../components/content";
+import { Layout, LayoutColumn, LayoutContainer } from "../components/layout";
 import { universalHover } from "../styles";
 import { destructureNodes } from "../utils";
 

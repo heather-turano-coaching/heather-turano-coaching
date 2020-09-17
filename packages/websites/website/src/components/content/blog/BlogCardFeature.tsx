@@ -19,7 +19,7 @@ import { PostOrPage } from "@tryghost/content-api";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { formatLongDate } from "../../utils";
+import { formatLongDate } from "../../../utils";
 import { FrameworkLink } from "../general";
 import { TagsSection } from "../sections";
 import { BlogCardAvatar } from "./BlogCardAvatar";

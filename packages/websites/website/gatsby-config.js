@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 const path = require("path");
 
 require("dotenv").config({
@@ -41,6 +42,7 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-ghost`,
       options: {
@@ -48,29 +50,23 @@ module.exports = {
         contentApiKey: process.env.GHOST_CONTENT_API_KEY
       }
     },
+    /**
+     * @todo Turn this into a plugin inside of it's own directory
+     */
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: path.resolve(
+          __dirname,
+          "../../../node_modules/@heather-turano-coaching/documents/disclosures"
+        )
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: { ...websiteConfig.manifestConfig, cache_busting_mode: "none" }
     },
-    // {
-    //   resolve: `gatsby-plugin-feed`,
-    //   options: {
-    //     title: "Live Life Mindful",
-    //     query: `
-    //             {
-    //                 allGhostSettings {
-    //                     edges {
-    //                         node {
-    //                             title
-    //                             description
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //           `,
-    //     feeds: [generateRSSFeed(config)]
-    //   }
-    // },
     {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
@@ -144,6 +140,6 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-force-trailing-slashes`,
-    `gatsby-plugin-offline`
+    `gatsby-plugin-remove-serviceworker`
   ]
 };

@@ -1,9 +1,10 @@
-import React, { FC } from "react";
+import { TagCard, TagGroup } from "@heather-turano-coaching/components";
 import { Tag } from "@tryghost/content-api";
-import { TagGroup, TagCard } from "@heather-turano-coaching/components";
-import { FrameworkLink } from "..";
+import React, { FC } from "react";
 import styled from "styled-components";
-import { universalHover } from "../../styles";
+
+import { universalHover } from "../../../styles";
+import { FrameworkLink } from "..";
 
 interface TagCardSectionProps {
   tags: Tag[];

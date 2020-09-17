@@ -1,7 +1,8 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { FC } from "react";
 
-import { Layout, MetaData, PageContainer } from "../components";
+import { MetaData, PageContainer } from "../components/content";
+import { Layout } from "../components/layout";
 import {
   AboutCertifications,
   AboutContact,
@@ -12,7 +13,7 @@ import {
 } from "../features/about";
 
 // @ts-ignore
-const AboutPage = ({ location }) => {
+const AboutPage: FC = ({ location }) => {
   const { contentfulPageAbout: queryData } = useStaticQuery<{
     contentfulPageAbout: { pageTitle: string };
   }>(graphql`

@@ -1,8 +1,6 @@
 import { makeSize, makeSpace } from "@heather-turano-coaching/design-system";
 import styled, { css } from "styled-components";
 
-const mandala = require("../../../static/images/mandala.png").default;
-
 const StyledPageContainer = styled.div<{ displayBackground?: boolean }>`
   box-sizing: border-box;
   height: 100%;
@@ -21,7 +19,6 @@ const StyledPageContainer = styled.div<{ displayBackground?: boolean }>`
     content: "";
     position: absolute;
     display: block;
-    background-image: url(${mandala});
     background-repeat: no-repeat;
     background-size: 100%;
     height: ${makeSize({ custom: 2400 })};

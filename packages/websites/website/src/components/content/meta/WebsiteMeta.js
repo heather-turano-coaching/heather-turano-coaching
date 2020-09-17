@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import config from "../../utils/siteConfig";
+import config from "../../../utils/siteConfig";
 import ImageMeta from "./ImageMeta";
 
 const WebsiteMeta = ({

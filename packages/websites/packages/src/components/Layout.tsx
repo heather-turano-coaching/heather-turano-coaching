@@ -8,7 +8,6 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 
 import { NavBar } from "./NavBar";
-import NavBarLinkAnchor from "./NavBarLinkAnchor";
 import { NavBarSection } from "./NavBarSection";
 import { NavLogo } from "./NavLogo";
 
@@ -51,7 +50,7 @@ export const Layout: FC = ({ children }) => {
               Reserved. Heather Turano Coaching is a trademark of Heather Turano
               Coaching, LLC. The use of the trademark Heather Turano Coaching
               outside the bounds of this website requires exclusive written
-              consent from Heather Turano Coaching, LLC."
+              consent from Heather Turano Coaching, LLC.
             </span>
           </FooterText>
           <FooterText>

@@ -17,12 +17,12 @@ import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 import styled from "styled-components";
 
+import { FrameworkLink } from "../../components/content";
 import {
-  FrameworkLink,
   LayoutBlock,
   LayoutBlockContent,
   LayoutBlockTitle
-} from "../../components";
+} from "../../components/layout";
 import { destructureNodes, featuredCategoryDelimiter } from "../../utils";
 
 const componentFontSize: FontProperties["fontSize"] = "sm";
