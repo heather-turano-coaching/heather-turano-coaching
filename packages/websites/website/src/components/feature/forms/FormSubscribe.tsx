@@ -13,7 +13,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 
-import { subscribeToBlog } from "../../api";
+import { subscribeToBlog } from "../../../api";
 
 interface FormSubscribeProps {
   fieldPrefix: string;

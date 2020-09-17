@@ -17,18 +17,18 @@ import styled from "styled-components";
 
 import { MetaData, PageContainer, PageHeader } from "../components/content";
 import {
+  BlockCategoriesList,
+  BlockRecentPosts,
+  BlockSubscribe,
+  BlockTagsList
+} from "../components/feature";
+import {
   Layout,
   LayoutBlock,
   LayoutBlockContent,
   LayoutColumn,
   LayoutContainer
 } from "../components/layout";
-import {
-  BlockCategoriesList,
-  BlockRecentPosts,
-  BlockSubscribe,
-  BlockTagsList
-} from "../features";
 import {
   destructureNodes,
   getCategoriesFromTags,

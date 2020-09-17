@@ -18,16 +18,13 @@ import { animated, useSprings } from "react-spring";
 import { useDrag } from "react-use-gesture";
 import styled, { CSSProperties } from "styled-components";
 
-import {
-  BlogCardFeature,
-  BlogCardFeatureSelector
-} from "../../components/content";
+import { destructureNodes } from "../../../utils";
+import { BlogCardFeature, BlogCardFeatureSelector } from "../../content";
 import {
   LayoutBlock,
   LayoutBlockContent,
   LayoutBlockTitle
-} from "../../components/layout";
-import { destructureNodes } from "../../utils";
+} from "../../layout";
 
 interface BlockFeaturedPostsProps {
   featuredPosts: PostOrPage[];

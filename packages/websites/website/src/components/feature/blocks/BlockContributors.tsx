@@ -16,13 +16,13 @@ import { uniqBy } from "lodash";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { FrameworkLink } from "../../components/content";
+import { destructureNodes } from "../../../utils";
+import { FrameworkLink } from "../../content";
 import {
   LayoutBlock,
   LayoutBlockContent,
   LayoutBlockTitle
-} from "../../components/layout";
-import { destructureNodes } from "../../utils";
+} from "../../layout";
 
 interface BlockContributorsProps {
   title?: string;

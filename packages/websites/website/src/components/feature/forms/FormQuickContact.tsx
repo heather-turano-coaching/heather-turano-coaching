@@ -12,7 +12,7 @@ import { useApi } from "@heather-turano-coaching/hooks";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 
-import { sendQuickContactRequest } from "../../api";
+import { sendQuickContactRequest } from "../../../api";
 
 interface FormQuickContactProps {
   submitButtonLabel: string;

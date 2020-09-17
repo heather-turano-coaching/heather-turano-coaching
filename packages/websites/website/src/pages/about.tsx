@@ -2,7 +2,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 
 import { MetaData, PageContainer } from "../components/content";
-import { Layout } from "../components/layout";
 import {
   AboutCertifications,
   AboutContact,
@@ -10,7 +9,8 @@ import {
   AboutMyClients,
   AboutMyStory,
   AboutMyStyle
-} from "../features/about";
+} from "../components/feature/about";
+import { Layout } from "../components/layout";
 
 // @ts-ignore
 const AboutPage: FC = ({ location }) => {

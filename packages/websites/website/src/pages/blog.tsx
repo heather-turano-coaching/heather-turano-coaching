@@ -2,7 +2,6 @@ import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import React from "react";
 
 import { MetaData, PageContainer } from "../components/content";
-import { Layout, LayoutColumn, LayoutContainer } from "../components/layout";
 import {
   BlockContributors,
   BlockFeaturedCategory,
@@ -11,7 +10,8 @@ import {
   BlockSubscribe,
   BlockTagsList,
   BockDailyInspiration
-} from "../features";
+} from "../components/feature";
+import { Layout, LayoutColumn, LayoutContainer } from "../components/layout";
 
 // @ts-ignore
 const BlogPage: FC = ({ location }) => {

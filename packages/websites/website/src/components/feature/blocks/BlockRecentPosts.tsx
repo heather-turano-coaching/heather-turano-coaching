@@ -12,17 +12,17 @@ import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, useRef } from "react";
 import styled, { css } from "styled-components";
 
+import { destructureNodes } from "../../../utils";
 import {
   BlogPostList,
   LoadMorePostsButton,
   headerNavVerticalPadding
-} from "../../components/content";
+} from "../../content";
 import {
   LayoutBlock,
   LayoutBlockContent,
   LayoutBlockTitle
-} from "../../components/layout";
-import { destructureNodes } from "../../utils";
+} from "../../layout";
 
 interface BlockRecentPostsProps {
   title?: string;

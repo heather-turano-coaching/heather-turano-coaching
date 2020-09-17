@@ -11,7 +11,7 @@ import {
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 
-import { TestimonialCarousel } from "../../features";
+import { TestimonialCarousel } from "..";
 
 export const HomeTestimonials: FC = () => {
   const { contentfulPageHome: queryData } = useStaticQuery(graphql`

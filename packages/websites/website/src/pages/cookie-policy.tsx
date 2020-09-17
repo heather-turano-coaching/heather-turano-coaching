@@ -37,7 +37,7 @@ const CookiePolicyPage: FC = () => (
           the cookie, and the lifespan of the cookie itself.
         </p>
         <p>
-          Cookies are used to enable certain features (eg. logging in), to track
+          Cookies are used to enable certain feature (eg. logging in), to track
           site usage (eg. analytics), to store your user settings (eg. timezone,
           notification preferences), and to personalise your content (eg.
           advertising, language).
@@ -53,7 +53,7 @@ const CookiePolicyPage: FC = () => (
         <h2>Essential cookies</h2>
         <p>
           Essential cookies are crucial to your experience of a website,
-          enabling core features like user logins, account management, shopping
+          enabling core feature like user logins, account management, shopping
           carts and payment processing. We do not use this type of cookie on our
           site.
         </p>
@@ -77,7 +77,7 @@ const CookiePolicyPage: FC = () => (
           websites can provide you with customised, enhanced or optimised
           content and services. These cookies may be set by the website you’re
           visiting (first-party) or by third-party service. We use functionality
-          cookies for selected features on our site.
+          cookies for selected feature on our site.
         </p>
         <h2>Targeting/advertising cookies</h2>
         <p>
@@ -126,7 +126,7 @@ const CookiePolicyPage: FC = () => (
         <p>
           Although some cookies can be blocked with little impact on your
           experience of a website, blocking all cookies may mean you are unable
-          to access certain features and content across the sites you visit.
+          to access certain feature and content across the sites you visit.
         </p>
       </Content>
     </Section>

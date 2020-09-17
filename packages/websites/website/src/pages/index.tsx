@@ -2,14 +2,14 @@ import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 
 import { MetaData, PageContainer } from "../components/content";
-import { Layout } from "../components/layout";
 import {
   HomeAbout,
   HomeContact,
   HomeHero,
   HomeServices,
   HomeTestimonials
-} from "../features/home";
+} from "../components/feature/home";
+import { Layout } from "../components/layout";
 
 // @ts-ignore
 const Index: FC = ({ location }) => {

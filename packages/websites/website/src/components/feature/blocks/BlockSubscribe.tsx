@@ -13,7 +13,7 @@ import {
   LayoutBlock,
   LayoutBlockContent,
   LayoutBlockTitle
-} from "../../components/layout";
+} from "../../layout";
 import { FormSubscribe } from "../forms";
 
 interface BlockSubscribeProps {

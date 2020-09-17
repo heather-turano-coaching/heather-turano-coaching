@@ -1,11 +1,12 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 import styled from "styled-components";
-import { useStaticQuery, graphql } from "gatsby";
+
 import {
   LayoutBlock,
-  LayoutBlockTitle,
-  LayoutBlockContent
-} from "../../components/layout";
+  LayoutBlockContent,
+  LayoutBlockTitle
+} from "../../layout";
 
 const StyledBockDailyInspiration = styled.div`
   img {

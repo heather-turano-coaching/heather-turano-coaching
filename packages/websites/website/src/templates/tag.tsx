@@ -10,8 +10,12 @@ import {
   PageContainer,
   PageHeader
 } from "../components/content";
+import {
+  BlockContributors,
+  BlockSubscribe,
+  BlockTagsList
+} from "../components/feature";
 import { Layout, LayoutColumn, LayoutContainer } from "../components/layout";
-import { BlockContributors, BlockSubscribe, BlockTagsList } from "../features";
 import { destructureNodes } from "../utils";
 
 /**

@@ -10,8 +10,8 @@ import React, { FC } from "react";
 import styled from "styled-components";
 
 import yoga from "../../static/images/meditation.svg";
+import { FormSubscribe } from "../components/feature";
 import { Layout } from "../components/layout";
-import { FormSubscribe } from "../features";
 
 const Styled404Container = styled.div`
   text-align: center;

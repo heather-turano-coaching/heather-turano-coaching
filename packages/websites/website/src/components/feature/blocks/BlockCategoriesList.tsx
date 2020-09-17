@@ -3,13 +3,13 @@ import { Tag as TagType } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 
-import { FrameworkLink } from "../../components/content";
+import { destructureNodes } from "../../../utils";
+import { FrameworkLink } from "../../content";
 import {
   LayoutBlock,
   LayoutBlockContent,
   LayoutBlockTitle
-} from "../../components/layout";
-import { destructureNodes } from "../../utils";
+} from "../../layout";
 
 interface BlockCategoriesListProps {
   categories?: TagType[];

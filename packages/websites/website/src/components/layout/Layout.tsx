@@ -13,7 +13,6 @@ import React, { FC, ReactNode } from "react";
 import { Helmet } from "react-helmet";
 import { createGlobalStyle } from "styled-components";
 
-import { FormSubscribe } from "../../features";
 import {
   FrameworkLink,
   HeaderNav,
@@ -21,6 +20,7 @@ import {
   HeaderNavLinkContent,
   logos
 } from "../content";
+import { FormSubscribe } from "../feature";
 
 /**
  * @todo Convert images to gatsby-image
