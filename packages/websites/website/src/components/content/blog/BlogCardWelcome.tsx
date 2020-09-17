@@ -3,12 +3,12 @@ import {
   Typography,
   makeFlex
 } from "@heather-turano-coaching/components";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import {
   makeColor,
   makeInset,
   makeRhythm
 } from "@heather-turano-coaching/design-system";
-import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import React, { FC } from "react";
 import styled from "styled-components";
 

@@ -1,4 +1,4 @@
-import { useProgressiveLoader } from "@heather-turano-coaching/hooks";
+import { useProgressiveLoader } from "@heather-turano-coaching/core/hooks";
 import { PostOrPage, Tag } from "@tryghost/content-api";
 import { graphql } from "gatsby";
 import React, { FC } from "react";

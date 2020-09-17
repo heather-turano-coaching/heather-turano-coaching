@@ -4,11 +4,11 @@ import {
   FormGroup,
   Input
 } from "@heather-turano-coaching/components";
+import { useApi } from "@heather-turano-coaching/core/hooks";
 import {
   QuickContactRequest,
   QuickContactResponse
 } from "@heather-turano-coaching/domain";
-import { useApi } from "@heather-turano-coaching/hooks";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
 
@@ -43,8 +43,8 @@ export const FormQuickContact: FC<FormQuickContactProps> = ({
       )}
       {data && (
         <Alert type="success">
-          Horay! Thank you for signing up! You're going to recieve a welcome
-          email at the address you provided.
+          Horay! Thank you for signing up! You&apos;re going to recieve a
+          welcome email at the address you provided.
         </Alert>
       )}
       {!data && (

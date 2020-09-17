@@ -17,7 +17,7 @@ import {
   PageHeader
 } from "../components/content";
 import { Layout, LayoutColumn, LayoutContainer } from "../components/layout";
-import { universalHover } from "../styles";
+import { universalHover } from "../components/styles";
 import { destructureNodes } from "../utils";
 
 const StyledAuthorPageContent = styled.ul`

@@ -1,4 +1,4 @@
-import { useBreakpoints } from "@heather-turano-coaching/hooks";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import React from "react";
 
 import { MetaData, PageContainer } from "../components/content";

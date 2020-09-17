@@ -3,6 +3,7 @@ import {
   Typography,
   makeFlex
 } from "@heather-turano-coaching/components";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import {
   ColorProperties,
   ColorScalePosition
@@ -15,7 +16,6 @@ import {
   makeRhythm,
   makeSize
 } from "@heather-turano-coaching/design-system";
-import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { useLocation } from "@reach/router";
 import React, { FC, Fragment, ReactNode } from "react";
 import styled from "styled-components";

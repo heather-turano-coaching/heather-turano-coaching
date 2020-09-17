@@ -4,11 +4,11 @@ import {
   FormGroup,
   Input
 } from "@heather-turano-coaching/components";
+import { useApi } from "@heather-turano-coaching/core/hooks";
 import {
   SubscribeRequest,
   SubscribeResponse
 } from "@heather-turano-coaching/domain";
-import { useApi } from "@heather-turano-coaching/hooks";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";

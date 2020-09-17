@@ -3,7 +3,7 @@ import { Tag } from "@tryghost/content-api";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { universalHover } from "../../../styles";
+import { universalHover } from "../../../components/styles";
 import { FrameworkLink } from "..";
 
 interface TagCardSectionProps {

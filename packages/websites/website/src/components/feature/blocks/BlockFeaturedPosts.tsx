@@ -2,13 +2,13 @@ import {
   makeFlex,
   sharedHorizontalBodyPadding
 } from "@heather-turano-coaching/components";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import {
   makeColor,
   makeOutset,
   makeReset,
   makeSize
 } from "@heather-turano-coaching/design-system";
-import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { PostOrPage } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
 import { clamp } from "lodash";

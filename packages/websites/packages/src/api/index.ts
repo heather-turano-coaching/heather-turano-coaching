@@ -1,9 +1,9 @@
+import { HookApiRequest } from "@heather-turano-coaching/core/hooks";
 import {
   SubscribeRequest,
   SubscribeResponse,
   makeEndpoint
 } from "@heather-turano-coaching/domain";
-import { HookApiRequest } from "@heather-turano-coaching/hooks";
 
 export const subscribeToBlog: HookApiRequest<
   SubscribeRequest,

@@ -8,7 +8,7 @@ export const useBreakpoints = (
   userDefinedBreakpoints?: ResponsiveBreakpoints
 ): [number, ResponsiveBreakpoints] => {
   const mediaBreakpoints = userDefinedBreakpoints || responsiveBreakpoints;
-  const [windowWidth, setWindowWidth] = useState<any>();
+  const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);

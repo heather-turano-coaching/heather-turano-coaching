@@ -4,6 +4,7 @@ import {
   makeFlex,
   sharedHorizontalBodyPadding
 } from "@heather-turano-coaching/components";
+import { useBreakpoints, useSticky } from "@heather-turano-coaching/core/hooks";
 import {
   makeColor,
   makeInset,
@@ -11,7 +12,6 @@ import {
   makeResponsive,
   makeSize
 } from "@heather-turano-coaching/design-system";
-import { useBreakpoints, useSticky } from "@heather-turano-coaching/hooks";
 import React, { FC, ReactNode, useRef } from "react";
 import styled, { css } from "styled-components";
 

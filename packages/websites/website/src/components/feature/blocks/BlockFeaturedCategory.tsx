@@ -5,13 +5,13 @@ import {
   Heading,
   Typography
 } from "@heather-turano-coaching/components";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import { FontProperties } from "@heather-turano-coaching/design-system";
 import {
   makeColor,
   makeInset,
   makeRhythm
 } from "@heather-turano-coaching/design-system";
-import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { Tag } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";

@@ -5,13 +5,13 @@ import {
   SectionCopy,
   SectionSpacer
 } from "@heather-turano-coaching/components";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import {
   makeFont,
   makeInset,
   makeResponsive,
   makeSize
 } from "@heather-turano-coaching/design-system";
-import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, memo, useMemo } from "react";
 import styled from "styled-components";

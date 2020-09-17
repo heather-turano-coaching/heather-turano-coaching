@@ -14,7 +14,6 @@
     "start": "yarn prebuild && gatsby develop"
   },
   "devDependencies": {
-    "@heather-turano-coaching/domain": "^1.1.0",
     "@heather-turano-coaching/typescript": "^0.2.1",
     "@types/react-helmet": "^6.0.0",
     "@types/tryghost__content-api": "^1.3.4",
@@ -22,11 +21,12 @@
   },
   "dependencies": {
     "@heather-turano-coaching/components": "^0.5.0",
+    "@heather-turano-coaching/core": "^0.0.1",
     "@heather-turano-coaching/design-system": "^0.2.5",
     "@heather-turano-coaching/documents": "^1.0.0",
+    "@heather-turano-coaching/domain": "^1.1.0",
     "@heather-turano-coaching/eslint-config": "^0.0.1",
     "@heather-turano-coaching/gatsby": "^1.0.0",
-    "@heather-turano-coaching/hooks": "^0.2.0",
     "@reach/router": "^1.3.4",
     "@svgr/webpack": "^5.4.0",
     "@tryghost/content-api": "^1.4.1",
