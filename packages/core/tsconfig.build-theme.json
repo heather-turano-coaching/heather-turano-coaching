@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.build-components.json",
+  "include": ["src/theme/*.ts", "src/theme/*.tsx"],
+  "compilerOptions": {
+    "outDir": "./theme"
+  }
+}

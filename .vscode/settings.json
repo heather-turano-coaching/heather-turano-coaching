@@ -2,6 +2,7 @@
   "eslint.workingDirectories": [
     "packages/api",
     "packages/components",
+    "packages/core",
     "packages/design-system",
     "packages/documents",
     "packages/domain",
