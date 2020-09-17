@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require("path");
 const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -33,7 +34,7 @@ module.exports = {
           {
             loader: "ts-loader",
             options: {
-              configFile: path.resolve(__dirname, "./tsconfig.json")
+              configFile: path.resolve(__dirname, "./tsconfig.build.json")
             }
           }
         ]

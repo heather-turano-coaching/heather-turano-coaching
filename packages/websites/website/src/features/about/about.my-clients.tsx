@@ -1,5 +1,6 @@
 import {
   Button,
+  ContentfulRichText,
   Image,
   Section,
   SectionCopy,
@@ -15,8 +16,6 @@ import {
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, useMemo } from "react";
 import styled from "styled-components";
-
-import { ContentfulRichText } from "../../components";
 
 const StyledAboutMyClientsImageSection = styled.div`
   display: flex;
@@ -86,15 +85,21 @@ export const AboutMyClients: FC = () => {
 
   const clients = useMemo(
     () =>
-      queryData.myClientsImages.map((clientImage: any) => (
-        <StyledClientImage key={clientImage.url}>
-          <Image
-            src={clientImage.file.url}
-            alt={clientImage.title}
-            manualWidth="100%"
-          />
-        </StyledClientImage>
-      )),
+      queryData.myClientsImages.map(
+        (clientImage: {
+          url: string;
+          file: { url: string };
+          title: string;
+        }) => (
+          <StyledClientImage key={clientImage.url}>
+            <Image
+              src={clientImage.file.url}
+              alt={clientImage.title}
+              manualWidth="100%"
+            />
+          </StyledClientImage>
+        )
+      ),
     [queryData.myClientsImages]
   );
 
@@ -113,7 +118,7 @@ export const AboutMyClients: FC = () => {
           <SectionCopy>
             <ContentfulRichText
               richText={queryData.myClientsDescription.json}
-              copy={{ fontSize: "md", variant: "paragraph" }}
+              copyProps={{ fontSize: "md", variant: "paragraph" }}
             />
           </SectionCopy>
           <SectionFooter>

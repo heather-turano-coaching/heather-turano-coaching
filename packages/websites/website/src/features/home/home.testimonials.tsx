@@ -1,6 +1,7 @@
 import {
   Button,
   ButtonGroup,
+  ContentfulRichText,
   Section,
   SectionCopy,
   SectionFooter,
@@ -10,7 +11,6 @@ import {
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
-import { ContentfulRichText } from "../../components";
 import { TestimonialCarousel } from "../../features";
 
 export const HomeTestimonials = () => {
@@ -46,7 +46,7 @@ export const HomeTestimonials = () => {
         <Title size="lg">{queryData.testimonialsTitle}</Title>
         <SectionCopy>
           <ContentfulRichText
-            copy={{
+            copyProps={{
               fontSize: "md",
               variant: "text"
             }}

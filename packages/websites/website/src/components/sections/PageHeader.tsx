@@ -17,7 +17,7 @@ import {
 } from "@heather-turano-coaching/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { useLocation } from "@reach/router";
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment, ReactNode } from "react";
 import styled from "styled-components";
 
 import { FrameworkLink } from "../general";
@@ -88,7 +88,7 @@ const copy = ({
 }: {
   label: string;
   scale: ColorScalePosition;
-}) => (
+}): ReactNode => (
   <Typography
     key={label}
     variant="label"

@@ -84,7 +84,7 @@ export const BlockContributors: FC<BlockContributorsProps> = ({
   const postAuthors = posts
     ? uniqBy(
         posts.reduce<Author[]>(
-          (accum, post) => [...accum, ...post.authors],
+          (accum, post) => [...accum, ...(post.authors as Author[])],
           []
         ),
         "id"

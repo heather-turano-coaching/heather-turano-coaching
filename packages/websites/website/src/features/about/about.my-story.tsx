@@ -1,12 +1,11 @@
 import {
+  ContentfulRichText,
   Section,
   SectionCopy,
   Title
 } from "@heather-turano-coaching/components";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
-
-import { ContentfulRichText } from "../../components";
 
 export const AboutMyStory: FC = () => {
   const { contentfulPageAbout: queryData } = useStaticQuery(graphql`
@@ -27,7 +26,7 @@ export const AboutMyStory: FC = () => {
         <SectionCopy>
           <ContentfulRichText
             richText={queryData.myStoryDescription.json}
-            copy={{ fontSize: "md", variant: "paragraph" }}
+            copyProps={{ fontSize: "md", variant: "paragraph" }}
           />
         </SectionCopy>
       </Section>

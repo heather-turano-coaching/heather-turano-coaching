@@ -1,4 +1,5 @@
 import {
+  ContentfulRichText,
   Image,
   SectionCopy,
   makeFlex
@@ -12,7 +13,6 @@ import {
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { ContentfulRichText } from "../../components";
 import { Testimonial } from "./TestimonialCarousel";
 
 const StyledTestimonialContent = styled.div`
@@ -73,7 +73,7 @@ export const TestimonialContent: FC<Testimonial> = ({
       <StyledTesimonialTextConatiner>
         <ContentfulRichText
           richText={testimonialDescription.testimonialDescription}
-          copy={{
+          copyProps={{
             fontColor: { fixed: "light" },
             fontSize: "sm",
             variant: "paragraph"

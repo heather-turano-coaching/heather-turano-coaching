@@ -1,4 +1,5 @@
 import {
+  ContentfulRichText,
   Image,
   Section,
   SectionCopy,
@@ -14,8 +15,6 @@ import { useBreakpoints } from "@heather-turano-coaching/hooks";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, memo, useMemo } from "react";
 import styled from "styled-components";
-
-import { ContentfulRichText } from "../../components";
 
 const StyledAboutImageSection = styled.div`
   width: 100%;
@@ -76,7 +75,7 @@ const StyledAboutTitleSection = styled.div`
   }
 `;
 
-export const AboutIntro: FC = memo(() => {
+export const AboutIntro: FC = memo(function AboutIntro() {
   const { contentfulPageAbout: queryData } = useStaticQuery<{
     contentfulPageAbout: {
       pageTitle: string;
@@ -117,7 +116,7 @@ export const AboutIntro: FC = memo(() => {
           <SectionCopy>
             <ContentfulRichText
               richText={queryData.introTitle.json}
-              copy={{ fontSize: "md", variant: "paragraph" }}
+              copyProps={{ fontSize: "md", variant: "paragraph" }}
             />
           </SectionCopy>
         </StyledAboutTitleSection>
@@ -142,7 +141,7 @@ export const AboutIntro: FC = memo(() => {
             <SectionCopy>
               <ContentfulRichText
                 richText={queryData.introDescription.json}
-                copy={{ fontSize: "md", variant: "paragraph" }}
+                copyProps={{ fontSize: "md", variant: "paragraph" }}
               />
             </SectionCopy>
           </Section>

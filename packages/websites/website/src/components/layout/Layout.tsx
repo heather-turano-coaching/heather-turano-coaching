@@ -7,13 +7,7 @@ import React, { FC, ReactNode } from "react";
 import { Helmet } from "react-helmet";
 import { createGlobalStyle } from "styled-components";
 
-import {
-  FooterNav,
-  HeaderNav,
-  HeaderNavLink,
-  HeaderNavLinkContent,
-  logos
-} from "..";
+import { HeaderNav, HeaderNavLink, HeaderNavLinkContent, logos } from "..";
 
 /**
  * @todo Convert images to gatsby-image

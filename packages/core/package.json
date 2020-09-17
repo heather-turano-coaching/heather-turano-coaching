@@ -7,6 +7,7 @@
     "url": "git+ssh://git@github.com/heather-turano-coaching/heather-turano-coaching.git"
   },
   "scripts": {
+    "prebuild": "rm -rf components && rm -rf theme",
     "build": "tsc --project tsconfig.build-components.json && tsc --project tsconfig.build-theme.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"

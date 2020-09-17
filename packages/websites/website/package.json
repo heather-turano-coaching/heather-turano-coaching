@@ -27,6 +27,7 @@
     "@heather-turano-coaching/eslint-config": "^0.0.1",
     "@heather-turano-coaching/gatsby": "^1.0.0",
     "@heather-turano-coaching/hooks": "^0.2.0",
+    "@reach/router": "^1.3.4",
     "@svgr/webpack": "^5.4.0",
     "@tryghost/content-api": "^1.4.1",
     "@tryghost/helpers": "1.1.27",

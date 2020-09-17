@@ -18,13 +18,17 @@ const typographyStyle: React.CSSProperties = {
   marginBottom: makeSize({ custom: 12 })
 };
 
-export const FooterText: FC<{ children: ReactNode }> = memo(({ children }) => (
-  <Typography
-    fontSize="xs"
-    fontColor={fontColor}
-    variant="paragraph"
-    style={typographyStyle}
-  >
-    <StyledFooterText>{children}</StyledFooterText>
-  </Typography>
-));
+export const FooterText: FC<{ children: ReactNode }> = memo(
+  function FooterText({ children }) {
+    return (
+      <Typography
+        fontSize="xs"
+        fontColor={fontColor}
+        variant="paragraph"
+        style={typographyStyle}
+      >
+        <StyledFooterText>{children}</StyledFooterText>
+      </Typography>
+    );
+  }
+);

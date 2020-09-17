@@ -1,4 +1,5 @@
 import {
+  ContentfulRichText,
   Section,
   SectionCopy,
   SectionFooter,
@@ -8,7 +9,6 @@ import {
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
-import { ContentfulRichText } from "../../components";
 import { FormQuickContact } from "../forms/FormQuickContact";
 
 export const AboutContact = () => {
@@ -31,7 +31,7 @@ export const AboutContact = () => {
         <Typography fontSize="md" variant="text">
           <ContentfulRichText
             richText={queryData.contactDescription.json}
-            copy={{ fontSize: "md", variant: "paragraph" }}
+            copyProps={{ fontSize: "md", variant: "paragraph" }}
           />
         </Typography>
       </SectionCopy>
