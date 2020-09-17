@@ -1,9 +1,13 @@
 {
   "extends": "@heather-turano-coaching/typescript/tsconfig.json",
-  "include": ["src/**/*.ts", "src/**/*.tsx", "types/**/*.d.ts", ".eslintrc.js"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "types/**/*.d.ts",
+    ".eslintrc.js",
+    "*.*.js"
+  ],
   "compilerOptions": {
-    "noEmit": false,
-    "outDir": "./dist",
     "declaration": true,
     "declarationMap": true,
     "noUnusedLocals": true,
@@ -11,6 +15,5 @@
     "isolatedModules": false,
     "target": "ES5",
     "module": "CommonJS"
-  },
-  "exclude": ["src/**/*.stories.ts", "src/**/*.stories.tsx"]
+  }
 }

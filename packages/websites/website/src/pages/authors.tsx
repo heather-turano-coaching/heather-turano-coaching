@@ -13,13 +13,11 @@ import styled from "styled-components";
 
 import {
   FrameworkLink,
-  Layout,
-  LayoutColumn,
-  LayoutContainer,
   PageContainer,
   PageHeader
-} from "../components";
-import { universalHover } from "../styles";
+} from "../components/content";
+import { Layout, LayoutColumn, LayoutContainer } from "../components/layout";
+import { universalHover } from "../components/styles";
 import { destructureNodes } from "../utils";
 
 const StyledAuthorPageContent = styled.ul`

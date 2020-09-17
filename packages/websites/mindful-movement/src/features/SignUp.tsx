@@ -20,7 +20,7 @@ export {};
 //   SubscribeRequest,
 //   SubscribeResponse,
 // } from "@heather-turano-coaching/domain";
-// import { useApi } from "@heather-turano-coaching/hooks";
+// import { useApi } from "@heather-turano-coaching/core/hooks";
 // import { graphql, useStaticQuery } from "gatsby";
 // import { FC } from "react";
 // import React from "react";

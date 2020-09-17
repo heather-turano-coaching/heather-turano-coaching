@@ -1,6 +1,7 @@
-import React, { FC } from "react";
-import { Layout } from "../components";
 import { Content, Section, Title } from "@heather-turano-coaching/components";
+import React, { FC } from "react";
+
+import { Layout } from "../components/layout";
 
 const PrivacyPolicyPage: FC = () => (
   <Layout pageTitle="Terms of Service">

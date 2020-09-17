@@ -8,12 +8,12 @@ import {
   Input,
   Section
 } from "@heather-turano-coaching/components";
+import { useApi } from "@heather-turano-coaching/core/hooks";
 import {
   SubscribeRequest,
   SubscribeResponse
 } from "@heather-turano-coaching/domain";
 import { SEO } from "@heather-turano-coaching/gatsby";
-import { useApi } from "@heather-turano-coaching/hooks";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import { useForm } from "react-hook-form";

@@ -1,17 +1,18 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { FC } from "react";
 
-import { Layout, MetaData, PageContainer } from "../components";
+import { MetaData, PageContainer } from "../components/content";
 import {
   HomeAbout,
   HomeContact,
   HomeHero,
   HomeServices,
   HomeTestimonials
-} from "../features/home";
+} from "../components/feature/home";
+import { Layout } from "../components/layout";
 
 // @ts-ignore
-const Index = ({ location }) => {
+const Index: FC = ({ location }) => {
   const { contentfulPageHome: queryData } = useStaticQuery(graphql`
     {
       contentfulPageHome {

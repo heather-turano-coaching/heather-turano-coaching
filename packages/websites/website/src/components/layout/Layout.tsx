@@ -1,4 +1,10 @@
 import {
+  Footer,
+  FooterSection,
+  FooterText
+} from "@heather-turano-coaching/components";
+import {
+  makeColor,
   makeFontFace,
   makeResponsive
 } from "@heather-turano-coaching/design-system";
@@ -8,12 +14,13 @@ import { Helmet } from "react-helmet";
 import { createGlobalStyle } from "styled-components";
 
 import {
-  FooterNav,
+  FrameworkLink,
   HeaderNav,
   HeaderNavLink,
   HeaderNavLinkContent,
   logos
-} from "..";
+} from "../content";
+import { FormSubscribe } from "../feature";
 
 /**
  * @todo Convert images to gatsby-image
@@ -60,11 +67,6 @@ const fontFaceLinks = fontFaceDefs.reduce(
   [] as ReactNode[]
 );
 
-export interface NavLinkType {
-  label: string;
-  route: string;
-}
-
 /**
  * @todo Get this data from Contentful API
  */
@@ -82,22 +84,12 @@ const headerNavLinks = [
     route: "/services"
   },
   {
+    label: "events",
+    route: "/events"
+  },
+  {
     label: "blog",
     route: "/blog"
-  }
-];
-const usefulLinks: NavLinkType[] = [
-  {
-    label: "Privacy Policy",
-    route: "/privacy-policy"
-  },
-  {
-    label: "Terms of Service",
-    route: "/terms-of-service"
-  },
-  {
-    label: "Cookie Policy",
-    route: "/cookie-policy"
   }
 ];
 
@@ -106,13 +98,30 @@ export const Layout: FC<{ pageTitle: string }> = ({
   children
 }) => {
   const {
-    allGhostSettings: { edges }
-  } = useStaticQuery(graphql`
+    allGhostSettings: { edges },
+    allMarkdownRemark: { nodes: disclosurePages }
+  } = useStaticQuery<{
+    allGhostSettings: { edges: { node: { lang: string } }[] };
+    allMarkdownRemark: {
+      nodes: { frontmatter: { slug: string; title: string } }[];
+    };
+  }>(graphql`
     {
       allGhostSettings {
         edges {
           node {
             id
+          }
+        }
+      }
+      allMarkdownRemark(
+        sort: { fields: frontmatter___order }
+        filter: { frontmatter: { slug: { ne: null } } }
+      ) {
+        nodes {
+          frontmatter {
+            slug
+            title
           }
         }
       }
@@ -129,7 +138,7 @@ export const Layout: FC<{ pageTitle: string }> = ({
       <Helmet>
         <html lang={site.lang} />
         {fontFaceLinks}
-        <title>{`${pTitle} | Live Life Mindful`}</title>
+        <title>{`${pTitle} | Heather Turano Coaching`}</title>
       </Helmet>
       <GlobalStyle />
       <HeaderNav
@@ -147,21 +156,56 @@ export const Layout: FC<{ pageTitle: string }> = ({
         ))}
       />
       {children}
-      <FooterNav
-        attribution="Copyright © 2018, Heather Turano Coaching, LLC, All Rights
-            Reserved. Live Life Mindful is a trademark of Heather Turano Coaching,
-            LLC. The use of the trademark Live Life Mindful outside the bounds of
-            this website requires exclusive written consent from Heather Turano
-            Coaching, LLC."
-        createdBy={{
-          intro:
-            "This website was designed and developed by the amazing people at",
-          link: "http://www.imaginedelements.com",
-          name: "Imagined Elements, LLC"
-        }}
-        mainMenu={headerNavLinks}
-        usefulLinks={usefulLinks}
-      />
+      <Footer>
+        <FooterSection title="Heather Turano Coaching, LLC">
+          <FooterText>
+            <span>
+              Copyright © 2018, Heather Turano Coaching, LLC, All Rights
+              Reserved. Live Life Mindful is a trademark of Heather Turano
+              Coaching, LLC. The use of the trademark Live Life Mindful outside
+              the bounds of this website requires exclusive written consent from
+              Heather Turano Coaching, LLC.
+            </span>
+          </FooterText>
+          <FooterText>
+            <span>This website was designed and developed by &nbsp;</span>
+            <div>
+              <a
+                href="https://github.com/drewdecarme"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inlineBlock",
+                  textDecorationColor: `${makeColor({ fixed: "light" })}`,
+                  color: `${makeColor({ fixed: "light" })}`
+                }}
+              >
+                Imagined Elements, LLC
+              </a>
+            </div>
+          </FooterText>
+        </FooterSection>
+        <FooterSection title="Privacy &amp; Security">
+          <FooterText>
+            Heather Turano Coaching takes your privacy very seriously. Use the
+            links below to learn more about our policies
+          </FooterText>
+          <ul>
+            {disclosurePages.map((page) => (
+              <li key={page.frontmatter.slug}>
+                <FooterText>
+                  <FrameworkLink to={page.frontmatter.slug}>
+                    {page.frontmatter.title}
+                  </FrameworkLink>
+                </FooterText>
+              </li>
+            ))}
+          </ul>
+        </FooterSection>
+        <FooterSection title="Subscribe">
+          <FormSubscribe fieldPrefix="footer" />
+        </FooterSection>
+      </Footer>
     </>
   );
 };

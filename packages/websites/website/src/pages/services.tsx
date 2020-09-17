@@ -1,10 +1,11 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { FC } from "react";
 
-import { Layout, MetaData, PageContainer } from "../components";
+import { MetaData, PageContainer } from "../components/content";
+import { Layout } from "../components/layout";
 
 // @ts-ignore
-const ServicesPage = ({ location }) => {
+const ServicesPage: FC = ({ location }) => {
   const { contentfulPageService: queryData } = useStaticQuery(graphql`
     {
       contentfulPageService {

@@ -15,21 +15,20 @@ import { uniqBy } from "lodash";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { Layout, MetaData } from "../components";
-import {
-  LayoutBlock,
-  LayoutBlockContent,
-  LayoutColumn,
-  LayoutContainer,
-  PageContainer,
-  PageHeader
-} from "../components";
+import { MetaData, PageContainer, PageHeader } from "../components/content";
 import {
   BlockCategoriesList,
   BlockRecentPosts,
   BlockSubscribe,
   BlockTagsList
-} from "../features";
+} from "../components/feature";
+import {
+  Layout,
+  LayoutBlock,
+  LayoutBlockContent,
+  LayoutColumn,
+  LayoutContainer
+} from "../components/layout";
 import {
   destructureNodes,
   getCategoriesFromTags,
@@ -75,6 +74,7 @@ const StyledBioPlaceholder = styled.div``;
  *
  * Loads all posts for the requested author incl. pagination.
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const AuthorPage: FC<{ data: any; location: Location; pageContext: any }> = ({
   data,
   location

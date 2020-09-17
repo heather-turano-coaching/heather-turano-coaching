@@ -6,12 +6,12 @@ import {
 } from "@heather-turano-coaching/components";
 import { makeRhythm, makeSize } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 
 import yoga from "../../static/images/meditation.svg";
-import { Layout } from "../components";
-import { FormSubscribe } from "../features";
+import { FormSubscribe } from "../components/feature";
+import { Layout } from "../components/layout";
 
 const Styled404Container = styled.div`
   text-align: center;
@@ -30,7 +30,7 @@ const Styled404Container = styled.div`
   }
 `;
 
-const NotFoundPage = () => {
+const NotFoundPage: FC = () => {
   const { contentful404NotFound: data } = useStaticQuery(graphql`
     {
       contentful404NotFound {

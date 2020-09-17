@@ -1,4 +1,4 @@
-import { HookApiRequest } from "@heather-turano-coaching/hooks";
+import { HookApiRequest } from "@heather-turano-coaching/core/hooks";
 import {
   SubscribeRequest,
   SubscribeResponse,
