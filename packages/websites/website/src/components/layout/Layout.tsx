@@ -84,6 +84,10 @@ const headerNavLinks = [
     route: "/services"
   },
   {
+    label: "events",
+    route: "/events"
+  },
+  {
     label: "blog",
     route: "/blog"
   }
