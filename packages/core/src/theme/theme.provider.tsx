@@ -10,14 +10,12 @@ import {
   createGlobalStyle
 } from "styled-components";
 
-import { fonts } from "./theme.fonts";
 import { cssReset } from ".";
 
 export const GlobalStyle = createGlobalStyle`
   ${cssReset};
-  ${fonts};
 
-  #root, #___gatsby  {
+  #root, #__next, #__gatsby  {
     position: absolute;
     top: 0;
     right: 0;
@@ -26,20 +24,12 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     overflow: hidden;
-
-
   };
 `;
 
-export const createTheme = (): Theme =>
-  createMuiTheme({
-    palette: {
-      primary: {},
-      secondary: {}
-    }
-  });
+export const createTheme = (): Theme => createMuiTheme({});
 
-export const MQTheme: FC = ({ children }) => {
+export const HTCTheme: FC = ({ children }) => {
   const materialTheme = createTheme();
 
   return (

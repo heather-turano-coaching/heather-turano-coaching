@@ -10,7 +10,8 @@
     "packages/hooks",
     "packages/websites/mindful-movement",
     "packages/websites/packages",
-    "packages/websites/website"
+    "packages/websites/website",
+    "packages/websites/next"
   ],
   "prettier.packageManager": "yarn",
   "prettier.trailingComma": "none",
