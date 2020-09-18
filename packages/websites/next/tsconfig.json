@@ -12,7 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".", // import directly from the root directory
+    // "baseUrl": "./src", // import directly from the root directory
     "strict": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "_document.tsx"],

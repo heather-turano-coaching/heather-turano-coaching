@@ -1,4 +1,6 @@
+import { Typography } from "@material-ui/core";
 import Head from "next/head";
+import { css } from "styled-components";
 
 import styles from "../styles/Home.module.css";
 
@@ -11,9 +13,15 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <Typography
+          variant="h1"
+          className={styles.title}
+          css={css`
+            color: red;
+          `}
+        >
           Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        </Typography>
 
         <p className={styles.description}>
           Get started by editing{" "}
