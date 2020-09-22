@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "yarn generate-types && next dev",
+    "build": "yarn generate-types && next build",
     "start": "next start",
-    "types": "contentful-typescript-codegen --output ./types/contentful.d.ts"
+    "generate-types": "contentful-typescript-codegen --output ./src/models/contentful.ts"
   },
   "dependencies": {
     "@heather-turano-coaching/components": "^0.5.0",
@@ -21,6 +21,7 @@
     "axios": "^0.20.0",
     "contentful": "^7.14.4",
     "date-fns": "^2.14.0",
+    "dotenv": "^8.2.0",
     "lodash": "^4.17.15",
     "next": "9.5.3",
     "polished": "^3.6.3",
