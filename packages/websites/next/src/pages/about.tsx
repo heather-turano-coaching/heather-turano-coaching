@@ -10,7 +10,7 @@ export type AboutPageProps = MetaProps & {
 
 export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
   const data = (await contentfulClient.getEntry(
-    "7lfP0Xk3qXQIjAzpm9yJ8H"
+    "1d8Op07qxu9UPPUEYdDcbE"
   )) as IPageAbout;
 
   return {

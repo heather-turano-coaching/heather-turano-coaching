@@ -83,26 +83,6 @@ export const AboutMyClients: FC = () => {
     }
   `);
 
-  const clients = useMemo(
-    () =>
-      queryData.myClientsImages.map(
-        (clientImage: {
-          url: string;
-          file: { url: string };
-          title: string;
-        }) => (
-          <StyledClientImage key={clientImage.url}>
-            <Image
-              src={clientImage.file.url}
-              alt={clientImage.title}
-              manualWidth="100%"
-            />
-          </StyledClientImage>
-        )
-      ),
-    [queryData.myClientsImages]
-  );
-
   return (
     <>
       <SectionSpacer />
@@ -111,7 +91,21 @@ export const AboutMyClients: FC = () => {
         background={{ scalable: { color: "light", scale: 3 } }}
       >
         <StyledAboutMyClientsImageSection>
-          {clients}
+          {queryData.myClientsImages.map(
+            (clientImage: {
+              url: string;
+              file: { url: string };
+              title: string;
+            }) => (
+              <StyledClientImage key={clientImage.url}>
+                <Image
+                  src={clientImage.file.url}
+                  alt={clientImage.title}
+                  manualWidth="100%"
+                />
+              </StyledClientImage>
+            )
+          )}
         </StyledAboutMyClientsImageSection>
         <StyledAboutMyClientsTitle>
           <Title size="lg">{queryData.myClientsTitle}</Title>
