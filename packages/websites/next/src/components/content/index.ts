@@ -4,7 +4,5 @@ export * from "./general";
 export * from "./navigation";
 export * from "./meta";
 
-export const logos = {
-  stacked: require("../../../static/images/htc-logo-stacked.svg").default,
-  inline: require("../../../static/images/htc-logo-inline.svg").default
-};
+export { default as LogoStacked } from "../../images/htc-logo-stacked.svg";
+export { default as LogoInline } from "../../images/htc-logo-inline.svg";

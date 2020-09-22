@@ -1,13 +1,13 @@
 import { mix } from "polished";
 
-import {
-  ColorProperties,
-  ColorScales,
-  ColorBlendRatios,
-  ColorHex
-} from "../types/composite";
-import { ColorScalable, ColorFixed } from "../types/primitive/color.primitive";
 import { colorConfig } from "../configs";
+import {
+  ColorBlendRatios,
+  ColorHex,
+  ColorProperties,
+  ColorScales
+} from "../types/composite";
+import { ColorFixed, ColorScalable } from "../types/primitive/color.primitive";
 
 type ColorMapScalable = { [key in ColorScalable]: ColorScales };
 type ColorMapFixed = { [key in ColorFixed]: ColorHex };
@@ -47,7 +47,7 @@ export const makeColor = ({
   scalable,
   custom
 }: ColorProperties): ColorHex => {
-  if (scalable?.color) {
+  if (scalable && scalable.color) {
     return scalableColorMap[scalable.color][scalable.scale || 0];
   }
   if (fixed) {

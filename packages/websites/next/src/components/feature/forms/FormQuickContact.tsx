@@ -9,10 +9,9 @@ import {
   QuickContactRequest,
   QuickContactResponse
 } from "@heather-turano-coaching/domain";
+import { sendQuickContactRequest } from "endpoints";
 import React, { FC } from "react";
 import { useForm } from "react-hook-form";
-
-import { sendQuickContactRequest } from "../../../api";
 
 interface FormQuickContactProps {
   submitButtonLabel: string;
