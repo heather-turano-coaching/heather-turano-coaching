@@ -6,7 +6,7 @@
     "dev": "yarn generate-types && next dev",
     "build": "yarn generate-types && next build",
     "start": "next start",
-    "generate-types": "contentful-typescript-codegen --output ./src/models/contentful.ts"
+    "generate-types": "contentful-typescript-codegen --output ./src/lib/contentful.model.ts"
   },
   "dependencies": {
     "@heather-turano-coaching/components": "^0.5.0",

@@ -17,10 +17,9 @@ import {
   makeSize
 } from "@heather-turano-coaching/design-system";
 import { useLocation } from "@reach/router";
+import Link from "next/link";
 import React, { FC, Fragment, ReactNode } from "react";
 import styled from "styled-components";
-
-import { FrameworkLink } from "../general";
 
 interface PageHeaderProps {
   pageTitle: string;
@@ -120,12 +119,14 @@ export const PageHeader: FC<PageHeaderProps> = ({
         {routes.map((route, index) =>
           index !== routes.length - 1 ? (
             <Fragment key={route}>
-              <FrameworkLink to={`/${route}`}>
-                {copy({
-                  label: index === 0 ? basePathName : route,
-                  scale: index !== routes.length - 1 ? 3 : 0
-                })}
-              </FrameworkLink>
+              <Link href={`/${route}`}>
+                <a>
+                  {copy({
+                    label: index === 0 ? basePathName : route,
+                    scale: index !== routes.length - 1 ? 3 : 0
+                  })}
+                </a>
+              </Link>
               {copy({
                 label: "/",
                 scale: 3

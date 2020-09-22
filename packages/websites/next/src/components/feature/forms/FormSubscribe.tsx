@@ -10,8 +10,7 @@ import {
   SubscribeResponse
 } from "@heather-turano-coaching/domain";
 import { subscribeToBlog } from "endpoints";
-import { graphql, useStaticQuery } from "gatsby";
-import React, { FC } from "react";
+import { FC } from "react";
 import { useForm } from "react-hook-form";
 
 interface FormSubscribeProps {
@@ -19,14 +18,6 @@ interface FormSubscribeProps {
 }
 
 export const FormSubscribe: FC<FormSubscribeProps> = ({ fieldPrefix }) => {
-  const { contentfulBlockSubscribe: queryData } = useStaticQuery(graphql`
-    {
-      contentfulBlockSubscribe {
-        ...BlockSubscribeFields
-      }
-    }
-  `);
-
   const { register, errors, handleSubmit } = useForm<SubscribeRequest>();
 
   const [{ loading, data, error }, subcribe] = useApi<
@@ -57,7 +48,7 @@ export const FormSubscribe: FC<FormSubscribeProps> = ({ fieldPrefix }) => {
             <Input
               id={`${fieldPrefix}-subscribe-first-name`}
               name="firstName"
-              placeholder={queryData.namePlaceholder}
+              placeholder="First name"
               ref={register({ required: true })}
               disabled={loading}
               errorMessage={
@@ -67,19 +58,16 @@ export const FormSubscribe: FC<FormSubscribeProps> = ({ fieldPrefix }) => {
             <Input
               id={`${fieldPrefix}-subscribe-email`}
               name="address"
-              placeholder={queryData.emailPlaceholder}
+              placeholder="you@domain.com"
               ref={register({ required: true })}
               disabled={loading}
-              errorMessage={
-                errors.address &&
-                "You'll need to add your email address so we can send you awesome stuff!"
-              }
+              errorMessage={errors.address && "An email address is required!"}
             />
             <Button
               id={`${fieldPrefix}-submit-subscription`}
               styleType="accent"
               type="submit"
-              label={queryData.submitText}
+              label="Submit!"
               disabled={!!errors.firstName || !!errors.address || loading}
               loading={loading}
               onSubmit={handleSubmit(onSubmit)}

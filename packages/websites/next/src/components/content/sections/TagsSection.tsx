@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import { Tag as GhostTag } from "@tryghost/content-api";
 import {
   Tag,
   TagGroup,
   TagGroupProps
 } from "@heather-turano-coaching/components";
-import { FrameworkLink } from "../general";
+import { Tag as GhostTag } from "@tryghost/content-api";
+import Link from "next/link";
+import React, { FC } from "react";
 
 interface TagSectionProps {
   tags?: GhostTag[];
@@ -39,13 +39,15 @@ export const TagsSection: FC<TagSectionProps> = ({
             return !tag.name?.includes("category-");
           })
           .map((tag) => (
-            <FrameworkLink key={tag.id} to={`/${filter}/${tag.slug}`}>
-              <Tag
-                tagType={filter === "categories" ? "category" : "tag"}
-                key={tag.id}
-                text={normalizeTagName(filter, tag.name as string)}
-              />
-            </FrameworkLink>
+            <Link key={tag.id} href={`/${filter}/${tag.slug}`}>
+              <a>
+                <Tag
+                  tagType={filter === "categories" ? "category" : "tag"}
+                  key={tag.id}
+                  text={normalizeTagName(filter, tag.name as string)}
+                />
+              </a>
+            </Link>
           ))}
       </TagGroup>
     )}

@@ -13,7 +13,7 @@ import {
 } from "@heather-turano-coaching/components";
 import { makeColor, makeOutset } from "@heather-turano-coaching/design-system";
 import { TestimonialCarousel } from "components/content/testimonials";
-import { IPageHome } from "models/contentful";
+import { IPageHome } from "lib/contentful";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
@@ -34,13 +34,7 @@ const StyledHeading = styled.div`
 
 export const PageHome: FC<IPageHome> = ({ fields }) => {
   return (
-    <div
-      css={css`
-        height: 100%;
-        overflow-y: auto;
-        width: 100%;
-      `}
-    >
+    <>
       <Hero
         image={fields.heroImage.fields.file.url}
         alt={fields.heroImage.fields.title.split(" ").join("")}
@@ -170,6 +164,6 @@ export const PageHome: FC<IPageHome> = ({ fields }) => {
           </div>
         </SectionFooter>
       </Section>
-    </div>
+    </>
   );
 };

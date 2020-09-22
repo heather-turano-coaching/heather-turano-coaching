@@ -1,8 +1,6 @@
 import { PageHome } from "components/feature/home/Home";
 import { Meta, MetaProps } from "components/feature/meta";
-import { ContentType, Entry } from "contentful";
-import { contentfulClient } from "lib/contentful";
-import { IPageHome } from "models/contentful";
+import { IPageHome, contentfulClient } from "lib/contentful";
 import { GetStaticProps } from "next";
 
 export type HomePageProps = MetaProps & {

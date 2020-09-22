@@ -1,7 +1,7 @@
 import { PageAbout } from "components/feature/about";
 import { Meta, MetaProps } from "components/feature/meta";
 import { contentfulClient } from "lib/contentful";
-import { IPageAbout } from "models/contentful";
+import { IPageAbout } from "lib/contentful";
 import { GetStaticProps } from "next";
 
 export type AboutPageProps = MetaProps & {

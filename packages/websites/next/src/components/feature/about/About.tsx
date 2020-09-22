@@ -18,7 +18,7 @@ import {
   makeSize
 } from "@heather-turano-coaching/design-system";
 import { Asset } from "contentful";
-import { IPageAbout } from "models/contentful";
+import { IPageAbout } from "lib/contentful";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
@@ -155,12 +155,7 @@ export const PageAbout: FC<IPageAbout> = ({ fields }) => {
   const isLessThanLandscape = windowWidth < tabletLandscape;
 
   return (
-    <div
-      css={css`
-        height: 100%;
-        overflow-y: auto;
-      `}
-    >
+    <>
       <Section styleType="split">
         <StyledAboutTitleSection>
           <SectionCopy>
@@ -291,6 +286,6 @@ export const PageAbout: FC<IPageAbout> = ({ fields }) => {
           </div>
         </SectionFooter>
       </Section>
-    </div>
+    </>
   );
 };

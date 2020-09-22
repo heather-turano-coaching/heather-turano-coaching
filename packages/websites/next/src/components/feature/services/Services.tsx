@@ -1,4 +1,4 @@
-import { IPageService } from "models/contentful";
+import { IPageService } from "lib/contentful";
 import { FC } from "react";
 
 export const PageServices: FC<IPageService> = (props) => {

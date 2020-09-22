@@ -1,7 +1,7 @@
 import { Meta, MetaProps } from "components/feature/meta";
 import { PageServices } from "components/feature/services";
 import { contentfulClient } from "lib/contentful";
-import { IPageService } from "models/contentful";
+import { IPageService } from "lib/contentful";
 import { GetStaticProps } from "next";
 
 export type ServicePageProps = MetaProps & {

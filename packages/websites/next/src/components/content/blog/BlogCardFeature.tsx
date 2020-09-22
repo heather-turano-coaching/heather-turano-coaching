@@ -14,13 +14,12 @@ import {
   makeRhythm,
   makeSize
 } from "@heather-turano-coaching/design-system";
-import { Link } from "@reach/router";
 import { PostOrPage } from "@tryghost/content-api";
+import Link from "next/link";
 import React, { FC } from "react";
 import styled from "styled-components";
 
 import { formatLongDate } from "../../utils";
-import { FrameworkLink } from "../general";
 import { TagsSection } from "../sections";
 import { BlogCardAvatar } from "./BlogCardAvatar";
 
@@ -217,9 +216,11 @@ export const BlogCardFeature: FC<BlogCardFeatureProps> = ({
         </Typography>
 
         {windowWidth >= tabletLandscape && (
-          <FrameworkLink to={`/${fp.slug}`}>
-            <Button styleType="primary" label="Read more" />
-          </FrameworkLink>
+          <Link href={`/${fp.slug}`}>
+            <a>
+              <Button styleType="primary" label="Read more" />
+            </a>
+          </Link>
         )}
       </StyledCardContent>
     </>
@@ -227,7 +228,9 @@ export const BlogCardFeature: FC<BlogCardFeatureProps> = ({
 
   return windowWidth < laptop ? (
     <StyledFeaturedBlogCardContainer>
-      <Link to={fp.slug as string}>{Content}</Link>
+      <Link href={fp.slug as string}>
+        <a>{Content}</a>
+      </Link>
     </StyledFeaturedBlogCardContainer>
   ) : (
     <StyledFeaturedBlogCardContainer>{Content}</StyledFeaturedBlogCardContainer>

@@ -15,11 +15,11 @@ import {
   makeSize
 } from "@heather-turano-coaching/design-system";
 import { PostOrPage } from "@tryghost/content-api";
+import Link from "next/link";
 import React, { FC } from "react";
 import styled from "styled-components";
 
 import { formatLongDate } from "../../utils";
-import { FrameworkLink } from "../general";
 import { BlogCardAvatar, TagsSection } from "..";
 
 interface BlogPost {
@@ -183,33 +183,37 @@ export const BlogPost: FC<BlogPost> = ({
   return (
     <StyledRegularBlogCardContainer>
       <StyledBlogImage>
-        <FrameworkLink to={`/blog/${slug}`}>
-          <img src={feature_image as string} alt={slug} />
-        </FrameworkLink>
+        <Link href={`/blog/${slug}`}>
+          <a>
+            <img src={feature_image as string} alt={slug} />
+          </a>
+        </Link>
       </StyledBlogImage>
       <StyledCardContent>
         {!isWindowMobile && Tags}
-        <FrameworkLink to={`/blog/${slug}`}>
-          <Heading
-            fontSize={isWindowMobile ? "h3" : "h2"}
-            fontColor={{ fixed: "dark" }}
-          >
-            {pTitle}
-          </Heading>
-          <BlogCardAvatar
-            authorName={authorName}
-            avatarImg={avatarImg}
-            datePublished={datePublished}
-            layoutType="inline"
-          />
-          <Typography
-            variant="paragraph"
-            fontSize={isWindowMobile ? { custom: 14 } : "sm"}
-            fontColor={{ scalable: { color: "gray", scale: 0 } }}
-          >
-            {pExcerpt}
-          </Typography>
-        </FrameworkLink>
+        <Link href={`/blog/${slug}`}>
+          <a>
+            <Heading
+              fontSize={isWindowMobile ? "h3" : "h2"}
+              fontColor={{ fixed: "dark" }}
+            >
+              {pTitle}
+            </Heading>
+            <BlogCardAvatar
+              authorName={authorName}
+              avatarImg={avatarImg}
+              datePublished={datePublished}
+              layoutType="inline"
+            />
+            <Typography
+              variant="paragraph"
+              fontSize={isWindowMobile ? { custom: 14 } : "sm"}
+              fontColor={{ scalable: { color: "gray", scale: 0 } }}
+            >
+              {pExcerpt}
+            </Typography>
+          </a>
+        </Link>
         {isWindowMobile && Tags}
       </StyledCardContent>
     </StyledRegularBlogCardContainer>
