@@ -5,7 +5,7 @@ import {
   Input
 } from "@heather-turano-coaching/components";
 import { useApi } from "@heather-turano-coaching/core/hooks";
-import {
+import type {
   QuickContactRequest,
   QuickContactResponse
 } from "@heather-turano-coaching/domain";

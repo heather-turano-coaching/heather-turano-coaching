@@ -1,5 +1,6 @@
 import { Carousel, CarouselFooter } from "@heather-turano-coaching/components";
 import { makeSize } from "@heather-turano-coaching/design-system";
+import { ITestimonials } from "models/contentful";
 import React, { FC, useState } from "react";
 import styled from "styled-components";
 
@@ -34,7 +35,7 @@ const StyledContainer = styled.div`
   }
 `;
 
-export const TestimonialCarousel: FC<{ testimonials: Testimonial[] }> = ({
+export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
   testimonials
 }) => {
   const [currentEntry, setCurrentEntry] = useState<number>(0);

@@ -1,5 +1,5 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import { BLOCKS, Document, MARKS } from "@contentful/rich-text-types";
 import { makeRhythm } from "@heather-turano-coaching/design-system";
 import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
@@ -22,9 +22,10 @@ const StyledRichText = styled.div`
 
 export const ContentfulRichText: FC<{
   copyProps: TypographyProps;
-  richText: string | JSON;
+  richText: string | JSON | Document;
 }> = ({ copyProps, richText }) => {
   const json = typeof richText === "string" ? JSON.parse(richText) : richText;
+
   return (
     <StyledRichText>
       {documentToReactComponents(json, {

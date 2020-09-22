@@ -10,6 +10,7 @@ import {
   makeResponsive,
   makeSize
 } from "@heather-turano-coaching/design-system";
+import { ITestimonials } from "models/contentful";
 import React, { FC } from "react";
 import styled from "styled-components";
 
@@ -53,16 +54,18 @@ const StyledTesimonialTextConatiner = styled.div`
   }
 `;
 
-export const TestimonialContent: FC<Testimonial> = ({
-  testimonialDescription,
-  // customerDescription,
-  // customerLocation,
-  image,
-  maskingOpacity
+export const TestimonialContent: FC<ITestimonials> = ({
+  fields: {
+    testimonialDescription,
+    // customerDescription,
+    // customerLocation,
+    image,
+    maskingOpacity
+  }
 }) => (
   <StyledTestimonialContent>
     <Image
-      src={image.file.url}
+      src={image.fields.file.url}
       alt="happy"
       manualHeight="100%"
       mask
@@ -72,7 +75,7 @@ export const TestimonialContent: FC<Testimonial> = ({
     <SectionCopy>
       <StyledTesimonialTextConatiner>
         <ContentfulRichText
-          richText={testimonialDescription.testimonialDescription}
+          richText={testimonialDescription}
           copyProps={{
             fontColor: { fixed: "light" },
             fontSize: "sm",
