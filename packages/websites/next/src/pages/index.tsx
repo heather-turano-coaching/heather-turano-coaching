@@ -22,7 +22,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
   };
 };
 
-export default function IndexPage({ pageTitle, data }: HomePageProps) {
+export default function HomePage({ pageTitle, data }: HomePageProps) {
   return (
     <>
       <Meta pageTitle={pageTitle} />

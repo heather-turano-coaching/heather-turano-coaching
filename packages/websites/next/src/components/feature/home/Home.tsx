@@ -1,4 +1,3 @@
-import { Entry } from "contentful";
 import { IPageHome } from "models/contentful";
 import { FC } from "react";
 
