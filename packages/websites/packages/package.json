@@ -33,7 +33,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-hook-form": "^5.7.2",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@heather-turano-coaching/domain": "^1.1.0",

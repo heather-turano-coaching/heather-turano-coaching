@@ -1,7 +1,6 @@
 import {
   MuiThemeProvider,
   StylesProvider,
-  Theme,
   createMuiTheme
 } from "@material-ui/core";
 import React, { FC } from "react";
@@ -12,7 +11,7 @@ import {
 
 import { cssReset } from ".";
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${cssReset};
 
   #root, #__next, #__gatsby  {
@@ -27,19 +26,51 @@ export const GlobalStyle = createGlobalStyle`
   };
 `;
 
-export const createTheme = (): Theme => createMuiTheme({});
+export const theme = createMuiTheme({
+  palette: {
+    // Deep Blue/Green
+    primary: {
+      dark: "#4E8588",
+      main: "#88ADAF",
+      light: "#C2D5D6"
+    },
+    // Tan
+    secondary: {
+      dark: "#BF9F5A",
+      main: "#D4BE90",
+      light: "#E9DEC6"
+    },
+    // Light green
+    accent: {
+      dark: "#9AC371",
+      main: "#BBD69F",
+      light: "#DCEACE",
+      contrastText: "#4E8588"
+    },
+    // darkscale
+    noir: {
+      dark: "#4A4A4A",
+      main: "#858585",
+      light: "#C1C1C1",
+      contrastText: "#FFF"
+    },
+    // lightscale
+    light: {
+      dark: "#EAECEC",
+      main: "#F0F2F2",
+      light: "#F7F8F8",
+      contrastText: "#4E8588"
+    }
+  }
+});
 
 export const HTCTheme: FC = ({ children }) => {
-  const materialTheme = createTheme();
-
   return (
     <>
       <GlobalStyle />
       <StylesProvider>
-        <MuiThemeProvider theme={materialTheme}>
-          <StyledThemeProvider theme={materialTheme}>
-            {children}
-          </StyledThemeProvider>
+        <MuiThemeProvider theme={theme}>
+          <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
         </MuiThemeProvider>
       </StylesProvider>
     </>
