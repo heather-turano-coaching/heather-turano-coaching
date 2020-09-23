@@ -31,6 +31,7 @@ export const cssReset = css`
   a {
     color: inherit;
     text-decoration: none;
+    cursor: pointer;
 
     &:visited {
       color: inherit;

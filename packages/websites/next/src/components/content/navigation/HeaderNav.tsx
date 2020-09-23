@@ -1,4 +1,9 @@
-import { makeMobileStyles, makeRem } from "@heather-turano-coaching/core/theme";
+import {
+  makeDesktopStyles,
+  makeFlex,
+  makeMobileStyles,
+  makeRem
+} from "@heather-turano-coaching/core/theme";
 import React, { FC, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 
@@ -25,6 +30,12 @@ const MobileLogo = styled.div`
   img {
     width: ${makeRem(200)};
   }
+
+  ${({ theme }) => css`
+    ${makeDesktopStyles(theme)} {
+      display: none;
+    }
+  `}
 `;
 
 const DesktopLogo = styled.div`
@@ -33,6 +44,10 @@ const DesktopLogo = styled.div`
       display: none;
     }
   `}
+
+  img {
+    width: ${makeRem(200)};
+  }
 `;
 
 const Navbar = styled.div`
@@ -40,39 +55,79 @@ const Navbar = styled.div`
   position: sticky;
   top: -${makeRem(1)};
   margin-top: ${makeRem(1)};
-  background: ${({ theme }) => {
-    return theme.palette.light.light;
-  }};
+
   padding: 0 ${makeRem(24)};
   z-index: 100;
   transition: all 0.2s ease-in-out 0s;
 
   &.stuck {
-    background: ${({ theme }) => theme.palette.common.white};
     box-shadow: rgb(209, 209, 209) 0px 1px 15px 0px;
   }
+
+  ${({ theme }) => css`
+    ${makeMobileStyles(theme)} {
+      background: ${theme.palette.light.light};
+
+      &.stuck {
+        background: ${theme.palette.common.white};
+      }
+    }
+
+    ${makeDesktopStyles(theme)} {
+      background: ${theme.palette.common.white};
+
+      ${makeFlex({
+        direction: "row",
+        justify: "space-between",
+        align: "center"
+      })}
+    }
+  `}
 `;
 
 const NavbarUl = styled.ul`
   width: 100%;
   height: ${makeRem(84)};
   display: flex;
-  justify-content: space-between;
   align-items: center;
+
+  ${({ theme }) => css`
+    ${makeMobileStyles(theme)} {
+      justify-content: space-between;
+    }
+
+    ${makeDesktopStyles(theme)} {
+      justify-content: flex-end;
+    }
+  `}
 `;
 
-const NavbarLi = styled.li``;
+const NavbarLi = styled.li`
+  ${({ theme }) => css`
+    ${makeDesktopStyles(theme)} {
+      &:not(:last-child) {
+        margin-right: ${makeRem(32)};
+      }
+    }
+  `}
+`;
 
 const NavLink = styled.a`
   height: ${makeRem(44)};
   line-height: ${makeRem(44)};
   display: block;
-  flex: 1;
   font-family: "Muli";
   text-transform: uppercase;
   font-size: ${makeRem(16)};
   font-weight: 500;
   position: relative;
+  transition: all 0.15s ease-in-out 0s;
+
+  ${({ theme }) => css`
+    ${makeMobileStyles(theme)} {
+      flex: 1;
+    }
+  `}
 
   &:after {
     content: "";
@@ -90,6 +145,10 @@ const NavLink = styled.a`
     &::after {
       background: ${({ theme }) => theme.palette.secondary.dark};
     }
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.palette.secondary.dark};
   }
 `;
 
@@ -112,11 +171,11 @@ export const HeaderNav: FC = () => {
       </MobileLogo>
       <Navbar ref={stickyRef}>
         <DesktopLogo>
-          <img src="/logo-inline.png" />
+          <img src="/logo-inline.svg" />
         </DesktopLogo>
         <NavbarUl>
           <NavbarLi>
-            <ActiveLink href="/" prefetch>
+            <ActiveLink href="/">
               <NavLink>Home</NavLink>
             </ActiveLink>
           </NavbarLi>
