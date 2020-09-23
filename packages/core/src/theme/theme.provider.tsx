@@ -9,7 +9,7 @@ import {
   createGlobalStyle
 } from "styled-components";
 
-import { cssReset } from ".";
+import { cssReset, makeRem } from ".";
 
 const GlobalStyle = createGlobalStyle`
   ${cssReset};
@@ -60,6 +60,22 @@ export const theme = createMuiTheme({
       main: "#F0F2F2",
       light: "#F7F8F8",
       contrastText: "#4E8588"
+    }
+  },
+  typography: {
+    h1: {
+      fontFamily: "Montserrat",
+      fontWeight: 700,
+      textTransform: "uppercase",
+      lineHeight: 1,
+      fontSize: makeRem(80),
+      margin: `${makeRem(24)} 0`
+    },
+    subtitle1: {
+      fontFamily: "Muli",
+      fontWeight: 500,
+      fontSize: makeRem(22),
+      margin: `${makeRem(20)} 0`
     }
   }
 });

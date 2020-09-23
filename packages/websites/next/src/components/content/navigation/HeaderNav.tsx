@@ -9,6 +9,8 @@ import styled, { css } from "styled-components";
 
 import { ActiveLink } from "./ActiveLink";
 
+export const navbarHeight = makeRem(84);
+
 const NavbarContainer = styled.nav`
   width: 100%;
   display: initial;
@@ -87,7 +89,7 @@ const Navbar = styled.div`
 
 const NavbarUl = styled.ul`
   width: 100%;
-  height: ${makeRem(84)};
+  height: ${navbarHeight};
   display: flex;
   align-items: center;
 

@@ -12,6 +12,7 @@ import {
   Typography
 } from "@heather-turano-coaching/components";
 import { makeColor, makeOutset } from "@heather-turano-coaching/design-system";
+import { HeroGradient } from "components/content/heros";
 import { TestimonialCarousel } from "components/content/testimonials";
 import { IPageHome } from "lib/contentful";
 import React, { FC } from "react";
@@ -35,34 +36,12 @@ const StyledHeading = styled.div`
 export const PageHome: FC<IPageHome> = ({ fields }) => {
   return (
     <>
-      <Hero
-        image={fields.heroImage.fields.file.url}
-        alt={fields.heroImage.fields.title.split(" ").join("")}
-        borderColor={{ fixed: "light" }}
-        gradient={{ scalable: { color: "secondary" } }}
-      >
-        <Section styleType="hero">
-          <StyledHeading>
-            <Heading
-              fontSize="h1"
-              fontColor={{ fixed: "light" }}
-              fontFamily="Montserrat"
-            >
-              {fields.heroTitle.split(" ").map((word: string) => (
-                <div key={word}>{word}</div>
-              ))}
-            </Heading>
-            <Heading
-              fontSize="h4"
-              fontColor={{ fixed: "light" }}
-              fontFamily="Muli"
-            >
-              {fields.heroSubTitle}
-            </Heading>
-            <Button label={fields.heroCtaButtonLabel} />
-          </StyledHeading>
-        </Section>
-      </Hero>
+      <HeroGradient
+        title={fields.heroTitle}
+        subTitle={fields.heroSubTitle}
+        img={fields.heroImage.fields.file.url}
+        imgAlt={fields.heroImage.fields.title.split(" ").join("")}
+      />
 
       {/* About Section */}
       <div
