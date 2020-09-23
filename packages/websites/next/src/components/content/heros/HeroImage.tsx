@@ -2,44 +2,21 @@ import {
   makeDesktopStyles,
   makeFlex,
   makeMobileStyles,
-  makeRem,
-  makeTabletStyles
+  makeRem
 } from "@heather-turano-coaching/core/theme";
-import { Container, Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-import { navbarHeight } from "../navigation/HeaderNav";
+import {
+  HeroContainer,
+  HeroProps,
+  HeroSubTitle,
+  HeroTitle,
+  HeroWrapper
+} from "./Hero";
 
-type HeroTypes =
-  | "side-gradient"
-  | "vertical-offset"
-  | "horizontal-offset"
-  | "plain-image"
-  | "words-only";
-
-type HeroProps = {
-  title: string;
-  subTitle: string;
-};
-
-const HeroContainer = styled(Container)`
-  max-width: ${makeRem(700)};
-  height: 100% !important;
-`;
-
-const HeroWrapper = styled.div`
-  width: ${`calc(100% + ${makeRem(2)})`};
-  min-height: ${`calc((100% + ${makeRem(2)}) - ${navbarHeight})`};
-  height: ${`calc(100% - ${navbarHeight})`};
-  position: relative;
-  left: -${makeRem(1)};
-  top: -${makeRem(1)};
-  bottom: -${makeRem(1)};
-  right: -${makeRem(1)};
-`;
-
-export const HeroGradientContent: FC = ({ children }) => (
+export const HeroImageContent: FC = ({ children }) => (
   <div
     css={css`
       width: 100%;
@@ -84,7 +61,7 @@ export const HeroGradientContent: FC = ({ children }) => (
   </div>
 );
 
-export const HeroGradientBg = styled.div`
+export const HeroImageBg = styled.div`
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -98,9 +75,8 @@ export const HeroGradientBg = styled.div`
   pointer-events: none;
 `;
 
-export const HeroGradientImg = styled.img`
+export const HeroImageImg = styled.img`
   box-sizing: border-box;
-  position: absolute;
   position: absolute;
   left: 0;
   right: 0;
@@ -114,26 +90,24 @@ export const HeroGradientImg = styled.img`
   z-index: -2;
 `;
 
-export const HeroGradient: FC<HeroProps & { img: string; imgAlt: string }> = ({
-  title,
-  subTitle,
-  img,
-  imgAlt
-}) => {
+export const HeroImage: FC<
+  HeroProps & { img: string; imgAlt: string; hideGradient: boolean }
+> = ({ title, subTitle, img, imgAlt, children, hideGradient = false }) => {
   return (
     <HeroWrapper>
-      <HeroContainer>
-        <HeroGradientContent>
-          <Typography variant="h1" color="inherit">
-            {title}
-          </Typography>
-          <Typography variant="subtitle1" component="h2">
-            {subTitle}
-          </Typography>
-        </HeroGradientContent>
+      <HeroContainer
+        css={css`
+          max-width: ${makeRem(700)};
+        `}
+      >
+        <HeroImageContent>
+          <HeroTitle>{title}</HeroTitle>
+          <HeroSubTitle>{subTitle}</HeroSubTitle>
+          {children}
+        </HeroImageContent>
       </HeroContainer>
-      <HeroGradientBg />
-      <HeroGradientImg src={img} alt={imgAlt} />
+      {!hideGradient && <HeroImageBg />}
+      <HeroImageImg src={img} alt={imgAlt} />
     </HeroWrapper>
   );
 };

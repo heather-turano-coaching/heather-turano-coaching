@@ -1,1 +1,2 @@
-export * from "./HeroGradient";
+export * from "./HeroImage";
+export * from "./HeroOffsetVertical";

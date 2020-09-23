@@ -2,8 +2,6 @@ import {
   Button,
   ButtonGroup,
   ContentfulRichText,
-  Heading,
-  Hero,
   Section,
   SectionCopy,
   SectionFooter,
@@ -11,32 +9,19 @@ import {
   Title,
   Typography
 } from "@heather-turano-coaching/components";
-import { makeColor, makeOutset } from "@heather-turano-coaching/design-system";
-import { HeroGradient } from "components/content/heros";
+import { makeColor } from "@heather-turano-coaching/design-system";
+import { HeroImage } from "components/content/heros";
 import { TestimonialCarousel } from "components/content/testimonials";
 import { IPageHome } from "lib/contentful";
 import React, { FC } from "react";
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 
 import { FormQuickContact } from "../forms/FormQuickContact";
-
-const StyledHeading = styled.div`
-  h1 {
-    line-height: 1.1;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  h4 {
-    ${makeOutset({ top: "xxs", bottom: "md" })};
-    max-width: 50%;
-  }
-`;
 
 export const PageHome: FC<IPageHome> = ({ fields }) => {
   return (
     <>
-      <HeroGradient
+      <HeroImage
         title={fields.heroTitle}
         subTitle={fields.heroSubTitle}
         img={fields.heroImage.fields.file.url}

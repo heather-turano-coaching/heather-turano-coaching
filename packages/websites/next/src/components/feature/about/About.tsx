@@ -17,6 +17,7 @@ import {
   makeResponsive,
   makeSize
 } from "@heather-turano-coaching/design-system";
+import { HeroOffsetVertical } from "components/content/heros";
 import { Asset } from "contentful";
 import { IPageAbout } from "lib/contentful";
 import React, { FC } from "react";
@@ -105,9 +106,9 @@ const StyledAboutMyClientsTitle = styled.div`
 const StyledClientImage = styled.div`
   width: 33.333%;
   ${makeFlex({
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
+    direction: "row",
+    justify: "center",
+    align: "center"
   })};
   overflow: hidden;
 
@@ -138,9 +139,9 @@ const StyledClientImage = styled.div`
 
 const StyledCertSection = styled.div`
   ${makeFlex({
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center"
+    direction: "row",
+    justify: "center",
+    align: "center"
   })};
 
   & > div {
@@ -156,23 +157,13 @@ export const PageAbout: FC<IPageAbout> = ({ fields }) => {
 
   return (
     <>
-      <Section styleType="split">
-        <StyledAboutTitleSection>
-          <SectionCopy>
-            <ContentfulRichText
-              richText={fields.introTitle}
-              copyProps={{ fontSize: "md", variant: "paragraph" }}
-            />
-          </SectionCopy>
-        </StyledAboutTitleSection>
-        <StyledAboutImageSection>
-          <Image
-            src={fields.introImage.fields.file.url}
-            alt={fields.introImageAltText}
-            manualWidth="100%"
-          />
-        </StyledAboutImageSection>
-      </Section>
+      <HeroOffsetVertical
+        title="Your future is inside of you"
+        subTitle="Stop settling for ordinary and get the life, love and business you really want! I've done it, I’ll show you how."
+        img={fields.introImage.fields.file.url}
+        imgAlt={fields.introImageAltText}
+      />
+
       <Section
         styleType="blank"
         background={
