@@ -5,6 +5,7 @@ import {
   makeRem,
   makeTabletStyles
 } from "@heather-turano-coaching/core/theme";
+import { Container } from "@material-ui/core";
 import { rgba } from "polished";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -19,47 +20,54 @@ import {
 
 const whiteSpaceHeight = makeRem(300);
 
+const HeroImgContainer = styled.div`
+  height: ${`calc(100% - ${whiteSpaceHeight})`};
+  position: relative;
+  width: 100%;
+`;
+
 const HeroImg = styled.img`
   width: 100%;
   position: absolute;
+  top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  height: ${`calc(100% - ${whiteSpaceHeight})`};
+  height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: left;
   pointer-events: none;
   z-index: -2;
 `;
 
-const WhiteSpace = styled.div`
+const OpaqueBlock = styled.div`
+  background-color: ${({ theme }) => rgba(theme.palette.light.main, 0.5)};
+  padding: 0 ${makeRem(40)};
   min-height: ${whiteSpaceHeight};
-  width: 100%;
+  ${makeFlex({
+    direction: "row",
+    justify: "center",
+    align: "center"
+  })}
 
   ${({ theme }) => css`
-    ${makeMobileStyles(theme)} {
-      padding: 0 ${makeRem(24)};
+    ${makeDesktopStyles(theme)} {
+      max-width: 60%;
+      padding: 0 ${makeRem(40)};
     }
   `}
 `;
 
-const OpaqueBlock = styled.div`
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: ${({ theme }) => rgba(theme.palette.light.main, 0.5)};
-  ${({ theme }) => css`
-    ${makeMobileStyles(theme)} {
-      margin: ${makeRem(24)};
-    }
+const OpaqueBlockContainer = styled.div<{ align: "flex-end" | "flex-start" }>`
+  min-height: ${whiteSpaceHeight};
+  ${({ align }) => css`
+    ${makeFlex({
+      direction: "row",
+      justify: "flex-end",
+      align: align
+    })};
 
-    ${makeTabletStyles(theme)} {
-      margin: ${makeRem(24)};
-    }
-
-    ${makeDesktopStyles(theme)} {
-      max-width: 60%;
-    }
+    padding-top: ${align === "flex-end" ? makeRem(32) : 0};
   `}
 `;
 
@@ -67,41 +75,30 @@ export const HeroOffsetVertical: FC<
   HeroProps & { img: string; imgAlt: string }
 > = ({ title, subTitle, img, imgAlt }) => {
   return (
-    <HeroWrapper>
-      <HeroContainer
-        css={css`
-          position: relative;
-        `}
-      >
-        <OpaqueBlock>
-          <div
-            css={css`
-              min-height: ${whiteSpaceHeight};
-              padding: 0 ${makeRem(40)};
-              ${makeFlex({
-                direction: "row",
-                justify: "center",
-                align: "center"
-              })}
-
-              h1 {
-                margin: 0 !important;
-              }
-            `}
-          >
+    <HeroWrapper
+      css={css`
+        ${makeFlex({
+          direction: "column"
+        })}
+      `}
+    >
+      <Container>
+        <OpaqueBlockContainer align="flex-end">
+          <OpaqueBlock>
             <HeroTitle>{title}</HeroTitle>
-          </div>
-          <div
-            css={css`
-              padding: ${makeRem(40)};
-            `}
-          >
-            <HeroSubTitle>{subTitle}</HeroSubTitle>
-          </div>
-        </OpaqueBlock>
-        <WhiteSpace />
-      </HeroContainer>
-      <HeroImg src={img} alt={imgAlt} />
+          </OpaqueBlock>
+        </OpaqueBlockContainer>
+      </Container>
+      <HeroImgContainer>
+        <Container>
+          <OpaqueBlockContainer align="flex-start">
+            <OpaqueBlock>
+              <HeroSubTitle>{subTitle}</HeroSubTitle>
+            </OpaqueBlock>
+          </OpaqueBlockContainer>
+        </Container>
+        <HeroImg src={img} alt={imgAlt} />
+      </HeroImgContainer>
     </HeroWrapper>
   );
 };

@@ -24,6 +24,7 @@ export const HeroWrapper = styled.div`
   top: -${makeRem(1)};
   bottom: -${makeRem(1)};
   right: -${makeRem(1)};
+  box-sizing: border-box;
 
   & * {
     box-sizing: border-box;

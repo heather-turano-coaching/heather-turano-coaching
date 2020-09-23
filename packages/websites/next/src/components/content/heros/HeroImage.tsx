@@ -91,7 +91,7 @@ export const HeroImageImg = styled.img`
 `;
 
 export const HeroImage: FC<
-  HeroProps & { img: string; imgAlt: string; hideGradient: boolean }
+  HeroProps & { img: string; imgAlt: string; hideGradient?: boolean }
 > = ({ title, subTitle, img, imgAlt, children, hideGradient = false }) => {
   return (
     <HeroWrapper>

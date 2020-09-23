@@ -6,10 +6,11 @@ import {
 import React, { FC } from "react";
 import {
   ThemeProvider as StyledThemeProvider,
-  createGlobalStyle
+  createGlobalStyle,
+  css
 } from "styled-components";
 
-import { cssReset, makeRem } from ".";
+import { cssReset, makeMobileStyles, makeRem } from ".";
 
 const GlobalStyle = createGlobalStyle`
   ${cssReset};
@@ -24,6 +25,15 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     overflow: hidden;
   };
+
+  ${({ theme }) => css`
+    ${makeMobileStyles(theme)} {
+      html,
+      body {
+        font-size: 14px;
+      }
+    }
+  `}
 `;
 
 export const theme = createMuiTheme({
@@ -68,7 +78,7 @@ export const theme = createMuiTheme({
       fontWeight: 700,
       textTransform: "uppercase",
       lineHeight: 1,
-      fontSize: makeRem(80),
+      fontSize: makeRem(58),
       margin: `${makeRem(24)} 0`
     },
     subtitle1: {
@@ -83,10 +93,12 @@ export const theme = createMuiTheme({
 export const HTCTheme: FC = ({ children }) => {
   return (
     <>
-      <GlobalStyle />
       <StylesProvider>
         <MuiThemeProvider theme={theme}>
-          <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
+          <StyledThemeProvider theme={theme}>
+            <GlobalStyle />
+            {children}
+          </StyledThemeProvider>
         </MuiThemeProvider>
       </StylesProvider>
     </>
