@@ -14,7 +14,7 @@ import {
   makeResponsive
 } from "@heather-turano-coaching/design-system";
 import { graphql, useStaticQuery } from "gatsby";
-import React, { FC, useMemo } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 
 const StyledAboutMyClientsImageSection = styled.div`
