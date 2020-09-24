@@ -306,6 +306,33 @@ export interface IPageAbout extends Entry<IPageAboutFields> {
   };
 }
 
+export interface IPageBlogFields {
+  /** Hero / Title */
+  heroTitle: string;
+
+  /** Hero / Subtitle */
+  heroSubtitle: string;
+}
+
+/** Content for the blog page */
+
+export interface IPageBlog extends Entry<IPageBlogFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "pageBlog";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IPageContactFields {
   /** Contentful Title */
   contentfulTitle: string;
@@ -517,11 +544,14 @@ export interface IPageServiceFields {
   /** Page / Title */
   pageTitle: string;
 
-  /** Section / Intro / Title */
-  sectionIntroTitle: string;
+  /** Hero / Image */
+  heroImage: Asset;
 
-  /** Section / Intro / Description */
-  sectionIntroDescription: Document;
+  /** Hero / Title */
+  heroTitle: string;
+
+  /** Hero / Subtitle */
+  heroSubtitle: string;
 
   /** Section / Programs / Title */
   sectionProgramsTitle: string;
@@ -765,6 +795,7 @@ export type CONTENT_TYPE =
   | "oneHundredDays"
   | "page"
   | "pageAbout"
+  | "pageBlog"
   | "pageContact"
   | "pageHome"
   | "pageNotFound"

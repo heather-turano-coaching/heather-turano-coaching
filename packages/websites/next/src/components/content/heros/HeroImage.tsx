@@ -97,7 +97,7 @@ export const HeroImage: FC<
     <HeroWrapper>
       <HeroContainer
         css={css`
-          max-width: ${makeRem(700)};
+          max-width: ${makeRem(900)};
         `}
       >
         <HeroImageContent>

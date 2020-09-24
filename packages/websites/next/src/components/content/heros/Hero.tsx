@@ -1,7 +1,7 @@
 import { makeRem } from "@heather-turano-coaching/core/theme";
 import { Container, Typography } from "@material-ui/core";
 import React, { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { navbarHeight } from "../navigation/HeaderNav";
 
@@ -15,21 +15,32 @@ export type HeroImgProps = {
   imgAlt: string;
 };
 
-export const HeroContainer = styled(Container)`
+export const HeroContainer = styled(Container)<{ disableFull?: boolean }>`
   position: relative;
-  height: 100% !important;
+
+  ${({ disableFull }) =>
+    !disableFull &&
+    css`
+      height: 100% !important;
+    `}
 `;
 
-export const HeroWrapper = styled.div`
+export const HeroWrapper = styled.div<{ disableFull?: boolean }>`
   width: ${`calc(100% + ${makeRem(2)})`};
-  min-height: ${`calc((100% + ${makeRem(2)}) - ${navbarHeight})`};
-  height: ${`calc(100% - ${navbarHeight})`};
+
   position: relative;
   left: -${makeRem(1)};
   top: -${makeRem(1)};
   bottom: -${makeRem(1)};
   right: -${makeRem(1)};
   box-sizing: border-box;
+
+  ${({ disableFull }) =>
+    !disableFull &&
+    css`
+      min-height: ${`calc((100% + ${makeRem(2)}) - ${navbarHeight})`};
+      height: ${`calc(100% - ${navbarHeight})`};
+    `}
 
   & * {
     box-sizing: border-box;

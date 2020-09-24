@@ -1,12 +1,9 @@
-import { HeroImage } from "components/content/heros";
+import { HeroPlain } from "components/content/heros";
+import { IPageBlog } from "lib/contentful";
 import { FC } from "react";
 
-export const PageBlog: FC<{}> = () => (
+export const PageBlog: FC<IPageBlog> = ({ fields }) => (
   <>
-    <HeroImage
-      title="live your life mindful"
-      subTitle="Stop settling for ordinary and get the life, love and business you
-          really want! I've done it, I’ll show you how."
-    />
+    <HeroPlain title={fields.heroTitle} subTitle={fields.heroSubtitle} />
   </>
 );
