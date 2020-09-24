@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/hooks/**/*.ts", "src/hooks/**/*.tsx"],
+  "include": ["src/hooks"],
+  "exclude": ["src/stories"],
   "compilerOptions": {
     "noEmit": false,
     "outDir": "./hooks"

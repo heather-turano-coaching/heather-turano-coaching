@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/components/**/*.ts", "src/components/**/*.tsx"],
-  "exclude": ["src/**/*.stories.ts", "src/**/*.stories.tsx"],
+  "include": ["src/components"],
+  "exclude": ["src/stories"],
   "compilerOptions": {
     "noEmit": false,
     "outDir": "./components"

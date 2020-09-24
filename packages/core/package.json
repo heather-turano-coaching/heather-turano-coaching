@@ -12,11 +12,10 @@
     "build:components": "rm -rf components && tsc --project tsconfig.build-components.json",
     "build": "yarn build:theme && yarn build:hooks && yarn build:components",
     "dev:theme": "yarn build:theme -w",
-    "dev:hooks": "yarn build:theme -w",
-    "dev:components": "yarn build:theme -w",
-    "dev": "yarn dev:theme && yarn dev:hooks && yarn dev:components",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "dev:hooks": "yarn build:hooks -w",
+    "dev:components": "yarn build:components -w",
+    "dev:storybook": "start-storybook -p 6006",
+    "build:storybook": "build-storybook"
   },
   "author": "Drew DeCarme",
   "license": "MIT",

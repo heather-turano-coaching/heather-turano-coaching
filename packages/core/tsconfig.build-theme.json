@@ -1,7 +1,9 @@
 {
-  "extends": "./tsconfig.build-components.json",
-  "include": ["src/theme/*.ts", "src/theme/*.tsx"],
+  "extends": "./tsconfig.json",
+  "include": ["src/theme"],
+  "exclude": ["src/stories"],
   "compilerOptions": {
+    "noEmit": false,
     "outDir": "./theme"
   }
 }
