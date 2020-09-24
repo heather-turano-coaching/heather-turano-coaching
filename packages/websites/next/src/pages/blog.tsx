@@ -7,12 +7,12 @@ export type AboutPageProps = MetaProps & {};
 export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
   return {
     props: {
-      pageTitle: "Events"
+      pageTitle: "Blog"
     }
   };
 };
 
-export default function EventsPage({ pageTitle }: AboutPageProps) {
+export default function BlogPage({ pageTitle }: AboutPageProps) {
   return (
     <>
       <Meta pageTitle={pageTitle} />

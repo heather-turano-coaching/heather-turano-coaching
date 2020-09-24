@@ -316,6 +316,15 @@ export interface IPageContactFields {
   /** Description */
   description: Document;
 
+  /** Hero / Description */
+  heroDescription: string;
+
+  /** Hero / Image */
+  heroImage: Asset;
+
+  /** Hero / Image / Alt */
+  heroImageAlt: string;
+
   /** Form / First Name / Input Label */
   formFirstNameInputLabel: string;
 

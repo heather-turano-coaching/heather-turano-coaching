@@ -10,6 +10,11 @@ export type HeroProps = {
   subTitle: string;
 };
 
+export type HeroImgProps = {
+  img: string;
+  imgAlt: string;
+};
+
 export const HeroContainer = styled(Container)`
   position: relative;
   height: 100% !important;
