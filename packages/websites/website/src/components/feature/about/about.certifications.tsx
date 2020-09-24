@@ -36,24 +36,20 @@ export const AboutCertifications: FC = () => {
     }
   `);
 
-  const certifications = useMemo(
-    () =>
-      queryData.certificationsListOfCertifications.map((cert: any) => (
-        <Image
-          src={cert.sealImage.file.url}
-          alt={cert.certificationTitle}
-          size={{ custom: 100 }}
-          key={cert.certificationTitle}
-        />
-      )),
-    [queryData.certificationsListOfCertifications]
-  );
-
   return (
     <>
       <Section styleType="blank">
         <Title size="lg">{queryData.certificationsTitle}</Title>
-        <StyledCertSection>{certifications}</StyledCertSection>
+        <StyledCertSection>
+          {queryData.certificationsListOfCertifications.map((cert: any) => (
+            <Image
+              src={cert.sealImage.file.url}
+              alt={cert.certificationTitle}
+              size={{ custom: 100 }}
+              key={cert.certificationTitle}
+            />
+          ))}
+        </StyledCertSection>
       </Section>
     </>
   );

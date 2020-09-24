@@ -36,7 +36,7 @@
     "react-hook-form": "^5.7.2",
     "sharp": "^0.25.4",
     "stripe": "^8.84.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@heather-turano-coaching/domain": "^1.1.0",

@@ -7,8 +7,14 @@
     "url": "git+ssh://git@github.com/heather-turano-coaching/heather-turano-coaching.git"
   },
   "scripts": {
-    "prebuild": "rm -rf components && rm -rf theme && rm -rf hooks",
-    "build": "tsc --project tsconfig.build-components.json && tsc --project tsconfig.build-theme.json && tsc --project tsconfig.build-hooks.json",
+    "build:theme": "rm -rf theme && tsc --project tsconfig.build-theme.json",
+    "build:hooks": "rm -rf hooks && tsc --project tsconfig.build-hooks.json",
+    "build:components": "rm -rf components && tsc --project tsconfig.build-components.json",
+    "build": "yarn build:theme && yarn build:hooks && yarn build:components",
+    "dev:theme": "yarn build:theme -w",
+    "dev:hooks": "yarn build:theme -w",
+    "dev:components": "yarn build:theme -w",
+    "dev": "yarn dev:theme && yarn dev:hooks && yarn dev:components",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -23,7 +29,6 @@
     "@heather-turano-coaching/design-system": "^0.2.5",
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "material-ui": "^0.20.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0"
@@ -31,7 +36,6 @@
   "peerDependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "material-ui": "^0.20.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0"

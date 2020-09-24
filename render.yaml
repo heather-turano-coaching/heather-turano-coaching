@@ -13,13 +13,30 @@ services:
       - fromGroup: htc-npm
 
   # Websites
+  # - type: web
+  #   name: Website (PROD)
+  #   env: static
+  #   branch: master
+  #   repo: https://github.com/heather-turano-coaching/heather-turano-coaching
+  #   buildCommand: yarn build:website:prod
+  #   staticPublishPath: ./packages/websites/next/out
+  #   domains:
+  #     - heatherturanocoaching.com
+  #   envVars:
+  #     - fromGroup: htc-npm
+  #     - fromGroup: htc-ghost
+  #     - fromGroup: htc-contentful
+  #     - fromGroup: htc-stripe
+  #     - key: COMMENTO_ORIGIN
+  #       sync: false
+
   - type: web
-    name: Website
-    env: static
+    name: Website (DEV)
+    env: node
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: yarn build:website
-    staticPublishPath: ./packages/websites/website/public
+    buildCommand: yarn && yarn build:website:dev
+    startCommand: yarn start:website:dev
     domains:
       - dev.heatherturanocoaching.com
     envVars:

@@ -1,9 +1,8 @@
-import { em, rem, modularScale } from "polished";
+import { em, modularScale, rem } from "polished";
 
+import { fontConfig, sizeConfig } from "../configs";
+import { SizeHeadings, SizeProperties, SizeUnits } from "../types/composite";
 import { Size } from "../types/primitive";
-import { SizeUnits, SizeHeadings, SizeProperties } from "../types/composite";
-
-import { sizeConfig, fontConfig } from "../configs";
 
 type Sizes = { [key in Size]: string };
 type SizeFn = (size: Size) => string;
@@ -58,7 +57,7 @@ const snapToGrid: SnapToGrid = (fontSize, baselineGrid, options) => {
   const snappedValue = snapValueToBaselineGrid({
     value,
     baselineGrid,
-    multiplier: options?.multiplier
+    multiplier: options ? options.multiplier : undefined
   });
 
   return `${snappedValue}${units}`;
