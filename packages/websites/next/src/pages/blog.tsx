@@ -1,30 +1,37 @@
+import { PostOrPage, PostsOrPages } from "@tryghost/content-api";
 import { PageBlog } from "components/feature/blog";
-import { Meta, MetaProps } from "components/feature/meta";
-import { IPageBlog, contentfulClient } from "lib/contentful";
+import { Meta } from "components/feature/meta";
+import { IPageBlog, getBlogPage } from "lib/contentful";
+import { getAllPosts, getFeaturedPost } from "lib/ghost.api";
 import { GetStaticProps } from "next";
 
-export type BlogPageProps = MetaProps & {
+export type BlogPageProps = {
   data: IPageBlog;
+  featuredPost: PostOrPage;
+  allPosts: PostsOrPages;
 };
 
 export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
-  const data = (await contentfulClient.getEntry(
-    "59srkQjfP5rxJfLwLe6nIZ"
-  )) as IPageBlog;
+  const [data, featuredPost, allPosts] = await Promise.all([
+    getBlogPage(),
+    getFeaturedPost(),
+    getAllPosts()
+  ]);
 
   return {
     props: {
-      pageTitle: "Blog",
-      data
+      data,
+      featuredPost,
+      allPosts
     }
   };
 };
 
-export default function BlogPage({ pageTitle, data }: BlogPageProps) {
+export default function BlogPage(props: BlogPageProps) {
   return (
     <>
-      <Meta pageTitle={pageTitle} />
-      <PageBlog {...data} />
+      <Meta pageTitle="Blog" />
+      <PageBlog {...props} />
     </>
   );
 }

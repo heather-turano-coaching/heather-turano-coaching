@@ -11,12 +11,12 @@ import {
 } from "./Hero";
 
 export const HeroPlain: FC<HeroProps> = ({ title, subTitle }) => (
-  <HeroWrapper disableFull>
-    <HeroContainer disableFull>
+  <HeroWrapper $disableFull>
+    <HeroContainer $disableFull>
       <div
         css={css`
           max-width: ${makeRem(600)};
-          padding: ${makeRem(60)} 0;
+          padding: ${makeRem(100)} 0;
           margin: 0 auto;
           text-align: center;
         `}

@@ -1,10 +1,10 @@
 import { TagCard, TagGroup } from "@heather-turano-coaching/components";
 import { Tag } from "@tryghost/content-api";
+import Link from "next/link";
 import React, { FC } from "react";
 import styled from "styled-components";
 
 import { universalHover } from "../../../components/styles";
-import { FrameworkLink } from "..";
 
 interface TagCardSectionProps {
   tags: Tag[];
@@ -28,9 +28,11 @@ export const TagCardSection: FC<TagCardSectionProps> = ({
   <StyledTagCardSection>
     <TagGroup>
       {tags.map((tag) => (
-        <FrameworkLink key={tag.id} to={`/${page}/${tag.slug}`}>
-          <TagCard type={tagType} name={tag.name as string} />
-        </FrameworkLink>
+        <Link key={tag.id} href={`/${page}/${tag.slug}`}>
+          <a>
+            <TagCard type={tagType} name={tag.name as string} />
+          </a>
+        </Link>
       ))}
     </TagGroup>
   </StyledTagCardSection>

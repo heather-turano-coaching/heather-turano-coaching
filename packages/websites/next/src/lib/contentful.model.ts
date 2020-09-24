@@ -408,6 +408,36 @@ export interface IPageContact extends Entry<IPageContactFields> {
   };
 }
 
+export interface IPageEventsFields {
+  /** Hero / Title */
+  heroTitle: string;
+
+  /** Hero / Subtitle */
+  heroSubtitle: string;
+
+  /** Hero / Image */
+  heroImage: Asset;
+}
+
+/** Page for upcoming and past events */
+
+export interface IPageEvents extends Entry<IPageEventsFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "pageEvents";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IPageHomeFields {
   /** Contentful Title */
   contentfulTitle?: string | undefined;
@@ -797,6 +827,7 @@ export type CONTENT_TYPE =
   | "pageAbout"
   | "pageBlog"
   | "pageContact"
+  | "pageEvents"
   | "pageHome"
   | "pageNotFound"
   | "pageService"

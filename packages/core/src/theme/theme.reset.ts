@@ -28,6 +28,10 @@ export const cssReset = css`
     list-style-type: none;
   }
 
+  p {
+    margin: 0;
+  }
+
   a {
     color: inherit;
     text-decoration: none;

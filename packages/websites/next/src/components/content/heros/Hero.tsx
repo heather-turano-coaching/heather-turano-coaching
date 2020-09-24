@@ -15,17 +15,17 @@ export type HeroImgProps = {
   imgAlt: string;
 };
 
-export const HeroContainer = styled(Container)<{ disableFull?: boolean }>`
+export const HeroContainer = styled(Container)<{ $disableFull?: boolean }>`
   position: relative;
 
-  ${({ disableFull }) =>
-    !disableFull &&
+  ${({ $disableFull }) =>
+    !$disableFull &&
     css`
       height: 100% !important;
     `}
 `;
 
-export const HeroWrapper = styled.div<{ disableFull?: boolean }>`
+export const HeroWrapper = styled.div<{ $disableFull?: boolean }>`
   width: ${`calc(100% + ${makeRem(2)})`};
 
   position: relative;
@@ -35,8 +35,8 @@ export const HeroWrapper = styled.div<{ disableFull?: boolean }>`
   right: -${makeRem(1)};
   box-sizing: border-box;
 
-  ${({ disableFull }) =>
-    !disableFull &&
+  ${({ $disableFull }) =>
+    !$disableFull &&
     css`
       min-height: ${`calc((100% + ${makeRem(2)}) - ${navbarHeight})`};
       height: ${`calc(100% - ${navbarHeight})`};

@@ -10,7 +10,7 @@ import {
   makeResponsive,
   makeSize
 } from "@heather-turano-coaching/design-system";
-import { ITestimonials } from "models/contentful";
+import { ITestimonials } from "lib/contentful";
 import React, { FC } from "react";
 import styled from "styled-components";
 
