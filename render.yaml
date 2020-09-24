@@ -37,8 +37,8 @@ services:
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
     buildCommand: yarn && yarn build:website:dev
     startCommand: yarn start:website:dev
-    domains:
-      - dev.heatherturanocoaching.com
+    # domains:
+    #   - dev.heatherturanocoaching.com
     envVars:
       - fromGroup: htc-npm
       - fromGroup: htc-ghost
