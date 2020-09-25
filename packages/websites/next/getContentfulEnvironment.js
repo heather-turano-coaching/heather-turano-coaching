@@ -8,7 +8,7 @@ module.exports = function () {
   });
 
   return contentfulClient
-    .getSpace(process.env.CONTENTFUL_SPACE_ID)
+    .getSpace(process.env.CONTENTFUL_HTC_SPACE_ID)
     .then((space) =>
       space.getEnvironment(process.env.CONTENTFUL_HTC_ENVIRONMENT)
     );

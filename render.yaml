@@ -27,8 +27,6 @@ services:
   #     - fromGroup: htc-ghost
   #     - fromGroup: htc-contentful
   #     - fromGroup: htc-stripe
-  #     - key: COMMENTO_ORIGIN
-  #       sync: false
 
   - type: web
     name: Website (DEV)
@@ -44,8 +42,6 @@ services:
       - fromGroup: htc-ghost
       - fromGroup: htc-contentful
       - fromGroup: htc-stripe
-      - key: COMMENTO_ORIGIN
-        sync: false
 
   - type: web
     name: 100 Days of Mindful Movement
