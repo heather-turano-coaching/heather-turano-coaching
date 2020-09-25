@@ -175,13 +175,17 @@ envVarGroups:
         sync: false
   - name: htc-contentful
     envVars:
-      - key: CONTENTFUL_SPACE_ID
+      - key: CONTENTFUL_HTC_SPACE_ID
         sync: false
-      - key: CONTENTFUL_ACCESS_TOKEN
+      - key: CONTENTFUL_HTC_ACCESS_TOKEN
         sync: false
       - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID
         sync: false
       - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN
+        sync: false
+      - key: CONTENTFUL_HTC_MANAGEMENT_API_ACCESS_TOKEN
+        sync: false
+      - key: CONTENTFUL_HTC_ENVIRONMENT
         sync: false
   - name: htc-npm
     envVars:

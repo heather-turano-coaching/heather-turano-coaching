@@ -8,7 +8,7 @@ import { throwError } from "./utils";
 // Create API instance with site credentials
 export const ghostClient = new GhostContentAPI({
   url: process.env.GHOST_API_URL,
-  key: process.env.GHOST_CONTENT_API_KEY,
+  key: process.env.GHOST_NEXT_CONTENT_API_KEY,
   version: "v3"
 });
 

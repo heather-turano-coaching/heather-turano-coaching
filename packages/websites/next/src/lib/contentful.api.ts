@@ -4,8 +4,8 @@ import { IPageBlog } from "./contentful";
 import { throwError } from "./utils";
 
 export const contentfulClient = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+  space: process.env.CONTENTFUL_HTC_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_HTC_ACCESS_TOKEN
 });
 
 export const getBlogPage = async (): Promise<IPageBlog> => {
