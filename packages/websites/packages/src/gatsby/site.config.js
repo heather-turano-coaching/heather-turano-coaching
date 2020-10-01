@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: "/",
   siteMetadataConfig: {
     sitePathPrefix: "",
-    siteTitle: "MM100",
+    siteTitle: "Heather Turano Coaching",
     siteTitleAlt: "Heather Turano Coaching",
     siteDescription: "Coaching packages",
     siteImage: "src/images/logo.png",

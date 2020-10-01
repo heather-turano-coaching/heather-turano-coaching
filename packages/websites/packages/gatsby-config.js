@@ -100,21 +100,6 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: siteConfig.manifestConfig
     },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [
-          "/404",
-          "/cancel-payment",
-          "/index",
-          "/payment-success",
-          "/sign-up"
-        ],
-        workboxConfig: {
-          cacheId: `mm100-offline-cache`,
-          globPatterns: ["**/*"]
-        }
-      }
-    }
+    `gatsby-plugin-remove-serviceworker`
   ]
 };
