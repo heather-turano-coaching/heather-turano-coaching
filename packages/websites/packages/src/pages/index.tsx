@@ -72,7 +72,7 @@ const individualCoachingPackages: HTCPackage[] = [
     name: "Coaching Package - 8 Sessions",
     logo: "",
     features: [
-      "8, 45-min coaching sessions. Discount of $72 when you purchase 8 sessions. Each session is $90 with the package"
+      "8, 45-min coaching sessions. Discount of $80 when you purchase 8 sessions. Each session is $155 with the package."
     ],
     color: makeColor({ scalable: { color: "secondary" } }),
     basePrice: {
@@ -98,7 +98,7 @@ const individualCoachingPackages: HTCPackage[] = [
     name: "Coaching Package - 10 Sessions",
     logo: "",
     features: [
-      "10, 45-min coaching sessions. Discount of $190 when you purchase 10 sessions. Each session is $80 with this package."
+      "10, 45-min coaching sessions. Discount of $150 when you purchase 10 sessions. Each session is $150 with this package."
     ],
     color: makeColor({ scalable: { color: "accent" } }),
     basePrice: {
