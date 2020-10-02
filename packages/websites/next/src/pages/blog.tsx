@@ -3,7 +3,7 @@ import { PageBlog } from "components/feature/blog";
 import { Meta } from "components/feature/meta";
 import { IPageBlog, getBlogPage } from "lib/contentful";
 import { getAllPosts, getFeaturedPost } from "lib/ghost.api";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 
 export type BlogPageProps = {
   data: IPageBlog;
@@ -11,7 +11,7 @@ export type BlogPageProps = {
   allPosts: PostsOrPages;
 };
 
-export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<BlogPageProps> = async () => {
   const [data, featuredPost, allPosts] = await Promise.all([
     getBlogPage(),
     getFeaturedPost(),

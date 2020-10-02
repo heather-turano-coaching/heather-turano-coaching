@@ -1,13 +1,13 @@
 import { PageEvents } from "components/feature/events";
 import { Meta, MetaProps } from "components/feature/meta";
 import { IPageEvents, contentfulClient } from "lib/contentful";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 
 export type EventsProps = MetaProps & {
   data: IPageEvents;
 };
 
-export const getStaticProps: GetStaticProps<EventsProps> = async () => {
+export const getServerSideProps: GetServerSideProps<EventsProps> = async () => {
   const data = (await contentfulClient.getEntry(
     "6KgBUIkmyA0OzcHn7tjILl"
   )) as IPageEvents;

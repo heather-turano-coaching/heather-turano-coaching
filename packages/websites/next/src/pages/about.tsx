@@ -2,13 +2,13 @@ import { PageAbout } from "components/feature/about";
 import { Meta, MetaProps } from "components/feature/meta";
 import { contentfulClient } from "lib/contentful";
 import { IPageAbout } from "lib/contentful";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 
 export type AboutPageProps = MetaProps & {
   data: IPageAbout;
 };
 
-export const getStaticProps: GetStaticProps<AboutPageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<AboutPageProps> = async () => {
   const data = (await contentfulClient.getEntry(
     "1d8Op07qxu9UPPUEYdDcbE"
   )) as IPageAbout;
