@@ -18,9 +18,9 @@ import {
   ghostFetcher
 } from "lib/ghost.api";
 import { BlogPageProps } from "pages/blog";
-import React, { FC, useCallback, useState } from "react";
+import React, { FC, useCallback, useMemo, useState } from "react";
 import styled, { css } from "styled-components";
-import useSWR from "swr";
+import useSWR, { useSWRInfinite } from "swr";
 
 const BlogCardGrid = styled.div`
   display: flex;
@@ -75,30 +75,24 @@ export const PageBlog: FC<BlogPageProps> = ({
   featuredPosts,
   allPosts
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
   const { data: featuredPostsLocal } = useSWR<typeof featuredPosts>(
     getGhostFeaturedPostEndpoint,
     ghostFetcher,
     { initialData: featuredPosts }
   );
-  const { data: allPostsLocal } = useSWR<typeof allPosts>(
-    getAllGhostPostsEndpoint(currentPage),
+
+  const { data, size, setSize } = useSWRInfinite<typeof allPosts>(
+    (index) => {
+      return getAllGhostPostsEndpoint(index + 1);
+    },
     ghostFetcher,
     {
-      initialData: allPosts
+      initialData: [allPosts]
     }
   );
 
-  const Pages = [<Page pageNum={1} initialValues={allPostsLocal} key={0} />];
-  for (let i = 1; i < currentPage; i++) {
-    Pages.push(<Page pageNum={i + 1} key={i + 1} />);
-  }
-
-  const loadMore = useCallback((nextPage: number) => {
-    if (nextPage) {
-      setCurrentPage(nextPage);
-    }
-  }, []);
+  const isEmpty = data?.[0]?.posts.length === 0;
+  const isReachingEnd = isEmpty || data[data.length - 1]?.posts.length < 6;
 
   return (
     <>
@@ -112,13 +106,24 @@ export const PageBlog: FC<BlogPageProps> = ({
           }
         `}
       >
-        <Title size="lg" copy="Featured post" />
-        <BlogFeaturedPost {...featuredPostsLocal.posts[0]} />
-        <Title size="lg" copy="Older Posts" />
-        <BlogCardGrid>{Pages}</BlogCardGrid>
-        <button onClick={async () => loadMore(currentPage + 1)}>
-          load more
-        </button>
+        {useMemo(
+          () => (
+            <>
+              <Title size="lg" copy="Featured post" />
+              <BlogFeaturedPost {...featuredPostsLocal.posts[0]} />
+              <Title size="lg" copy="Older Posts" />
+            </>
+          ),
+          []
+        )}
+        <BlogCardGrid>
+          {data.map((page) =>
+            page.posts.map((post) => <BlogEntryCard {...post} key={post.id} />)
+          )}
+        </BlogCardGrid>
+        {!isReachingEnd && (
+          <button onClick={async () => setSize(size + 1)}>load more</button>
+        )}
       </Container>
     </>
   );
