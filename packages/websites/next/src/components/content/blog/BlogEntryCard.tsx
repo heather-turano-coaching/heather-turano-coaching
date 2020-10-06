@@ -5,13 +5,13 @@ import { formatShortDate } from "lib/utils";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
-export const blogCardHorizontalSpacing = 24;
+export const blogCardSpacing = 24;
 
 export const BlogEntryCard: FC<PostOrPage> = (post) => {
   return (
     <div
       css={css`
-        margin: ${makeRem(48)} 0;
+        margin: ${makeRem(blogCardSpacing)} ${makeRem(16)};
         box-shadow: 0 0 10px 3px rgba(207, 207, 207, 0.5);
         border-radius: ${makeRem(4)};
         overflow: hidden;
@@ -20,7 +20,7 @@ export const BlogEntryCard: FC<PostOrPage> = (post) => {
 
         ${({ theme }) => css`
           ${makeTabletStyles(theme)} {
-            margin: ${makeRem(48)} ${makeRem(24)};
+            margin: ${makeRem(blogCardSpacing)};
           }
         `}
       `}

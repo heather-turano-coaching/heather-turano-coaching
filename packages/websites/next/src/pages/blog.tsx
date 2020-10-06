@@ -8,7 +8,7 @@ import {
   getGhostFeaturedPostEndpoint,
   ghostFetcher
 } from "lib/ghost.api";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import React, { ReactElement } from "react";
 
 export type BlogPageProps = {
@@ -17,7 +17,7 @@ export type BlogPageProps = {
   allPosts: GetAllGhostPosts;
 };
 
-export const getServerSideProps: GetServerSideProps<BlogPageProps> = async () => {
+export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
   const [data, featuredPosts, allPosts] = await Promise.all([
     getBlogPage(),
     ghostFetcher<GetFeaturedGhostPost>(getGhostFeaturedPostEndpoint),
