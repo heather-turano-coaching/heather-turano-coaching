@@ -1,33 +1,39 @@
-import { PostOrPage, PostsOrPages } from "@tryghost/content-api";
 import { PageBlog } from "components/feature/blog";
 import { Meta } from "components/feature/meta";
 import { IPageBlog, getBlogPage } from "lib/contentful";
-import { getAllPosts, getFeaturedPost } from "lib/ghost.api";
+import {
+  GetAllGhostPosts,
+  GetFeaturedGhostPost,
+  getAllGhostPostsEndpoint,
+  getGhostFeaturedPostEndpoint,
+  ghostFetcher
+} from "lib/ghost.api";
 import { GetServerSideProps } from "next";
+import React, { ReactElement } from "react";
 
 export type BlogPageProps = {
   data: IPageBlog;
-  featuredPost: PostOrPage;
-  allPosts: PostsOrPages;
+  featuredPosts: GetFeaturedGhostPost;
+  allPosts: GetAllGhostPosts;
 };
 
 export const getServerSideProps: GetServerSideProps<BlogPageProps> = async () => {
-  const [data, featuredPost, allPosts] = await Promise.all([
+  const [data, featuredPosts, allPosts] = await Promise.all([
     getBlogPage(),
-    getFeaturedPost(),
-    getAllPosts()
+    ghostFetcher<GetFeaturedGhostPost>(getGhostFeaturedPostEndpoint),
+    ghostFetcher<GetAllGhostPosts>(getAllGhostPostsEndpoint(1))
   ]);
 
   return {
     props: {
       data,
-      featuredPost,
+      featuredPosts,
       allPosts
     }
   };
 };
 
-export default function BlogPage(props: BlogPageProps) {
+export default function BlogPage(props: BlogPageProps): ReactElement {
   return (
     <>
       <Meta pageTitle="Blog" />

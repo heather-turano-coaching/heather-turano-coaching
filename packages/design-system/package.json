@@ -10,8 +10,8 @@
     "build": "tsc -p tsconfig.json"
   },
   "peerDependencies": {
-    "polished": "^3.6.6",
-    "typescript": "4.0.2"
+    "polished": "^4.0.1",
+    "typescript": "4.0.3"
   },
   "devDependencies": {
     "@heather-turano-coaching/typescript": "^0.2.1"
