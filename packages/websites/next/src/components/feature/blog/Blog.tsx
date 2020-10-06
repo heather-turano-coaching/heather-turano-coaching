@@ -1,18 +1,48 @@
-import { Tag, TagGroup, Title } from "@heather-turano-coaching/components";
+import { Title } from "@heather-turano-coaching/components";
 import {
-  makeDesktopStyles,
-  makeFlex,
-  makeRem
+  makeRem,
+  makeRetinaStyles,
+  makeTabletStyles
 } from "@heather-turano-coaching/core/theme";
 import { Container, Typography } from "@material-ui/core";
+import {
+  BlogEntryCard,
+  blogCardHorizontalSpacing
+} from "components/content/blog/BlogEntryCard";
 import { BlogFeaturedPost } from "components/content/blog/BlogFeaturedPost";
 import { HeroPlain } from "components/content/heros";
-import { CSSImageBorder } from "components/styles";
 import { formatShortDate } from "lib/utils";
-import Link from "next/link";
 import { BlogPageProps } from "pages/blog";
 import React, { FC } from "react";
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
+
+const BlogCardGrid = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+  & > * {
+    width: 100%;
+  }
+
+  ${({ theme }) => css`
+    ${makeTabletStyles(theme)} {
+      & > * {
+        width: ${`calc(50% - ${makeRem(blogCardHorizontalSpacing * 2)})`};
+      }
+    }
+
+    ${makeRetinaStyles(theme)} {
+      & > * {
+        width: ${`calc(33.33% - ${makeRem(blogCardHorizontalSpacing * 2)})`};
+      }
+    }
+  `}
+`;
 
 export const PageBlog: FC<BlogPageProps> = ({
   data: { fields },
@@ -35,81 +65,11 @@ export const PageBlog: FC<BlogPageProps> = ({
         <Title size="lg" copy="Featured post" />
         <BlogFeaturedPost {...featuredPost} />
         <Title size="lg" copy="Older Posts" />
-        <div
-          css={css`
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            box-sizing: border-box;
-
-            * {
-              box-sizing: border-box;
-            }
-            & > * {
-              width: ${`calc(33.33% - ${makeRem(48)})`};
-            }
-          `}
-        >
+        <BlogCardGrid>
           {allPosts.map((post) => (
-            <div
-              css={css`
-                margin: ${makeRem(48)} ${makeRem(24)};
-                box-shadow: 0 0 10px 3px rgba(207, 207, 207, 0.5);
-                border-radius: ${makeRem(4)};
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-              `}
-            >
-              <img
-                src={post.feature_image}
-                alt={post.slug}
-                css={css`
-                  height: ${makeRem(300)};
-                  display: block;
-                  background-color: ${({ theme }) => theme.palette.light.light};
-                `}
-              />
-              <div
-                css={css`
-                  padding: ${makeRem(16)};
-                  flex: 1;
-                  display: flex;
-                  flex-direction: column;
-                `}
-              >
-                <Typography variant="caption">
-                  {formatShortDate(post.published_at)}
-                </Typography>
-                <Typography variant="h5">{post.title}</Typography>
-                <Typography
-                  variant="body2"
-                  color="textPrimary"
-                  css={css`
-                    margin-bottom: ${makeRem(28)} !important;
-                    flex: 1;
-                  `}
-                >
-                  {post.excerpt}
-                </Typography>
-              </div>
-              <div
-                css={css`
-                  border-top: 1px solid
-                    ${({ theme }) => theme.palette.light.light};
-                  height: ${makeRem(60)};
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                `}
-              >
-                <div>test1</div>
-                &nbsp; &nbsp; &nbsp;
-                <div>test2</div>
-              </div>
-            </div>
+            <BlogEntryCard {...post} key={post.id} />
           ))}
-        </div>
+        </BlogCardGrid>
       </Container>
     </>
   );

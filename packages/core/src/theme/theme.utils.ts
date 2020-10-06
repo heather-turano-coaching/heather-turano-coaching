@@ -57,3 +57,12 @@ export const makeTabletStyles = (theme: DefaultTheme | Theme): string =>
  */
 export const makeDesktopStyles = (theme: DefaultTheme | Theme): string =>
   theme.breakpoints.up("md");
+
+/**
+ * Creates a valid media query string that can be interpolated
+ * inside of a styled-component and used as a gated selector
+ *
+ * xl and up
+ */
+export const makeRetinaStyles = (theme: DefaultTheme | Theme): string =>
+  theme.breakpoints.up("lg");
