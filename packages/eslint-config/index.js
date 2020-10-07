@@ -27,6 +27,11 @@ module.exports = {
     "jsdoc",
     "react-hooks"
   ],
+  settings: {
+    react: {
+      version: "detect"
+    }
+  },
   rules: {
     // TypeScript Rules
     "@typescript-eslint/explicit-function-return-type": "on",
@@ -53,6 +58,7 @@ module.exports = {
     // React Rules
     "react-hooks/rules-of-hooks": "error",
     "react/prop-types": [0],
+    "prettier/prettier": ["error", { singleQuote: false }],
     "import/no-extraneous-dependencies": [
       "error",
       {

@@ -1,4 +1,4 @@
-import { Title } from "@heather-turano-coaching/components";
+import { Button, Title } from "@heather-turano-coaching/components";
 import {
   makeRem,
   makeRetinaStyles,
@@ -18,7 +18,7 @@ import {
   ghostFetcher
 } from "lib/ghost.api";
 import { BlogPageProps } from "pages/blog";
-import React, { FC, useCallback, useMemo, useState } from "react";
+import React, { FC, useCallback, useMemo } from "react";
 import styled, { css } from "styled-components";
 import useSWR, { useSWRInfinite } from "swr";
 
@@ -63,7 +63,7 @@ export const Page: FC<{
   );
   return (
     <>
-      {data?.posts.map((post) => (
+      {data?.posts.map(post => (
         <BlogEntryCard {...post} key={post.id} />
       ))}
     </>
@@ -82,7 +82,7 @@ export const PageBlog: FC<BlogPageProps> = ({
   );
 
   const { data, size, setSize } = useSWRInfinite<typeof allPosts>(
-    (index) => {
+    index => {
       return getAllGhostPostsEndpoint(index + 1);
     },
     ghostFetcher,
@@ -93,6 +93,10 @@ export const PageBlog: FC<BlogPageProps> = ({
 
   const isEmpty = data?.[0]?.posts.length === 0;
   const isReachingEnd = isEmpty || data[data.length - 1]?.posts.length < 6;
+
+  const loadMore = useCallback(() => {
+    setSize(size + 1);
+  }, []);
 
   return (
     <>
@@ -117,12 +121,24 @@ export const PageBlog: FC<BlogPageProps> = ({
           []
         )}
         <BlogCardGrid>
-          {data.map((page) =>
-            page.posts.map((post) => <BlogEntryCard {...post} key={post.id} />)
+          {data.map(page =>
+            page.posts.map(post => <BlogEntryCard {...post} key={post.id} />)
           )}
         </BlogCardGrid>
+
         {!isReachingEnd && (
-          <button onClick={async () => setSize(size + 1)}>load more</button>
+          <div
+            css={css`
+              margin: ${makeRem(48)} 0;
+              text-align: center;
+            `}
+          >
+            <Button
+              onClick={loadMore}
+              label="Load more posts"
+              styleType="secondary"
+            />
+          </div>
         )}
       </Container>
     </>

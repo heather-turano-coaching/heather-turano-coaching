@@ -2,6 +2,7 @@ export * from "./formatDate";
 export * from "./getCategoriesFromTags";
 export * from "./removeCategoriesFromTags";
 export * from "./getFeaturedCategories";
+export * from "./getRoutes";
 
 type Node<Structure> = { node: Structure };
 

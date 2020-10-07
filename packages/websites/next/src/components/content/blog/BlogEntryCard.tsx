@@ -1,13 +1,31 @@
+import HeartIcon from "@heather-turano-coaching/core/icons/heart.svg";
+import MessageSquareIcon from "@heather-turano-coaching/core/icons/message-square.svg";
+import Share2Icon from "@heather-turano-coaching/core/icons/share-2.svg";
 import { makeRem, makeTabletStyles } from "@heather-turano-coaching/core/theme";
-import { Typography } from "@material-ui/core";
+import { SvgIcon, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
+import { getBlogPostRoute } from "components/utils";
 import { formatShortDate } from "lib/utils";
+import Link from "next/link";
 import React, { FC } from "react";
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 
 export const blogCardSpacing = 24;
+const blogCardSidePadding = 24;
 
-export const BlogEntryCard: FC<PostOrPage> = (post) => {
+const StyledIcon = styled(SvgIcon)`
+  &:not(:first-child) {
+    margin-left: ${makeRem(24)};
+  }
+`;
+
+const StyledIconText = styled(Typography)`
+  && {
+    margin-left: ${makeRem(8)};
+  }
+`;
+
+export const BlogEntryCard: FC<PostOrPage> = post => {
   return (
     <div
       css={css`
@@ -25,20 +43,29 @@ export const BlogEntryCard: FC<PostOrPage> = (post) => {
         `}
       `}
     >
-      <img
-        src={post.feature_image}
-        alt={post.slug}
-        css={css`
-          height: ${makeRem(300)};
-          display: block;
-          background-color: ${({ theme }) => theme.palette.light.light};
-          object-fit: cover;
-          object-position: top left;
-        `}
-      />
+      <Link href={getBlogPostRoute(post.slug)}>
+        <a
+          css={css`
+            width: 100%;
+          `}
+        >
+          <img
+            src={post.feature_image}
+            alt={post.slug}
+            css={css`
+              width: 100%;
+              height: ${makeRem(300)};
+              display: block;
+              background-color: ${({ theme }) => theme.palette.light.light};
+              object-fit: cover;
+              object-position: top left;
+            `}
+          />
+        </a>
+      </Link>
       <div
         css={css`
-          padding: ${makeRem(16)};
+          padding: ${makeRem(blogCardSidePadding)};
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -47,7 +74,11 @@ export const BlogEntryCard: FC<PostOrPage> = (post) => {
         <Typography variant="caption">
           {formatShortDate(post.published_at)}
         </Typography>
-        <Typography variant="h5">{post.title}</Typography>
+        <Link href={getBlogPostRoute(post.slug)}>
+          <a>
+            <Typography variant="h5">{post.title}</Typography>
+          </a>
+        </Link>
         <Typography
           variant="body2"
           color="textPrimary"
@@ -62,16 +93,35 @@ export const BlogEntryCard: FC<PostOrPage> = (post) => {
       </div>
       <div
         css={css`
-          border-top: 1px solid ${({ theme }) => theme.palette.light.light};
+          border-top: 1px solid ${({ theme }) => theme.palette.light.main};
           height: ${makeRem(60)};
           display: flex;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
+          padding: 0 ${makeRem(blogCardSidePadding)};
+
+          & > * {
+            display: flex;
+            align-items: center;
+            line-height: ${makeRem(60)};
+          }
         `}
       >
-        <div>test1</div>
-        &nbsp; &nbsp; &nbsp;
-        <div>test2</div>
+        <div>
+          <StyledIcon fontSize="small" color="primary">
+            <MessageSquareIcon />
+          </StyledIcon>
+          <StyledIconText variant="overline">0</StyledIconText>
+          <StyledIcon fontSize="small" color="secondary">
+            <HeartIcon />
+          </StyledIcon>
+          <StyledIconText variant="overline">0</StyledIconText>
+        </div>
+        <div>
+          <StyledIcon fontSize="small">
+            <Share2Icon />
+          </StyledIcon>
+        </div>
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import {
   ghostFetcher
 } from "lib/ghost.api";
 import { GetStaticProps } from "next";
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 
 export type BlogPageProps = {
   data: IPageBlog;
