@@ -169,6 +169,10 @@ envVarGroups:
         value: https://blog.heatherturanocoaching.com
       - key: GHOST_CONTENT_API_KEY
         sync: false
+      - key: NEXT_PUBLIC_GHOST_API_URL
+        sync: false
+      - key: NEXT_PUBLIC_GHOST_CONTENT_API_KEY
+        sync: false
   - name: htc-contentful
     envVars:
       - key: CONTENTFUL_HTC_SPACE_ID
