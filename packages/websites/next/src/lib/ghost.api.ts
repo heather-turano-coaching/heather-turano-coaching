@@ -1,42 +1,66 @@
-import GhostContentAPI, {
-  PostOrPage,
-  PostsOrPages
-} from "@tryghost/content-api";
+import { Pagination, PostOrPage } from "@tryghost/content-api";
+import axios, { AxiosRequestConfig } from "axios";
 
-import { throwError } from "./utils";
+import { getEndpoint } from "./endpoint.utils";
 
-// Create API instance with site credentials
-export const ghostClient = new GhostContentAPI({
-  url: process.env.GHOST_API_URL,
-  key: process.env.GHOST_CONTENT_API_KEY,
-  version: "v3"
+const ghostApiVersion = "v3";
+
+export const ghostApi = axios.create({
+  baseURL: `${process.env.NEXT_PUBLIC_GHOST_API_URL}/ghost/api/${ghostApiVersion}/content`,
+  responseType: "json"
 });
 
-export const getFeaturedPost = async (): Promise<PostOrPage> => {
-  try {
-    const featuredPosts = await ghostClient.posts.browse({
-      include: ["authors", "tags"],
-      filter: ["featured:true"]
-    });
-    return featuredPosts[0];
-  } catch (error) {
-    throwError("There was an error when trying to get a featured post", error);
+ghostApi.interceptors.request.use(
+  async (config): Promise<AxiosRequestConfig> => {
+    if (config.url.includes("?")) {
+      config.url = `${config.url}&key=${process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY}`;
+    } else {
+      config.url = `${config.url}?key=${process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY}`;
+    }
+    return config;
   }
-};
+);
 
-export const getAllPosts = async (page = 1): Promise<PostsOrPages> => {
-  try {
-    const posts = await ghostClient.posts.browse({
-      include: ["authors", "tags"],
-      filter: ["featured:-true"],
+export const ghostFetcher = async <TData>(url: string): Promise<TData> =>
+  ghostApi.get<TData>(url).then(res => res.data);
+
+/**
+ * Types
+ */
+export type GhostMeta = { meta: { pagination: Pagination } };
+export type GetAllGhostPosts = {
+  posts: PostOrPage[];
+} & GhostMeta;
+export type GetFeaturedGhostPost = { posts: [PostOrPage] } & GhostMeta;
+export type GetSingleGhostPostBySlug = { posts: [PostOrPage] };
+
+/**
+ * Endpoints
+ */
+export const getGhostFeaturedPostEndpoint = getEndpoint({
+  root: "/posts",
+  queryParams: {
+    include: "tags,authors",
+    filter: "featured:true"
+  }
+});
+
+export const getAllGhostPostsEndpoint = (page = 1): string =>
+  getEndpoint({
+    root: "/posts",
+    queryParams: {
+      include: "tags,authors",
+      filter: "featured:-true",
       limit: 6,
       page
-    });
-    return posts;
-  } catch (error) {
-    throwError(
-      "There was an error when trying to get all of the blog posts",
-      error
-    );
-  }
-};
+    }
+  });
+
+export const getSingleGhostPostBySlugEndpoint = (slug: string): string =>
+  getEndpoint({
+    root: "/posts/slug",
+    dynamic: slug,
+    queryParams: {
+      include: "tags,authors"
+    }
+  });

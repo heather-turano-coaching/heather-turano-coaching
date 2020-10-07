@@ -2,6 +2,7 @@ import { PageEvents } from "components/feature/events";
 import { Meta, MetaProps } from "components/feature/meta";
 import { IPageEvents, contentfulClient } from "lib/contentful";
 import { GetServerSideProps } from "next";
+import React, { ReactElement } from "react";
 
 export type EventsProps = MetaProps & {
   data: IPageEvents;
@@ -20,7 +21,10 @@ export const getServerSideProps: GetServerSideProps<EventsProps> = async () => {
   };
 };
 
-export default function EventsPage({ pageTitle, data }: EventsProps) {
+export default function EventsPage({
+  pageTitle,
+  data
+}: EventsProps): ReactElement {
   return (
     <>
       <Meta pageTitle={pageTitle} />

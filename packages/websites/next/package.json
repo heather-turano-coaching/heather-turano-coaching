@@ -14,11 +14,10 @@
     "@heather-turano-coaching/design-system": "^0.2.5",
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "@svgr/webpack": "^5.4.0",
-    "@tryghost/content-api": "^1.4.1",
-    "@tryghost/helpers": "1.1.27",
+    "@tryghost/content-api": "^1.4.5",
+    "@tryghost/helpers": "1.1.31",
     "@types/react-helmet": "^6.0.0",
-    "@types/tryghost__content-api": "^1.3.4",
+    "@types/tryghost__content-api": "^1.3.5",
     "axios": "^0.20.0",
     "contentful": "^7.14.4",
     "date-fns": "^2.16.1",
@@ -32,7 +31,8 @@
     "react-hook-form": "^6.8.3",
     "react-spring": "^8.0.27",
     "react-use-gesture": "^7.0.15",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "swr": "^0.3.5"
   },
   "devDependencies": {
     "@heather-turano-coaching/domain": "^1.1.0",
@@ -42,6 +42,7 @@
     "@types/styled-components": "^5.1.3",
     "babel-eslint": "^9.0.0",
     "babel-plugin-styled-components": "^1.11.1",
-    "contentful-typescript-codegen": "^3.2.1"
+    "contentful-typescript-codegen": "^3.2.1",
+    "core-js": "^3.6.5"
   }
 }

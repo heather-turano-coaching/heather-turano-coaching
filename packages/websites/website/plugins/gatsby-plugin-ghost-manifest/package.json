@@ -7,7 +7,7 @@
     "@babel/runtime": "7.11.2",
     "@heather-turano-coaching/eslint-config": "^0.0.1",
     "bluebird": "3.7.2",
-    "sharp": "0.26.0"
+    "sharp": "0.26.1"
   },
   "keywords": [
     "gatsby",
@@ -21,7 +21,7 @@
   "license": "MIT",
   "main": "index.js",
   "peerDependencies": {
-    "gatsby": ">2.24.62"
+    "gatsby": ">2.24.67"
   },
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",

@@ -38,8 +38,8 @@ export const HeroWrapper = styled.div<{ $disableFull?: boolean }>`
   ${({ $disableFull }) =>
     !$disableFull &&
     css`
-      min-height: ${`calc((100% + ${makeRem(2)}) - ${navbarHeight})`};
-      height: ${`calc(100% - ${navbarHeight})`};
+      min-height: ${`calc((100vh + ${makeRem(2)}) - ${navbarHeight})`};
+      height: ${`calc(100vh - ${navbarHeight})`};
     `}
 
   & * {

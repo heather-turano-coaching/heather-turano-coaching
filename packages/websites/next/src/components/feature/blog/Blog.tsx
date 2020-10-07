@@ -1,25 +1,100 @@
-import { Tag, TagGroup, Title } from "@heather-turano-coaching/components";
+import { Button, Title } from "@heather-turano-coaching/components";
 import {
-  makeDesktopStyles,
-  makeFlex,
-  makeRem
+  makeRem,
+  makeRetinaStyles,
+  makeTabletStyles
 } from "@heather-turano-coaching/core/theme";
-import { Container, Typography } from "@material-ui/core";
-import { BlogFeaturedPost } from "components/content/blog/BlogFeaturedPost";
+import { Container } from "@material-ui/core";
 import { HeroPlain } from "components/content/heros";
-import { CSSImageBorder } from "components/styles";
-import { formatShortDate } from "lib/utils";
-import Link from "next/link";
+import {
+  GetAllGhostPosts,
+  getAllGhostPostsEndpoint,
+  getGhostFeaturedPostEndpoint,
+  ghostFetcher
+} from "lib/ghost.api";
 import { BlogPageProps } from "pages/blog";
-import React, { FC } from "react";
-import { css } from "styled-components";
+import React, { FC, useCallback, useMemo } from "react";
+import styled, { css } from "styled-components";
+import useSWR, { useSWRInfinite } from "swr";
+
+import { BlogCard, BlogFeaturedPost, blogCardSpacing } from ".";
+
+const BlogCardGrid = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+  & > * {
+    width: 100%;
+  }
+
+  ${({ theme }) => css`
+    ${makeTabletStyles(theme)} {
+      & > * {
+        width: ${`calc(50% - ${makeRem(blogCardSpacing * 2)})`};
+      }
+    }
+
+    ${makeRetinaStyles(theme)} {
+      & > * {
+        width: ${`calc(33.33% - ${makeRem(blogCardSpacing * 2)})`};
+      }
+    }
+  `}
+`;
+
+export const Page: FC<{
+  pageNum: number;
+  initialValues?: GetAllGhostPosts;
+}> = ({ pageNum, initialValues }) => {
+  const { data } = useSWR<GetAllGhostPosts>(
+    getAllGhostPostsEndpoint(pageNum),
+    ghostFetcher,
+    {
+      initialData: initialValues
+    }
+  );
+  return (
+    <>
+      {data?.posts.map(post => (
+        <BlogCard {...post} key={post.id} />
+      ))}
+    </>
+  );
+};
 
 export const PageBlog: FC<BlogPageProps> = ({
   data: { fields },
-  featuredPost,
+  featuredPosts,
   allPosts
 }) => {
-  console.log(allPosts);
+  const { data: featuredPostsLocal } = useSWR<typeof featuredPosts>(
+    getGhostFeaturedPostEndpoint,
+    ghostFetcher,
+    { initialData: featuredPosts }
+  );
+
+  const { data, size, setSize } = useSWRInfinite<typeof allPosts>(
+    index => {
+      return getAllGhostPostsEndpoint(index + 1);
+    },
+    ghostFetcher,
+    {
+      initialData: [allPosts]
+    }
+  );
+
+  const isEmpty = data?.[0]?.posts.length === 0;
+  const isReachingEnd = isEmpty || data[data.length - 1]?.posts.length < 6;
+
+  const loadMore = useCallback(() => {
+    setSize(size + 1);
+  }, []);
+
   return (
     <>
       <HeroPlain title={fields.heroTitle} subTitle={fields.heroSubtitle} />
@@ -32,84 +107,36 @@ export const PageBlog: FC<BlogPageProps> = ({
           }
         `}
       >
-        <Title size="lg" copy="Featured post" />
-        <BlogFeaturedPost {...featuredPost} />
-        <Title size="lg" copy="Older Posts" />
-        <div
-          css={css`
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            box-sizing: border-box;
+        {useMemo(
+          () => (
+            <>
+              <Title size="lg" copy="Featured post" />
+              <BlogFeaturedPost {...featuredPostsLocal.posts[0]} />
+              <Title size="lg" copy="Older Posts" />
+            </>
+          ),
+          []
+        )}
+        <BlogCardGrid>
+          {data.map(page =>
+            page.posts.map(post => <BlogCard {...post} key={post.id} />)
+          )}
+        </BlogCardGrid>
 
-            * {
-              box-sizing: border-box;
-            }
-            & > * {
-              width: ${`calc(33.33% - ${makeRem(48)})`};
-            }
-          `}
-        >
-          {allPosts.map((post) => (
-            <div
-              css={css`
-                margin: ${makeRem(48)} ${makeRem(24)};
-                box-shadow: 0 0 10px 3px rgba(207, 207, 207, 0.5);
-                border-radius: ${makeRem(4)};
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-              `}
-            >
-              <img
-                src={post.feature_image}
-                alt={post.slug}
-                css={css`
-                  height: ${makeRem(300)};
-                  display: block;
-                  background-color: ${({ theme }) => theme.palette.light.light};
-                `}
-              />
-              <div
-                css={css`
-                  padding: ${makeRem(16)};
-                  flex: 1;
-                  display: flex;
-                  flex-direction: column;
-                `}
-              >
-                <Typography variant="caption">
-                  {formatShortDate(post.published_at)}
-                </Typography>
-                <Typography variant="h5">{post.title}</Typography>
-                <Typography
-                  variant="body2"
-                  color="textPrimary"
-                  css={css`
-                    margin-bottom: ${makeRem(28)} !important;
-                    flex: 1;
-                  `}
-                >
-                  {post.excerpt}
-                </Typography>
-              </div>
-              <div
-                css={css`
-                  border-top: 1px solid
-                    ${({ theme }) => theme.palette.light.light};
-                  height: ${makeRem(60)};
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                `}
-              >
-                <div>test1</div>
-                &nbsp; &nbsp; &nbsp;
-                <div>test2</div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {!isReachingEnd && (
+          <div
+            css={css`
+              margin: ${makeRem(48)} 0;
+              text-align: center;
+            `}
+          >
+            <Button
+              onClick={loadMore}
+              label="Load more posts"
+              styleType="secondary"
+            />
+          </div>
+        )}
       </Container>
     </>
   );
