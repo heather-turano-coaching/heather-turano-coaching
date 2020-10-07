@@ -12,7 +12,7 @@ import Link from "next/link";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
-export const BlogFeaturedPost: FC<PostOrPage> = (featuredPost) => {
+export const BlogFeaturedPost: FC<PostOrPage> = featuredPost => {
   return (
     <div
       css={css`
@@ -63,6 +63,7 @@ export const BlogFeaturedPost: FC<PostOrPage> = (featuredPost) => {
           `}
         >
           <img
+            alt="featured-imge"
             src={featuredPost.feature_image}
             css={css`
               width: 100%;
@@ -110,7 +111,7 @@ export const BlogFeaturedPost: FC<PostOrPage> = (featuredPost) => {
           </Typography>
         </div>
         <TagGroup>
-          {featuredPost.tags.map((tag) => (
+          {featuredPost.tags.map(tag => (
             <Link href={`/tags/${tag.slug}`} key={tag.id}>
               <a>
                 <Tag text={tag.name} key={tag.id} />

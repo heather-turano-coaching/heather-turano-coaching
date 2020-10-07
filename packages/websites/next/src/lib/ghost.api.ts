@@ -22,7 +22,7 @@ ghostApi.interceptors.request.use(
 );
 
 export const ghostFetcher = async <TData>(url: string): Promise<TData> =>
-  ghostApi.get<TData>(url).then((res) => res.data);
+  ghostApi.get<TData>(url).then(res => res.data);
 
 /**
  * Types
@@ -32,6 +32,7 @@ export type GetAllGhostPosts = {
   posts: PostOrPage[];
 } & GhostMeta;
 export type GetFeaturedGhostPost = { posts: [PostOrPage] } & GhostMeta;
+export type GetSingleGhostPostBySlug = { posts: [PostOrPage] };
 
 /**
  * Endpoints
@@ -52,5 +53,14 @@ export const getAllGhostPostsEndpoint = (page = 1): string =>
       filter: "featured:-true",
       limit: 6,
       page
+    }
+  });
+
+export const getSingleGhostPostBySlugEndpoint = (slug: string): string =>
+  getEndpoint({
+    root: "/posts/slug",
+    dynamic: slug,
+    queryParams: {
+      include: "tags,authors"
     }
   });

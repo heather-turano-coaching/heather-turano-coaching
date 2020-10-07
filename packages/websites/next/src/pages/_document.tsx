@@ -11,7 +11,13 @@ import React, { ReactElement } from "react";
 import { ServerStyleSheet as StyledComponentSheets } from "styled-components";
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<{
+    styles: JSX.Element[];
+    html: string;
+    head?: JSX.Element[];
+  }> {
     const styledComponentSheet = new StyledComponentSheets();
     const materialUiSheets = new MaterialUiServerStyleSheets();
     const originalRenderPage = ctx.renderPage;

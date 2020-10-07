@@ -3,6 +3,7 @@ import { Meta, MetaProps } from "components/feature/meta";
 import { contentfulClient } from "lib/contentful";
 import { IPageAbout } from "lib/contentful";
 import { GetServerSideProps } from "next";
+import { ReactElement } from "react";
 
 export type AboutPageProps = MetaProps & {
   data: IPageAbout;
@@ -21,7 +22,10 @@ export const getServerSideProps: GetServerSideProps<AboutPageProps> = async () =
   };
 };
 
-export default function AboutPage({ pageTitle, data }: AboutPageProps) {
+export default function AboutPage({
+  pageTitle,
+  data
+}: AboutPageProps): ReactElement {
   return (
     <>
       <Meta pageTitle={pageTitle} />
