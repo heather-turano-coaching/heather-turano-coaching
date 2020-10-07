@@ -44,7 +44,7 @@ export const BlogCard: FC<PostOrPage> = post => {
         `}
       `}
     >
-      <Link href={getBlogPostRoute(post.slug)}>
+      <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
         <a
           css={css`
             width: 100%;
@@ -75,7 +75,7 @@ export const BlogCard: FC<PostOrPage> = post => {
         <Typography variant="caption">
           {formatShortDate(post.published_at)}
         </Typography>
-        <Link href={getBlogPostRoute(post.slug)}>
+        <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
           <a>
             <Typography variant="h5">{post.title}</Typography>
           </a>

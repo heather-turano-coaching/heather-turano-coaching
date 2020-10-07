@@ -35,7 +35,7 @@ export const BlogFeaturedPost: FC<PostOrPage> = featuredPost => {
         `}
       `}
     >
-      <Link href={`/blog/${featuredPost.slug}`}>
+      <Link href="/blog/[slug]" as={`/blog/${featuredPost.slug}`}>
         <a
           css={css`
             flex: 1;

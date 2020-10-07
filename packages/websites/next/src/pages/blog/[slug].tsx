@@ -1,4 +1,4 @@
-import { StyledH1, Title } from "@heather-turano-coaching/components";
+import { Title } from "@heather-turano-coaching/components";
 import { makeRem } from "@heather-turano-coaching/core/theme";
 import { Avatar, Container, Divider, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
@@ -139,6 +139,10 @@ export default function BlogPostPage(post: PostOrPage): ReactElement {
     ghostFetcher,
     { initialData: { posts: [post] } }
   );
+
+  if (!localPost.published_at) {
+    return null;
+  }
 
   return (
     <>

@@ -5,11 +5,6 @@ import {
   makeTabletStyles
 } from "@heather-turano-coaching/core/theme";
 import { Container } from "@material-ui/core";
-import {
-  BlogCard,
-  BlogFeaturedPost,
-  blogCardSpacing
-} from "components/content/blog";
 import { HeroPlain } from "components/content/heros";
 import {
   GetAllGhostPosts,
@@ -21,6 +16,8 @@ import { BlogPageProps } from "pages/blog";
 import React, { FC, useCallback, useMemo } from "react";
 import styled, { css } from "styled-components";
 import useSWR, { useSWRInfinite } from "swr";
+
+import { BlogCard, BlogFeaturedPost, blogCardSpacing } from ".";
 
 const BlogCardGrid = styled.div`
   display: flex;
