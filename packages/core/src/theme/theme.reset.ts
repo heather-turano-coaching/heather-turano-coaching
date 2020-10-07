@@ -15,7 +15,7 @@ export const cssReset = css`
   body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100%;
   }
 
   ul,

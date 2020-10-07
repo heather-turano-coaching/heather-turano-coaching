@@ -6,10 +6,10 @@ import {
 } from "@heather-turano-coaching/core/theme";
 import { Container } from "@material-ui/core";
 import {
-  BlogEntryCard,
+  BlogCard,
+  BlogFeaturedPost,
   blogCardSpacing
-} from "components/content/blog/BlogEntryCard";
-import { BlogFeaturedPost } from "components/content/blog/BlogFeaturedPost";
+} from "components/content/blog";
 import { HeroPlain } from "components/content/heros";
 import {
   GetAllGhostPosts,
@@ -64,7 +64,7 @@ export const Page: FC<{
   return (
     <>
       {data?.posts.map(post => (
-        <BlogEntryCard {...post} key={post.id} />
+        <BlogCard {...post} key={post.id} />
       ))}
     </>
   );
@@ -122,7 +122,7 @@ export const PageBlog: FC<BlogPageProps> = ({
         )}
         <BlogCardGrid>
           {data.map(page =>
-            page.posts.map(post => <BlogEntryCard {...post} key={post.id} />)
+            page.posts.map(post => <BlogCard {...post} key={post.id} />)
           )}
         </BlogCardGrid>
 

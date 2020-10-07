@@ -169,11 +169,11 @@ export const HeaderNav: FC = () => {
   return (
     <NavbarContainer>
       <MobileLogo>
-        <img src="/logo-stacked.png" />
+        <img src="/logo-stacked.png" alt="htc-logo-stacked" />
       </MobileLogo>
       <Navbar ref={stickyRef}>
         <DesktopLogo>
-          <img src="/logo-inline.svg" />
+          <img src="/logo-inline.svg" alt="htc-logo-inline" />
         </DesktopLogo>
         <NavbarUl>
           <NavbarLi>
@@ -197,7 +197,7 @@ export const HeaderNav: FC = () => {
             </ActiveLink>
           </NavbarLi>
           <NavbarLi>
-            <ActiveLink href="/blog">
+            <ActiveLink href="/blog" as="/blog">
               <NavLink>Blog</NavLink>
             </ActiveLink>
           </NavbarLi>

@@ -26,7 +26,7 @@ const StyledIconText = styled(Typography)`
   }
 `;
 
-export const BlogEntryCard: FC<PostOrPage> = post => {
+export const BlogCard: FC<PostOrPage> = post => {
   return (
     <div
       css={css`
