@@ -212,7 +212,7 @@ export default function BlogPostPage(post: PostOrPage): ReactElement {
       <Container>
         <section
           css={css`
-            max-width: ${makeRem(600)};
+            max-width: ${makeRem(680)};
             margin: 0 auto;
           `}
         >

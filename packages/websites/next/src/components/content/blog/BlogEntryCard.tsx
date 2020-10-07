@@ -1,3 +1,4 @@
+import ClockIcon from "@heather-turano-coaching/core/icons/clock.svg";
 import HeartIcon from "@heather-turano-coaching/core/icons/heart.svg";
 import MessageSquareIcon from "@heather-turano-coaching/core/icons/message-square.svg";
 import Share2Icon from "@heather-turano-coaching/core/icons/share-2.svg";
@@ -116,6 +117,12 @@ export const BlogEntryCard: FC<PostOrPage> = post => {
             <HeartIcon />
           </StyledIcon>
           <StyledIconText variant="overline">0</StyledIconText>
+          <StyledIcon fontSize="small" color="action">
+            <ClockIcon />
+          </StyledIcon>
+          <StyledIconText variant="overline">
+            {post.reading_time} min
+          </StyledIconText>
         </div>
         <div>
           <StyledIcon fontSize="small">
