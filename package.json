@@ -4,9 +4,17 @@
   "description": "All applications and source code for https://livelifemindful.com",
   "main": "index.js",
   "private": true,
-  "workspaces": [
-    "packages/**"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/**"
+    ],
+    "nohoist": [
+      "**/@prisma/**",
+      "@prisma/**",
+      "**/@nexus/**",
+      "@nexus/**"
+    ]
+  },
   "scripts": {
     "postinstall": "npm rebuild sharp",
     "clean": "lerna clean --yes && lerna exec -- rimraf lib/ dist/",

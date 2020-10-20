@@ -4,11 +4,6 @@ import {
   FormGroup,
   Input
 } from "@heather-turano-coaching/components";
-import { useApi } from "@heather-turano-coaching/core/hooks";
-import {
-  SubscribeRequest,
-  SubscribeResponse
-} from "@heather-turano-coaching/domain";
 import { subscribeToBlog } from "endpoints";
 import { FC } from "react";
 import { useForm } from "react-hook-form";
@@ -18,30 +13,13 @@ interface FormSubscribeProps {
 }
 
 export const FormSubscribe: FC<FormSubscribeProps> = ({ fieldPrefix }) => {
-  const { register, errors, handleSubmit } = useForm<SubscribeRequest>();
-
-  const [{ loading, data, error }, subcribe] = useApi<
-    SubscribeRequest,
-    SubscribeResponse
-  >(subscribeToBlog);
-
-  const onSubmit = async (formData: SubscribeRequest) => {
-    subcribe(formData);
-  };
+  const { register, errors, handleSubmit } = useForm<{
+    firstName: string;
+    email: string;
+  }>();
 
   return (
     <>
-      {error && (
-        <Alert type="error">
-          {`Oh no! It looks like something went wrong. Error: "${error.errorMessage}"`}
-        </Alert>
-      )}
-      {data && (
-        <Alert type="success">
-          Horay! Thank you for signing up! You're going to recieve a welcome
-          email at the address you provided.
-        </Alert>
-      )}
       {!data && (
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormGroup layout="stacked">
