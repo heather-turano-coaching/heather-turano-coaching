@@ -19,5 +19,8 @@
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/.hg/store/**": true
-  }
+  },
+  "cSpell.words": [
+    "eventbrite"
+  ]
 }

@@ -9010,7 +9010,7 @@ cross-spawn@7.0.1:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-cross-spawn@^7.0.0, cross-spawn@^7.0.2:
+cross-spawn@^7.0.0, cross-spawn@^7.0.1, cross-spawn@^7.0.2:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.3.tgz#f73a85b9d5d41d045551c177e2882d4ac85728a6"
   integrity sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==
@@ -10132,6 +10132,16 @@ dot-prop@^5.1.0, dot-prop@^5.2.0:
   dependencies:
     is-obj "^2.0.0"
 
+dotenv-cli@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv-cli/-/dotenv-cli-4.0.0.tgz#3cdd68b87ccd63c78dbfa72aab2f639bbeba5f4b"
+  integrity sha512-ByKEec+ashePEXthZaA1fif9XDtcaRnkN7eGdBDx3HHRjwZ/rA1go83Cbs4yRrx3JshsCf96FjAyIA2M672+CQ==
+  dependencies:
+    cross-spawn "^7.0.1"
+    dotenv "^8.1.0"
+    dotenv-expand "^5.1.0"
+    minimist "^1.1.3"
+
 dotenv-defaults@^1.0.2:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/dotenv-defaults/-/dotenv-defaults-1.1.1.tgz#032c024f4b5906d9990eb06d722dc74cc60ec1bd"
@@ -10156,7 +10166,7 @@ dotenv@^6.2.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
-dotenv@^8.0.0, dotenv@^8.2.0:
+dotenv@^8.0.0, dotenv@^8.1.0, dotenv@^8.2.0:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
@@ -11014,6 +11024,13 @@ event-target-shim@^5.0.0:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
   integrity sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==
+
+eventbrite@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/eventbrite/-/eventbrite-1.2.2.tgz#ea0d92e03424d7c531bbadec63a44c5e6d01524d"
+  integrity sha512-Oo8Hk2udW5L9zRG0GO4ic/Dc9hvrtxRTIPw32PR2VYwinRnLHr4WWx7JPjIHnzGvigc3MTeuuPwQ4XCW4MoXrQ==
+  dependencies:
+    isomorphic-fetch "^2.2.1"
 
 eventemitter3@^3.1.0:
   version "3.1.2"
@@ -13491,12 +13508,24 @@ graphql-upload@^8.0.2:
     http-errors "^1.7.3"
     object-path "^0.11.4"
 
-graphql@14.6.0, graphql@^14.6.0, graphql@^14.7.0, graphql@^15.3.0:
+graphql@^14.6.0:
   version "14.6.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.6.0.tgz#57822297111e874ea12f5cd4419616930cd83e49"
   integrity sha512-VKzfvHEKybTKjQVpTFrA5yUq2S9ihcZvfJAtsDBBCuV6wauPu1xl/f9ehgVf0FcEJJs4vz6ysb/ZMkGigQZseg==
   dependencies:
     iterall "^1.2.2"
+
+graphql@^14.7.0:
+  version "14.7.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.7.0.tgz#7fa79a80a69be4a31c27dda824dc04dac2035a72"
+  integrity sha512-l0xWZpoPKpppFzMfvVyFmp9vLN7w/ZZJPefUicMCepfJeQ8sMcztloGYY9DfjVPo6tIUDzU5Hw3MUbIjj9AVVA==
+  dependencies:
+    iterall "^1.2.2"
+
+graphql@^15.3.0:
+  version "15.3.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-15.3.0.tgz#3ad2b0caab0d110e3be4a5a9b2aa281e362b5278"
+  integrity sha512-GTCJtzJmkFLWRfFJuoo9RWWa/FfamUHgiFosxi/X1Ani4AVWbeyBenZTNX6dM+7WSbbFfTo/25eh0LLkwHMw2w==
 
 gray-matter@^4.0.2:
   version "4.0.2"

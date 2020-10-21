@@ -2,8 +2,22 @@
 ### Do not make changes to this file directly
 
 
+type Event {
+  name: MultipartText
+}
+
+type Events {
+  list: [Event]
+  pagination: Pagination
+}
+
 type Message {
   message: String
+}
+
+type MultipartText {
+  html: String
+  text: String
 }
 
 type Mutation {
@@ -40,8 +54,16 @@ type Mutation {
   verifyResetPasswordToken(emailAddress: String!, token: String!): Boolean
 }
 
+type Pagination {
+  has_more_items: Boolean
+  object_count: Int
+  page_count: Int
+  page_number: Int
+  page_size: Int
+}
+
 type Query {
-  ok: Boolean!
+  events: Events
 }
 
 type StripeCheckoutSession {
