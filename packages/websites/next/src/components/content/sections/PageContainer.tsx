@@ -1,4 +1,7 @@
-import { makeSize, makeSpace } from "@heather-turano-coaching/design-system";
+import {
+  makeSize,
+  makeSpace
+} from "@heather-turano-coaching/core/design-system";
 import styled, { css } from "styled-components";
 
 const StyledPageContainer = styled.div<{ displayBackground?: boolean }>`

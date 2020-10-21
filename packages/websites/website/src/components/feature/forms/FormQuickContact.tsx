@@ -3,7 +3,7 @@ import {
   Button,
   FormGroup,
   Input
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import { useApi } from "@heather-turano-coaching/core/hooks";
 import {
   QuickContactRequest,

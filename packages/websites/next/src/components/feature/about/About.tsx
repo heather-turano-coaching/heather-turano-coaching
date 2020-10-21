@@ -7,16 +7,16 @@ import {
   SectionFooter,
   SectionSpacer,
   Title
-} from "@heather-turano-coaching/components";
-import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
-import { makeFlex } from "@heather-turano-coaching/core/theme";
+} from "@heather-turano-coaching/core/components";
 import {
   makeFont,
   makeInset,
   makeOutset,
   makeResponsive,
   makeSize
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
+import { makeFlex } from "@heather-turano-coaching/core/theme";
 import { HeroOffsetVertical } from "components/content/heros";
 import { Asset } from "contentful";
 import { IPageAbout } from "lib/contentful";
@@ -239,7 +239,7 @@ export const PageAbout: FC<IPageAbout> = ({ fields }) => {
         <Title size="lg">{fields.certificationsTitle}</Title>
         <StyledCertSection>
           {fields.certificationsListOfCertifications.map(
-            ({ fields }: { fields: any }) => {
+            ({ fields }: { fields: unknown }) => {
               const image = fields.sealImage as Asset;
               return (
                 <Image

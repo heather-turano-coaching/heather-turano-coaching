@@ -2,13 +2,13 @@ import {
   Avatar,
   Typography,
   makeFlex
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import {
   makeInset,
   makeOutset,
   makeSize
-} from "@heather-turano-coaching/design-system";
-import { ColorProperties } from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
+import { ColorProperties } from "@heather-turano-coaching/core/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 

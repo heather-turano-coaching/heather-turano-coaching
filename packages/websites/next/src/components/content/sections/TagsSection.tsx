@@ -2,7 +2,7 @@ import {
   Tag,
   TagGroup,
   TagGroupProps
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import { Tag as GhostTag } from "@tryghost/content-api";
 import Link from "next/link";
 import React, { FC } from "react";

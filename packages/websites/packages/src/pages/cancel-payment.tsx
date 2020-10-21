@@ -3,7 +3,7 @@ import {
   Heading,
   Section,
   Typography
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import { SEO } from "@heather-turano-coaching/gatsby";
 import { navigate } from "gatsby";
 import React, { useCallback } from "react";

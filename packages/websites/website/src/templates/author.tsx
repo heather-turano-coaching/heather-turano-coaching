@@ -2,13 +2,13 @@ import {
   Avatar,
   Typography,
   makeFlex
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import {
   makeColor,
   makeInset,
   makeOutset,
   makeResponsive
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import { Author, PostOrPage } from "@tryghost/content-api";
 import { graphql } from "gatsby";
 import { uniqBy } from "lodash";

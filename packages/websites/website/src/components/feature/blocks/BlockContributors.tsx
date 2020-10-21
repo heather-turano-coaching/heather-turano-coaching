@@ -3,13 +3,13 @@ import {
   ButtonAction,
   RandomColor,
   generateRandomColor
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import {
   makeColor,
   makeOutset,
   makeReset,
   makeSize
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import { Author, PostOrPage } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
 import { uniqBy } from "lodash";

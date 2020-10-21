@@ -4,8 +4,11 @@ import {
   Heading,
   Hero,
   Section
-} from "@heather-turano-coaching/components";
-import { makeColor, makeRhythm } from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/components";
+import {
+  makeColor,
+  makeRhythm
+} from "@heather-turano-coaching/core/design-system";
 import { PostOrPage } from "@tryghost/content-api";
 import { graphql } from "gatsby";
 import React, { FC } from "react";

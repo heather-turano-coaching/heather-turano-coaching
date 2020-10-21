@@ -3,7 +3,7 @@ import {
   Button,
   FormGroup,
   Input
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import { useApi } from "@heather-turano-coaching/core/hooks";
 import {
   SubscribeRequest,
@@ -48,7 +48,7 @@ export const FormSubscribe: FC<FormSubscribeProps> = ({ fieldPrefix }) => {
       )}
       {data && (
         <Alert type="success">
-          Horay! Thank you for signing up! You're going to recieve a welcome
+          Horay! Thank you for signing up! You&amp;re going to recieve a welcome
           email at the address you provided.
         </Alert>
       )}

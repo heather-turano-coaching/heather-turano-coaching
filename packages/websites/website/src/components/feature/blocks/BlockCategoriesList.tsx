@@ -1,4 +1,4 @@
-import { Tag, TagGroup } from "@heather-turano-coaching/components";
+import { Tag, TagGroup } from "@heather-turano-coaching/core/components";
 import { Tag as TagType } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";

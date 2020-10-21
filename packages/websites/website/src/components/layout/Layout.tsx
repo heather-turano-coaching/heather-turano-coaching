@@ -2,12 +2,12 @@ import {
   Footer,
   FooterSection,
   FooterText
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import {
   makeColor,
   makeFontFace,
   makeResponsive
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, ReactNode } from "react";
 import { Helmet } from "react-helmet";

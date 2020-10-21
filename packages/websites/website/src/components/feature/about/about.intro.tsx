@@ -4,14 +4,14 @@ import {
   Section,
   SectionCopy,
   SectionSpacer
-} from "@heather-turano-coaching/components";
-import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
+} from "@heather-turano-coaching/core/components";
 import {
   makeFont,
   makeInset,
   makeResponsive,
   makeSize
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, memo, useMemo } from "react";
 import styled from "styled-components";

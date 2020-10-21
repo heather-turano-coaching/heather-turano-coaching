@@ -1,4 +1,4 @@
-import { HTMLAnchor } from "@heather-turano-coaching/components";
+import { HTMLAnchor } from "@heather-turano-coaching/core/components";
 import React, { FC, memo } from "react";
 
 import NavBarLink, { StyledListItem, StyledNavLinkAnchor } from "./NavBarLink";

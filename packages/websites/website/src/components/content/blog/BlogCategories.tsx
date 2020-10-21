@@ -1,4 +1,4 @@
-import { Typography } from "@heather-turano-coaching/components";
+import { Typography } from "@heather-turano-coaching/core/components";
 import {
   makeColor,
   makeInset,
@@ -6,7 +6,7 @@ import {
   makeReset,
   makeSize,
   makeSpace
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import { rgba } from "polished";
 import React, { FC } from "react";
 import styled from "styled-components";

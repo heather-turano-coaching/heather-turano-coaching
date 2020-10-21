@@ -3,15 +3,15 @@ import {
   Typography,
   makeFlex,
   sharedHorizontalBodyPadding
-} from "@heather-turano-coaching/components";
-import { useBreakpoints, useSticky } from "@heather-turano-coaching/core/hooks";
+} from "@heather-turano-coaching/core/components";
 import {
   makeColor,
   makeInset,
   makeReset,
   makeResponsive,
   makeSize
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
+import { useBreakpoints, useSticky } from "@heather-turano-coaching/core/hooks";
 import React, { FC, ReactNode, useRef } from "react";
 import styled, { css } from "styled-components";
 

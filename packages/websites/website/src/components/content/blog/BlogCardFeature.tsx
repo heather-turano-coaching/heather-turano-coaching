@@ -5,15 +5,15 @@ import {
   Typography,
   makeFlex,
   universalShadow
-} from "@heather-turano-coaching/components";
-import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
+} from "@heather-turano-coaching/core/components";
 import {
   makeColor,
   makeInset,
   makeResponsive,
   makeRhythm,
   makeSize
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import { Link } from "@reach/router";
 import { PostOrPage } from "@tryghost/content-api";
 import React, { FC } from "react";

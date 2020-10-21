@@ -3,7 +3,7 @@ import {
   Button,
   FormGroup,
   Input
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import { subscribeToBlog } from "endpoints";
 import { FC } from "react";
 import { useForm } from "react-hook-form";

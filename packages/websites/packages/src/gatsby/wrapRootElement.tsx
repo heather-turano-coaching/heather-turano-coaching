@@ -3,7 +3,7 @@ import {
   makeFontFace,
   makeReset,
   makeResponsive
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import React, { ReactNode } from "react";
 import { Helmet } from "react-helmet";
 import { createGlobalStyle } from "styled-components";

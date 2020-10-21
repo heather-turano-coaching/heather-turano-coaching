@@ -1,5 +1,8 @@
-import { Carousel, CarouselFooter } from "@heather-turano-coaching/components";
-import { makeSize } from "@heather-turano-coaching/design-system";
+import {
+  Carousel,
+  CarouselFooter
+} from "@heather-turano-coaching/core/components";
+import { makeSize } from "@heather-turano-coaching/core/design-system";
 import React, { FC, useState } from "react";
 import styled from "styled-components";
 

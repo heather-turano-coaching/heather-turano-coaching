@@ -20,9 +20,7 @@
     "typescript": "3.9.3"
   },
   "dependencies": {
-    "@heather-turano-coaching/components": "^0.5.0",
     "@heather-turano-coaching/core": "^0.0.1",
-    "@heather-turano-coaching/design-system": "^0.2.5",
     "@heather-turano-coaching/documents": "^1.0.0",
     "@heather-turano-coaching/domain": "^1.1.0",
     "@heather-turano-coaching/eslint-config": "^0.0.1",

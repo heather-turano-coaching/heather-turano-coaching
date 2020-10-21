@@ -1,7 +1,0 @@
-{
-  "extends": "@heather-turano-coaching/typescript",
-  "compilerOptions": {
-    "module": "ESNext"
-  },
-  "include": ["./development"]
-}

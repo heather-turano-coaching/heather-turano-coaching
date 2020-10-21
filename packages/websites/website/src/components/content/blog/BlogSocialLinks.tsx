@@ -1,15 +1,15 @@
-import { Icon, makeFlex } from "@heather-turano-coaching/components";
+import { Icon, makeFlex } from "@heather-turano-coaching/core/components";
 import {
   ColorProperties,
   SizeProperties
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import {
   makeColor,
   makeOutset,
   makeReset,
   makeResponsive,
   makeSize
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 

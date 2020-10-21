@@ -8,6 +8,7 @@
     "skipLibCheck": true,
     "isolatedModules": false,
     "target": "ES5",
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "rootDir": "."
   }
 }

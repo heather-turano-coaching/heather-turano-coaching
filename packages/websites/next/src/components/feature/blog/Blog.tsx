@@ -1,4 +1,4 @@
-import { Button, Title } from "@heather-turano-coaching/components";
+import { Button, Title } from "@heather-turano-coaching/core/components";
 import {
   makeRem,
   makeRetinaStyles,
@@ -60,7 +60,7 @@ export const Page: FC<{
   );
   return (
     <>
-      {data?.posts.map(post => (
+      {data?.posts.map((post) => (
         <BlogCard {...post} key={post.id} />
       ))}
     </>
@@ -79,7 +79,7 @@ export const PageBlog: FC<BlogPageProps> = ({
   );
 
   const { data, size, setSize } = useSWRInfinite<typeof allPosts>(
-    index => {
+    (index) => {
       return getAllGhostPostsEndpoint(index + 1);
     },
     ghostFetcher,
@@ -118,8 +118,8 @@ export const PageBlog: FC<BlogPageProps> = ({
           []
         )}
         <BlogCardGrid>
-          {data.map(page =>
-            page.posts.map(post => <BlogCard {...post} key={post.id} />)
+          {data.map((page) =>
+            page.posts.map((post) => <BlogCard {...post} key={post.id} />)
           )}
         </BlogCardGrid>
 

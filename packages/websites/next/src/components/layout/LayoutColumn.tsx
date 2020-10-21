@@ -2,7 +2,7 @@ import {
   makeOutset,
   makeResponsive,
   makeSize
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 

@@ -10,12 +10,14 @@
     "build:theme": "rm -rf theme && tsc --project tsconfig.build-theme.json",
     "build:hooks": "rm -rf hooks && tsc --project tsconfig.build-hooks.json",
     "build:components": "rm -rf components && tsc --project tsconfig.build-components.json",
+    "build:design-system": "rm -rf design-system && tsc --project tsconfig.build-ds.json",
     "build": "yarn build:theme && yarn build:hooks && yarn build:components",
     "dev:theme": "yarn build:theme -w",
     "dev:hooks": "yarn build:hooks -w",
     "dev:components": "yarn build:components -w",
     "dev:storybook": "start-storybook -p 6006",
-    "build:storybook": "build-storybook"
+    "build:storybook": "build-storybook",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "author": "Drew DeCarme",
   "license": "MIT",
@@ -24,8 +26,11 @@
   },
   "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme",
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.1",
+    "@contentful/rich-text-types": "^14.1.1",
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
+    "polished": "^4.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0"

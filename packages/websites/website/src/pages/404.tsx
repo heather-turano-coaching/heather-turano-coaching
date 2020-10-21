@@ -3,8 +3,11 @@ import {
   Image,
   Section,
   Typography
-} from "@heather-turano-coaching/components";
-import { makeRhythm, makeSize } from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/components";
+import {
+  makeRhythm,
+  makeSize
+} from "@heather-turano-coaching/core/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 import styled from "styled-components";

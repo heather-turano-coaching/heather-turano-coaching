@@ -7,7 +7,7 @@ import {
   SectionFooter,
   SectionSplitPane,
   Title
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 

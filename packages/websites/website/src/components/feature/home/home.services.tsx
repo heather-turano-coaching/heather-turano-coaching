@@ -6,10 +6,11 @@ import {
   SectionFooter,
   Title,
   Typography
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 export const HomeServices = () => {
   const { contentfulPageHome: queryData } = useStaticQuery(graphql`

@@ -5,7 +5,7 @@ import {
   Section,
   Select
 } from "@heather-turano-coaching/components";
-import { makeOutset } from "@heather-turano-coaching/design-system";
+import { makeOutset } from "@heather-turano-coaching/core/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, useCallback, useMemo, useState } from "react";
 import styled from "styled-components";

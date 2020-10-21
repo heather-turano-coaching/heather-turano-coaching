@@ -1,10 +1,11 @@
-import React, { FC } from "react";
-import { Tag as GhostTag } from "@tryghost/content-api";
 import {
   Tag,
   TagGroup,
   TagGroupProps
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
+import { Tag as GhostTag } from "@tryghost/content-api";
+import React, { FC } from "react";
+
 import { FrameworkLink } from "../general";
 
 interface TagSectionProps {

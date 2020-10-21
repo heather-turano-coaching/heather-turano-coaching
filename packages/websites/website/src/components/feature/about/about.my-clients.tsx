@@ -8,11 +8,11 @@ import {
   SectionSpacer,
   Title,
   makeFlex
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import {
   makeInset,
   makeResponsive
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 import styled from "styled-components";

@@ -2,7 +2,7 @@ import {
   ContentfulRichText,
   Heading,
   Section
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import { graphql, useStaticQuery } from "gatsby";
 import { FC } from "react";
 import React from "react";

@@ -1,4 +1,4 @@
-import { TagCard, TagGroup } from "@heather-turano-coaching/components";
+import { TagCard, TagGroup } from "@heather-turano-coaching/core/components";
 import { Tag } from "@tryghost/content-api";
 import Link from "next/link";
 import React, { FC } from "react";

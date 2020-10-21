@@ -1,4 +1,8 @@
-import { Content, Section, Title } from "@heather-turano-coaching/components";
+import {
+  Content,
+  Section,
+  Title
+} from "@heather-turano-coaching/core/components";
 import React, { FC } from "react";
 
 import { Layout } from "../components/layout";

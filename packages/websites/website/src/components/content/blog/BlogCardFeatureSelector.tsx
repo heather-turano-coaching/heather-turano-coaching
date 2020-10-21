@@ -1,5 +1,4 @@
-import { Typography, makeFlex } from "@heather-turano-coaching/components";
-import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
+import { Typography, makeFlex } from "@heather-turano-coaching/core/components";
 import {
   makeColor,
   makeFont,
@@ -9,7 +8,8 @@ import {
   makeResponsive,
   makeSize,
   makeSpace
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import { PostOrPage } from "@tryghost/content-api";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";

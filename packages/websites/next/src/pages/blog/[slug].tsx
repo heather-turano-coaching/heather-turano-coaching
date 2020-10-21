@@ -1,4 +1,4 @@
-import { Title } from "@heather-turano-coaching/components";
+import { Title } from "@heather-turano-coaching/core/components";
 import { makeRem } from "@heather-turano-coaching/core/theme";
 import { Avatar, Container, Divider, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
@@ -241,7 +241,7 @@ export default function BlogPostPage(post: PostOrPage): ReactElement {
   );
 }
 
-export const getStaticProps: GetStaticProps<PostOrPage> = async context => {
+export const getStaticProps: GetStaticProps<PostOrPage> = async (context) => {
   const slug = context.params.slug as string;
 
   const post = await ghostFetcher<GetSingleGhostPostBySlug>(
@@ -263,7 +263,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 
   return {
     fallback: true,
-    paths: allSlugs.posts.map(slug => ({
+    paths: allSlugs.posts.map((slug) => ({
       params: slug
     }))
   };

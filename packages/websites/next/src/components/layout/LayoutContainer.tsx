@@ -1,13 +1,13 @@
 import {
   makeFlex,
   sharedHorizontalBodyPadding
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import {
   makeInset,
   makeResponsive,
   makeSize,
   makeSpace
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 

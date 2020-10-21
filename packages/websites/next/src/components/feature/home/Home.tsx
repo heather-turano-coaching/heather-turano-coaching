@@ -8,8 +8,8 @@ import {
   SectionSplitPane,
   Title,
   Typography
-} from "@heather-turano-coaching/components";
-import { makeColor } from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/components";
+import { makeColor } from "@heather-turano-coaching/core/design-system";
 import { HeroImage } from "components/content/heros";
 import { TestimonialCarousel } from "components/content/testimonials";
 import { IPageHome } from "lib/contentful";

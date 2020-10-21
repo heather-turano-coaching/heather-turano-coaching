@@ -1,12 +1,12 @@
 import {
-  useProgressiveLoader,
-  useSticky
-} from "@heather-turano-coaching/core/hooks";
-import {
   makeColor,
   makeSize,
   makeSpace
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
+import {
+  useProgressiveLoader,
+  useSticky
+} from "@heather-turano-coaching/core/hooks";
 import { PostOrPage } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC, useRef } from "react";

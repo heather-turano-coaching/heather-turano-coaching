@@ -1,4 +1,4 @@
-import { universalShadow } from "@heather-turano-coaching/components";
+import { universalShadow } from "@heather-turano-coaching/core/components";
 import { css } from "styled-components";
 
 export const universalHover = css`

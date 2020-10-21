@@ -1,11 +1,11 @@
-import { AvatarCard, makeFlex } from "@heather-turano-coaching/components";
+import { AvatarCard, makeFlex } from "@heather-turano-coaching/core/components";
 import {
   makeInset,
   makeOutset,
   makeReset,
   makeResponsive,
   makeSize
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import { Author } from "@tryghost/content-api";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";

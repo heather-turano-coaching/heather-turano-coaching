@@ -1,4 +1,4 @@
-import { Icon, makeFlex } from "@heather-turano-coaching/components";
+import { Icon, makeFlex } from "@heather-turano-coaching/core/components";
 import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import React, { FC, useMemo } from "react";
 import styled, { css } from "styled-components";

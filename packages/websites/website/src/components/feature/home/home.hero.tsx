@@ -3,8 +3,8 @@ import {
   Heading,
   Hero,
   Section
-} from "@heather-turano-coaching/components";
-import { makeOutset } from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/components";
+import { makeOutset } from "@heather-turano-coaching/core/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
