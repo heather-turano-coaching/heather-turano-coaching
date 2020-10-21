@@ -21,10 +21,27 @@ export const Pagination = objectType({
   }
 });
 
+export const DatetimeTZ = objectType({
+  name: "DatetimeTZ",
+  definition(t) {
+    t.string("start");
+    t.string("local");
+    t.string("utc");
+  }
+});
+
 export const Event = objectType({
   name: "Event",
   definition(t) {
     t.field("name", { type: "MultipartText" });
+    t.string("summary");
+    t.string("description");
+    t.string("url");
+    t.field("start", { type: "DatetimeTZ" });
+    t.field("end", { type: "DatetimeTZ" });
+    t.string("created");
+    t.string("changed");
+    t.string("published");
   }
 });
 

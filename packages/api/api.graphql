@@ -2,8 +2,22 @@
 ### Do not make changes to this file directly
 
 
+type DatetimeTZ {
+  local: String
+  start: String
+  utc: String
+}
+
 type Event {
+  changed: String
+  created: String
+  description: String
+  end: DatetimeTZ
   name: MultipartText
+  published: String
+  start: DatetimeTZ
+  summary: String
+  url: String
 }
 
 type Events {
