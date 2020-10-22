@@ -18,14 +18,12 @@ export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () 
     query: EventsPageQuery
   });
 
-  const cache = extractSsrResponse<EventsPageProps>(apolloClient);
-
-  console.log(JSON.stringify(cache, null, 4));
+  const { ROOT_QUERY } = extractSsrResponse<EventsPageProps>(apolloClient);
 
   return {
     props: {
       pageContent,
-      ...cache.ROOT_QUERY
+      ...ROOT_QUERY
     }
   };
 };

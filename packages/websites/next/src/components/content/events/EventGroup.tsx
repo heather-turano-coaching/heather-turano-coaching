@@ -1,5 +1,5 @@
 import { Typography } from "@material-ui/core";
-import React, { FC } from "react";
+import { FC } from "react";
 
 export type EventGroupProps = {
   date: string;
