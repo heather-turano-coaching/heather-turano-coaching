@@ -16,7 +16,7 @@
     ]
   },
   "scripts": {
-    "postinstall": "npm rebuild sharp",
+    "postinstall": "npm rebuild sharp && rm -rf",
     "clean": "lerna clean --yes && lerna exec -- rimraf lib/ dist/",
     "bootstrap": "lerna bootstrap --hoist && rimraf **/@types/react-native",
     "bootstrap:ci": "lerna bootstrap --hoist",
@@ -64,7 +64,9 @@
     "turano"
   ],
   "resolutions": {
-    "graphql": "14.6.0"
+    "graphql": "^15.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0"
   },
   "author": "Drew DeCarme (drew@imaginedelements.com)",
   "license": "ISC",

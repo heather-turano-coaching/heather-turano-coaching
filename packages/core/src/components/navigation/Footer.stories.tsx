@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { Footer } from "./Footer";
 import { FooterSection } from "./FooterSection";
@@ -9,13 +9,13 @@ export default {
   title: "Navigation|Footer"
 };
 
-export const plainFooter = () => <Footer></Footer>;
-export const with1Section = () => (
+export const plainFooter: FC = () => <Footer></Footer>;
+export const with1Section: FC = () => (
   <Footer>
     <FooterSection title="footer section"></FooterSection>
   </Footer>
 );
-export const with1SectionWithLinks = () => (
+export const with1SectionWithLinks: FC = () => (
   <Footer>
     <FooterSection title="footer section">
       <FooterText>
@@ -27,7 +27,7 @@ export const with1SectionWithLinks = () => (
     </FooterSection>
   </Footer>
 );
-export const with2SectionsWithLInks = () => (
+export const with2SectionsWithLInks: FC = () => (
   <Footer>
     <FooterSection title="footer section">
       <FooterText>
@@ -41,7 +41,7 @@ export const with2SectionsWithLInks = () => (
     </FooterSection>
   </Footer>
 );
-export const with3SectionsWithLInks = () => (
+export const with3SectionsWithLInks: FC = () => (
   <Footer>
     <FooterSection title="footer section">
       <FooterText>

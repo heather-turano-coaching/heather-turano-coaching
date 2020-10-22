@@ -1,10 +1,9 @@
 import {
   SizeModularScaleRatio,
-  SizeUnits,
   SizeScales,
+  SizeUnits,
   SpaceScale
 } from "../types/composite";
-
 import { ResponsiveDeviceTypes } from "./responsive.config";
 
 export interface SizeConfig {
