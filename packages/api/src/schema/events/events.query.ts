@@ -30,6 +30,51 @@ export const DatetimeTZ = objectType({
   }
 });
 
+export const XYCoordinates = objectType({
+  name: "XYCoordinates",
+  definition(t) {
+    t.string("y");
+    t.string("x");
+  }
+});
+
+export const CropMask = objectType({
+  name: "CropMask",
+  definition(t) {
+    t.field("top_left", {
+      type: XYCoordinates
+    });
+    t.int("width");
+    t.int("height");
+  }
+});
+
+export const Original = objectType({
+  name: "OriginalImg",
+  definition(t) {
+    t.string("url");
+    t.string("width");
+    t.string("height");
+  }
+});
+
+export const EventLogo = objectType({
+  name: "EventLogo",
+  definition(t) {
+    t.string("id");
+    t.string("url");
+    t.field("crop_mask", {
+      type: CropMask
+    });
+    t.field("original", {
+      type: Original
+    });
+    t.string("aspect_ratio");
+    t.string("edge_color");
+    t.string("edge_color_set");
+  }
+});
+
 export const Event = objectType({
   name: "Event",
   definition(t) {
@@ -42,6 +87,9 @@ export const Event = objectType({
     t.string("created");
     t.string("changed");
     t.string("published");
+    t.field("logo", {
+      type: EventLogo
+    });
   }
 });
 

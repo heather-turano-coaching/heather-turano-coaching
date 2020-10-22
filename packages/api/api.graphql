@@ -2,6 +2,12 @@
 ### Do not make changes to this file directly
 
 
+type CropMask {
+  height: Int
+  top_left: XYCoordinates
+  width: Int
+}
+
 type DatetimeTZ {
   local: String
   start: String
@@ -13,10 +19,21 @@ type Event {
   created: String
   description: String
   end: DatetimeTZ
+  logo: EventLogo
   name: MultipartText
   published: String
   start: DatetimeTZ
   summary: String
+  url: String
+}
+
+type EventLogo {
+  aspect_ratio: String
+  crop_mask: CropMask
+  edge_color: String
+  edge_color_set: String
+  id: String
+  original: OriginalImg
   url: String
 }
 
@@ -68,6 +85,12 @@ type Mutation {
   verifyResetPasswordToken(emailAddress: String!, token: String!): Boolean
 }
 
+type OriginalImg {
+  height: String
+  url: String
+  width: String
+}
+
 type Pagination {
   has_more_items: Boolean
   object_count: Int
@@ -85,4 +108,9 @@ type StripeCheckoutSession {
   The checkout session id that is used when a customer clicks on a product purchase button
   """
   id: String
+}
+
+type XYCoordinates {
+  x: String
+  y: String
 }

@@ -33,6 +33,11 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenRootTypes {
+  CropMask: { // root type
+    height?: number | null; // Int
+    top_left?: NexusGenRootTypes['XYCoordinates'] | null; // XYCoordinates
+    width?: number | null; // Int
+  }
   DatetimeTZ: { // root type
     local?: string | null; // String
     start?: string | null; // String
@@ -43,10 +48,20 @@ export interface NexusGenRootTypes {
     created?: string | null; // String
     description?: string | null; // String
     end?: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
+    logo?: NexusGenRootTypes['EventLogo'] | null; // EventLogo
     name?: NexusGenRootTypes['MultipartText'] | null; // MultipartText
     published?: string | null; // String
     start?: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
     summary?: string | null; // String
+    url?: string | null; // String
+  }
+  EventLogo: { // root type
+    aspect_ratio?: string | null; // String
+    crop_mask?: NexusGenRootTypes['CropMask'] | null; // CropMask
+    edge_color?: string | null; // String
+    edge_color_set?: string | null; // String
+    id?: string | null; // String
+    original?: NexusGenRootTypes['OriginalImg'] | null; // OriginalImg
     url?: string | null; // String
   }
   Events: { // root type
@@ -61,6 +76,11 @@ export interface NexusGenRootTypes {
     text?: string | null; // String
   }
   Mutation: {};
+  OriginalImg: { // root type
+    height?: string | null; // String
+    url?: string | null; // String
+    width?: string | null; // String
+  }
   Pagination: { // root type
     has_more_items?: boolean | null; // Boolean
     object_count?: number | null; // Int
@@ -71,6 +91,10 @@ export interface NexusGenRootTypes {
   Query: {};
   StripeCheckoutSession: { // root type
     id?: string | null; // String
+  }
+  XYCoordinates: { // root type
+    x?: string | null; // String
+    y?: string | null; // String
   }
 }
 
@@ -83,6 +107,11 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 }
 
 export interface NexusGenFieldTypes {
+  CropMask: { // field return type
+    height: number | null; // Int
+    top_left: NexusGenRootTypes['XYCoordinates'] | null; // XYCoordinates
+    width: number | null; // Int
+  }
   DatetimeTZ: { // field return type
     local: string | null; // String
     start: string | null; // String
@@ -93,10 +122,20 @@ export interface NexusGenFieldTypes {
     created: string | null; // String
     description: string | null; // String
     end: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
+    logo: NexusGenRootTypes['EventLogo'] | null; // EventLogo
     name: NexusGenRootTypes['MultipartText'] | null; // MultipartText
     published: string | null; // String
     start: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
     summary: string | null; // String
+    url: string | null; // String
+  }
+  EventLogo: { // field return type
+    aspect_ratio: string | null; // String
+    crop_mask: NexusGenRootTypes['CropMask'] | null; // CropMask
+    edge_color: string | null; // String
+    edge_color_set: string | null; // String
+    id: string | null; // String
+    original: NexusGenRootTypes['OriginalImg'] | null; // OriginalImg
     url: string | null; // String
   }
   Events: { // field return type
@@ -120,6 +159,11 @@ export interface NexusGenFieldTypes {
     signUp: NexusGenRootTypes['Message'] | null; // Message
     verifyResetPasswordToken: boolean | null; // Boolean
   }
+  OriginalImg: { // field return type
+    height: string | null; // String
+    url: string | null; // String
+    width: string | null; // String
+  }
   Pagination: { // field return type
     has_more_items: boolean | null; // Boolean
     object_count: number | null; // Int
@@ -132,6 +176,10 @@ export interface NexusGenFieldTypes {
   }
   StripeCheckoutSession: { // field return type
     id: string | null; // String
+  }
+  XYCoordinates: { // field return type
+    x: string | null; // String
+    y: string | null; // String
   }
 }
 
@@ -179,7 +227,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "DatetimeTZ" | "Event" | "Events" | "Message" | "MultipartText" | "Mutation" | "Pagination" | "Query" | "StripeCheckoutSession";
+export type NexusGenObjectNames = "CropMask" | "DatetimeTZ" | "Event" | "EventLogo" | "Events" | "Message" | "MultipartText" | "Mutation" | "OriginalImg" | "Pagination" | "Query" | "StripeCheckoutSession" | "XYCoordinates";
 
 export type NexusGenInputNames = never;
 
