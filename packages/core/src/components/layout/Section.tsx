@@ -1,9 +1,9 @@
-import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import React, { FC } from "react";
 import styled, { SimpleInterpolation, css } from "styled-components";
 
-import { ColorProperties } from "../../design-system";
 import {
+  ColorProperties,
+  ResponsiveBreakpoints,
   makeColor,
   makeInset,
   makeOutset,
@@ -11,7 +11,7 @@ import {
   makeSize,
   makeSpace
 } from "../../design-system";
-import { ResponsiveBreakpoints } from "../../design-system";
+import { useBreakpoints } from "../../hooks";
 import { makeFlex } from "../utils";
 
 export interface SectionProps {

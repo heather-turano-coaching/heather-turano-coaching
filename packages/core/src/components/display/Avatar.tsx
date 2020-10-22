@@ -4,8 +4,6 @@ import styled, { css } from "styled-components";
 import { makeColor, makeSize } from "../../design-system";
 import { FontProperties, SizeProperties } from "../../design-system";
 import { RandomColor, generateRandomColor } from "../utils";
-// @ts-ignore
-import { ReactComponent as UserImage } from "./user-circle-duotone.svg";
 
 export interface AvatarProps {
   image?: string;
@@ -119,9 +117,7 @@ export const Avatar: FC<AvatarProps> = ({ image, alt, size = "h1" }) => {
       {image ? (
         <img src={image} alt={alt} />
       ) : (
-        <div className="this-should-have-a-svg-as-its-child">
-          <UserImage />
-        </div>
+        <div className="this-should-have-a-svg-as-its-child"></div>
       )}
     </StyledAvatar>
   );

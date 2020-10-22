@@ -34,7 +34,6 @@
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "@heather-turano-coaching/domain": "^1.1.0",
     "@heather-turano-coaching/typescript": "^0.2.1",
     "@types/stripe": "^7.13.23",
     "typescript": "3.9.3"

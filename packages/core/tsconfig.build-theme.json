@@ -1,9 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": ["src/theme"],
-  "exclude": ["src/stories"],
-  "compilerOptions": {
-    "noEmit": false,
-    "outDir": "./theme"
-  }
-}

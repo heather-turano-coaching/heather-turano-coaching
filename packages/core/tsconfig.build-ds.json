@@ -1,8 +1,0 @@
-{
-  "extends": "./tsconfig.json",
-  "include": ["src/design-system"],
-  "compilerOptions": {
-    "noEmit": false,
-    "outDir": "./design-system"
-  }
-}

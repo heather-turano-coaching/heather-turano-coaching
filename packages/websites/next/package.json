@@ -33,7 +33,6 @@
     "swr": "^0.3.5"
   },
   "devDependencies": {
-    "@heather-turano-coaching/domain": "^1.1.0",
     "@heather-turano-coaching/eslint-config": "^0.0.1",
     "@heather-turano-coaching/typescript": "^0.2.1",
     "@svgr/webpack": "^5.4.0",

@@ -5,9 +5,7 @@ import {
 } from "@heather-turano-coaching/core/components";
 import {
   ColorProperties,
-  ColorScalePosition
-} from "@heather-turano-coaching/core/design-system";
-import {
+  ColorScalePosition,
   makeColor,
   makeInset,
   makeOutset,

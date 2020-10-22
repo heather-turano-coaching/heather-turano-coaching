@@ -18,12 +18,9 @@ import {
 import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import { makeFlex } from "@heather-turano-coaching/core/theme";
 import { HeroOffsetVertical } from "components/content/heros";
-import { Asset } from "contentful";
 import { IPageAbout } from "lib/contentful";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
-
-import { FormQuickContact } from "../forms/FormQuickContact";
 
 const StyledAboutImageSection = styled.div`
   width: 100%;
@@ -238,19 +235,22 @@ export const PageAbout: FC<IPageAbout> = ({ fields }) => {
       <Section styleType="blank">
         <Title size="lg">{fields.certificationsTitle}</Title>
         <StyledCertSection>
-          {fields.certificationsListOfCertifications.map(
-            ({ fields }: { fields: unknown }) => {
-              const image = fields.sealImage as Asset;
+          {/* {fields.certificationsListOfCertifications.map(
+            ({
+              fields: { sealImage, certificationTitle }
+            }: {
+              fields: { sealImage: Asset; certificationTitle: string };
+            }) => {
               return (
                 <Image
-                  src={image.fields.file.url}
+                  src={sealImage.fields.file.url}
                   alt={fields.certificationTitle}
                   size={{ custom: 100 }}
                   key={fields.certificationTitle}
                 />
               );
             }
-          )}
+          )} */}
         </StyledCertSection>
       </Section>
 
@@ -270,10 +270,7 @@ export const PageAbout: FC<IPageAbout> = ({ fields }) => {
               margin: 0 auto;
             `}
           >
-            <FormQuickContact
-              submitButtonLabel={fields.contactFormSubmitLabel}
-              submitButtonColor="secondary"
-            />
+            <div>Aweber placeholder</div>
           </div>
         </SectionFooter>
       </Section>

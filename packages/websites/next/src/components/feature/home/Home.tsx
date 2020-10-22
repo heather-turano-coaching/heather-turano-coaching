@@ -16,8 +16,6 @@ import { IPageHome } from "lib/contentful";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
-import { FormQuickContact } from "../forms/FormQuickContact";
-
 export const PageHome: FC<IPageHome> = ({ fields }) => {
   return (
     <>
@@ -121,10 +119,7 @@ export const PageHome: FC<IPageHome> = ({ fields }) => {
         </SectionCopy>
         <SectionFooter>
           <div style={{ maxWidth: "80%", margin: "0 auto" }}>
-            <FormQuickContact
-              submitButtonLabel={fields.contactFormButtonLabel}
-              submitButtonColor="secondary"
-            />
+            <div>Aweber placeholder</div>
           </div>
         </SectionFooter>
       </Section>
