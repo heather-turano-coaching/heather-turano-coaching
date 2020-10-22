@@ -1,3 +1,4 @@
 {
+  "name": "core-design-system",
   "main": "../dist/src/design-system/index.js"
 }

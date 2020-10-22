@@ -22,65 +22,6 @@ import { IPageAbout } from "lib/contentful";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-const StyledAboutImageSection = styled.div`
-  width: 100%;
-  position: relative;
-
-  ${makeResponsive({
-    beginAt: "tabletLandscape",
-    style: `
-      flex: 2;
-    `
-  })}
-
-  &::after {
-    content: "";
-    position: absolute;
-    display: block;
-    top: -1px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 50%;
-    background-image: linear-gradient(
-      180deg,
-      #ffffff 0%,
-      rgba(255, 255, 255, 0) 100%
-    );
-
-    ${makeResponsive({
-      beginAt: "tabletLandscape",
-      style: `
-        top: 0;
-        bottom: 0;
-        left: -1;
-        width: 50%;
-        height: 100%;
-        background-image: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0.00) 100%);
-      `
-    })}
-  }
-`;
-
-const StyledAboutTitleSection = styled.div`
-  ${makeInset({ horizontal: 40, vertical: 40 })};
-  text-align: center;
-  ${makeResponsive({
-    beginAt: "tabletLandscape",
-    style: `
-      ${makeInset({ horizontal: 60 })};
-      max-width: ${makeSize({ custom: 500 })};
-    `
-  })}
-
-  p {
-    ${makeFont({
-      fontSize: "h1",
-      fontFamily: "Montserrat"
-    })}
-  }
-`;
-
 const StyledAboutMyClientsImageSection = styled.div`
   display: flex;
   flex: 1;

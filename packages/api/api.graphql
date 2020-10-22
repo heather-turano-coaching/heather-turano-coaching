@@ -21,7 +21,7 @@ type Event {
 }
 
 type Events {
-  list: [Event]
+  events: [Event]
   pagination: Pagination
 }
 

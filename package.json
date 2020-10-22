@@ -45,8 +45,10 @@
     "start:website:dev": "cd packages/websites/next && yarn start",
     "start:api": "lerna run start --scope=@heather-turano-coaching/api --stream",
     "generate:api": "lerna run generate --scope=@heather-turano-coaching/api --stream",
+    "generate:domain": "lerna run generate --scope=@heather-turano-coaching/domain --stream",
     "create-migration": "cd packages/api && yarn migrate -- ",
-    "run-migrations": "cd packages/api && yarn migrate:up"
+    "run-migrations": "cd packages/api && yarn migrate:up",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "repository": {
     "type": "git",
@@ -68,6 +70,5 @@
   "license": "ISC",
   "devDependencies": {
     "lerna": "3.22.1"
-  },
-  "dependencies": {}
+  }
 }

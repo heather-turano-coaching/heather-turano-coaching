@@ -9,14 +9,9 @@ export default function MyApp({
   Component,
   pageProps
 }: AppProps): ReactElement {
-  return (
-    <SWRProvider>
-      <HTCTheme>
-        <HeaderNav />
-        <Component {...pageProps} />
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const getLayout = Component.getPageLayout || ((page) => page);
 
-        <FooterNav />
-      </HTCTheme>
-    </SWRProvider>
-  );
+  return getLayout(<Component {...pageProps} />);
 }

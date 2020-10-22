@@ -34,10 +34,7 @@ export const schema = makeSchema({
     contextType: "ContextModule.Context"
   },
   outputs: {
-    typegen: path.resolve(
-      __dirname,
-      "../node_modules/@types/nexus-typegen/index.d.ts"
-    ),
+    typegen: path.resolve(__dirname, "../model/nexus.d.ts"),
     schema: path.resolve(__dirname, "../api.graphql")
   },
   plugins: [
@@ -63,7 +60,9 @@ const apollo = new ApolloServer({
 
 const express = createExpress();
 
-express.use(pino());
+if (process.env.NODE_ENV !== "development") {
+  express.use(pino());
+}
 
 apollo.applyMiddleware({ app: express });
 

@@ -1,3 +1,4 @@
 {
+  "name": "core-theme",
   "main": "../dist/src/theme/index.js"
 }

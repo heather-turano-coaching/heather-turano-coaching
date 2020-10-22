@@ -9,6 +9,7 @@
     "generate-types": "contentful-typescript-codegen --output ./src/lib/contentful.model.ts"
   },
   "dependencies": {
+    "@apollo/client": "^3.2.5",
     "@heather-turano-coaching/core": "^0.0.1",
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
@@ -33,6 +34,8 @@
     "swr": "^0.3.5"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.18.0",
+    "@heather-turano-coaching/domain": "^0.1.0",
     "@heather-turano-coaching/eslint-config": "^0.0.1",
     "@heather-turano-coaching/typescript": "^0.2.1",
     "@svgr/webpack": "^5.4.0",

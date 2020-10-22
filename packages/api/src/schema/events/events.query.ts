@@ -49,7 +49,7 @@ export const EventsType = objectType({
   name: "Events",
   definition(t) {
     t.field("pagination", { type: "Pagination" });
-    t.field("list", { type: "Event", list: true });
+    t.field("events", { type: "Event", list: true });
   }
 });
 
@@ -58,10 +58,7 @@ export const EventQuery = queryField("events", {
   async resolve(_root, _args) {
     try {
       const response = await getAllEvents();
-      return {
-        pagination: response.pagination,
-        list: response.events
-      };
+      return response;
     } catch (error) {
       throw new Error(formatSchemaError("Problem when getting drafts", error));
     }

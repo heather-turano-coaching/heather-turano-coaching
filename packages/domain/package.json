@@ -1,0 +1,30 @@
+{
+  "name": "@heather-turano-coaching/domain",
+  "version": "0.1.0",
+  "description": "Types and Auto Generated Types for sharing between the GraphQL API and the Clients",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "graphql-codegen --config codegen.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/heather-turano-coaching/heather-turano-coaching.git"
+  },
+  "author": "Drew DeCarme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
+  },
+  "types": "index.d.ts",
+  "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme",
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.18.0",
+    "@graphql-codegen/typescript": "1.17.11",
+    "@graphql-codegen/typescript-operations": "1.17.8",
+    "@graphql-codegen/typescript-react-apollo": "2.0.7"
+  },
+  "peerDependencies": {
+    "@apollo/client": "^3.2.5"
+  }
+}
