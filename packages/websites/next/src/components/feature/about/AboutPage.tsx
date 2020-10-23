@@ -9,18 +9,19 @@ import {
   Title
 } from "@heather-turano-coaching/core/components";
 import {
-  makeFont,
   makeInset,
   makeOutset,
-  makeResponsive,
-  makeSize
+  makeResponsive
 } from "@heather-turano-coaching/core/design-system";
 import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import { makeFlex } from "@heather-turano-coaching/core/theme";
 import { HeroOffsetVertical } from "components/content/heros";
 import { IPageAbout } from "lib/contentful";
-import React, { FC } from "react";
+import { PageComponent } from "lib/page";
+import React from "react";
 import styled, { css } from "styled-components";
+
+import { LayoutRoot } from "../layout";
 
 const StyledAboutMyClientsImageSection = styled.div`
   display: flex;
@@ -89,7 +90,13 @@ const StyledCertSection = styled.div`
   }
 `;
 
-export const PageAbout: FC<IPageAbout> = ({ fields }) => {
+export type AboutPageProps = {
+  data: IPageAbout;
+};
+
+export const AboutPage: PageComponent<AboutPageProps> = ({
+  data: { fields }
+}) => {
   const [windowWidth, { tabletLandscape }] = useBreakpoints();
   const isLessThanLandscape = windowWidth < tabletLandscape;
 
@@ -217,4 +224,8 @@ export const PageAbout: FC<IPageAbout> = ({ fields }) => {
       </Section>
     </>
   );
+};
+
+AboutPage.getPageLayout = function getPageLayout(page) {
+  return <LayoutRoot>{page}</LayoutRoot>;
 };

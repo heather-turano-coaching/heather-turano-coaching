@@ -6,17 +6,20 @@ import {
 } from "@heather-turano-coaching/core/theme";
 import { Container } from "@material-ui/core";
 import { HeroPlain } from "components/content/heros";
+import { IPageBlog } from "lib/contentful";
 import {
   GetAllGhostPosts,
+  GetFeaturedGhostPost,
   getAllGhostPostsEndpoint,
   getGhostFeaturedPostEndpoint,
   ghostFetcher
 } from "lib/ghost.api";
-import { BlogPageProps } from "pages/blog";
+import { PageComponent } from "lib/page";
 import React, { FC, useCallback, useMemo } from "react";
 import styled, { css } from "styled-components";
 import useSWR, { useSWRInfinite } from "swr";
 
+import { LayoutRoot } from "../layout";
 import { BlogCard, BlogFeaturedPost, blogCardSpacing } from ".";
 
 const BlogCardGrid = styled.div`
@@ -67,7 +70,13 @@ export const Page: FC<{
   );
 };
 
-export const PageBlog: FC<BlogPageProps> = ({
+export type BlogPageProps = {
+  data: IPageBlog;
+  featuredPosts: GetFeaturedGhostPost;
+  allPosts: GetAllGhostPosts;
+};
+
+export const BlogPage: PageComponent<BlogPageProps> = ({
   data: { fields },
   featuredPosts,
   allPosts
@@ -140,4 +149,8 @@ export const PageBlog: FC<BlogPageProps> = ({
       </Container>
     </>
   );
+};
+
+BlogPage.getPageLayout = function getPageLayout(page) {
+  return <LayoutRoot>{page}</LayoutRoot>;
 };

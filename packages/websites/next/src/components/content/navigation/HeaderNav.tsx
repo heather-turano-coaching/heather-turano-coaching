@@ -33,11 +33,14 @@ const MobileLogo = styled.div`
     width: ${makeRem(200)};
   }
 
-  ${({ theme }) => css`
-    ${makeDesktopStyles(theme)} {
-      display: none;
-    }
-  `}
+  ${({ theme }) => {
+    console.log(theme);
+    return css`
+      ${makeDesktopStyles(theme)} {
+        display: none;
+      }
+    `;
+  }}
 `;
 
 const DesktopLogo = styled.div`

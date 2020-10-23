@@ -1,6 +1,5 @@
-import { PageBlog } from "components/feature/blog";
-import { Meta } from "components/feature/meta";
-import { IPageBlog, getBlogPage } from "lib/contentful";
+import { BlogPage, BlogPageProps } from "components/feature/blog";
+import { getBlogPage } from "lib/contentful";
 import {
   GetAllGhostPosts,
   GetFeaturedGhostPost,
@@ -8,14 +7,9 @@ import {
   getGhostFeaturedPostEndpoint,
   ghostFetcher
 } from "lib/ghost.api";
+import { PageComponent } from "lib/page";
 import { GetStaticProps } from "next";
-import { ReactElement } from "react";
-
-export type BlogPageProps = {
-  data: IPageBlog;
-  featuredPosts: GetFeaturedGhostPost;
-  allPosts: GetAllGhostPosts;
-};
+import React from "react";
 
 export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
   const [data, featuredPosts, allPosts] = await Promise.all([
@@ -33,11 +27,10 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
   };
 };
 
-export default function BlogPage(props: BlogPageProps): ReactElement {
-  return (
-    <>
-      <Meta pageTitle="Blog" />
-      <PageBlog {...props} />
-    </>
-  );
-}
+const Page: PageComponent<BlogPageProps> = (props) => {
+  return <BlogPage {...props} />;
+};
+
+Page.getPageLayout = BlogPage.getPageLayout;
+
+export default Page;

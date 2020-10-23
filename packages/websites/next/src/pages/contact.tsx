@@ -1,30 +1,25 @@
-import { PageContact } from "components/feature/contact";
-import { Meta, MetaProps } from "components/feature/meta";
-import { IPageContact, contentfulClient } from "lib/contentful";
+import { ContactPage, ContactPageProps } from "components/feature/contact";
+import { contentfulClient } from "lib/contentful";
+import { PageComponent } from "lib/page";
 import { GetServerSideProps } from "next";
-
-export type ContactPageProps = MetaProps & {
-  data: IPageContact;
-};
+import React from "react";
 
 export const getServerSideProps: GetServerSideProps<ContactPageProps> = async () => {
   const data = (await contentfulClient.getEntry(
     "39iIaovpEKNp3BR6YjrMTL"
-  )) as IPageContact;
+  )) as ContactPageProps["data"];
 
   return {
     props: {
-      pageTitle: "About",
       data
     }
   };
 };
 
-export default function ContactPage({ pageTitle, data }: ContactPageProps) {
-  return (
-    <>
-      <Meta pageTitle={pageTitle} />
-      <PageContact {...data} />
-    </>
-  );
-}
+const Page: PageComponent<ContactPageProps> = (props) => {
+  return <ContactPage {...props} />;
+};
+
+Page.getPageLayout = ContactPage.getPageLayout;
+
+export default Page;

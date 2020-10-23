@@ -13,10 +13,19 @@ import { makeColor } from "@heather-turano-coaching/core/design-system";
 import { HeroImage } from "components/content/heros";
 import { TestimonialCarousel } from "components/content/testimonials";
 import { IPageHome } from "lib/contentful";
-import React, { FC } from "react";
+import { PageComponent } from "lib/page";
+import React from "react";
 import { css } from "styled-components";
 
-export const PageHome: FC<IPageHome> = ({ fields }) => {
+import { LayoutRoot } from "../layout";
+
+export type HomePageProps = {
+  data: IPageHome;
+};
+
+export const HomePage: PageComponent<HomePageProps> = ({
+  data: { fields }
+}) => {
   return (
     <>
       <HeroImage
@@ -125,4 +134,8 @@ export const PageHome: FC<IPageHome> = ({ fields }) => {
       </Section>
     </>
   );
+};
+
+HomePage.getPageLayout = function getPageLayout(page) {
+  return <LayoutRoot>{page}</LayoutRoot>;
 };

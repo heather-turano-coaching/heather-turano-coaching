@@ -12,11 +12,13 @@
       "**/@prisma/**",
       "@prisma/**",
       "**/@nexus/**",
-      "@nexus/**"
+      "@nexus/**",
+      "graphql/**",
+      "**graphql**/**"
     ]
   },
   "scripts": {
-    "postinstall": "npm rebuild sharp && rm -rf",
+    "postinstall": "npm rebuild sharp",
     "clean": "lerna clean --yes && lerna exec -- rimraf lib/ dist/",
     "bootstrap": "lerna bootstrap --hoist && rimraf **/@types/react-native",
     "bootstrap:ci": "lerna bootstrap --hoist",
@@ -64,7 +66,7 @@
     "turano"
   ],
   "resolutions": {
-    "graphql": "^15.3.0",
+    "graphql": "14.7.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0"
   },
@@ -72,5 +74,8 @@
   "license": "ISC",
   "devDependencies": {
     "lerna": "3.22.1"
+  },
+  "dependencies": {
+    "styled-components": "^5.2.0"
   }
 }

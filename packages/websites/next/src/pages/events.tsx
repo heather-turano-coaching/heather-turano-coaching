@@ -4,7 +4,7 @@ import {
   EventsPageQuery
 } from "components/feature/events";
 import { extractSsrResponse, initApollo } from "lib/apollo";
-import { IPageEvents, contentfulClient } from "lib/contentful";
+import { contentfulClient } from "lib/contentful";
 import { PageComponent } from "lib/page";
 import { GetServerSideProps } from "next";
 
@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () 
   const apolloClient = initApollo<EventsPageProps>();
   const pageContent = (await contentfulClient.getEntry(
     "6KgBUIkmyA0OzcHn7tjILl"
-  )) as IPageEvents;
+  )) as EventsPageProps["events"];
 
   await apolloClient.query({
     query: EventsPageQuery
