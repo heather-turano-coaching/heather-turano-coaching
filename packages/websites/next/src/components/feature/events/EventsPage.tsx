@@ -28,6 +28,10 @@ export const EventsPageQuery = gql`
         start {
           local
         }
+        end {
+          local
+        }
+        is_free
       }
     }
   }
@@ -39,7 +43,7 @@ export type EventsPageProps = {
 };
 
 const StyledUl = styled.ul`
-  margin-top: ${makeRem(60)};
+  margin-bottom: ${makeRem(200)};
 `;
 const StyledLi = styled.li`
   padding: 0 ${makeRem(32)};
@@ -87,8 +91,11 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
                     <EventCard
                       title={event.name.text}
                       time={event.start.local}
+                      endTime={event.end.local}
                       description={event.summary}
                       image={event.logo.url}
+                      reserveLink={event.url}
+                      isFree={event.is_free}
                     />
                   </StyledLi>
                 ))}

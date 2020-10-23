@@ -1,19 +1,19 @@
+import { Container } from "@material-ui/core";
 import { darken } from "polished";
 import { FC } from "react";
 import React from "react";
 import styled from "styled-components";
 
 import { makeColor, makeInset, makeResponsive } from "../../design-system";
-import { Container, sectionVSpace } from "../layout";
-import { makeFlex, sharedHorizontalBodyPadding } from "../utils";
+import { sectionVSpace } from "../layout";
+import { makeFlex } from "../utils";
 
 const StyledFooterContainer = styled.footer`
   width: 100%;
   box-sizing: border-box;
   background: ${darken(0.1, makeColor({ scalable: { color: "secondary" } }))};
   ${makeInset({
-    vertical: 40,
-    horizontal: sharedHorizontalBodyPadding.phone
+    vertical: 40
   })};
 
   * {
@@ -24,8 +24,7 @@ const StyledFooterContainer = styled.footer`
     beginAt: "tabletLandscape",
     style: `
       ${makeInset({
-        vertical: sectionVSpace.tabletPortrait,
-        horizontal: sharedHorizontalBodyPadding.tabletPortrait
+        vertical: sectionVSpace.tabletPortrait
       })};
     `
   })}
@@ -46,7 +45,7 @@ const StyledFooter = styled.div`
 
 export const Footer: FC = ({ children }) => (
   <StyledFooterContainer>
-    <Container>
+    <Container maxWidth="lg">
       <StyledFooter>{children}</StyledFooter>
     </Container>
   </StyledFooterContainer>

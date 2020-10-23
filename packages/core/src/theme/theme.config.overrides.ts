@@ -15,16 +15,20 @@ export const themeOverrides: Overrides = {
       textTransform: "initial"
     },
     containedPrimary: {
-      color: themePalette.common?.white,
       backgroundColor: themePalette.primary.dark,
+      color: themePalette.common?.white,
+      "& > span": {
+        color: "inherit !important"
+      },
       "&:hover": {
         backgroundColor: darkenHover(themePalette.primary.dark)
       }
     },
     outlinedPrimary: {
       borderColor: themePalette.primary.dark,
+      color: themePalette.primary.dark,
       "& > span": {
-        color: themePalette.primary.dark
+        color: "inherit !important"
       }
     },
     textPrimary: {

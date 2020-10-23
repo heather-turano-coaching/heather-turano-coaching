@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styled, { SimpleInterpolation, css } from "styled-components";
 
 import { makeColor, makeFont, makeReset } from "../../design-system";
+import { makeRem } from "../../theme";
 
 type TitleProps = {
   size: "lg" | "md" | "sm";
@@ -12,7 +13,7 @@ const styledTitleStyleMap: {
   [key in TitleProps["size"]]: SimpleInterpolation;
 } = {
   lg: css`
-    margin: 2rem 0;
+    margin: ${makeRem(60)} 0;
     padding: 0 2rem 1.5rem 2rem;
     &::after {
       background-color: ${makeColor({

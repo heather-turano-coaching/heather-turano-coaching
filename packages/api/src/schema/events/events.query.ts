@@ -90,6 +90,7 @@ export const Event = objectType({
     t.field("logo", {
       type: EventLogo
     });
+    t.boolean("is_free");
   }
 });
 

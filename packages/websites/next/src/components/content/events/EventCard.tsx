@@ -1,29 +1,34 @@
-import { Button } from "@heather-turano-coaching/core/components";
+import { Group } from "@heather-turano-coaching/core/components";
 import {
   makeDesktopStyles,
   makeMobileStyles,
   makeRem
 } from "@heather-turano-coaching/core/theme";
-import { Typography } from "@material-ui/core";
-import { format } from "date-fns";
+import { Button, Typography } from "@material-ui/core";
+import { differenceInHours, format } from "date-fns";
 import { FC } from "react";
 import { css } from "styled-components";
 
 export type EventCardProps = {
   time: string;
+  endTime: string;
   title: string;
   description: string;
   reserveLink: string;
   image: string;
-  price: string;
-  options: {
-    video: boolean;
-    ticketRequired: boolean;
-  };
+  // price: string;
+  isFree: boolean;
+  // options: {
+  //   video: boolean;
+  //   ticketRequired: boolean;
+  // };
 };
 
 export const EventCard: FC<EventCardProps> = (props) => {
+  const startDateTime = new Date(props.time);
   const time = `${format(new Date(props.time), "p")} EST`;
+
+  const duration = differenceInHours(new Date(props.endTime), startDateTime);
   return (
     <div
       css={css`
@@ -62,23 +67,47 @@ export const EventCard: FC<EventCardProps> = (props) => {
       <div
         css={css`
           flex: 1;
+          ${({ theme }) => css`
+            ${makeMobileStyles(theme)} {
+              & > .subHeader {
+                margin-bottom: ${makeRem(16)};
+              }
+            }
+
+            ${makeDesktopStyles(theme)} {
+              & > .subHeader {
+                margin-bottom: ${makeRem(8)};
+              }
+              margin-right: ${makeRem(32)};
+            }
+          `}
         `}
       >
         <Typography
           variant="subtitle2"
           color="textSecondary"
+          className="subHeader"
+          component="p"
           css={css`
             font-weight: 700 !important;
           `}
         >
-          {time}
+          {time} | {duration} hour
         </Typography>
         <Typography
           variant="h4"
           component="h3"
           css={css`
             && {
-              margin: ${makeRem(4)} 0 ${makeRem(12)} 0;
+              ${({ theme }) => css`
+                ${makeMobileStyles(theme)} {
+                  margin-bottom: ${makeRem(16)};
+                }
+
+                ${makeDesktopStyles(theme)} {
+                  margin: ${makeRem(4)} 0 ${makeRem(16)} 0;
+                }
+              `}
             }
           `}
         >
@@ -86,12 +115,47 @@ export const EventCard: FC<EventCardProps> = (props) => {
         </Typography>
         <Typography variant="body1">{props.description}</Typography>
       </div>
-      <div>
-        <Button
-          href={props.reserveLink}
-          styleType="secondary"
-          label="Reserve"
-        />
+      <div
+        css={css`
+          ${({ theme }) => css`
+            ${makeMobileStyles(theme)} {
+              text-align: center;
+              margin-top: ${makeRem(60)};
+            }
+
+            ${makeDesktopStyles(theme)} {
+            }
+          `}
+        `}
+      >
+        <Group>
+          <Button variant="text" color="primary" size="medium">
+            Learn more
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            size="medium"
+            href={props.reserveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Reserve
+          </Button>
+        </Group>
+        {/* <div
+          css={css`
+            ${({ theme }) => css`
+              ${makeMobileStyles(theme)} {
+                text-align: center;
+                margin-top: ${makeRem(32)};
+              }
+
+              ${makeDesktopStyles(theme)} {
+              }
+            `}
+          `}
+        ></div> */}
       </div>
     </div>
   );

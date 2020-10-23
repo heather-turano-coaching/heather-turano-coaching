@@ -48,6 +48,7 @@ export interface NexusGenRootTypes {
     created?: string | null; // String
     description?: string | null; // String
     end?: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
+    is_free?: boolean | null; // Boolean
     logo?: NexusGenRootTypes['EventLogo'] | null; // EventLogo
     name?: NexusGenRootTypes['MultipartText'] | null; // MultipartText
     published?: string | null; // String
@@ -122,6 +123,7 @@ export interface NexusGenFieldTypes {
     created: string | null; // String
     description: string | null; // String
     end: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
+    is_free: boolean | null; // Boolean
     logo: NexusGenRootTypes['EventLogo'] | null; // EventLogo
     name: NexusGenRootTypes['MultipartText'] | null; // MultipartText
     published: string | null; // String

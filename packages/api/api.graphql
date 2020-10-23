@@ -19,6 +19,7 @@ type Event {
   created: String
   description: String
   end: DatetimeTZ
+  is_free: Boolean
   logo: EventLogo
   name: MultipartText
   published: String
