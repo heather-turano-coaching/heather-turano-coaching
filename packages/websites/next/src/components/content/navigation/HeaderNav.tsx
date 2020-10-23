@@ -34,7 +34,6 @@ const MobileLogo = styled.div`
   }
 
   ${({ theme }) => {
-    console.log(theme);
     return css`
       ${makeDesktopStyles(theme)} {
         display: none;

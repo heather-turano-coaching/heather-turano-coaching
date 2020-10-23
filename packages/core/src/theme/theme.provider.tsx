@@ -1,9 +1,8 @@
 import {
   MuiThemeProvider,
   StylesProvider,
-  Theme,
   createMuiTheme
-} from "@material-ui/core/styles";
+} from "@material-ui/core";
 import React, { FC } from "react";
 import {
   ThemeProvider as StyledThemeProvider,
@@ -36,8 +35,8 @@ const GlobalStyle = createGlobalStyle`
   `}
 `;
 
-export const makeTheme = () =>
-  createMuiTheme({
+export const HTCTheme: FC = ({ children }) => {
+  const theme = createMuiTheme({
     palette: themePalette,
     typography: {
       fontFamily: "Muli",
@@ -89,11 +88,10 @@ export const makeTheme = () =>
     props: themeProps
   });
 
-export const HTCTheme: FC<{ appTheme: Theme }> = ({ children, appTheme }) => {
   return (
     <StylesProvider injectFirst>
-      <MuiThemeProvider theme={appTheme}>
-        <StyledThemeProvider theme={appTheme}>
+      <MuiThemeProvider theme={theme}>
+        <StyledThemeProvider theme={theme}>
           <GlobalStyle />
           {children}
         </StyledThemeProvider>

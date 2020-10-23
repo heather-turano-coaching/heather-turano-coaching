@@ -5,9 +5,6 @@ module.exports = {
   },
   root: true,
   rules: {
-    "import/no-extraneous-dependencies": [
-      "error",
-      { devDependencies: ["**/*.stories.tsx"] }
-    ]
+    "import/no-extraneous-dependencies": ["error", { peerDependencies: true }]
   }
 };
