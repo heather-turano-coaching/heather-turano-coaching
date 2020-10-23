@@ -43,7 +43,12 @@ export type EventsPageProps = {
 };
 
 const StyledUl = styled.ul`
-  margin-bottom: ${makeRem(200)};
+  &:not(:last-child) {
+    margin-bottom: ${makeRem(100)};
+  }
+  &:last-of-type {
+    margin-bottom: ${makeRem(200)};
+  }
 `;
 const StyledLi = styled.li`
   padding: 0 ${makeRem(32)};
