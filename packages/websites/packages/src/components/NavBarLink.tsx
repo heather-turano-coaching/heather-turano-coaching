@@ -1,5 +1,8 @@
 import { Typography } from "@heather-turano-coaching/core/components";
-import { makeOutset, makeReset } from "@heather-turano-coaching/core/design-system";
+import {
+  makeOutset,
+  makeReset
+} from "@heather-turano-coaching/core/design-system";
 import { Link } from "gatsby";
 import React, { FC, ReactNode, memo } from "react";
 import styled, { css } from "styled-components";

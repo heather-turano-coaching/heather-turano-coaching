@@ -26,7 +26,7 @@
     "compile": "lerna run compile",
     "check": "lerna exec -- npx npm-check-updates",
     "update": "lerna exec -- npx npm-check-updates -u",
-    "format": "prettier --write \"packages/**/*.{js,jsx,json,md,ts,tsx}\"",
+    "format": "prettier --write \"packages/**/src/**/*.{js,jsx,json,md,ts,tsx}\"",
     "test": "jest",
     "prestart": ". .env",
     "lint:fix": "eslint './packages/**/src/**/*.js' --fix",

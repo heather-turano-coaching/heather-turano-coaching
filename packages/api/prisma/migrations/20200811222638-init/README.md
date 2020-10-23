@@ -67,5 +67,3 @@ migration ..20200811222638-init
 +  role             Role          @default(USER)
 +}
 ```
-
-

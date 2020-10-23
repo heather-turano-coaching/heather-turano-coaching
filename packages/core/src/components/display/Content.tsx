@@ -137,9 +137,9 @@ const StyledContent = styled.section`
         top: -8px;
         left: 20px;
         ${makeFont({
-        fontSize: "h1",
-        fontColor: { scalable: { color: "primary" } }
-      })};
+          fontSize: "h1",
+          fontColor: { scalable: { color: "primary" } }
+        })};
         font-family: "Font Awesome 5 Pro";
         font-weight: 900;
         font-size: 5rem;

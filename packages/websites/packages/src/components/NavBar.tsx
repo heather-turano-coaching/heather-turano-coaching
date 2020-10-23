@@ -1,5 +1,8 @@
 import { makeFlex } from "@heather-turano-coaching/core/components";
-import { makeInset, makeSize } from "@heather-turano-coaching/core/design-system";
+import {
+  makeInset,
+  makeSize
+} from "@heather-turano-coaching/core/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
 
