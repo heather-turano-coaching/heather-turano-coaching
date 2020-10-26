@@ -81,9 +81,8 @@ services:
     env: node
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    # buildCommand: yarn && yarn build:api
-    # Need to do this until there is a resolution on https://github.com/graphql-nexus/nexus/issues/1350
-    startCommand: yarn serve:api
+    buildCommand: yarn build
+    startCommand: yarn start
     domains:
       - api.heatherturanocoaching.com
     envVars:
