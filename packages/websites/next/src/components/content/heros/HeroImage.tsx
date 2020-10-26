@@ -4,7 +4,6 @@ import {
   makeMobileStyles,
   makeRem
 } from "@heather-turano-coaching/core/theme";
-import { Container } from "@material-ui/core";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 

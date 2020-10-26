@@ -3,5 +3,8 @@ module.exports = {
   parserOptions: {
     project: ["./tsconfig.json"]
   },
-  root: true
+  root: true,
+  rules: {
+    "import/no-extraneous-dependencies": ["error", { peerDependencies: true }]
+  }
 };

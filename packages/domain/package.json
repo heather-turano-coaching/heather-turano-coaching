@@ -1,24 +1,30 @@
 {
   "name": "@heather-turano-coaching/domain",
-  "version": "1.1.0",
-  "description": "Domain typings, api typings and configurations for shared HTC api",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "version": "0.1.0",
+  "description": "Types and Auto Generated Types for sharing between the GraphQL API and the Clients",
+  "main": "index.js",
   "scripts": {
-    "start": "tsc -w --pretty -p tsconfig.json",
-    "build": "tsc -p tsconfig.json"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com:imaginedelements/heather-turano-coaching/live-life-mindful.git"
+    "url": "git+ssh://git@github.com/heather-turano-coaching/heather-turano-coaching.git"
   },
   "author": "Drew DeCarme",
   "license": "MIT",
-  "devDependencies": {
-    "@heather-turano-coaching/typescript": "^0.2.1",
-    "typescript": "4.0.3"
+  "bugs": {
+    "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
   },
-  "dependencies": {
-    "@heather-turano-coaching/eslint-config": "^0.0.1"
+  "types": "index.d.ts",
+  "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme",
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.18.0",
+    "@graphql-codegen/typescript": "1.17.11",
+    "@graphql-codegen/typescript-operations": "1.17.8",
+    "@graphql-codegen/typescript-react-apollo": "2.0.7"
+  },
+  "peerDependencies": {
+    "@apollo/client": "^3.2.5"
   }
 }

@@ -1,8 +1,17 @@
 import { HeroImage } from "components/content/heros";
 import { IPageService } from "lib/contentful";
-import { FC } from "react";
+import { PageComponent } from "lib/page";
+import React from "react";
 
-export const PageServices: FC<IPageService> = ({ fields }) => {
+import { LayoutRoot } from "../layout";
+
+export type ServicesPageProps = {
+  data: IPageService;
+};
+
+export const ServicesPage: PageComponent<ServicesPageProps> = ({
+  data: { fields }
+}) => {
   return (
     <>
       <HeroImage
@@ -14,4 +23,8 @@ export const PageServices: FC<IPageService> = ({ fields }) => {
       />
     </>
   );
+};
+
+ServicesPage.getPageLayout = function getPageLayout(page) {
+  return <LayoutRoot>{page}</LayoutRoot>;
 };

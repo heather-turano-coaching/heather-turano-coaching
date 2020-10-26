@@ -2,9 +2,8 @@ import {
   Footer,
   FooterSection,
   FooterText
-} from "@heather-turano-coaching/components";
-import { makeColor } from "@heather-turano-coaching/design-system";
-import { FormSubscribe } from "components/feature";
+} from "@heather-turano-coaching/core/components";
+import { makeColor } from "@heather-turano-coaching/core/design-system";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
@@ -56,7 +55,7 @@ export const FooterNav: FC = () => (
       </ul>
     </FooterSection>
     <FooterSection title="Subscribe">
-      <FormSubscribe fieldPrefix="footer" />
+      <div>Aweber form here</div>
     </FooterSection>
   </Footer>
 );

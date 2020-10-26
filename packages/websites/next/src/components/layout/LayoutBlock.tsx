@@ -1,4 +1,4 @@
-import { makeOutset } from "@heather-turano-coaching/design-system";
+import { makeOutset } from "@heather-turano-coaching/core/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
 

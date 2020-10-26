@@ -1,34 +1,37 @@
-import { PageEvents } from "components/feature/events";
-import { Meta, MetaProps } from "components/feature/meta";
-import { IPageEvents, contentfulClient } from "lib/contentful";
+import {
+  EventsPage,
+  EventsPageProps,
+  EventsPageQuery
+} from "components/feature/events";
+import { extractSsrResponse, initApollo } from "lib/apollo";
+import { contentfulClient } from "lib/contentful";
+import { PageComponent } from "lib/page";
 import { GetServerSideProps } from "next";
-import React, { ReactElement } from "react";
 
-export type EventsProps = MetaProps & {
-  data: IPageEvents;
-};
-
-export const getServerSideProps: GetServerSideProps<EventsProps> = async () => {
-  const data = (await contentfulClient.getEntry(
+export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () => {
+  const apolloClient = initApollo<EventsPageProps>();
+  const pageContent = (await contentfulClient.getEntry(
     "6KgBUIkmyA0OzcHn7tjILl"
-  )) as IPageEvents;
+  )) as EventsPageProps["events"];
+
+  await apolloClient.query({
+    query: EventsPageQuery
+  });
+
+  const { ROOT_QUERY } = extractSsrResponse<EventsPageProps>(apolloClient);
 
   return {
     props: {
-      pageTitle: "About",
-      data
+      pageContent,
+      ...ROOT_QUERY
     }
   };
 };
 
-export default function EventsPage({
-  pageTitle,
-  data
-}: EventsProps): ReactElement {
-  return (
-    <>
-      <Meta pageTitle={pageTitle} />
-      <PageEvents {...data} />
-    </>
-  );
-}
+const Page: PageComponent<EventsPageProps> = (props) => {
+  return <EventsPage {...props} />;
+};
+
+Page.getPageLayout = EventsPage.getPageLayout;
+
+export default Page;

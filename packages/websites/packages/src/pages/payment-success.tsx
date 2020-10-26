@@ -2,7 +2,7 @@ import {
   Heading,
   Section,
   Typography
-} from "@heather-turano-coaching/components";
+} from "@heather-turano-coaching/core/components";
 import { SEO } from "@heather-turano-coaching/gatsby";
 import React from "react";
 import styled from "styled-components";

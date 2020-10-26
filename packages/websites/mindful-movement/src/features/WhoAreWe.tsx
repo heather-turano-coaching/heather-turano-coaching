@@ -7,7 +7,7 @@ import {
   makeInset,
   makeOutset,
   makeResponsive
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";

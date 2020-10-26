@@ -22,7 +22,7 @@ ghostApi.interceptors.request.use(
 );
 
 export const ghostFetcher = async <TData>(url: string): Promise<TData> =>
-  ghostApi.get<TData>(url).then(res => res.data);
+  ghostApi.get<TData>(url).then((res) => res.data);
 
 /**
  * Types

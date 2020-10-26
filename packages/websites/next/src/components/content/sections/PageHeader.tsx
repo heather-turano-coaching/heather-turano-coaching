@@ -2,20 +2,18 @@ import {
   Heading,
   Typography,
   makeFlex
-} from "@heather-turano-coaching/components";
-import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
+} from "@heather-turano-coaching/core/components";
 import {
   ColorProperties,
-  ColorScalePosition
-} from "@heather-turano-coaching/design-system";
-import {
+  ColorScalePosition,
   makeColor,
   makeInset,
   makeOutset,
   makeResponsive,
   makeRhythm,
   makeSize
-} from "@heather-turano-coaching/design-system";
+} from "@heather-turano-coaching/core/design-system";
+import { useBreakpoints } from "@heather-turano-coaching/core/hooks";
 import { useLocation } from "@reach/router";
 import Link from "next/link";
 import React, { FC, Fragment, ReactNode } from "react";

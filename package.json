@@ -4,9 +4,19 @@
   "description": "All applications and source code for https://livelifemindful.com",
   "main": "index.js",
   "private": true,
-  "workspaces": [
-    "packages/**"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/**"
+    ],
+    "nohoist": [
+      "**/@prisma/**",
+      "@prisma/**",
+      "**/@nexus/**",
+      "@nexus/**",
+      "graphql/**",
+      "**graphql**/**"
+    ]
+  },
   "scripts": {
     "postinstall": "npm rebuild sharp",
     "clean": "lerna clean --yes && lerna exec -- rimraf lib/ dist/",
@@ -18,37 +28,29 @@
     "compile": "lerna run compile",
     "check": "lerna exec -- npx npm-check-updates",
     "update": "lerna exec -- npx npm-check-updates -u",
-    "format": "prettier --write \"packages/**/*.{js,jsx,json,md,ts,tsx}\"",
+    "format": "prettier --write \"packages/**/src/**/*.{js,jsx,json,md,ts,tsx}\"",
     "test": "jest",
     "prestart": ". .env",
     "lint:fix": "eslint './packages/**/src/**/*.js' --fix",
-    "dev:design-system": "lerna run start --scope=@heather-turano-coaching/design-system --stream",
-    "dev:components": "yarn build:design-system && yarn build:core && cd ./packages/components && yarn start",
-    "dev:components:storybook": "yarn build:design-system && yarn build:core && cd ./packages/components && yarn buildDevUtils && yarn dev:storybook",
-    "dev:website": "yarn build:base && cd packages/websites/website && yarn start",
-    "dev:mindful-movement": "yarn build:base && cd packages/websites/mindful-movement && yarn start",
-    "dev:packages": "yarn build:base && cd packages/websites/packages && yarn start",
-    "dev:domain": "cd packages/domain && yarn start",
+    "dev:core": "lerna run dev --scope=@heather-turano-coaching/core",
     "dev:api": "lerna run dev --scope=@heather-turano-coaching/api --stream",
+    "dev:website": "yarn build:core && lerna run dev --scope=@heather-turano-coaching/website",
+    "dev:mindful-movement": "yarn build:core && cd packages/websites/mindful-movement && yarn start",
+    "dev:packages": "yarn build:core && cd packages/websites/packages && yarn start",
+    "dev:storybook": "yarn build:core && cd ./packages/core && yarn build-storybook",
     "build:core": "lerna run build --scope=@heather-turano-coaching/core",
-    "build:base": "yarn build:core && yarn build:design-system && yarn build:components && yarn build:domain",
-    "build:components": "lerna run build --scope=@heather-turano-coaching/components  --stream",
-    "build:components:storybook": "yarn build:base && lerna run build:storybook --scope=@heather-turano-coaching/components --stream",
-    "build:design-system": "lerna run build --scope=@heather-turano-coaching/design-system --stream",
-    "build:website": "yarn build:base && lerna run build --scope=@heather-turano-coaching/website --stream",
-    "build:mindful-movement": "yarn build:base && lerna run build --scope=@heather-turano-coaching/mindful-movement --stream",
-    "build:packages": "yarn build:base && lerna run build --scope=@heather-turano-coaching/packages --stream",
-    "build:domain": "lerna run build --scope=@heather-turano-coaching/domain --stream",
+    "build:mindful-movement": "yarn build:core && lerna run build --scope=@heather-turano-coaching/mindful-movement --stream",
+    "build:packages": "yarn build:core && lerna run build --scope=@heather-turano-coaching/packages --stream",
     "build:api": "cd packages/api && yarn build",
-    "build:website:dev": "yarn build:base && cd packages/websites/next && yarn build",
-    "build:website:prod": "yarn build:base && cd packages/websites/next && yarn next export",
+    "build:website:dev": "yarn build:core && cd packages/websites/next && yarn build",
+    "build:website:prod": "yarn build:core && cd packages/websites/next && yarn next export",
     "start:website:dev": "cd packages/websites/next && yarn start",
     "start:api": "lerna run start --scope=@heather-turano-coaching/api --stream",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "generate:api": "lerna run generate --scope=@heather-turano-coaching/api --stream",
+    "generate:domain": "lerna run generate --scope=@heather-turano-coaching/domain --stream",
     "create-migration": "cd packages/api && yarn migrate -- ",
-    "run-migrations": "cd packages/api && yarn migrate:up"
+    "run-migrations": "cd packages/api && yarn migrate:up",
+    "generate": "graphql-codegen --config codegen.yml"
   },
   "repository": {
     "type": "git",
@@ -64,12 +66,16 @@
     "turano"
   ],
   "resolutions": {
-    "graphql": "14.6.0"
+    "graphql": "14.7.0",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0"
   },
   "author": "Drew DeCarme (drew@imaginedelements.com)",
   "license": "ISC",
   "devDependencies": {
     "lerna": "3.22.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "styled-components": "^5.2.0"
+  }
 }

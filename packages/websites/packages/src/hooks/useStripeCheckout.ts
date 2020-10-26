@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { HTCPackagePrice } from "@heather-turano-coaching/components";
+import { HTCPackagePrice } from "@heather-turano-coaching/core/components";
 import { loadStripe } from "@stripe/stripe-js";
 import { navigate } from "gatsby";
 import { useCallback, useEffect, useState } from "react";

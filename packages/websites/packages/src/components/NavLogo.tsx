@@ -1,4 +1,4 @@
-import { makeFlex } from "@heather-turano-coaching/components";
+import { makeFlex } from "@heather-turano-coaching/core/components";
 import React, { FC, memo } from "react";
 import styled from "styled-components";
 

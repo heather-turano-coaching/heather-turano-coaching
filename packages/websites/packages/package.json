@@ -6,9 +6,7 @@
   "author": "Drew DeCarme (dre@imaginedelements.com)",
   "dependencies": {
     "@apollo/client": "^3.0.0-beta.50",
-    "@heather-turano-coaching/components": "^0.5.0",
     "@heather-turano-coaching/core": "^0.0.1",
-    "@heather-turano-coaching/design-system": "^0.2.5",
     "@heather-turano-coaching/documents": "^1.0.0",
     "@heather-turano-coaching/eslint-config": "^0.0.1",
     "@heather-turano-coaching/gatsby": "^1.0.0",
@@ -26,17 +24,16 @@
     "gatsby-source-stripe": "^3.0.7",
     "gatsby-transformer-remark": "^2.8.17",
     "gatsby-transformer-sharp": "^2.5.3",
-    "graphql": "^14.6.0",
+    "graphql": "^14.7.0",
     "isomorphic-fetch": "^2.2.1",
     "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-helmet": "^6.0.0",
     "react-hook-form": "^5.7.2",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
-    "@heather-turano-coaching/domain": "^1.1.0",
     "@heather-turano-coaching/typescript": "^0.2.1",
     "@types/stripe": "^7.13.23",
     "typescript": "3.9.3"

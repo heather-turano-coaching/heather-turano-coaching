@@ -1,18 +1,12 @@
-import { PageAbout } from "components/feature/about";
-import { Meta, MetaProps } from "components/feature/meta";
+import { AboutPage, AboutPageProps } from "components/feature/about";
 import { contentfulClient } from "lib/contentful";
-import { IPageAbout } from "lib/contentful";
+import { PageComponent } from "lib/page";
 import { GetServerSideProps } from "next";
-import { ReactElement } from "react";
-
-export type AboutPageProps = MetaProps & {
-  data: IPageAbout;
-};
 
 export const getServerSideProps: GetServerSideProps<AboutPageProps> = async () => {
   const data = (await contentfulClient.getEntry(
     "1d8Op07qxu9UPPUEYdDcbE"
-  )) as IPageAbout;
+  )) as AboutPageProps["data"];
 
   return {
     props: {
@@ -22,14 +16,10 @@ export const getServerSideProps: GetServerSideProps<AboutPageProps> = async () =
   };
 };
 
-export default function AboutPage({
-  pageTitle,
-  data
-}: AboutPageProps): ReactElement {
-  return (
-    <>
-      <Meta pageTitle={pageTitle} />
-      <PageAbout {...data} />
-    </>
-  );
-}
+const Page: PageComponent<AboutPageProps> = (props) => {
+  return <AboutPage {...props} />;
+};
+
+Page.getPageLayout = AboutPage.getPageLayout;
+
+export default Page;

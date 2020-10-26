@@ -1,7 +1,0 @@
-@import "src/styles/scss/index";
-
-@each $color-key, $value in $colors {
-  :global(.#{$color-key}) {
-    color: $value;
-  }
-}

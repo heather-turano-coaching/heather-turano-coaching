@@ -1,10 +1,12 @@
 import { Theme } from "@material-ui/core";
-import { PaletteColor } from "@material-ui/core/styles/createPalette";
+import { SimplePaletteColorOptions } from "@material-ui/core/styles/createPalette";
 
 interface ExtraPalette {
-  noir: PaletteColor;
-  light: PaletteColor;
-  accent: PaletteColor;
+  primary: SimplePaletteColorOptions;
+  secondary: SimplePaletteColorOptions;
+  noir: SimplePaletteColorOptions;
+  light: SimplePaletteColorOptions;
+  accent: SimplePaletteColorOptions;
 }
 
 declare module "@material-ui/core/styles/createPalette" {
@@ -22,3 +24,11 @@ declare module "styled-components" {
     palette: Theme["palette"] & ExtraPalette;
   }
 }
+
+export type FontWeights =
+  | "light"
+  | "regular"
+  | "semiBold"
+  | "bold"
+  | "extraBold"
+  | "black";

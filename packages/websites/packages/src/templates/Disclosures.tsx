@@ -1,4 +1,8 @@
-import { Content, Heading, Section } from "@heather-turano-coaching/components";
+import {
+  Content,
+  Heading,
+  Section
+} from "@heather-turano-coaching/core/components";
 import { SEO } from "@heather-turano-coaching/gatsby";
 import { graphql } from "gatsby";
 import React, { FC } from "react";

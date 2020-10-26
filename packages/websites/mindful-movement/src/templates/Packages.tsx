@@ -8,7 +8,7 @@ import {
   Typography,
   makeFlex
 } from "@heather-turano-coaching/components";
-import { makeResponsive } from "@heather-turano-coaching/design-system";
+import { makeResponsive } from "@heather-turano-coaching/core/design-system";
 import { navigate } from "@reach/router";
 import { loadStripe } from "@stripe/stripe-js";
 import React, { FC, useCallback, useEffect, useMemo, useState } from "react";

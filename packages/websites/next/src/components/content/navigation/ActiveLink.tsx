@@ -2,9 +2,11 @@ import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 import React, { Children, FC, ReactElement } from "react";
 
-export const ActiveLink: FC<LinkProps & {
-  children: ReactElement<HTMLAnchorElement>;
-}> = ({ children, ...props }) => {
+export const ActiveLink: FC<
+  LinkProps & {
+    children: ReactElement<HTMLAnchorElement>;
+  }
+> = ({ children, ...props }) => {
   const { asPath } = useRouter();
   const child = Children.only(children);
 

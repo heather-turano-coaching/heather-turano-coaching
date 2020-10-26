@@ -1,16 +1,16 @@
 services:
   # Design System
-  - type: web
-    name: Design System
-    env: static
-    branch: master
-    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: yarn build:components:storybook
-    staticPublishPath: ./packages/components/storybook-static
-    domains:
-      - design.heatherturanocoaching.com
-    envVars:
-      - fromGroup: htc-npm
+  # - type: web
+  #   name: Design System
+  #   env: static
+  #   branch: master
+  #   repo: https://github.com/heather-turano-coaching/heather-turano-coaching
+  #   buildCommand: yarn build:components:storybook
+  #   staticPublishPath: ./packages/components/storybook-static
+  #   domains:
+  #     - design.heatherturanocoaching.com
+  #   envVars:
+  #     - fromGroup: htc-npm
 
   # Websites
   # - type: web
@@ -81,9 +81,8 @@ services:
     env: node
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    # buildCommand: yarn && yarn build:api
-    # Need to do this until there is a resolution on https://github.com/graphql-nexus/nexus/issues/1350
-    startCommand: yarn serve:api
+    buildCommand: yarn build
+    startCommand: yarn start
     domains:
       - api.heatherturanocoaching.com
     envVars:
@@ -127,37 +126,7 @@ services:
       - key: mail__options__auth__pass
         sync: false
 
-  - type: web
-    name: Commento
-    env: docker
-    dockerfilePath: ./commento/Dockerfile
-    dockerContext: ./commento
-    branch: master
-    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    domains:
-      - community.heatherturanocoaching.com
-    envVars:
-      - key: COMMENTO_ORIGIN
-        value: https://community.heatherturanocoaching.com
-      - key: COMMENTO_SMTP_HOST
-        value: smtp.mailgun.org
-      - key: COMMENTO_SMTP_PORT
-        value: 587
-      - key: COMMENTO_SMTP_USERNAME
-        value: comments@mail.heatherturanocoaching.com
-      - key: COMMENTO_SMTP_FROM_ADDRESS
-        value: no-reply@heatherturanocoaching.com
-      - key: COMMENTO_SMTP_PASSWORD
-        sync: false
-      - key: COMMENTO_POSTGRES
-        fromDatabase:
-          name: htc-commento-db-prod
-          property: connectionString
-
 databases:
-  - name: htc-commento-db-prod
-    databaseName: htc_commento_db_prod
-    user: admin_prod
   - name: htc-db
     databaseName: htc_db
     user: admin

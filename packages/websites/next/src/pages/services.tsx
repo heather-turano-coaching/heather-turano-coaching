@@ -1,17 +1,13 @@
-import { Meta, MetaProps } from "components/feature/meta";
-import { PageServices } from "components/feature/services";
+import { ServicesPage, ServicesPageProps } from "components/feature/services";
 import { contentfulClient } from "lib/contentful";
-import { IPageService } from "lib/contentful";
+import { PageComponent } from "lib/page";
 import { GetServerSideProps } from "next";
+import React from "react";
 
-export type ServicePageProps = MetaProps & {
-  data: IPageService;
-};
-
-export const getServerSideProps: GetServerSideProps<ServicePageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<ServicesPageProps> = async () => {
   const data = (await contentfulClient.getEntry(
     "4E3pUa1xi3PTgVN5JocekM"
-  )) as IPageService;
+  )) as ServicesPageProps["data"];
 
   return {
     props: {
@@ -21,11 +17,10 @@ export const getServerSideProps: GetServerSideProps<ServicePageProps> = async ()
   };
 };
 
-export default function ServicesPage({ pageTitle, data }: ServicePageProps) {
-  return (
-    <>
-      <Meta pageTitle={pageTitle} />
-      <PageServices {...data} />
-    </>
-  );
-}
+const Page: PageComponent<ServicesPageProps> = (props) => {
+  return <ServicesPage {...props} />;
+};
+
+Page.getPageLayout = ServicesPage.getPageLayout;
+
+export default Page;

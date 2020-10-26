@@ -4,19 +4,12 @@
     {
       "tag": "CreateEnum",
       "enum": "Role",
-      "values": [
-        "USER",
-        "ADMIN"
-      ]
+      "values": ["USER", "ADMIN"]
     },
     {
       "tag": "CreateEnum",
       "enum": "AccountStatus",
-      "values": [
-        "CONFIRMED",
-        "RESET_PASSWORD",
-        "CONFIRM_EMAIL"
-      ]
+      "values": ["CONFIRMED", "RESET_PASSWORD", "CONFIRM_EMAIL"]
     },
     {
       "tag": "CreateSource",

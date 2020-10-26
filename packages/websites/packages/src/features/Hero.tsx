@@ -1,4 +1,4 @@
-import { Image } from "@heather-turano-coaching/components";
+import { Image } from "@heather-turano-coaching/core/components";
 import { graphql, useStaticQuery } from "gatsby";
 import { FC, memo } from "react";
 import React from "react";

@@ -1,7 +1,9 @@
 import { Theme } from "@material-ui/core";
 import { CSSObject, DefaultTheme } from "styled-components";
 
-import { baseFontSize } from "./theme.config";
+import { baseFontSize } from "./theme.config.base";
+import { fontWeightValues } from "./theme.fonts";
+import { FontWeights } from "./theme.types";
 
 type MakeFlex = (params: {
   direction?: CSSObject["flexDirection"];
@@ -30,6 +32,14 @@ export const makeFlex: MakeFlex = ({
  */
 export const makeRem = (sizeInPixels: number): string =>
   `${sizeInPixels / baseFontSize}rem`;
+
+/**
+ * Returns the number font weight associated with
+ * the semantic name
+ *
+ */
+export const makeFontWeight = (weight: FontWeights): number =>
+  fontWeightValues[weight];
 
 /**
  * Creates a valid media query string that can be interpolated

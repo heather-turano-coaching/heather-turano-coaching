@@ -1,26 +1,19 @@
 {
   "extends": "@heather-turano-coaching/typescript/tsconfig.json",
-  "include": [
-    "types.d.ts",
-    "graphql",
-    "graphql/**/*.ts",
-    ".eslintrc.js",
-    ".",
-    "tests"
-  ],
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "lib": ["esnext"],
-    "rootDir": ".",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "target": "ES2015",
+    "module": "CommonJS",
+    "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,
-    "plugins": [{ "name": "nexus/typescript-language-service" }],
-    "typeRoots": [
-      "node_modules/@types",
-      "types",
-      "types.d.ts",
-      "../../node_modules/@types"
-    ]
-  }
+    "noEmit": true
+  },
+  "typeRoots": [
+    "node_modules/@types",
+    "types",
+    "types.d.ts",
+    "../../node_modules/@types",
+    "model"
+  ]
 }

@@ -42,6 +42,7 @@ module.exports = {
       "warn",
       { allowTypedFunctionExpressions: true, allowExpressions: true }
     ],
+    // note you must disable the base rule as it can report incorrect errors
     "react/jsx-filename-extension": ["error", { extensions: [".tsx"] }],
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/no-useless-constructor": "error",
@@ -54,6 +55,7 @@ module.exports = {
       "warn",
       { argsIgnorePattern: "^_", ignoreRestSiblings: true }
     ],
+    "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error", { functions: false }],
     // React Rules
     "react-hooks/rules-of-hooks": "error",
