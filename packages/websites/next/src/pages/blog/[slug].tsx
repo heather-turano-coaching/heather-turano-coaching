@@ -9,20 +9,27 @@ import { PageComponent } from "lib/page";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 
-export const getStaticProps: GetStaticProps<BlogPostPageProps> = async (
-  context
-) => {
-  const slug = context.params.slug as string;
+export const getStaticProps: GetStaticProps<BlogPostPageProps> = async ({
+  params
+}) => {
+  const slug = params.slug as string;
 
-  const post = await ghostFetcher<GetSingleGhostPostBySlug>(
-    getSingleGhostPostBySlugEndpoint(slug)
-  );
+  try {
+    const post = await ghostFetcher<
+      GetSingleGhostPostBySlug & { slug: string }
+    >(getSingleGhostPostBySlugEndpoint(slug));
 
-  return {
-    props: {
-      post: post.posts[0]
-    }
-  };
+    return {
+      props: {
+        slug,
+        post: post.posts[0]
+      }
+    };
+  } catch {
+    throw new Error(
+      `There was an issue in retrieving the post at slug: "${slug}"`
+    );
+  }
 };
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
@@ -36,10 +43,12 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   );
 
   return {
-    fallback: true,
-    paths: allSlugs.posts.map((slug) => ({
-      params: slug
-    }))
+    paths: allSlugs.posts.map((post) => ({
+      params: {
+        slug: post.slug
+      }
+    })),
+    fallback: false
   };
 };
 

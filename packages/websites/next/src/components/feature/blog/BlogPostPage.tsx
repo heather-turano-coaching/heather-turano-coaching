@@ -132,17 +132,18 @@ const StyledContent = styled.div`
 
 export type BlogPostPageProps = {
   post: PostOrPage;
+  slug: string;
 };
 
-export const BlogPostPage: PageComponent<BlogPostPageProps> = ({ post }) => {
+export const BlogPostPage: PageComponent<BlogPostPageProps> = (props) => {
   const {
     data: {
       posts: [localPost]
     }
   } = useSWR<GetSingleGhostPostBySlug>(
-    getSingleGhostPostBySlugEndpoint(post.slug),
+    getSingleGhostPostBySlugEndpoint(props.post.slug),
     ghostFetcher,
-    { initialData: { posts: [post] } }
+    { initialData: { posts: [props.post] } }
   );
 
   if (!localPost.published_at) {
