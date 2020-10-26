@@ -65,8 +65,6 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
 }) => {
   const aggregatedEvents = aggregateListByDay(events.events, "start.local");
 
-  console.log(aggregatedEvents);
-
   return (
     <div>
       <Meta pageTitle="Events" />

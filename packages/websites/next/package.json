@@ -6,7 +6,7 @@
     "dev": "yarn generate-types && next dev",
     "build": "yarn generate-types && next build",
     "start": "next start",
-    "generate-types": "contentful-typescript-codegen --output ./src/lib/contentful.model.ts"
+    "generate-types": "contentful-typescript-codegen --output ./src/lib/contentful/contentful.model.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
