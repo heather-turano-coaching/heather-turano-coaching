@@ -12,6 +12,8 @@ services:
     envVars:
       - fromGroup: htc-npm
       - fromGroup: htc-ghost
+      - fromGroup: htc-api
+      - fromGroup: htc-contentful
       - fromGroup: htc-stripe
 
   - type: web
@@ -56,6 +58,8 @@ services:
       - api.heatherturanocoaching.com
     envVars:
       - fromGroup: htc-npm
+      - fromGroup: htc-api
+      - fromGroup: htc-eventbrite
       - fromGroup: htc-stripe
       - key: HTC_DB_CONNECTION_STRING
         fromDatabase:
@@ -101,6 +105,24 @@ databases:
     user: admin
 
 envVarGroups:
+  - name: htc-api
+    envVars:
+      - key: HTC_MINDFUL_MOVEMENT_REDIRECT_ROOT_URL
+        sync: false
+      - key: HTC_API_HOSTNAME
+        sync: false
+  - name: htc-eventbrite
+    envVars:
+      - key: HTC_EVENTBRITE_API_KEY
+        sync: false
+      - key: HTC_EVENTBRITE_CLIENT_SECRET
+        sync: false
+      - key: HTC_EVENTBRITE_PRIVATE_TOKEN
+        sync: false
+      - key: HTC_EVENTBRITE_PUBLIC_TOKEN
+        sync: false
+      - key: HTC_EVENTBRITE_ORG_ID
+        sync: false
   - name: htc-ghost
     envVars:
       - key: GHOST_API_URL
@@ -123,7 +145,14 @@ envVarGroups:
         sync: false
       - key: CONTENTFUL_HTC_MANAGEMENT_API_ACCESS_TOKEN
         sync: false
-      - key: CONTENTFUL_HTC_ENVIRONMENT
+      # new
+      - key: HTC_CONTENTFUL_SPACE_ID
+        sync: false
+      - key: HTC_CONTENTFUL_ACCESS_TOKEN
+        sync: false
+      - key: HTC_CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN
+        sync: false
+      - key: HTC_CONTENTFUL_ENVIRONMENT
         sync: false
   - name: htc-npm
     envVars:
