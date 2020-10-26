@@ -1,7 +1,7 @@
 import { createClient } from "contentful";
 
+import { throwError } from "../utils";
 import { IPageBlog } from "./contentful";
-import { throwError } from "./utils";
 
 export const contentfulClient = createClient({
   space: process.env.CONTENTFUL_HTC_SPACE_ID,
