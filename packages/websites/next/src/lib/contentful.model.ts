@@ -3,132 +3,6 @@
 import { Asset, Entry } from "contentful";
 import { Document } from "@contentful/rich-text-types";
 
-export interface IBlockFields {
-  /** title */
-  title?: string | undefined;
-
-  /** content */
-  content?: Entry<{ [fieldId: string]: unknown }> | undefined;
-}
-
-/** general content type for blocks on the dashboard */
-
-export interface IBlock extends Entry<IBlockFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "block";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IBlockInspirationFields {
-  /** name */
-  name?: string | undefined;
-
-  /** picture */
-  picture: Asset[];
-}
-
-/** daily inspiration block */
-
-export interface IBlockInspiration extends Entry<IBlockInspirationFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "blockInspiration";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IBlockSubscribeFields {
-  /** contentTitle */
-  contentTitle?: string | undefined;
-
-  /** description */
-  description?: string | undefined;
-
-  /** namePlaceholder */
-  namePlaceholder?: string | undefined;
-
-  /** emailPlaceholder */
-  emailPlaceholder?: string | undefined;
-
-  /** submitText */
-  submitText?: string | undefined;
-}
-
-/** content for the subscription block */
-
-export interface IBlockSubscribe extends Entry<IBlockSubscribeFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "blockSubscribe";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
-export interface IBlogWelcomeBannerFields {
-  /** Title */
-  title: string;
-
-  /** Sub-title */
-  subTitle: string;
-
-  /** Description */
-  description: string;
-
-  /** Description Mobile Prompt */
-  descriptionMobilePrompt: string;
-
-  /** Description Desktop Prompt */
-  descriptionDesktopPrompt: string;
-}
-
-/** Welcome banner for the blog */
-
-export interface IBlogWelcomeBanner extends Entry<IBlogWelcomeBannerFields> {
-  sys: {
-    id: string;
-    type: string;
-    createdAt: string;
-    updatedAt: string;
-    locale: string;
-    contentType: {
-      sys: {
-        id: "blogWelcomeBanner";
-        linkType: "ContentType";
-        type: "Link";
-      };
-    };
-  };
-}
-
 export interface ICertificationFields {
   /** Contentful Title */
   contentfulTitle?: string | undefined;
@@ -152,6 +26,45 @@ export interface ICertification extends Entry<ICertificationFields> {
     contentType: {
       sys: {
         id: "certification";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IHeroFields {
+  /** System ID */
+  systemId: string;
+
+  /** Title */
+  title: string;
+
+  /** Sub-title */
+  subTitle: string;
+
+  /** Image */
+  image: Asset;
+
+  /** Image Alt */
+  imageAlt: string;
+
+  /** Type */
+  type: "plain" | "split-horizontal" | "offset-vertical";
+}
+
+/** A hero is the first part of a page that contains an image, a style, a title, subtitle. It should only be used once on each page */
+
+export interface IHero extends Entry<IHeroFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "hero";
         linkType: "ContentType";
         type: "Link";
       };
@@ -817,11 +730,8 @@ export interface ITestimonials extends Entry<ITestimonialsFields> {
 }
 
 export type CONTENT_TYPE =
-  | "block"
-  | "blockInspiration"
-  | "blockSubscribe"
-  | "blogWelcomeBanner"
   | "certification"
+  | "hero"
   | "oneHundredDays"
   | "page"
   | "pageAbout"

@@ -129,9 +129,9 @@ export const EventCard: FC<EventCardProps> = (props) => {
         `}
       >
         <Group>
-          <Button variant="text" color="primary" size="medium">
+          {/* <Button variant="text" color="primary" size="medium">
             Learn more
-          </Button>
+          </Button> */}
           <Button
             variant="contained"
             color="primary"
