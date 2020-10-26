@@ -3,6 +3,7 @@
   "description": "The Heather Turano Coaching NodeJS GraphQL API for all HTC applications",
   "license": "Apache-2.0",
   "version": "0.0.0",
+  "main": "src/app.js",
   "dependencies": {
     "@nexus/schema": "^0.16.0",
     "@prisma/client": "^2.9.0",
@@ -27,16 +28,16 @@
     "format": "npx prettier --write './**/*.{ts,md}'",
     "dev": "yarn prisma:generate && ts-node-dev --transpile-only ./src/app",
     "dev:typecheck": "tsc --noEmit --watch",
-    "nexus:reflect": "ts-node --transpile-only src/schema",
-    "build": "ts-node ./src/app",
+    "nexus:reflect": "ts-node src/schema",
+    "build": "yarn nexus:reflect && tsc",
     "prisma:env": ". ../../.env",
     "prisma:create-migration": "yarn prisma:env && prisma migrate save",
     "prisma:migrate": "yarn prisma:env && prisma migrate up && yarn generate",
     "prisma:generate": "yarn prisma:env && prisma generate",
+    "start": "ts-node ./src/app.ts",
     "seed": "ts-node prisma/seed.ts",
     "test": "jest"
   },
-  "type": "module",
   "devDependencies": {
     "@heather-turano-coaching/eslint-config": "^0.0.1",
     "@heather-turano-coaching/typescript": "^0.2.1",
@@ -58,7 +59,6 @@
     "ts-node-dev": "^1.0.0",
     "typescript": "^4.0.3"
   },
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/heather-turano-coaching/heather-turano-coaching.git"

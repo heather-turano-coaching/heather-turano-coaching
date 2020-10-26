@@ -99,6 +99,7 @@ export const EventsType = objectType({
   definition(t) {
     t.field("pagination", { type: "Pagination" });
     t.field("events", { type: "Event", list: true });
+    t.field("jack", { type: "Event", list: true });
   }
 });
 

@@ -34,7 +34,7 @@ export const schema = makeSchema({
     contextType: "ContextModule.Context"
   },
   outputs: {
-    typegen: path.resolve(__dirname, "../model/nexus.d.ts"),
+    typegen: path.resolve(__dirname, "../model/index.d.ts"),
     schema: path.resolve(__dirname, "../api.graphql")
   },
   plugins: [

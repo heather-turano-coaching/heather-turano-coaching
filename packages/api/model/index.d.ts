@@ -3,12 +3,14 @@
  * Do not make changes to this file directly
  */
 
-import * as ContextModule from "../src/app.context";
+import * as ContextModule from "../src/app.context"
+
+
 
 declare global {
   interface NexusGenCustomOutputProperties<TypeName extends string> {
-    crud: NexusPrisma<TypeName, "crud">;
-    model: NexusPrisma<TypeName, "model">;
+    crud: NexusPrisma<TypeName, 'crud'>
+    model: NexusPrisma<TypeName, 'model'>
   }
 }
 
@@ -16,200 +18,220 @@ declare global {
   interface NexusGen extends NexusGenTypes {}
 }
 
-export interface NexusGenInputs {}
+export interface NexusGenInputs {
+}
 
-export interface NexusGenEnums {}
+export interface NexusGenEnums {
+}
 
 export interface NexusGenScalars {
-  String: string;
-  Int: number;
-  Float: number;
-  Boolean: boolean;
-  ID: string;
+  String: string
+  Int: number
+  Float: number
+  Boolean: boolean
+  ID: string
 }
 
 export interface NexusGenRootTypes {
-  DatetimeTZ: {
-    // root type
+  CropMask: { // root type
+    height?: number | null; // Int
+    top_left?: NexusGenRootTypes['XYCoordinates'] | null; // XYCoordinates
+    width?: number | null; // Int
+  }
+  DatetimeTZ: { // root type
     local?: string | null; // String
     start?: string | null; // String
     utc?: string | null; // String
-  };
-  Event: {
-    // root type
+  }
+  Event: { // root type
     changed?: string | null; // String
     created?: string | null; // String
     description?: string | null; // String
-    end?: NexusGenRootTypes["DatetimeTZ"] | null; // DatetimeTZ
-    name?: NexusGenRootTypes["MultipartText"] | null; // MultipartText
+    end?: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
+    is_free?: boolean | null; // Boolean
+    logo?: NexusGenRootTypes['EventLogo'] | null; // EventLogo
+    name?: NexusGenRootTypes['MultipartText'] | null; // MultipartText
     published?: string | null; // String
-    start?: NexusGenRootTypes["DatetimeTZ"] | null; // DatetimeTZ
+    start?: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
     summary?: string | null; // String
     url?: string | null; // String
-  };
-  Events: {
-    // root type
-    list?: Array<NexusGenRootTypes["Event"] | null> | null; // [Event]
-    pagination?: NexusGenRootTypes["Pagination"] | null; // Pagination
-  };
-  Message: {
-    // root type
+  }
+  EventLogo: { // root type
+    aspect_ratio?: string | null; // String
+    crop_mask?: NexusGenRootTypes['CropMask'] | null; // CropMask
+    edge_color?: string | null; // String
+    edge_color_set?: string | null; // String
+    id?: string | null; // String
+    original?: NexusGenRootTypes['OriginalImg'] | null; // OriginalImg
+    url?: string | null; // String
+  }
+  Events: { // root type
+    events?: Array<NexusGenRootTypes['Event'] | null> | null; // [Event]
+    jack?: Array<NexusGenRootTypes['Event'] | null> | null; // [Event]
+    pagination?: NexusGenRootTypes['Pagination'] | null; // Pagination
+  }
+  Message: { // root type
     message?: string | null; // String
-  };
-  MultipartText: {
-    // root type
+  }
+  MultipartText: { // root type
     html?: string | null; // String
     text?: string | null; // String
-  };
+  }
   Mutation: {};
-  Pagination: {
-    // root type
+  OriginalImg: { // root type
+    height?: string | null; // String
+    url?: string | null; // String
+    width?: string | null; // String
+  }
+  Pagination: { // root type
     has_more_items?: boolean | null; // Boolean
     object_count?: number | null; // Int
     page_count?: number | null; // Int
     page_number?: number | null; // Int
     page_size?: number | null; // Int
-  };
+  }
   Query: {};
-  StripeCheckoutSession: {
-    // root type
+  StripeCheckoutSession: { // root type
     id?: string | null; // String
-  };
+  }
+  XYCoordinates: { // root type
+    x?: string | null; // String
+    y?: string | null; // String
+  }
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
-  String: NexusGenScalars["String"];
-  Int: NexusGenScalars["Int"];
-  Float: NexusGenScalars["Float"];
-  Boolean: NexusGenScalars["Boolean"];
-  ID: NexusGenScalars["ID"];
+  String: NexusGenScalars['String'];
+  Int: NexusGenScalars['Int'];
+  Float: NexusGenScalars['Float'];
+  Boolean: NexusGenScalars['Boolean'];
+  ID: NexusGenScalars['ID'];
 }
 
 export interface NexusGenFieldTypes {
-  DatetimeTZ: {
-    // field return type
+  CropMask: { // field return type
+    height: number | null; // Int
+    top_left: NexusGenRootTypes['XYCoordinates'] | null; // XYCoordinates
+    width: number | null; // Int
+  }
+  DatetimeTZ: { // field return type
     local: string | null; // String
     start: string | null; // String
     utc: string | null; // String
-  };
-  Event: {
-    // field return type
+  }
+  Event: { // field return type
     changed: string | null; // String
     created: string | null; // String
     description: string | null; // String
-    end: NexusGenRootTypes["DatetimeTZ"] | null; // DatetimeTZ
-    name: NexusGenRootTypes["MultipartText"] | null; // MultipartText
+    end: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
+    is_free: boolean | null; // Boolean
+    logo: NexusGenRootTypes['EventLogo'] | null; // EventLogo
+    name: NexusGenRootTypes['MultipartText'] | null; // MultipartText
     published: string | null; // String
-    start: NexusGenRootTypes["DatetimeTZ"] | null; // DatetimeTZ
+    start: NexusGenRootTypes['DatetimeTZ'] | null; // DatetimeTZ
     summary: string | null; // String
     url: string | null; // String
-  };
-  Events: {
-    // field return type
-    list: Array<NexusGenRootTypes["Event"] | null> | null; // [Event]
-    pagination: NexusGenRootTypes["Pagination"] | null; // Pagination
-  };
-  Message: {
-    // field return type
+  }
+  EventLogo: { // field return type
+    aspect_ratio: string | null; // String
+    crop_mask: NexusGenRootTypes['CropMask'] | null; // CropMask
+    edge_color: string | null; // String
+    edge_color_set: string | null; // String
+    id: string | null; // String
+    original: NexusGenRootTypes['OriginalImg'] | null; // OriginalImg
+    url: string | null; // String
+  }
+  Events: { // field return type
+    events: Array<NexusGenRootTypes['Event'] | null> | null; // [Event]
+    jack: Array<NexusGenRootTypes['Event'] | null> | null; // [Event]
+    pagination: NexusGenRootTypes['Pagination'] | null; // Pagination
+  }
+  Message: { // field return type
     message: string | null; // String
-  };
-  MultipartText: {
-    // field return type
+  }
+  MultipartText: { // field return type
     html: string | null; // String
     text: string | null; // String
-  };
-  Mutation: {
-    // field return type
-    checkoutHeatherTuranoCoaching:
-      | NexusGenRootTypes["StripeCheckoutSession"]
-      | null; // StripeCheckoutSession
-    checkoutMindfulMovement: NexusGenRootTypes["StripeCheckoutSession"] | null; // StripeCheckoutSession
-    confirmEmail: NexusGenRootTypes["Message"] | null; // Message
-    forgotPassword: NexusGenRootTypes["Message"] | null; // Message
-    resetPassword: NexusGenRootTypes["Message"] | null; // Message
+  }
+  Mutation: { // field return type
+    checkoutHeatherTuranoCoaching: NexusGenRootTypes['StripeCheckoutSession'] | null; // StripeCheckoutSession
+    checkoutMindfulMovement: NexusGenRootTypes['StripeCheckoutSession'] | null; // StripeCheckoutSession
+    confirmEmail: NexusGenRootTypes['Message'] | null; // Message
+    forgotPassword: NexusGenRootTypes['Message'] | null; // Message
+    resetPassword: NexusGenRootTypes['Message'] | null; // Message
     signIn: boolean | null; // Boolean
-    signUp: NexusGenRootTypes["Message"] | null; // Message
+    signUp: NexusGenRootTypes['Message'] | null; // Message
     verifyResetPasswordToken: boolean | null; // Boolean
-  };
-  Pagination: {
-    // field return type
+  }
+  OriginalImg: { // field return type
+    height: string | null; // String
+    url: string | null; // String
+    width: string | null; // String
+  }
+  Pagination: { // field return type
     has_more_items: boolean | null; // Boolean
     object_count: number | null; // Int
     page_count: number | null; // Int
     page_number: number | null; // Int
     page_size: number | null; // Int
-  };
-  Query: {
-    // field return type
-    events: NexusGenRootTypes["Events"] | null; // Events
-  };
-  StripeCheckoutSession: {
-    // field return type
+  }
+  Query: { // field return type
+    events: NexusGenRootTypes['Events'] | null; // Events
+  }
+  StripeCheckoutSession: { // field return type
     id: string | null; // String
-  };
+  }
+  XYCoordinates: { // field return type
+    x: string | null; // String
+    y: string | null; // String
+  }
 }
 
 export interface NexusGenArgTypes {
   Mutation: {
-    checkoutHeatherTuranoCoaching: {
-      // args
+    checkoutHeatherTuranoCoaching: { // args
       priceId: string; // String!
-    };
-    checkoutMindfulMovement: {
-      // args
+    }
+    checkoutMindfulMovement: { // args
       priceId: string; // String!
-    };
-    confirmEmail: {
-      // args
+    }
+    confirmEmail: { // args
       emailAddress: string; // String!
       token: string; // String!
-    };
-    forgotPassword: {
-      // args
+    }
+    forgotPassword: { // args
       emailAddress: string; // String!
-    };
-    resetPassword: {
-      // args
+    }
+    resetPassword: { // args
       emailAddress: string; // String!
       password: string; // String!
       repeatPassword: string; // String!
       token: string; // String!
-    };
-    signIn: {
-      // args
+    }
+    signIn: { // args
       emailAddress: string; // String!
       password: string; // String!
-    };
-    signUp: {
-      // args
+    }
+    signUp: { // args
       emailAddress: string; // String!
       firstName: string; // String!
       lastName: string; // String!
       password: string; // String!
       repeatPassword: string; // String!
-    };
-    verifyResetPasswordToken: {
-      // args
+    }
+    verifyResetPasswordToken: { // args
       emailAddress: string; // String!
       token: string; // String!
-    };
-  };
+    }
+  }
 }
 
-export interface NexusGenAbstractResolveReturnTypes {}
+export interface NexusGenAbstractResolveReturnTypes {
+}
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames =
-  | "DatetimeTZ"
-  | "Event"
-  | "Events"
-  | "Message"
-  | "MultipartText"
-  | "Mutation"
-  | "Pagination"
-  | "Query"
-  | "StripeCheckoutSession";
+export type NexusGenObjectNames = "CropMask" | "DatetimeTZ" | "Event" | "EventLogo" | "Events" | "Message" | "MultipartText" | "Mutation" | "OriginalImg" | "Pagination" | "Query" | "StripeCheckoutSession" | "XYCoordinates";
 
 export type NexusGenInputNames = never;
 
@@ -235,28 +257,19 @@ export interface NexusGenTypes {
   interfaceNames: NexusGenInterfaceNames;
   scalarNames: NexusGenScalarNames;
   unionNames: NexusGenUnionNames;
-  allInputTypes:
-    | NexusGenTypes["inputNames"]
-    | NexusGenTypes["enumNames"]
-    | NexusGenTypes["scalarNames"];
-  allOutputTypes:
-    | NexusGenTypes["objectNames"]
-    | NexusGenTypes["enumNames"]
-    | NexusGenTypes["unionNames"]
-    | NexusGenTypes["interfaceNames"]
-    | NexusGenTypes["scalarNames"];
-  allNamedTypes:
-    | NexusGenTypes["allInputTypes"]
-    | NexusGenTypes["allOutputTypes"];
-  abstractTypes: NexusGenTypes["interfaceNames"] | NexusGenTypes["unionNames"];
+  allInputTypes: NexusGenTypes['inputNames'] | NexusGenTypes['enumNames'] | NexusGenTypes['scalarNames'];
+  allOutputTypes: NexusGenTypes['objectNames'] | NexusGenTypes['enumNames'] | NexusGenTypes['unionNames'] | NexusGenTypes['interfaceNames'] | NexusGenTypes['scalarNames'];
+  allNamedTypes: NexusGenTypes['allInputTypes'] | NexusGenTypes['allOutputTypes']
+  abstractTypes: NexusGenTypes['interfaceNames'] | NexusGenTypes['unionNames'];
   abstractResolveReturn: NexusGenAbstractResolveReturnTypes;
 }
 
+
 declare global {
-  interface NexusGenPluginTypeConfig<TypeName extends string> {}
-  interface NexusGenPluginFieldConfig<
-    TypeName extends string,
-    FieldName extends string
-  > {}
-  interface NexusGenPluginSchemaConfig {}
+  interface NexusGenPluginTypeConfig<TypeName extends string> {
+  }
+  interface NexusGenPluginFieldConfig<TypeName extends string, FieldName extends string> {
+  }
+  interface NexusGenPluginSchemaConfig {
+  }
 }

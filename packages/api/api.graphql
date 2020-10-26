@@ -40,6 +40,7 @@ type EventLogo {
 
 type Events {
   events: [Event]
+  jack: [Event]
   pagination: Pagination
 }
 
