@@ -45,7 +45,7 @@
     "build:website:dev": "yarn build:core && cd packages/websites/next && yarn build",
     "build:website:prod": "yarn build:core && cd packages/websites/next && yarn next export",
     "start:website:dev": "cd packages/websites/next && yarn start",
-    "start:api": "lerna run start --scope=@heather-turano-coaching/api --stream",
+    "start:api": "cd packages/api && yarn start",
     "generate:api": "lerna run generate --scope=@heather-turano-coaching/api --stream",
     "generate:domain": "lerna run generate --scope=@heather-turano-coaching/domain --stream",
     "create-migration": "cd packages/api && yarn migrate -- ",

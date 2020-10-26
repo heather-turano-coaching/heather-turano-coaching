@@ -25,7 +25,6 @@ services:
   #   envVars:
   #     - fromGroup: htc-npm
   #     - fromGroup: htc-ghost
-  #     - fromGroup: htc-contentful
   #     - fromGroup: htc-stripe
 
   - type: web
@@ -40,7 +39,6 @@ services:
     envVars:
       - fromGroup: htc-npm
       - fromGroup: htc-ghost
-      - fromGroup: htc-contentful
       - fromGroup: htc-stripe
 
   - type: web
@@ -54,7 +52,6 @@ services:
       - mindfulmovement100.com
     envVars:
       - fromGroup: htc-npm
-      - fromGroup: htc-contentful
       - fromGroup: htc-stripe
       - key: GATSBY_HTC_API
         value: https://api.heatherturanocoaching.com/graphql
@@ -70,7 +67,6 @@ services:
       - packages.heatherturanocoaching.com
     envVars:
       - fromGroup: htc-npm
-      - fromGroup: htc-contentful
       - fromGroup: htc-stripe
       - key: GATSBY_HTC_API
         value: https://api.heatherturanocoaching.com/graphql
@@ -81,8 +77,8 @@ services:
     env: node
     branch: master
     repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: yarn build
-    startCommand: yarn start
+    buildCommand: yarn build:api
+    startCommand: yarn start:api
     domains:
       - api.heatherturanocoaching.com
     envVars:
