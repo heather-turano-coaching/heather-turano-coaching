@@ -57,13 +57,14 @@ export const getStaticProps: GetStaticProps<DynamicPageProps> = async ({
   const data = await getEntryById<IWebPage>(cache[page]);
   return {
     props: {
+      pageId: cache[page],
       data
     }
   };
 };
 
-const Page: PageComponent<DynamicPageProps> = (props) => {
-  return <DynamicPage {...props} />;
+const Page: PageComponent<DynamicPageProps> = ({ pageId, ...restProps }) => {
+  return <DynamicPage pageId={pageId} {...restProps} />;
 };
 
 Page.getPageLayout = DynamicPage.getPageLayout;

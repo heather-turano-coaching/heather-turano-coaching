@@ -12,40 +12,45 @@
 // import { makeColor } from "@heather-turano-coaching/core/design-system";
 // import { HeroImage } from "components/content/heros";
 // import { TestimonialCarousel } from "components/content/testimonials";
+import { Blocks } from "components/content/blocks";
 import { Hero } from "components/content/heros";
-import { IWebPage } from "lib/contentful";
+import { IWebPage, getEntryById } from "lib/contentful";
 import { PageComponent } from "lib/page";
 import React from "react";
+import useSWR from "swr";
 
 import { LayoutRoot } from "../layout";
 
 // import { css } from "styled-components";
 
 export type DynamicPageProps = {
+  pageId: string;
   data: IWebPage;
 };
 
 export const DynamicPage: PageComponent<DynamicPageProps> = ({
-  data: {
-    fields: {
-      hero: { fields }
-    }
-  }
+  pageId,
+  data
 }) => {
+  const {
+    data: {
+      fields: {
+        hero: { fields: heroFields },
+        blocks
+      }
+    }
+  } = useSWR<IWebPage>(
+    `/${pageId}`,
+    async () => getEntryById<IWebPage>(pageId),
+    { initialData: data }
+  );
+
   return (
     <>
-      <Hero {...fields} />
-      {/* <Blocks {...fields.blocks} /> */}
+      <Hero {...heroFields} />
+      <Blocks blocks={blocks} />
     </>
   );
-  // return (
-  //   <>
-  //     <HeroImage
-  //       title={fields.heroTitle}
-  //       subTitle={fields.heroSubTitle}
-  //       img={fields.heroImage.fields.file.url}
-  //       imgAlt={fields.heroImage.fields.title.split(" ").join("")}
-  //     />
 
   //     {/* About Section */}
   //     <div
@@ -80,19 +85,6 @@ export const DynamicPage: PageComponent<DynamicPageProps> = ({
   //     </div>
 
   //     {/* Services */}
-  //     <Section styleType="layered">
-  //       <Title size="lg">{fields.servicesTitle}</Title>
-  //       <SectionCopy>
-  //         <Typography fontSize="md" variant="text">
-  //           {fields.servicesDescription}
-  //         </Typography>
-  //         <SectionFooter>
-  //           <ButtonGroup layout="inline" align="center">
-  //             <Button label={fields.servicesLinkText} styleType="primary" />
-  //           </ButtonGroup>
-  //         </SectionFooter>
-  //       </SectionCopy>
-  //     </Section>
 
   //     {/* Testimonials */}
   //     <Section styleType="split">
@@ -144,7 +136,7 @@ export const DynamicPage: PageComponent<DynamicPageProps> = ({
   //         </div>
   //       </SectionFooter>
   //     </Section>
-  //   </>
+  //   </IWebPage>
   // );
 };
 
