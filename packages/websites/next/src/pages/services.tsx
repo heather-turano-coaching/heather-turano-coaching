@@ -6,12 +6,12 @@ import React from "react";
 
 export const getServerSideProps: GetServerSideProps<ServicesPageProps> = async () => {
   const data = (await contentfulClient.getEntry(
-    "4E3pUa1xi3PTgVN5JocekM"
+    "5oPRhGTzOaiUeiF8tTIHS5"
   )) as ServicesPageProps["data"];
 
   return {
     props: {
-      pageTitle: "Services",
+      pageId: "5oPRhGTzOaiUeiF8tTIHS5",
       data
     }
   };

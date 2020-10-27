@@ -16,7 +16,7 @@ const heroComponentMap: {
   "split-horizontal": HeroSplitHorizontal
 };
 
-export const Hero: FC<IHeroFields> = ({
+export const Hero: FC<IHeroFields & { hideGradient?: boolean }> = ({
   type,
   children,
   systemId,
@@ -27,8 +27,8 @@ export const Hero: FC<IHeroFields> = ({
   return (
     <HeroComponent
       {...restProps}
-      image={image.fields.file.url}
-      imageAlt={image.fields.file.fileName}
+      image={image?.fields?.file?.url}
+      imageAlt={image?.fields?.file?.fileName}
     />
   );
 };

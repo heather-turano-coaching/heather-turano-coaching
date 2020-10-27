@@ -36,17 +36,3 @@ export const getEntryById = async <T>(id: string) => {
     );
   }
 };
-
-export const getBlogPage = async (): Promise<Entry<IWebPage>> => {
-  try {
-    const data = await contentfulClient.getEntry<IWebPage>(
-      "59srkQjfP5rxJfLwLe6nIZ"
-    );
-    return data;
-  } catch (error) {
-    throwError(
-      "There was a problem when trying to get the blog page data",
-      error
-    );
-  }
-};

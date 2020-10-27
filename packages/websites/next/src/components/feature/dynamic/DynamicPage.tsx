@@ -20,6 +20,7 @@ import React from "react";
 import useSWR from "swr";
 
 import { LayoutRoot } from "../layout";
+import { Meta } from "../meta";
 
 // import { css } from "styled-components";
 
@@ -35,6 +36,7 @@ export const DynamicPage: PageComponent<DynamicPageProps> = ({
   const {
     data: {
       fields: {
+        navbarLabel,
         hero: { fields: heroFields },
         blocks
       }
@@ -47,6 +49,7 @@ export const DynamicPage: PageComponent<DynamicPageProps> = ({
 
   return (
     <>
+      <Meta pageTitle={navbarLabel} />
       <Hero {...heroFields} />
       <Blocks blocks={blocks} />
     </>

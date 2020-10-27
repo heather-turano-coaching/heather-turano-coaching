@@ -5,8 +5,8 @@ import {
   makeTabletStyles
 } from "@heather-turano-coaching/core/theme";
 import { Container } from "@material-ui/core";
-import { HeroPlain } from "components/content/heros";
-import { IPageBlog } from "lib/contentful";
+import { Hero, HeroPlain } from "components/content/heros";
+import { IWebPage } from "lib/contentful";
 import {
   GetAllGhostPosts,
   GetFeaturedGhostPost,
@@ -20,7 +20,12 @@ import styled, { css } from "styled-components";
 import useSWR, { useSWRInfinite } from "swr";
 
 import { LayoutRoot } from "../layout";
-import { BlogCard, BlogFeaturedPost, blogCardSpacing } from ".";
+import {
+  BlogCard,
+  BlogFeaturedPost,
+  blogCardSpacing,
+  getBlogPageData
+} from ".";
 
 const BlogCardGrid = styled.div`
   display: flex;
@@ -71,21 +76,29 @@ export const Page: FC<{
 };
 
 export type BlogPageProps = {
-  data: IPageBlog;
+  pageId: string;
+  data: IWebPage;
   featuredPosts: GetFeaturedGhostPost;
   allPosts: GetAllGhostPosts;
 };
 
 export const BlogPage: PageComponent<BlogPageProps> = ({
-  data: { fields },
-  featuredPosts,
-  allPosts
+  pageId,
+  ...initialData
 }) => {
-  const { data: featuredPostsLocal } = useSWR<typeof featuredPosts>(
-    getGhostFeaturedPostEndpoint,
-    ghostFetcher,
-    { initialData: featuredPosts }
-  );
+  const {
+    data: {
+      data: {
+        fields: {
+          hero: { fields: heroFields }
+        }
+      },
+      featuredPosts,
+      allPosts
+    }
+  } = useSWR(`/${pageId}`, async () => getBlogPageData(), {
+    initialData
+  });
 
   const { data, size, setSize } = useSWRInfinite<typeof allPosts>(
     (index) => {
@@ -106,7 +119,7 @@ export const BlogPage: PageComponent<BlogPageProps> = ({
 
   return (
     <>
-      <HeroPlain title={fields.heroTitle} subTitle={fields.heroSubtitle} />
+      <Hero {...heroFields} />
       <Container
         css={css`
           box-sizing: border-box;
@@ -120,7 +133,7 @@ export const BlogPage: PageComponent<BlogPageProps> = ({
           () => (
             <>
               <Title size="lg" copy="Featured post" />
-              <BlogFeaturedPost {...featuredPostsLocal.posts[0]} />
+              <BlogFeaturedPost {...featuredPosts.posts[0]} />
               <Title size="lg" copy="Older Posts" />
             </>
           ),

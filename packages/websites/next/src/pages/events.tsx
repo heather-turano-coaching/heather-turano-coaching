@@ -11,7 +11,7 @@ import { GetServerSideProps } from "next";
 export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () => {
   const apolloClient = initApollo<EventsPageProps>();
   const pageContent = (await contentfulClient.getEntry(
-    "6KgBUIkmyA0OzcHn7tjILl"
+    "3yKGN5KGBDnt5fJDoJ43a7"
   )) as EventsPageProps["events"];
 
   await apolloClient.query({
@@ -22,6 +22,7 @@ export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () 
 
   return {
     props: {
+      pageId: "5oPRhGTzOaiUeiF8tTIHS5",
       pageContent,
       ...ROOT_QUERY
     }
