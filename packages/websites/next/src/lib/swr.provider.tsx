@@ -6,7 +6,8 @@ import { ConfigInterface, SWRConfig } from "swr";
  * and client side http cache
  */
 const swrConfig: ConfigInterface = {
-  refreshInterval: 30000
+  refreshInterval: 30000,
+  revalidateOnMount: true
 };
 
 export const SWRProvider: FC = ({ children }) => (

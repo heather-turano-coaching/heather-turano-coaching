@@ -42,11 +42,10 @@ export const DynamicPage: PageComponent<DynamicPageProps> = ({
         blocks
       }
     }
-  } = useSWR<IWebPage>(
-    `/${pageId}`,
-    async () => getEntryById<IWebPage>(pageId),
-    { initialData: data }
-  );
+  } = useSWR<IWebPage>(pageId, {
+    initialData: data,
+    fetcher: async (pageId) => getEntryById<IWebPage>(pageId)
+  });
 
   return (
     <>
