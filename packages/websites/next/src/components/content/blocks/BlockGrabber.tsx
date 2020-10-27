@@ -1,4 +1,4 @@
-import { IBlockGrabber } from "lib/contentful";
+import { IBlockGrabber } from "@heather-turano-coaching/domain";
 import { FC } from "react";
 
 export const BlockGrabber: FC<IBlockGrabber> = (props) => (

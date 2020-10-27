@@ -1,4 +1,4 @@
-import { IBlockPictureGrid } from "lib/contentful";
+import { IBlockPictureGrid } from "@heather-turano-coaching/domain";
 import { FC } from "react";
 
 export const BlockPictureGrid: FC<IBlockPictureGrid> = (props) => (

@@ -1,4 +1,4 @@
-import { IHeroFields } from "lib/contentful";
+import { IHeroFields } from "@heather-turano-coaching/domain";
 import { FC, FunctionComponent } from "react";
 
 import { HeroProps } from "./HeroContainer";
@@ -8,6 +8,7 @@ import { HeroPlain } from "./HeroPlain";
 import { HeroSplitHorizontal } from "./HeroSplitHorizontal";
 
 const heroComponentMap: {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   [key in IHeroFields["type"]]: FunctionComponent<HeroProps>;
 } = {
   plain: HeroPlain,

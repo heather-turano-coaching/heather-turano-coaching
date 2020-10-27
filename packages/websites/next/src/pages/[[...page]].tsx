@@ -1,8 +1,9 @@
 import path from "path";
 
+import { IWebPage } from "@heather-turano-coaching/domain";
 import { DynamicPage, DynamicPageProps } from "components/feature/dynamic";
 import fs from "fs-extra";
-import { IWebPage, getAllContentfulPages, getEntryById } from "lib/contentful";
+import { getAllContentfulPages, getEntryById } from "lib/contentful";
 import { PageComponent } from "lib/page";
 import { GetStaticPaths, GetStaticProps } from "next";
 

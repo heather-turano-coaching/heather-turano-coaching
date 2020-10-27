@@ -1,7 +1,7 @@
-import { Entry, EntryCollection, createClient } from "contentful";
+import { IWebPageFields } from "@heather-turano-coaching/domain";
+import { EntryCollection, createClient } from "contentful";
 
 import { throwError } from "../utils";
-import { IWebPage, IWebPageFields } from "./contentful.model";
 
 export const contentfulClient = createClient({
   space: process.env.NEXT_PUBLIC_HTC_CONTENTFUL_SPACE_ID,

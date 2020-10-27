@@ -4,14 +4,13 @@ import {
   makeRetinaStyles,
   makeTabletStyles
 } from "@heather-turano-coaching/core/theme";
+import { IWebPage } from "@heather-turano-coaching/domain";
 import { Container } from "@material-ui/core";
-import { Hero, HeroPlain } from "components/content/heros";
-import { IWebPage } from "lib/contentful";
+import { Hero } from "components/content/heros";
 import {
   GetAllGhostPosts,
   GetFeaturedGhostPost,
   getAllGhostPostsEndpoint,
-  getGhostFeaturedPostEndpoint,
   ghostFetcher
 } from "lib/ghost.api";
 import { PageComponent } from "lib/page";

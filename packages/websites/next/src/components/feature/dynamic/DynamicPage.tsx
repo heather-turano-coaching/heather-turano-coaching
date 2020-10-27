@@ -12,9 +12,10 @@
 // import { makeColor } from "@heather-turano-coaching/core/design-system";
 // import { HeroImage } from "components/content/heros";
 // import { TestimonialCarousel } from "components/content/testimonials";
+import { IWebPage } from "@heather-turano-coaching/domain";
 import { Blocks } from "components/content/blocks";
 import { Hero } from "components/content/heros";
-import { IWebPage, getEntryById } from "lib/contentful";
+import { getEntryById } from "lib/contentful";
 import { PageComponent } from "lib/page";
 import React from "react";
 import useSWR from "swr";

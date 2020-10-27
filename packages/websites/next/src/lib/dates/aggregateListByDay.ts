@@ -2,6 +2,7 @@ import { format, getDayOfYear } from "date-fns";
 import { get as lodashGet } from "lodash";
 
 type AggregateItemsByDay<ItemType> = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   [key in number]: {
     date: string;
     formattedDate: string;

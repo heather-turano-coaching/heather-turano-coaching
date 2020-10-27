@@ -5,7 +5,6 @@ import Share2Icon from "@heather-turano-coaching/core/icons/share-2.svg";
 import { makeRem, makeTabletStyles } from "@heather-turano-coaching/core/theme";
 import { SvgIcon, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
-import { getBlogPostRoute } from "components/utils";
 import { formatShortDate } from "lib/utils";
 import Link from "next/link";
 import React, { FC } from "react";

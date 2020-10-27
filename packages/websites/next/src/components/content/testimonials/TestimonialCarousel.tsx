@@ -3,7 +3,7 @@ import {
   CarouselFooter
 } from "@heather-turano-coaching/core/components";
 import { makeSize } from "@heather-turano-coaching/core/design-system";
-import { ITestimonials } from "lib/contentful";
+import { ITestimonials } from "@heather-turano-coaching/domain";
 import React, { FC, useState } from "react";
 import styled from "styled-components";
 

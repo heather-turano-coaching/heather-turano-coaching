@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 import { Title } from "@heather-turano-coaching/core/components";
 import { makeRem } from "@heather-turano-coaching/core/theme";
-import { Events } from "@heather-turano-coaching/domain";
+import { Events, IWebPage } from "@heather-turano-coaching/domain";
 import { Container } from "@material-ui/core";
 import { EventCard, EventGroup } from "components/content/events";
 import { Hero } from "components/content/heros";
-import { IWebPage, getEntryById } from "lib/contentful";
+import { getEntryById } from "lib/contentful";
 import { aggregateListByDay } from "lib/dates";
 import { PageComponent } from "lib/page";
 import React from "react";

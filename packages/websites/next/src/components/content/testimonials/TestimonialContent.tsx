@@ -10,11 +10,9 @@ import {
   makeResponsive,
   makeSize
 } from "@heather-turano-coaching/core/design-system";
-import { ITestimonials } from "lib/contentful";
+import { ITestimonials } from "@heather-turano-coaching/domain";
 import React, { FC } from "react";
 import styled from "styled-components";
-
-import { Testimonial } from "./TestimonialCarousel";
 
 const StyledTestimonialContent = styled.div`
   ${makeInset({ top: 80, bottom: 120, horizontal: 80 })};

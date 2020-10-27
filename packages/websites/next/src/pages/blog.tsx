@@ -1,6 +1,7 @@
 import {
   BlogPage,
   BlogPageProps,
+  blogPageId,
   getBlogPageData
 } from "components/feature/blog";
 import { PageComponent } from "lib/page";
@@ -11,7 +12,10 @@ export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
   const blogData = await getBlogPageData();
 
   return {
-    props: blogData
+    props: {
+      pageId: blogPageId,
+      ...blogData
+    }
   };
 };
 

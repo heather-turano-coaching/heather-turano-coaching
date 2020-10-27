@@ -41,6 +41,7 @@ export const parseDynamic = (
   return dynamic.join("/");
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type GetEndpoint<QP = Record<string, unknown>> = <QueryParams = QP>(params: {
   root: GhostApiRoutes;
   dynamic?: string | number | (string | number)[];

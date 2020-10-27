@@ -6,10 +6,11 @@
     "dev": "yarn generate-types && next dev",
     "build": "yarn generate-types && next build",
     "start": "next start",
-    "generate-types": "contentful-typescript-codegen --output ./src/lib/contentful/contentful.model.ts"
+    "generate-types": "contentful-typescript-codegen --output ../../domain/generated/contentful.d.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
+    "@contentful/rich-text-types": "^14.1.1",
     "@heather-turano-coaching/core": "^0.0.1",
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
@@ -45,6 +46,8 @@
     "babel-eslint": "^9.0.0",
     "babel-plugin-styled-components": "^1.11.1",
     "contentful-typescript-codegen": "^3.2.1",
-    "core-js": "^3.6.5"
+    "core-js": "^3.6.5",
+    "eslint": "^7.12.1",
+    "eslint-loader": "^4.0.2"
   }
 }

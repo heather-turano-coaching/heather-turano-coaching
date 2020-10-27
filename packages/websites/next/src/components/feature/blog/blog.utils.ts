@@ -1,4 +1,5 @@
-import { IWebPage, getEntryById } from "lib/contentful";
+import { IWebPage } from "@heather-turano-coaching/domain";
+import { getEntryById } from "lib/contentful";
 import {
   GetAllGhostPosts,
   GetFeaturedGhostPost,
@@ -6,6 +7,8 @@ import {
   getGhostFeaturedPostEndpoint,
   ghostFetcher
 } from "lib/ghost.api";
+
+export const blogPageId = "7inppspqzOyqyHJ9r8viIj";
 
 export const getBlogPageData = async () => {
   const [data, featuredPosts, allPosts] = await Promise.all([

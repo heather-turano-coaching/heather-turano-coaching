@@ -1,4 +1,4 @@
-import { IBlockTestimonial } from "lib/contentful";
+import { IBlockTestimonial } from "@heather-turano-coaching/domain";
 import { FC } from "react";
 
 export const BlockTestimonial: FC<IBlockTestimonial> = (props) => (

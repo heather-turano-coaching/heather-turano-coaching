@@ -1,7 +1,6 @@
 import { Pagination, PostOrPage } from "@tryghost/content-api";
 import axios, { AxiosRequestConfig } from "axios";
 
-import { getBlogPage } from "./contentful";
 import { getEndpoint } from "./endpoint.utils";
 
 const ghostApiVersion = "v3";
