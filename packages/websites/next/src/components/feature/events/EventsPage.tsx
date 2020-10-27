@@ -1,14 +1,16 @@
 import { gql } from "@apollo/client";
-import { Title } from "@heather-turano-coaching/core/dist/src/components";
-import { makeRem } from "@heather-turano-coaching/core/dist/src/theme";
+import { Title } from "@heather-turano-coaching/core/components";
+import { makeRem } from "@heather-turano-coaching/core/theme";
 import { Events } from "@heather-turano-coaching/domain";
 import { Container } from "@material-ui/core";
 import { EventCard, EventGroup } from "components/content/events";
-import { HeroImage } from "components/content/heros";
-import { IPageEvents } from "lib/contentful";
+import { Hero } from "components/content/heros";
+import { IWebPage, getEntryById } from "lib/contentful";
 import { aggregateListByDay } from "lib/dates";
 import { PageComponent } from "lib/page";
+import React from "react";
 import styled, { css } from "styled-components";
+import useSWR from "swr";
 
 import { LayoutRoot } from "../layout";
 import { Meta } from "../meta";
@@ -38,7 +40,8 @@ export const EventsPageQuery = gql`
 `;
 
 export type EventsPageProps = {
-  pageContent: IPageEvents;
+  pageId: string;
+  pageContent: IWebPage;
   events: Events;
 };
 
@@ -60,20 +63,31 @@ const StyledLi = styled.li`
   }
 `;
 export const EventsPage: PageComponent<EventsPageProps> = ({
-  pageContent: { fields },
+  pageId,
+  pageContent,
   events
 }) => {
   const aggregatedEvents = aggregateListByDay(events.events, "start.local");
 
+  const {
+    data: {
+      fields: {
+        hero: { fields: heroFields }
+      }
+    }
+  } = useSWR(`/${pageId}`, async () => getEntryById<IWebPage>(pageId), {
+    initialData: pageContent
+  });
+
+  /**
+   * @todo
+   * Dyanmically fetch the events
+   */
+
   return (
-    <div>
+    <>
       <Meta pageTitle="Events" />
-      <HeroImage
-        title={fields.heroTitle}
-        subTitle={fields.heroSubtitle}
-        img={fields.heroImage.fields.file.url}
-        imgAlt={fields.heroImage.fields.title}
-      />
+      <Hero {...heroFields} hideGradient />
       <div
         css={css`
           background-color: ${({ theme }) => theme.palette.light.light};
@@ -108,7 +122,7 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
           <Title size="lg">Past Events</Title>
         </Container>
       </div>
-    </div>
+    </>
   );
 };
 

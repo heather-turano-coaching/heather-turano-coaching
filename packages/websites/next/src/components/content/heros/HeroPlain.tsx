@@ -8,7 +8,7 @@ import {
   HeroSubTitle,
   HeroTitle,
   HeroWrapper
-} from "./Hero";
+} from "./HeroContainer";
 
 export const HeroPlain: FC<HeroProps> = ({ title, subTitle }) => (
   <HeroWrapper $disableFull>

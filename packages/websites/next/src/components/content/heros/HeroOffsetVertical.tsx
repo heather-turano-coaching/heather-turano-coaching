@@ -1,9 +1,7 @@
 import {
   makeDesktopStyles,
   makeFlex,
-  makeMobileStyles,
-  makeRem,
-  makeTabletStyles
+  makeRem
 } from "@heather-turano-coaching/core/theme";
 import { Container } from "@material-ui/core";
 import { rgba } from "polished";
@@ -11,12 +9,11 @@ import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
 import {
-  HeroContainer,
   HeroProps,
   HeroSubTitle,
   HeroTitle,
   HeroWrapper
-} from "./Hero";
+} from "./HeroContainer";
 
 const whiteSpaceHeight = makeRem(300);
 
@@ -53,6 +50,8 @@ const OpaqueBlock = styled.div`
   ${({ theme }) => css`
     ${makeDesktopStyles(theme)} {
       max-width: 60%;
+      width: 60%;
+      justify-content: flex-start;
       padding: 0 ${makeRem(40)};
     }
   `}
@@ -71,9 +70,12 @@ const OpaqueBlockContainer = styled.div<{ align: "flex-end" | "flex-start" }>`
   `}
 `;
 
-export const HeroOffsetVertical: FC<
-  HeroProps & { img: string; imgAlt: string }
-> = ({ title, subTitle, img, imgAlt }) => {
+export const HeroOffsetVertical: FC<HeroProps> = ({
+  title,
+  subTitle,
+  image,
+  imageAlt
+}) => {
   return (
     <HeroWrapper
       css={css`
@@ -97,7 +99,7 @@ export const HeroOffsetVertical: FC<
             </OpaqueBlock>
           </OpaqueBlockContainer>
         </Container>
-        <HeroImg src={img} alt={imgAlt} />
+        <HeroImg src={image} alt={imageAlt} />
       </HeroImgContainer>
     </HeroWrapper>
   );

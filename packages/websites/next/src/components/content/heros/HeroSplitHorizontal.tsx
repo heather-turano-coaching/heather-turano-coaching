@@ -13,7 +13,7 @@ import {
   HeroSubTitle,
   HeroTitle,
   HeroWrapper
-} from "./Hero";
+} from "./HeroContainer";
 
 export const HeroImageContent: FC = ({ children }) => (
   <div
@@ -89,9 +89,9 @@ export const HeroImageImg = styled.img`
   z-index: -2;
 `;
 
-export const HeroImage: FC<
-  HeroProps & { img: string; imgAlt: string; hideGradient?: boolean }
-> = ({ title, subTitle, img, imgAlt, children, hideGradient = false }) => {
+export const HeroSplitHorizontal: FC<
+  HeroProps & { hideGradient?: boolean }
+> = ({ title, subTitle, image, imageAlt, children, hideGradient = false }) => {
   return (
     <HeroWrapper>
       <HeroContainer
@@ -106,7 +106,7 @@ export const HeroImage: FC<
         </HeroImageContent>
       </HeroContainer>
       {!hideGradient && <HeroImageBg />}
-      <HeroImageImg src={img} alt={imgAlt} />
+      <HeroImageImg src={image} alt={imageAlt} />
     </HeroWrapper>
   );
 };
