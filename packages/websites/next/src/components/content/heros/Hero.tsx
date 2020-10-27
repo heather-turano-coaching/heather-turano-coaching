@@ -1,60 +1,34 @@
-import { makeRem } from "@heather-turano-coaching/core/theme";
-import { Container, Typography } from "@material-ui/core";
-import React, { FC } from "react";
-import styled, { css } from "styled-components";
+import { IHeroFields } from "lib/contentful";
+import { FC, FunctionComponent } from "react";
 
-import { navbarHeight } from "../navigation/HeaderNav";
+import { HeroProps } from "./HeroContainer";
+import { HeroOffsetHorizontal } from "./HeroOffsetHorizontal";
+import { HeroOffsetVertical } from "./HeroOffsetVertical";
+import { HeroPlain } from "./HeroPlain";
+import { HeroSplitHorizontal } from "./HeroSplitHorizontal";
 
-export type HeroProps = {
-  title: string;
-  subTitle: string;
+const heroComponentMap: {
+  [key in IHeroFields["type"]]: FunctionComponent<HeroProps>;
+} = {
+  plain: HeroPlain,
+  "offset-vertical": HeroOffsetVertical,
+  "offset-horizontal": HeroOffsetHorizontal,
+  "split-horizontal": HeroSplitHorizontal
 };
 
-export type HeroImgProps = {
-  img: string;
-  imgAlt: string;
+export const Hero: FC<IHeroFields> = ({
+  type,
+  children,
+  systemId,
+  image,
+  ...restProps
+}) => {
+  const HeroComponent = heroComponentMap[type];
+  return (
+    <HeroComponent
+      {...restProps}
+      image={image.fields.file.url}
+      imageAlt={image.fields.file.fileName}
+    />
+  );
 };
-
-export const HeroContainer = styled(Container)<{ $disableFull?: boolean }>`
-  position: relative;
-
-  ${({ $disableFull }) =>
-    !$disableFull &&
-    css`
-      height: 100% !important;
-    `}
-`;
-
-export const HeroWrapper = styled.div<{ $disableFull?: boolean }>`
-  width: ${`calc(100% + ${makeRem(2)})`};
-
-  position: relative;
-  left: -${makeRem(1)};
-  top: -${makeRem(1)};
-  bottom: -${makeRem(1)};
-  right: -${makeRem(1)};
-  box-sizing: border-box;
-
-  ${({ $disableFull }) =>
-    !$disableFull &&
-    css`
-      min-height: ${`calc((100vh + ${makeRem(2)}) - ${navbarHeight})`};
-      height: ${`calc(100vh - ${navbarHeight})`};
-    `}
-
-  & * {
-    box-sizing: border-box;
-  }
-`;
-
-export const HeroTitle: FC = ({ children }) => (
-  <Typography variant="h1" color="inherit">
-    {children}
-  </Typography>
-);
-
-export const HeroSubTitle: FC = ({ children }) => (
-  <Typography variant="subtitle1" component="h2">
-    {children}
-  </Typography>
-);

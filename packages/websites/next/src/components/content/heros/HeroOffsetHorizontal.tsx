@@ -11,18 +11,17 @@ import { css } from "styled-components";
 
 import {
   HeroContainer,
-  HeroImgProps,
   HeroProps,
   HeroSubTitle,
   HeroTitle,
   HeroWrapper
-} from "./Hero";
+} from "./HeroContainer";
 
-export const HeroOffsetHorizontal: FC<HeroProps & HeroImgProps> = ({
+export const HeroOffsetHorizontal: FC<HeroProps> = ({
   title,
   subTitle,
-  img,
-  imgAlt
+  image,
+  imageAlt
 }) => (
   <HeroWrapper>
     <HeroContainer
@@ -90,8 +89,8 @@ export const HeroOffsetHorizontal: FC<HeroProps & HeroImgProps> = ({
           <HeroSubTitle>{subTitle}</HeroSubTitle>
         </div>
         <img
-          src={img}
-          alt={imgAlt}
+          src={image}
+          alt={imageAlt}
           css={css`
             ${({ theme }) => css`
               ${makeMobileStyles(theme)} {
