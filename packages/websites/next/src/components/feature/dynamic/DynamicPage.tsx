@@ -1,7 +1,7 @@
 // import {
 //   Button,
 //   ButtonGroup,
-//   ContentfulRichText,
+//   RichText,
 //   Section,
 //   SectionCopy,
 //   SectionFooter,
@@ -64,7 +64,7 @@ export const DynamicPage: PageComponent<DynamicPageProps> = ({
   //       <Section styleType="blank">
   //         <Title size="lg">{fields.aboutTitle}</Title>
   //         <SectionCopy>
-  //           <ContentfulRichText
+  //           <RichText
   //             copyProps={{
   //               variant: "text",
   //               fontSize: "md"
@@ -94,7 +94,7 @@ export const DynamicPage: PageComponent<DynamicPageProps> = ({
   //       <SectionSplitPane background={{ fixed: "light" }}>
   //         <Title size="lg">{fields.testimonialsTitle}</Title>
   //         <SectionCopy>
-  //           <ContentfulRichText
+  //           <RichText
   //             copyProps={{
   //               fontSize: "md",
   //               variant: "text"
@@ -125,7 +125,7 @@ export const DynamicPage: PageComponent<DynamicPageProps> = ({
   //     <Section styleType="layered">
   //       <Title size="lg">{fields.contactTitle}</Title>
   //       <SectionCopy>
-  //         <ContentfulRichText
+  //         <RichText
   //           copyProps={{
   //             fontSize: "md",
   //             variant: "text"

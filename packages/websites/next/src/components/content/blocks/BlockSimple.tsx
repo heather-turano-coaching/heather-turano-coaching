@@ -1,5 +1,4 @@
 import {
-  ContentfulRichText,
   Section,
   SectionCopy,
   SectionFooter,
@@ -7,9 +6,11 @@ import {
   Title
 } from "@heather-turano-coaching/core/components";
 import { IBlock, IBlockFields } from "@heather-turano-coaching/domain";
+import { AweberForm, RichText } from "components/atomic";
 import React, { FC } from "react";
 
 import { Actions } from "../actions";
+import { Forms } from "../forms";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const typeMap: { [key in IBlockFields["type"]]: SectionProps["styleType"] } = {
@@ -23,16 +24,19 @@ export const BlockSimple: FC<IBlock> = ({ fields }) => {
       <Title size="lg">{fields.title}</Title>
       <SectionCopy>
         {!!fields.description && (
-          <ContentfulRichText
+          <RichText
             richText={fields.description}
             copyProps={{
-              fontSize: "md",
-              variant: "paragraph"
+              variant: "body1"
             }}
           />
         )}
         <SectionFooter>
           <Actions actions={fields.actions} />
+          <Forms
+            form={fields.form}
+            variant={fields.type === "stacked" ? "dark" : "light"}
+          />
         </SectionFooter>
       </SectionCopy>
     </Section>

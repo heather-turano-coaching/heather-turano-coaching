@@ -1,6 +1,6 @@
 import {
-  ContentfulRichText,
   Image,
+  RichText,
   SectionCopy,
   makeFlex
 } from "@heather-turano-coaching/core/components";
@@ -72,7 +72,7 @@ export const TestimonialContent: FC<ITestimonials> = ({
     />
     <SectionCopy>
       <StyledTesimonialTextConatiner>
-        <ContentfulRichText
+        <RichText
           richText={testimonialDescription}
           copyProps={{
             fontColor: { fixed: "light" },

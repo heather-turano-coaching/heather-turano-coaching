@@ -3,3 +3,4 @@ export * from "./HeroOffsetVertical";
 export * from "./HeroOffsetHorizontal";
 export * from "./HeroPlain";
 export * from "./Hero";
+export * from "./HeroContainer";
