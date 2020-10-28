@@ -6,7 +6,7 @@ import {
   Title
 } from "@heather-turano-coaching/core/components";
 import { IBlock, IBlockFields } from "@heather-turano-coaching/domain";
-import { AweberForm, RichText } from "components/atomic";
+import { RichText } from "components/atomic";
 import React, { FC } from "react";
 
 import { Actions } from "../actions";
