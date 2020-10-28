@@ -193,14 +193,8 @@ export interface IBlockTestimonialFields {
   /** System ID */
   systemId: string;
 
-  /** Title */
-  title: string;
-
-  /** Description */
-  description?: Document | undefined;
-
-  /** Actions */
-  actions?: IAction[] | undefined;
+  /** Block */
+  block: IBlock;
 
   /** Testimonial Entries */
   testimonialEntries: ITestimonials[];

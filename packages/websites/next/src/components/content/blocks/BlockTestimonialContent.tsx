@@ -1,6 +1,5 @@
 import {
   Image,
-  RichText,
   SectionCopy,
   makeFlex
 } from "@heather-turano-coaching/core/components";
@@ -11,6 +10,7 @@ import {
   makeSize
 } from "@heather-turano-coaching/core/design-system";
 import { ITestimonials } from "@heather-turano-coaching/domain";
+import { RichText } from "components/atomic";
 import React, { FC } from "react";
 import styled from "styled-components";
 
@@ -75,9 +75,7 @@ export const TestimonialContent: FC<ITestimonials> = ({
         <RichText
           richText={testimonialDescription}
           copyProps={{
-            fontColor: { fixed: "light" },
-            fontSize: "sm",
-            variant: "paragraph"
+            variant: "body1"
           }}
         />
       </StyledTesimonialTextConatiner>
