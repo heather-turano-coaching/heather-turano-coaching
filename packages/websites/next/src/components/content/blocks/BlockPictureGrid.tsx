@@ -1,6 +1,94 @@
+import {
+  makeDesktopStyles,
+  makeRem,
+  makeRetinaStyles
+} from "@heather-turano-coaching/core/dist/src/theme";
 import { IBlockPictureGrid } from "@heather-turano-coaching/domain";
-import { FC } from "react";
+import React, { FC } from "react";
+import styled, { css } from "styled-components";
 
-export const BlockPictureGrid: FC<IBlockPictureGrid> = (props) => (
-  <div>{JSON.stringify(props, null, 4)}</div>
-);
+import { BlockSimple } from "./BlockSimple";
+
+const StyledAboutMyClientsImageSection = styled.div`
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-self: stretch;
+`;
+
+const StyledClientImage = styled.div`
+  width: 33.333%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  & > .image {
+    max-width: 100%;
+    max-height: 100%;
+    transform: scale(1.5);
+  }
+  img {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  ${({ theme }) => css`
+    ${makeDesktopStyles(theme)} {
+      & > .image {
+        height: 100%;
+
+        & > img {
+          height: 100%;
+        }
+      }
+    }
+  `}
+`;
+
+export const BlockPictureGrid: FC<IBlockPictureGrid> = ({
+  fields: { block, images }
+}) => {
+  console.log(block.fields.actions);
+  return (
+    <div
+      css={css`
+        width: 100%;
+        * {
+          box-sizing: border-box;
+        }
+        ${({ theme }) => css`
+          ${makeDesktopStyles(theme)} {
+            display: flex;
+          }
+        `}
+      `}
+    >
+      <div
+        css={css`
+          flex: 1;
+          padding: 0 ${makeRem(40)};
+
+          ${({ theme }) => css`
+            ${makeDesktopStyles(theme)} {
+              order: 2;
+            }
+          `}
+        `}
+      >
+        <BlockSimple {...block} />
+      </div>
+      <StyledAboutMyClientsImageSection>
+        {images.map((clientImage) => (
+          <StyledClientImage key={clientImage.fields.file.url}>
+            <img
+              src={clientImage.fields.file.url}
+              alt={clientImage.fields.file.fileName}
+            />
+          </StyledClientImage>
+        ))}
+      </StyledAboutMyClientsImageSection>
+    </div>
+  );
+};

@@ -53,13 +53,7 @@ const StyledTesimonialTextConatiner = styled.div`
 `;
 
 export const TestimonialContent: FC<ITestimonials> = ({
-  fields: {
-    testimonialDescription,
-    // customerDescription,
-    // customerLocation,
-    image,
-    maskingOpacity
-  }
+  fields: { testimonialDescription, image, maskingOpacity }
 }) => (
   <StyledTestimonialContent>
     <Image
