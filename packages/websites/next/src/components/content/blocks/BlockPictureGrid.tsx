@@ -1,7 +1,6 @@
 import {
   makeDesktopStyles,
-  makeRem,
-  makeRetinaStyles
+  makeRem
 } from "@heather-turano-coaching/core/dist/src/theme";
 import { IBlockPictureGrid } from "@heather-turano-coaching/domain";
 import React, { FC } from "react";
@@ -50,7 +49,6 @@ const StyledClientImage = styled.div`
 export const BlockPictureGrid: FC<IBlockPictureGrid> = ({
   fields: { block, images }
 }) => {
-  console.log(block.fields.actions);
   return (
     <div
       css={css`

@@ -1,5 +1,5 @@
 import { ButtonGroup } from "@heather-turano-coaching/core/components";
-import { IAction, IBlockFields } from "@heather-turano-coaching/domain";
+import { IAction } from "@heather-turano-coaching/domain";
 import { Button } from "@material-ui/core";
 import Link from "next/link";
 import React, { FC, memo } from "react";
