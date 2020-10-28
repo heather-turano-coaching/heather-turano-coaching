@@ -7,7 +7,7 @@ import { ITestimonials } from "@heather-turano-coaching/domain";
 import React, { FC, useState } from "react";
 import styled from "styled-components";
 
-import { TestimonialContent } from "./TestimonialContent";
+import { TestimonialContent } from "./BlockTestimonialContent";
 
 export interface Testimonial {
   customerDescription: string;

@@ -1,5 +1,4 @@
 import {
-  ContentfulRichText,
   Image,
   SectionCopy,
   makeFlex
@@ -11,6 +10,7 @@ import {
   makeSize
 } from "@heather-turano-coaching/core/design-system";
 import { ITestimonials } from "@heather-turano-coaching/domain";
+import { RichText } from "components/atomic";
 import React, { FC } from "react";
 import styled from "styled-components";
 
@@ -53,13 +53,7 @@ const StyledTesimonialTextConatiner = styled.div`
 `;
 
 export const TestimonialContent: FC<ITestimonials> = ({
-  fields: {
-    testimonialDescription,
-    // customerDescription,
-    // customerLocation,
-    image,
-    maskingOpacity
-  }
+  fields: { testimonialDescription, image, maskingOpacity }
 }) => (
   <StyledTestimonialContent>
     <Image
@@ -72,12 +66,10 @@ export const TestimonialContent: FC<ITestimonials> = ({
     />
     <SectionCopy>
       <StyledTesimonialTextConatiner>
-        <ContentfulRichText
+        <RichText
           richText={testimonialDescription}
           copyProps={{
-            fontColor: { fixed: "light" },
-            fontSize: "sm",
-            variant: "paragraph"
+            variant: "body1"
           }}
         />
       </StyledTesimonialTextConatiner>

@@ -154,20 +154,11 @@ export interface IBlockPictureGridFields {
   /** System ID */
   systemId: string;
 
-  /** Title */
-  title: string;
-
-  /** Description */
-  description?: Document | undefined;
+  /** Block */
+  block: IBlock;
 
   /** Images */
   images?: Asset[] | undefined;
-
-  /** Actions */
-  actions?: IAction[] | undefined;
-
-  /** Form */
-  form?: IForm | undefined;
 }
 
 /** This is a block that has a picture grid associated with it */
@@ -193,14 +184,8 @@ export interface IBlockTestimonialFields {
   /** System ID */
   systemId: string;
 
-  /** Title */
-  title: string;
-
-  /** Description */
-  description?: Document | undefined;
-
-  /** Actions */
-  actions?: IAction[] | undefined;
+  /** Block */
+  block: IBlock;
 
   /** Testimonial Entries */
   testimonialEntries: ITestimonials[];
