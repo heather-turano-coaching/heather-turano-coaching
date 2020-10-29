@@ -1,6 +1,6 @@
 import { Params } from "@tryghost/content-api";
 
-type GhostApiRoutes = "/posts" | "/posts/slug";
+type GhostApiRoutes = "/posts" | "/posts/slug" | "/tags" | "/tags/slug";
 
 /**
  * Converts an object into a valid query string. If
