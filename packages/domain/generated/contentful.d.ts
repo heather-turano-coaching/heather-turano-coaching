@@ -306,6 +306,144 @@ export interface IHero extends Entry<IHeroFields> {
   };
 }
 
+export interface IServiceFields {
+  /** System ID */
+  systemId: string;
+
+  /** Category */
+  category: "private" | "program";
+
+  /** Image */
+  image: Asset;
+
+  /** Title */
+  title: string;
+
+  /** Sub Title */
+  subTitle: string;
+
+  /** Description */
+  description: Document;
+
+  /** Type */
+  type: IServiceBasic | IServiceContact | IServiceTeachable;
+}
+
+/** A service offering */
+
+export interface IService extends Entry<IServiceFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "service";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IServiceBasicFields {
+  /** System Id */
+  systemId: string;
+
+  /** Slug */
+  slug: string;
+
+  /** Full Description */
+  fullDescription: Document;
+
+  /** Main Image */
+  mainImage: Asset;
+
+  /** Is Active? */
+  isActive: boolean;
+}
+
+/** A type of service that is going to be as basic as possible. It will link to a new page that will explain more about it and have links to purchase it. */
+
+export interface IServiceBasic extends Entry<IServiceBasicFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "serviceBasic";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IServiceContactFields {
+  /** System Id */
+  systemId: string;
+
+  /** Form */
+  form: IForm;
+
+  /** Is Active */
+  isActive: boolean;
+}
+
+/** A type of service that requires the individual to first fill out a contact form to get in touch about the service provided */
+
+export interface IServiceContact extends Entry<IServiceContactFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "serviceContact";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IServiceTeachableFields {
+  /** System Id */
+  systemId: string;
+
+  /** Teachable Button - Label */
+  teachableButtonLabel: string;
+
+  /** Teachable Button - URL */
+  teachableButtonUrl: string;
+}
+
+/** A type of service that has a teachable course associated with it */
+
+export interface IServiceTeachable extends Entry<IServiceTeachableFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "serviceTeachable";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface ITestimonialsFields {
   /** Contentful Title */
   contentfulTitle?: string | undefined;
@@ -402,6 +540,10 @@ export type CONTENT_TYPE =
   | "certification"
   | "form"
   | "hero"
+  | "service"
+  | "serviceBasic"
+  | "serviceContact"
+  | "serviceTeachable"
   | "testimonials"
   | "webPage";
 
