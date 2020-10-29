@@ -3,6 +3,7 @@ import {
   IWebPageFields
 } from "@heather-turano-coaching/domain";
 import { EntryCollection, createClient } from "contentful";
+import safeJsonStringify from "safe-json-stringify";
 
 import { throwError } from "../utils";
 
@@ -31,11 +32,13 @@ export const getEntriesById = async <T>(
   query?: Record<string, string>
 ) => {
   try {
-    const data = await contentfulClient.getEntries<T>({
+    const rawData = await contentfulClient.getEntries<T>({
       content_type: id,
       include: 10,
       ...query
     });
+    const stringifiedData = safeJsonStringify(rawData);
+    const data = JSON.parse(stringifiedData);
     return data;
   } catch (error) {
     throwError(

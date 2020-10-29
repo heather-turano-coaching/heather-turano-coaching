@@ -418,11 +418,8 @@ export interface IServiceTeachableFields {
   /** System Id */
   systemId: string;
 
-  /** Teachable Button - Label */
-  teachableButtonLabel: string;
-
-  /** Teachable Button - URL */
-  teachableButtonUrl: string;
+  /** Actions */
+  actions: IAction[];
 }
 
 /** A type of service that has a teachable course associated with it */

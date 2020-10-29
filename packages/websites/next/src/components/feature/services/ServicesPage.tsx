@@ -47,32 +47,27 @@ export const ServicesPage: PageComponent<ServicesPageProps> = ({
     <>
       <Meta pageTitle="Services" />
       <Hero {...heroFields} hideGradient />
-      {Object.entries(groupedServices)
-        .reverse()
-        .map(([servicesTitle, services], i) => (
-          <Fragment key={`${servicesTitle}_${i}`}>
-            <Title size="lg">{servicesTitle}</Title>
-            {services.map(({ fields: { type, ...restfields } }, i) => {
-              const contentType = type.sys.contentType.sys.id;
-              return (
-                <ServiceCard
-                  {...restfields}
-                  key={`${type.fields.systemId}_${i}`}
-                >
-                  {contentType === "serviceBasic" && (
-                    <ServiceCardBasic {...(type as IServiceBasic)} />
-                  )}
-                  {contentType === "serviceContact" && (
-                    <ServiceCardContact {...(type as IServiceContact)} />
-                  )}
-                  {contentType === "serviceTeachable" && (
-                    <ServiceCardTeachable {...(type as IServiceTeachable)} />
-                  )}
-                </ServiceCard>
-              );
-            })}
-          </Fragment>
-        ))}
+      {Object.entries(groupedServices).map(([servicesTitle, services], i) => (
+        <Fragment key={`${servicesTitle}_${i}`}>
+          <Title size="lg">{servicesTitle}</Title>
+          {services.map(({ fields: { type, ...restfields } }, i) => {
+            const contentType = type.sys.contentType.sys.id;
+            return (
+              <ServiceCard {...restfields} key={`${type.fields.systemId}_${i}`}>
+                {contentType === "serviceBasic" && (
+                  <ServiceCardBasic {...(type as IServiceBasic)} />
+                )}
+                {contentType === "serviceContact" && (
+                  <ServiceCardContact {...(type as IServiceContact)} />
+                )}
+                {contentType === "serviceTeachable" && (
+                  <ServiceCardTeachable {...(type as IServiceTeachable)} />
+                )}
+              </ServiceCard>
+            );
+          })}
+        </Fragment>
+      ))}
     </>
   );
 };

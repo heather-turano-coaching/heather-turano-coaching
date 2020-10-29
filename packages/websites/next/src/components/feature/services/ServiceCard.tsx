@@ -34,6 +34,10 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
             padding: ${makeRem(60)} ${makeRem(40)};
           }
         `}
+
+        * {
+          justify-content: flex-start;
+        }
       `}
     >
       <div
