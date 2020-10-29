@@ -1,9 +1,4 @@
-import { Button, Title } from "@heather-turano-coaching/core/components";
-import {
-  makeRem,
-  makeRetinaStyles,
-  makeTabletStyles
-} from "@heather-turano-coaching/core/theme";
+import { Title } from "@heather-turano-coaching/core/components";
 import { IWebPage } from "@heather-turano-coaching/domain";
 import { Container } from "@material-ui/core";
 import { Hero } from "components/content/heros";
@@ -14,45 +9,13 @@ import {
   ghostFetcher
 } from "lib/ghost.api";
 import { PageComponent } from "lib/page";
-import React, { FC, useCallback, useMemo } from "react";
-import styled, { css } from "styled-components";
-import useSWR, { useSWRInfinite } from "swr";
+import React, { FC, useMemo } from "react";
+import { css } from "styled-components";
+import useSWR from "swr";
 
 import { LayoutRoot } from "../layout";
-import {
-  BlogCard,
-  BlogFeaturedPost,
-  blogCardSpacing,
-  getBlogPageData
-} from ".";
-
-const BlogCardGrid = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-
-  * {
-    box-sizing: border-box;
-  }
-  & > * {
-    width: 100%;
-  }
-
-  ${({ theme }) => css`
-    ${makeTabletStyles(theme)} {
-      & > * {
-        width: ${`calc(50% - ${makeRem(blogCardSpacing * 2)})`};
-      }
-    }
-
-    ${makeRetinaStyles(theme)} {
-      & > * {
-        width: ${`calc(33.33% - ${makeRem(blogCardSpacing * 2)})`};
-      }
-    }
-  `}
-`;
+import { BlogCardList } from "./BlogCardList";
+import { BlogCard, BlogFeaturedPost, getBlogPageData } from ".";
 
 export const Page: FC<{
   pageNum: number;
@@ -99,23 +62,6 @@ export const BlogPage: PageComponent<BlogPageProps> = ({
     initialData
   });
 
-  const { data, size, setSize } = useSWRInfinite<typeof allPosts>(
-    (index) => {
-      return getAllGhostPostsEndpoint(index + 1);
-    },
-    ghostFetcher,
-    {
-      initialData: [allPosts]
-    }
-  );
-
-  const isEmpty = data?.[0]?.posts.length === 0;
-  const isReachingEnd = isEmpty || data[data.length - 1]?.posts.length < 6;
-
-  const loadMore = useCallback(() => {
-    setSize(size + 1);
-  }, []);
-
   return (
     <>
       <Hero {...heroFields} />
@@ -138,26 +84,7 @@ export const BlogPage: PageComponent<BlogPageProps> = ({
           ),
           []
         )}
-        <BlogCardGrid>
-          {data.map((page) =>
-            page.posts.map((post) => <BlogCard {...post} key={post.id} />)
-          )}
-        </BlogCardGrid>
-
-        {!isReachingEnd && (
-          <div
-            css={css`
-              margin: ${makeRem(48)} 0;
-              text-align: center;
-            `}
-          >
-            <Button
-              onClick={loadMore}
-              label="Load more posts"
-              styleType="secondary"
-            />
-          </div>
-        )}
+        <BlogCardList {...allPosts} />
       </Container>
     </>
   );

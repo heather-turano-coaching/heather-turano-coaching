@@ -64,3 +64,11 @@ export const getSingleGhostPostBySlugEndpoint = (slug: string): string =>
       include: "tags,authors"
     }
   });
+
+export const getAllGhostPostsByTagSlugEndpoint = (slug: string): string =>
+  getEndpoint({
+    root: "/posts",
+    queryParams: {
+      filter: `tag:${slug}`
+    }
+  });

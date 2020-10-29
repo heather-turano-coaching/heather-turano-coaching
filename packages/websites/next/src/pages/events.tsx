@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () 
 
   return {
     props: {
-      pageId: "5oPRhGTzOaiUeiF8tTIHS5",
+      pageId: "3yKGN5KGBDnt5fJDoJ43a7",
       pageContent,
       ...ROOT_QUERY
     }

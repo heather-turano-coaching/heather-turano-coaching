@@ -112,7 +112,11 @@ export const BlogFeaturedPost: FC<PostOrPage> = (featuredPost) => {
         </div>
         <TagGroup>
           {featuredPost.tags.map((tag) => (
-            <Link href={`/tags/${tag.slug}`} key={tag.id}>
+            <Link
+              href={"/blog/tag/[slug]"}
+              as={`/blog/tag/${tag.slug}`}
+              key={tag.id}
+            >
               <a>
                 <Tag text={tag.name} key={tag.id} />
               </a>
