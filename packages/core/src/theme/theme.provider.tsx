@@ -56,8 +56,12 @@ export const HTCTheme: FC = ({ children }) => {
       h2: {
         fontFamily: "Montserrat",
         fontWeight: 600,
-        fontSize: makeRem(48),
-        margin: `${makeRem(24)} 0`
+        fontSize: makeRem(38),
+        margin: `${makeRem(16)} 0`,
+        "@media (min-width:600px)": {
+          fontSize: makeRem(48),
+          margin: `${makeRem(24)} 0`
+        }
       },
       h3: {
         fontFamily: "Montserrat",
