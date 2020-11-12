@@ -24,6 +24,7 @@
     "date-fns": "^2.16.1",
     "dotenv": "^8.2.0",
     "fs-extra": "^9.0.1",
+    "graphql": "15.4.0",
     "lodash": "^4.17.15",
     "next": "9.5.3",
     "polished": "^3.6.3",

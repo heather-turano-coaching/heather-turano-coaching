@@ -12,13 +12,11 @@
       "**/@prisma/**",
       "@prisma/**",
       "**/@nexus/**",
-      "@nexus/**",
-      "graphql/**",
-      "**graphql**/**"
+      "@nexus/**"
     ]
   },
   "scripts": {
-    "postinstall": "npm rebuild sharp",
+    "postinstall": "npm rebuild sharp && rimraf packages/**/node_modules/graphql/",
     "clean": "lerna clean --yes && lerna exec -- rimraf lib/ dist/",
     "bootstrap": "lerna bootstrap --hoist && rimraf **/@types/react-native",
     "bootstrap:ci": "lerna bootstrap --hoist",
@@ -36,11 +34,9 @@
     "dev:api": "lerna run dev --scope=@heather-turano-coaching/api --stream",
     "dev:website": "yarn build:core && lerna run dev --scope=@heather-turano-coaching/website",
     "dev:mindful-movement": "yarn build:core && cd packages/websites/mindful-movement && yarn start",
-    "dev:packages": "yarn build:core && cd packages/websites/packages && yarn start",
     "dev:storybook": "yarn build:core && cd ./packages/core && yarn build-storybook",
     "build:core": "lerna run build --scope=@heather-turano-coaching/core",
     "build:mindful-movement": "yarn build:core && lerna run build --scope=@heather-turano-coaching/mindful-movement --stream",
-    "build:packages": "yarn build:core && lerna run build --scope=@heather-turano-coaching/packages --stream",
     "build:api": "cd packages/api && yarn build",
     "build:website:dev": "yarn build:core && cd packages/websites/next && yarn build",
     "build:website:prod": "yarn build:core && cd packages/websites/next && yarn next export",
@@ -66,7 +62,7 @@
     "turano"
   ],
   "resolutions": {
-    "graphql": "14.7.0",
+    "graphql": "15.4.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0"
   },
