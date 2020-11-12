@@ -21,6 +21,7 @@ const HeroImgContainer = styled.div`
   height: ${`calc(100% - ${whiteSpaceHeight})`};
   position: relative;
   width: 100%;
+  flex: 1;
 `;
 
 const HeroImg = styled.img`
@@ -93,7 +94,12 @@ export const HeroOffsetVertical: FC<HeroProps> = ({
       </Container>
       <HeroImgContainer>
         <Container>
-          <OpaqueBlockContainer align="flex-start">
+          <OpaqueBlockContainer
+            align="flex-start"
+            css={css`
+              padding-bottom: ${makeRem(400)};
+            `}
+          >
             <OpaqueBlock>
               <HeroSubTitle>{subTitle}</HeroSubTitle>
             </OpaqueBlock>

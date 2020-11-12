@@ -9,17 +9,20 @@ import {
   makeResponsive,
   makeSize
 } from "@heather-turano-coaching/core/design-system";
+import { makeRem } from "@heather-turano-coaching/core/dist/src/theme";
 import { ITestimonials } from "@heather-turano-coaching/domain";
+import { Container } from "@material-ui/core";
 import { RichText } from "components/atomic";
 import React, { FC } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledTestimonialContent = styled.div`
-  ${makeInset({ top: 80, bottom: 120, horizontal: 80 })};
   height: 100%;
   width: 100%;
   position: relative;
   overflow: hidden;
+  padding-left: ${makeRem(32)};
+  padding-right: ${makeRem(32)};
   ${makeFlex("row", "center", "center")};
 
   & > .image {
@@ -35,12 +38,15 @@ const StyledTestimonialContent = styled.div`
   }
 `;
 
-const StyledTesimonialTextConatiner = styled.div`
-  ${makeInset({ vertical: 40, horizontal: 0 })};
-  border-top: ${makeSize({ custom: 1 })} solid ${makeColor({ fixed: "light" })};
-  border-bottom: ${makeSize({ custom: 1 })} solid
-    ${makeColor({ fixed: "light" })};
+const StyledTesimonialTextConatiner = styled(Container)`
   position: relative;
+  ${({ theme }) => css`
+    color: ${theme.palette.common.white};
+    border-top: ${makeRem(2)} solid ${theme.palette.common.white};
+    padding-top: ${makeRem(32)};
+    padding-bottom: ${makeRem(32)};
+    border-bottom: ${makeRem(2)} solid ${theme.palette.common.white};
+  `}
 
   ${makeResponsive({
     beginAt: "tabletPortrait",
@@ -65,11 +71,12 @@ export const TestimonialContent: FC<ITestimonials> = ({
       maskOpacity={maskingOpacity / 100}
     />
     <SectionCopy>
-      <StyledTesimonialTextConatiner>
+      <StyledTesimonialTextConatiner disableGutters>
         <RichText
           richText={testimonialDescription}
           copyProps={{
-            variant: "body1"
+            variant: "body1",
+            color: "inherit"
           }}
         />
       </StyledTesimonialTextConatiner>

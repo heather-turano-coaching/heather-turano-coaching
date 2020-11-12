@@ -13,6 +13,7 @@ export const Actions: FC<{ actions: IAction[] }> = memo(function Actions({
         {actions.map(({ fields: action }) => {
           const Btn = (
             <Button
+              size="large"
               key={action.label}
               variant={action.type === "primary" ? "contained" : "outlined"}
               color={action.type}

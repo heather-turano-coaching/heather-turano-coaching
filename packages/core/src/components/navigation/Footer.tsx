@@ -2,10 +2,10 @@ import { Container } from "@material-ui/core";
 import { darken } from "polished";
 import { FC } from "react";
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { makeColor, makeInset, makeResponsive } from "../../design-system";
-import { sectionVSpace } from "../layout";
+import { makeRem, makeTabletStyles } from "../../theme";
 import { makeFlex } from "../utils";
 
 const StyledFooterContainer = styled.footer`
@@ -20,14 +20,11 @@ const StyledFooterContainer = styled.footer`
     box-sizing: border-box;
   }
 
-  ${makeResponsive({
-    beginAt: "tabletLandscape",
-    style: `
-      ${makeInset({
-        vertical: sectionVSpace.tabletPortrait
-      })};
-    `
-  })}
+  ${({ theme }) => css`
+    ${makeTabletStyles(theme)} {
+      padding: ${makeRem(48)} 0;
+    }
+  `}
 `;
 
 const StyledFooter = styled.div`

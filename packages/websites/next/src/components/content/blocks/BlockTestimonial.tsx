@@ -1,4 +1,8 @@
-import { makeRem, makeRetinaStyles } from "@heather-turano-coaching/core/theme";
+import {
+  makeDesktopStyles,
+  makeRem,
+  makeRetinaStyles
+} from "@heather-turano-coaching/core/theme";
 import { IBlockTestimonial } from "@heather-turano-coaching/domain";
 import React, { FC } from "react";
 import { css } from "styled-components";
@@ -28,7 +32,11 @@ export const BlockTestimonial: FC<IBlockTestimonial> = ({
       <div
         css={css`
           flex: 1;
-          padding: 0 ${makeRem(40)};
+          ${({ theme }) => css`
+            ${makeDesktopStyles(theme)} {
+              padding: 0 ${makeRem(40)};
+            }
+          `}
         `}
       >
         <BlockSimple {...block} />

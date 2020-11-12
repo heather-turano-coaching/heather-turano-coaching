@@ -13,7 +13,7 @@ const styledTitleStyleMap: {
   [key in TitleProps["size"]]: SimpleInterpolation;
 } = {
   lg: css`
-    margin: ${makeRem(60)} 0;
+    margin-bottom: ${makeRem(60)};
     padding: 0 2rem 1.5rem 2rem;
     &::after {
       background-color: ${makeColor({
@@ -22,8 +22,8 @@ const styledTitleStyleMap: {
     }
   `,
   md: css`
-    margin: 1.5rem 0;
-    padding: 0 1rem 1.5rem 1rem;
+    margin-bottom: ${makeRem(24)};
+    padding: 0 ${makeRem(16)} ${makeRem(24)} ${makeRem(16)};
     &::after {
       width: 14%;
       margin-left: -7%;
@@ -33,8 +33,8 @@ const styledTitleStyleMap: {
     }
   `,
   sm: css`
-    margin: 1rem 0;
-    padding: 0 0.5rem 1rem 0.5rem;
+    margin-bottom: ${makeRem(16)};
+    padding: 0 ${makeRem(8)} ${makeRem(16)} ${makeRem(8)};
     &::after {
       width: 10%;
       margin-left: -5%;
@@ -68,7 +68,7 @@ const StyledTitleLg = styled.h3`
   ${makeFont({
     fontSize: "h3",
     fontFamily: "Montserrat",
-    fontWeight: "medium",
+    fontWeight: "semi-bold",
     fontColor: {
       scalable: {
         color: "primary"
@@ -83,7 +83,7 @@ const StyledTitleMd = styled.h4`
   ${makeFont({
     fontSize: "h4",
     fontFamily: "Montserrat",
-    fontWeight: "medium",
+    fontWeight: "semi-bold",
     fontColor: {
       scalable: {
         color: "primary"

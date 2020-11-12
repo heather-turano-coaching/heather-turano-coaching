@@ -8,6 +8,12 @@ const darkenHover = (value: string | undefined): string =>
   darken(0.1, value as string);
 
 export const themeOverrides: Overrides = {
+  MuiContainer: {
+    root: {
+      paddingLeft: makeRem(32),
+      paddingRight: makeRem(32)
+    }
+  },
   MuiButton: {
     label: {
       fontSize: makeRem(16),

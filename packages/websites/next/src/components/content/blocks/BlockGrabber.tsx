@@ -20,8 +20,13 @@ const headerRowHeight = 200;
 const HeaderRow = styled.div`
   display: flex;
   align-items: center;
-  height: ${makeRem(headerRowHeight)};
   margin-bottom: ${makeRem(40)};
+
+  ${({ theme }) => css`
+    ${makeDesktopStyles(theme)} {
+      height: ${makeRem(headerRowHeight)};
+    }
+  `}
 `;
 
 export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
