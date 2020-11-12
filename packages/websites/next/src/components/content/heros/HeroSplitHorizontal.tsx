@@ -25,17 +25,6 @@ export const HeroImageContent: FC = ({ children }) => (
       ${({ theme }) => css`
         color: ${theme.palette.common.white};
 
-        ${makeMobileStyles(theme)} {
-          text-align: center;
-          width: 80%;
-          margin: 0 auto;
-          ${makeFlex({
-            direction: "row",
-            justify: "center",
-            align: "center"
-          })}
-        }
-
         ${makeDesktopStyles(theme)} {
           ${makeFlex({
             direction: "row",
@@ -49,8 +38,19 @@ export const HeroImageContent: FC = ({ children }) => (
     <div
       css={css`
         ${({ theme }) => css`
+          ${makeMobileStyles(theme)} {
+            max-width: 90%;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 auto;
+          }
+
           ${makeDesktopStyles(theme)} {
-            max-width: 35%;
+            max-width: 45%;
+            padding: ${makeRem(32)} 0;
           }
         `}
       `}

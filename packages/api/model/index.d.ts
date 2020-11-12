@@ -187,6 +187,85 @@ export interface NexusGenFieldTypes {
   }
 }
 
+export interface NexusGenFieldTypeNames {
+  CropMask: { // field return type name
+    height: 'Int'
+    top_left: 'XYCoordinates'
+    width: 'Int'
+  }
+  DatetimeTZ: { // field return type name
+    local: 'String'
+    start: 'String'
+    utc: 'String'
+  }
+  Event: { // field return type name
+    changed: 'String'
+    created: 'String'
+    description: 'String'
+    end: 'DatetimeTZ'
+    is_free: 'Boolean'
+    logo: 'EventLogo'
+    name: 'MultipartText'
+    published: 'String'
+    start: 'DatetimeTZ'
+    summary: 'String'
+    url: 'String'
+  }
+  EventLogo: { // field return type name
+    aspect_ratio: 'String'
+    crop_mask: 'CropMask'
+    edge_color: 'String'
+    edge_color_set: 'String'
+    id: 'String'
+    original: 'OriginalImg'
+    url: 'String'
+  }
+  Events: { // field return type name
+    events: 'Event'
+    jack: 'Event'
+    pagination: 'Pagination'
+  }
+  Message: { // field return type name
+    message: 'String'
+  }
+  MultipartText: { // field return type name
+    html: 'String'
+    text: 'String'
+  }
+  Mutation: { // field return type name
+    checkoutHeatherTuranoCoaching: 'StripeCheckoutSession'
+    checkoutMindfulMovement: 'StripeCheckoutSession'
+    confirmEmail: 'Message'
+    forgotPassword: 'Message'
+    resetPassword: 'Message'
+    signIn: 'Boolean'
+    signUp: 'Message'
+    verifyResetPasswordToken: 'Boolean'
+  }
+  OriginalImg: { // field return type name
+    height: 'String'
+    url: 'String'
+    width: 'String'
+  }
+  Pagination: { // field return type name
+    has_more_items: 'Boolean'
+    object_count: 'Int'
+    page_count: 'Int'
+    page_number: 'Int'
+    page_size: 'Int'
+  }
+  Query: { // field return type name
+    events: 'Events'
+  }
+  StripeCheckoutSession: { // field return type name
+    id: 'String'
+  }
+  XYCoordinates: { // field return type name
+    x: 'String'
+    y: 'String'
+  }
+}
+
 export interface NexusGenArgTypes {
   Mutation: {
     checkoutHeatherTuranoCoaching: { // args
@@ -249,6 +328,7 @@ export interface NexusGenTypes {
   rootTypes: NexusGenRootTypes;
   argTypes: NexusGenArgTypes;
   fieldTypes: NexusGenFieldTypes;
+  fieldTypeNames: NexusGenFieldTypeNames;
   allTypes: NexusGenAllTypes;
   inheritedFields: NexusGenInheritedFields;
   objectNames: NexusGenObjectNames;

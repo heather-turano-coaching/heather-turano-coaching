@@ -1,4 +1,5 @@
 import { Title } from "@heather-turano-coaching/core/components";
+import { makeRem } from "@heather-turano-coaching/core/theme";
 import { IWebPage } from "@heather-turano-coaching/domain";
 import { Container } from "@material-ui/core";
 import { Hero } from "components/content/heros";
@@ -79,7 +80,13 @@ export const BlogPage: PageComponent<BlogPageProps> = ({
             <>
               <Title size="lg" copy="Featured post" />
               <BlogFeaturedPost {...featuredPosts.posts[0]} />
-              <Title size="lg" copy="Older Posts" />
+              <div
+                css={css`
+                  margin-top: ${makeRem(200)};
+                `}
+              >
+                <Title size="lg" copy="Older Posts" />
+              </div>
             </>
           ),
           []

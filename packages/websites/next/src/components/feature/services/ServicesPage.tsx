@@ -1,4 +1,5 @@
 import { Title } from "@heather-turano-coaching/core/dist/src/components";
+import { makeRem } from "@heather-turano-coaching/core/dist/src/theme";
 import { IServiceFields, IWebPage } from "@heather-turano-coaching/domain";
 import {
   IServiceBasic,
@@ -10,6 +11,7 @@ import { EntryCollection } from "contentful";
 import { getEntryById } from "lib/contentful";
 import { PageComponent } from "lib/page";
 import React, { Fragment } from "react";
+import { css } from "styled-components";
 import useSWR from "swr";
 
 import { LayoutRoot } from "../layout";
@@ -48,7 +50,16 @@ export const ServicesPage: PageComponent<ServicesPageProps> = ({
       <Meta pageTitle="Services" />
       <Hero {...heroFields} hideGradient />
       {Object.entries(groupedServices).map(([servicesTitle, services], i) => (
-        <Fragment key={`${servicesTitle}_${i}`}>
+        <div
+          key={`${servicesTitle}_${i}`}
+          css={css`
+            margin-top: ${makeRem(120)};
+
+            &:last-of-type {
+              margin-bottom: ${makeRem(120)};
+            }
+          `}
+        >
           <Title size="lg">{servicesTitle}</Title>
           {services.map(({ fields: { type, ...restfields } }, i) => {
             const contentType = type.sys.contentType.sys.id;
@@ -66,7 +77,7 @@ export const ServicesPage: PageComponent<ServicesPageProps> = ({
               </ServiceCard>
             );
           })}
-        </Fragment>
+        </div>
       ))}
     </>
   );

@@ -6,30 +6,27 @@ import {
   makeInset,
   makeOutset,
   makeReset,
-  makeResponsive,
   makeSize
 } from "../../design-system";
+import { makeDesktopStyles, makeMobileStyles, makeRem } from "../../theme";
 import { Typography } from "../display";
 import { fontColor } from "./Footer.vars";
 
 export type FooterSectionProps = { title: string; sectionSize?: "1" | "2" };
 
 const StyledFooterSection = styled.div<Pick<FooterSectionProps, "sectionSize">>`
-  ${({ sectionSize }) => css`
+  ${({ sectionSize, theme }) => css`
     flex: ${sectionSize};
-  `}
-  ${makeInset({ left: 16, right: 16 })};
 
-  ${makeResponsive({
-    endAt: "tabletPortrait",
-    style: `
+    ${makeMobileStyles(theme)} {
+      padding-bottom: ${makeRem(40)};
       width: 100%;
-      
-      &:not(:first-child){
-        ${makeInset({ bottom: 40, left: 16, right: 16 })};
-      }
-    `
-  })}
+    }
+
+    ${makeDesktopStyles(theme)} {
+      padding: 0 ${makeRem(16)};
+    }
+  `}
 
   & > p {
     ${makeOutset({ bottom: 24 })}

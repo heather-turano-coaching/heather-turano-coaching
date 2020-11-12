@@ -158,7 +158,7 @@ export interface IBlockPictureGridFields {
   block: IBlock;
 
   /** Images */
-  images?: Asset[] | undefined;
+  images: Asset[];
 }
 
 /** This is a block that has a picture grid associated with it */

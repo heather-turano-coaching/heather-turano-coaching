@@ -10,6 +10,7 @@ import styled, { css } from "styled-components";
 import { ActiveLink } from "./ActiveLink";
 
 export const navbarHeight = makeRem(84);
+export const fullScreenSansNavbar = `calc(100vh - ${navbarHeight})`;
 
 const NavbarContainer = styled.nav`
   width: 100%;

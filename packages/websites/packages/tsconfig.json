@@ -1,9 +1,0 @@
-{
-  "extends": "@heather-turano-coaching/typescript/tsconfig.json",
-  "include": ["src/**/*.ts", "src/**/*.tsx", "*.js"],
-  "compilerOptions": {
-    "noEmit": true,
-    "isolatedModules": true,
-    "downlevelIteration": true
-  }
-}

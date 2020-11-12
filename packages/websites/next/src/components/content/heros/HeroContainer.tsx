@@ -31,12 +31,13 @@ export const HeroWrapper = styled.div<{ $disableFull?: boolean }>`
   bottom: -${makeRem(1)};
   right: -${makeRem(1)};
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
 
   ${({ $disableFull }) =>
     !$disableFull &&
     css`
       min-height: ${`calc((100vh + ${makeRem(2)}) - ${navbarHeight})`};
-      height: ${`calc(100vh - ${navbarHeight})`};
     `}
 
   & * {

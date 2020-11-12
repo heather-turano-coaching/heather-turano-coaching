@@ -1,7 +1,13 @@
 import React, { FC } from "react";
-import styled, { SimpleInterpolation, css } from "styled-components";
+import styled, {
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemeProps,
+  css
+} from "styled-components";
 
 import { Layout } from "../../design-system";
+import { makeDesktopStyles, makeMobileStyles, makeRem } from "../../theme";
 import { StyledButton } from "./Button";
 
 interface ButtonGroupProps {
@@ -9,15 +15,34 @@ interface ButtonGroupProps {
   align?: "left" | "center" | "right";
 }
 
-const buttonGroupStyleMap: { [key in Layout]: SimpleInterpolation } = {
+const buttonGroupStyleMap: {
+  [key in Layout]: FlattenInterpolation<ThemeProps<DefaultTheme>>;
+} = {
   inline: css`
     display: flex;
     flex-direction: row;
     align-items: center;
 
-    & > ${StyledButton} + ${StyledButton}, & > a + a {
-      margin-left: 1rem;
-    }
+    ${({ theme }) => css`
+      ${makeMobileStyles(theme)} {
+        display: block;
+
+        button,
+        a {
+          text-align: center;
+          display: block;
+          &:not(:first-child) {
+            margin-top: ${makeRem(16)};
+          }
+        }
+      }
+
+      ${makeDesktopStyles(theme)} {
+        & > ${StyledButton} + ${StyledButton}, & > a + a {
+          margin-left: 1rem;
+        }
+      }
+    `}
   `,
   "stacked-full": css`
     ${StyledButton}, a {

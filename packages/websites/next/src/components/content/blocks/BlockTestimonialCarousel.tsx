@@ -3,10 +3,15 @@ import {
   CarouselFooter
 } from "@heather-turano-coaching/core/components";
 import { makeSize } from "@heather-turano-coaching/core/design-system";
+import {
+  makeMobileStyles,
+  makeRem
+} from "@heather-turano-coaching/core/dist/src/theme";
 import { ITestimonials } from "@heather-turano-coaching/domain";
 import React, { FC, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
+import { fullScreenSansNavbar } from "../navigation";
 import { TestimonialContent } from "./BlockTestimonialContent";
 
 export interface Testimonial {
@@ -30,14 +35,6 @@ const StyledFooter = styled.div`
   right: 0;
 `;
 
-const StyledContainer = styled.div`
-  height: ${makeSize({ custom: 760 })};
-
-  & > * {
-    height: 100%;
-  }
-`;
-
 export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
   testimonials
 }) => {
@@ -45,7 +42,20 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
   const goToEntry = (index: number) => setCurrentEntry(index);
 
   return (
-    <StyledContainer>
+    <div
+      css={css`
+        ${({ theme }) => css`
+          ${makeMobileStyles(theme)} {
+            height: ${fullScreenSansNavbar};
+          }
+        `}
+        height: ${makeRem(800)};
+
+        & > * {
+          height: 100%;
+        }
+      `}
+    >
       <Carousel>
         <TestimonialContent {...testimonials[currentEntry]} />
         <StyledFooter>
@@ -57,6 +67,6 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
           />
         </StyledFooter>
       </Carousel>
-    </StyledContainer>
+    </div>
   );
 };

@@ -8,14 +8,14 @@ import styled, { css } from "styled-components";
 
 import { BlockSimple } from "./BlockSimple";
 
-const StyledAboutMyClientsImageSection = styled.div`
+const StyledGrip = styled.div`
   display: flex;
   flex: 1;
   flex-wrap: wrap;
   align-self: stretch;
 `;
 
-const StyledClientImage = styled.div`
+const StyledGridImage = styled.div`
   width: 33.333%;
   display: flex;
   justify-content: center;
@@ -66,27 +66,32 @@ export const BlockPictureGrid: FC<IBlockPictureGrid> = ({
       <div
         css={css`
           flex: 1;
-          padding: 0 ${makeRem(40)};
 
           ${({ theme }) => css`
             ${makeDesktopStyles(theme)} {
+              padding: 0 ${makeRem(40)};
               order: 2;
+            }
+
+            & > * {
+              padding-top: 0 !important;
+              padding-bottom: 0 !important;
             }
           `}
         `}
       >
         <BlockSimple {...block} />
       </div>
-      <StyledAboutMyClientsImageSection>
+      <StyledGrip>
         {images.map((clientImage) => (
-          <StyledClientImage key={clientImage.fields.file.url}>
+          <StyledGridImage key={clientImage.fields.file.url}>
             <img
               src={clientImage.fields.file.url}
               alt={clientImage.fields.file.fileName}
             />
-          </StyledClientImage>
+          </StyledGridImage>
         ))}
-      </StyledAboutMyClientsImageSection>
+      </StyledGrip>
     </div>
   );
 };
