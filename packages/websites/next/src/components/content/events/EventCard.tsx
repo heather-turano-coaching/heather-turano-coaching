@@ -16,6 +16,7 @@ export type EventCardProps = {
   description: string;
   reserveLink: string;
   image: string;
+  isPastEvent?: boolean;
   // price: string;
   isFree: boolean;
   // options: {
@@ -29,6 +30,7 @@ export const EventCard: FC<EventCardProps> = (props) => {
   const time = `${format(new Date(props.time), "p")} EST`;
 
   const duration = differenceInHours(new Date(props.endTime), startDateTime);
+
   return (
     <div
       css={css`
@@ -132,16 +134,18 @@ export const EventCard: FC<EventCardProps> = (props) => {
           {/* <Button variant="text" color="primary" size="medium">
             Learn more
           </Button> */}
-          <Button
-            variant="contained"
-            color="primary"
-            size="medium"
-            href={props.reserveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Reserve
-          </Button>
+          {!props.isPastEvent && (
+            <Button
+              variant="contained"
+              color="primary"
+              size="medium"
+              href={props.reserveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Reserve
+            </Button>
+          )}
         </Group>
         {/* <div
           css={css`

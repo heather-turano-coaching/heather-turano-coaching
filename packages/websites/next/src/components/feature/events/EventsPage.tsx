@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 import { Title } from "@heather-turano-coaching/core/components";
 import { makeRem } from "@heather-turano-coaching/core/theme";
-import { Events, IWebPage } from "@heather-turano-coaching/domain";
+import { AllEvents, IWebPage } from "@heather-turano-coaching/domain";
 import { Container } from "@material-ui/core";
 import { EventCard, EventGroup } from "components/content/events";
 import { Hero } from "components/content/heros";
@@ -17,23 +17,44 @@ import { Meta } from "../meta";
 
 export const EventsPageQuery = gql`
   query EventsQuery {
-    events {
-      events {
-        summary
-        url
-        logo {
+    allEvents {
+      futureEvents {
+        events {
+          summary
           url
+          logo {
+            url
+          }
+          name {
+            text
+          }
+          start {
+            local
+          }
+          end {
+            local
+          }
+          is_free
         }
-        name {
-          text
+      }
+      pastEvents {
+        events {
+          summary
+          url
+          logo {
+            url
+          }
+          name {
+            text
+          }
+          start {
+            local
+          }
+          end {
+            local
+          }
+          is_free
         }
-        start {
-          local
-        }
-        end {
-          local
-        }
-        is_free
       }
     }
   }
@@ -42,15 +63,15 @@ export const EventsPageQuery = gql`
 export type EventsPageProps = {
   pageId: string;
   pageContent: IWebPage;
-  events: Events;
+  allEvents: AllEvents;
 };
 
 const StyledUl = styled.ul`
   &:not(:last-child) {
-    margin-bottom: ${makeRem(100)};
+    margin-bottom: ${makeRem(200)};
   }
   &:last-of-type {
-    margin-bottom: ${makeRem(200)};
+    margin-bottom: ${makeRem(300)};
   }
 `;
 const StyledLi = styled.li`
@@ -65,9 +86,13 @@ const StyledLi = styled.li`
 export const EventsPage: PageComponent<EventsPageProps> = ({
   pageId,
   pageContent,
-  events
+  allEvents: { futureEvents, pastEvents }
 }) => {
-  const aggregatedEvents = aggregateListByDay(events.events, "start.local");
+  const aggEventsFuture = aggregateListByDay(
+    futureEvents.events,
+    "start.local"
+  );
+  const aggEventsPast = aggregateListByDay(pastEvents.events, "start.local");
 
   const {
     data: {
@@ -98,7 +123,7 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
         <Container maxWidth="md">
           <Title size="lg">Upcoming Events</Title>
           <StyledUl>
-            {Object.entries(aggregatedEvents).map(([dayValue, day]) => (
+            {Object.entries(aggEventsFuture).map(([dayValue, day]) => (
               <EventGroup
                 date={day.formattedDate}
                 key={`${dayValue}_${day.date}`}
@@ -120,6 +145,29 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
             ))}
           </StyledUl>
           <Title size="lg">Past Events</Title>
+          <StyledUl>
+            {Object.entries(aggEventsPast).map(([dayValue, day]) => (
+              <EventGroup
+                date={day.formattedDate}
+                key={`${dayValue}_${day.date}`}
+              >
+                {day.items.map((event) => (
+                  <StyledLi key={event.url}>
+                    <EventCard
+                      title={event.name.text}
+                      time={event.start.local}
+                      endTime={event.end.local}
+                      description={event.summary}
+                      image={event.logo.url}
+                      reserveLink={event.url}
+                      isFree={event.is_free}
+                      isPastEvent
+                    />
+                  </StyledLi>
+                ))}
+              </EventGroup>
+            ))}
+          </StyledUl>
         </Container>
       </div>
     </>

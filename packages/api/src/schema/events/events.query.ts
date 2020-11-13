@@ -1,6 +1,10 @@
 import { objectType, queryField } from "@nexus/schema";
 
-import { formatSchemaError, getAllEvents } from "../../utils";
+import {
+  formatSchemaError,
+  getAllCurrentFutureEvents,
+  getAllPastEvents
+} from "../../utils";
 
 export const MultiPartText = objectType({
   name: "MultipartText",
@@ -99,16 +103,30 @@ export const EventsType = objectType({
   definition(t) {
     t.field("pagination", { type: "Pagination" });
     t.field("events", { type: "Event", list: true });
-    t.field("jack", { type: "Event", list: true });
   }
 });
 
-export const EventQuery = queryField("events", {
-  type: "Events",
+export const AllEventsTypes = objectType({
+  name: "AllEvents",
+  definition(t) {
+    t.field("pastEvents", { type: "Events" });
+    t.field("futureEvents", { type: "Events" });
+  }
+});
+
+export const EventQuery = queryField("allEvents", {
+  type: "AllEvents",
   async resolve(_root, _args) {
     try {
-      const response = await getAllEvents();
-      return response;
+      const [futureEvents, pastEvents] = await Promise.all([
+        getAllCurrentFutureEvents(),
+        getAllPastEvents()
+      ]);
+
+      return {
+        futureEvents,
+        pastEvents
+      };
     } catch (error) {
       throw new Error(formatSchemaError("Problem when getting drafts", error));
     }

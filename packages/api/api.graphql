@@ -2,6 +2,11 @@
 ### Do not make changes to this file directly
 
 
+type AllEvents {
+  futureEvents: Events
+  pastEvents: Events
+}
+
 type CropMask {
   height: Int
   top_left: XYCoordinates
@@ -40,7 +45,6 @@ type EventLogo {
 
 type Events {
   events: [Event]
-  jack: [Event]
   pagination: Pagination
 }
 
@@ -102,7 +106,7 @@ type Pagination {
 }
 
 type Query {
-  events: Events
+  allEvents: AllEvents
 }
 
 type StripeCheckoutSession {

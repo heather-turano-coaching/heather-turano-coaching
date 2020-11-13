@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import React from "react";
 
 export default {
-  title: "Material/Button",
+  title: "Material (Atoms) / Button",
   component: Button,
   argTypes: {
     backgroundColor: { control: "color" }

@@ -1,7 +1,6 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
-import { HttpLink } from "@apollo/client/link/http";
-// can't use SchemaLink since our graphql isn't on the same server
-// import { SchemaLink } from "@apollo/client/link/schema";
+import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
+import { concatPagination } from "@apollo/client/utilities";
+import merge from "deepmerge";
 import { useMemo } from "react";
 
 let apolloClient;
@@ -11,9 +10,17 @@ function createApolloClient() {
     ssrMode: typeof window === "undefined",
     link: new HttpLink({
       uri: `${process.env.HTC_API_HOSTNAME}/graphql`,
-      credentials: "same-origin"
+      credentials: "same-origin" // Additional fetch() options like `credentials` or `headers`
     }),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache({
+      typePolicies: {
+        Query: {
+          fields: {
+            allPosts: concatPagination()
+          }
+        }
+      }
+    })
   });
 }
 
@@ -21,9 +28,16 @@ export function initApollo<T>(initialState = null): ApolloClient<T> {
   const _apolloClient = apolloClient ?? createApolloClient();
 
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state
-  // get hydrated here
+  // gets hydrated here
   if (initialState) {
-    _apolloClient.cache.restore(initialState);
+    // Get existing cache, loaded during client side data fetching
+    const existingCache = _apolloClient.extract();
+
+    // Merge the existing cache into data passed from getStaticProps/getServerSideProps
+    const data = merge(initialState, existingCache);
+
+    // Restore the cache with the merged data
+    _apolloClient.cache.restore(data);
   }
   // For SSG and SSR always create a new Apollo Client
   if (typeof window === "undefined") return _apolloClient;

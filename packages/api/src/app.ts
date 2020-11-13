@@ -7,7 +7,7 @@ import { PrismaClient } from "@prisma/client";
 import { ApolloServer } from "apollo-server-express";
 import createExpress, { request, response } from "express";
 // import { GraphQLScalarType } from "graphql";
-// import { DateTimeResolver, JSONObjectResolver } from "graphql-scalars";
+// import { DateTimeResolver } from "graphql-scalars";
 import { nexusPrisma } from "nexus-plugin-prisma";
 import pino from "pino-http";
 
@@ -41,7 +41,7 @@ export const schema = makeSchema({
     nexusPrisma({
       experimentalCRUD: true,
       scalars: {
-        // DateTime: DateTimeResolver,
+        // DateTime: DateTimeResolver
         // Json: new GraphQLScalarType({
         //   ...JSONObjectResolver,
         //   name: "Json",

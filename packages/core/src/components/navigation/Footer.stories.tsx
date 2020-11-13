@@ -6,7 +6,7 @@ import { FooterText } from "./FooterText";
 
 export default {
   component: Footer,
-  title: "Navigation|Footer"
+  title: "Organisms / Footer"
 };
 
 export const plainFooter: FC = () => <Footer></Footer>;
