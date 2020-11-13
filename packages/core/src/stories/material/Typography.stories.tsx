@@ -3,7 +3,7 @@ import { Meta, Story } from "@storybook/react";
 import React from "react";
 
 export default {
-  title: "Material/Typography",
+  title: "Material (Atoms) / Typography",
   component: Typography,
   argTypes: {
     backgroundColor: { control: "color" }

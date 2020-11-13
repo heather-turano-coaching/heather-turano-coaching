@@ -24,8 +24,8 @@ export const aggregateListByDay = <Obj>(
     const dayOfYear = getDayOfYear(startOfNewLocation);
     const formattedDate =
       todayDayOfYear !== dayOfYear
-        ? format(startOfNewLocation, "Mo MMMM")
-        : `Today, ${format(startOfNewLocation, "Mo MMMM")}`;
+        ? format(startOfNewLocation, "PPP")
+        : `Today, ${format(startOfNewLocation, "PPP")}`;
     const formattedTime = `${format(startOfNewLocation, "pp")} EST`;
     if (accum[dayOfYear]) {
       return {

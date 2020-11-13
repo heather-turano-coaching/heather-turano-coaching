@@ -10,11 +10,25 @@ export type Scalars = {
   Float: number;
 };
 
-export type CropMask = {
-  __typename?: 'CropMask';
-  top_left?: Maybe<XyCoordinates>;
-  width?: Maybe<Scalars['Int']>;
-  height?: Maybe<Scalars['Int']>;
+export type StripeCheckoutSession = {
+  __typename?: 'StripeCheckoutSession';
+  /** The checkout session id that is used when a customer clicks on a product purchase button */
+  id?: Maybe<Scalars['String']>;
+};
+
+export type MultipartText = {
+  __typename?: 'MultipartText';
+  text?: Maybe<Scalars['String']>;
+  html?: Maybe<Scalars['String']>;
+};
+
+export type Pagination = {
+  __typename?: 'Pagination';
+  object_count?: Maybe<Scalars['Int']>;
+  page_number?: Maybe<Scalars['Int']>;
+  page_size?: Maybe<Scalars['Int']>;
+  page_count?: Maybe<Scalars['Int']>;
+  has_more_items?: Maybe<Scalars['Boolean']>;
 };
 
 export type DatetimeTz = {
@@ -22,6 +36,37 @@ export type DatetimeTz = {
   start?: Maybe<Scalars['String']>;
   local?: Maybe<Scalars['String']>;
   utc?: Maybe<Scalars['String']>;
+};
+
+export type XyCoordinates = {
+  __typename?: 'XYCoordinates';
+  y?: Maybe<Scalars['String']>;
+  x?: Maybe<Scalars['String']>;
+};
+
+export type CropMask = {
+  __typename?: 'CropMask';
+  top_left?: Maybe<XyCoordinates>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+};
+
+export type OriginalImg = {
+  __typename?: 'OriginalImg';
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['String']>;
+  height?: Maybe<Scalars['String']>;
+};
+
+export type EventLogo = {
+  __typename?: 'EventLogo';
+  id?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  crop_mask?: Maybe<CropMask>;
+  original?: Maybe<OriginalImg>;
+  aspect_ratio?: Maybe<Scalars['String']>;
+  edge_color?: Maybe<Scalars['String']>;
+  edge_color_set?: Maybe<Scalars['String']>;
 };
 
 export type Event = {
@@ -39,21 +84,16 @@ export type Event = {
   is_free?: Maybe<Scalars['Boolean']>;
 };
 
-export type EventLogo = {
-  __typename?: 'EventLogo';
-  id?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
-  crop_mask?: Maybe<CropMask>;
-  original?: Maybe<OriginalImg>;
-  aspect_ratio?: Maybe<Scalars['String']>;
-  edge_color?: Maybe<Scalars['String']>;
-  edge_color_set?: Maybe<Scalars['String']>;
-};
-
 export type Events = {
   __typename?: 'Events';
   pagination?: Maybe<Pagination>;
   events?: Maybe<Array<Maybe<Event>>>;
+};
+
+export type AllEvents = {
+  __typename?: 'AllEvents';
+  pastEvents?: Maybe<Events>;
+  futureEvents?: Maybe<Events>;
 };
 
 export type Message = {
@@ -61,10 +101,9 @@ export type Message = {
   message?: Maybe<Scalars['String']>;
 };
 
-export type MultipartText = {
-  __typename?: 'MultipartText';
-  text?: Maybe<Scalars['String']>;
-  html?: Maybe<Scalars['String']>;
+export type Query = {
+  __typename?: 'Query';
+  allEvents?: Maybe<AllEvents>;
 };
 
 export type Mutation = {
@@ -134,37 +173,4 @@ export type MutationCheckoutMindfulMovementArgs = {
 
 export type MutationCheckoutHeatherTuranoCoachingArgs = {
   priceId: Scalars['String'];
-};
-
-export type OriginalImg = {
-  __typename?: 'OriginalImg';
-  url?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['String']>;
-};
-
-export type Pagination = {
-  __typename?: 'Pagination';
-  object_count?: Maybe<Scalars['Int']>;
-  page_number?: Maybe<Scalars['Int']>;
-  page_size?: Maybe<Scalars['Int']>;
-  page_count?: Maybe<Scalars['Int']>;
-  has_more_items?: Maybe<Scalars['Boolean']>;
-};
-
-export type Query = {
-  __typename?: 'Query';
-  events?: Maybe<Events>;
-};
-
-export type StripeCheckoutSession = {
-  __typename?: 'StripeCheckoutSession';
-  /** The checkout session id that is used when a customer clicks on a product purchase button */
-  id?: Maybe<Scalars['String']>;
-};
-
-export type XyCoordinates = {
-  __typename?: 'XYCoordinates';
-  y?: Maybe<Scalars['String']>;
-  x?: Maybe<Scalars['String']>;
 };

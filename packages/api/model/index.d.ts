@@ -33,6 +33,10 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenRootTypes {
+  AllEvents: { // root type
+    futureEvents?: NexusGenRootTypes['Events'] | null; // Events
+    pastEvents?: NexusGenRootTypes['Events'] | null; // Events
+  }
   CropMask: { // root type
     height?: number | null; // Int
     top_left?: NexusGenRootTypes['XYCoordinates'] | null; // XYCoordinates
@@ -67,7 +71,6 @@ export interface NexusGenRootTypes {
   }
   Events: { // root type
     events?: Array<NexusGenRootTypes['Event'] | null> | null; // [Event]
-    jack?: Array<NexusGenRootTypes['Event'] | null> | null; // [Event]
     pagination?: NexusGenRootTypes['Pagination'] | null; // Pagination
   }
   Message: { // root type
@@ -109,6 +112,10 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 }
 
 export interface NexusGenFieldTypes {
+  AllEvents: { // field return type
+    futureEvents: NexusGenRootTypes['Events'] | null; // Events
+    pastEvents: NexusGenRootTypes['Events'] | null; // Events
+  }
   CropMask: { // field return type
     height: number | null; // Int
     top_left: NexusGenRootTypes['XYCoordinates'] | null; // XYCoordinates
@@ -143,7 +150,6 @@ export interface NexusGenFieldTypes {
   }
   Events: { // field return type
     events: Array<NexusGenRootTypes['Event'] | null> | null; // [Event]
-    jack: Array<NexusGenRootTypes['Event'] | null> | null; // [Event]
     pagination: NexusGenRootTypes['Pagination'] | null; // Pagination
   }
   Message: { // field return type
@@ -176,7 +182,7 @@ export interface NexusGenFieldTypes {
     page_size: number | null; // Int
   }
   Query: { // field return type
-    events: NexusGenRootTypes['Events'] | null; // Events
+    allEvents: NexusGenRootTypes['AllEvents'] | null; // AllEvents
   }
   StripeCheckoutSession: { // field return type
     id: string | null; // String
@@ -188,6 +194,10 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenFieldTypeNames {
+  AllEvents: { // field return type name
+    futureEvents: 'Events'
+    pastEvents: 'Events'
+  }
   CropMask: { // field return type name
     height: 'Int'
     top_left: 'XYCoordinates'
@@ -222,7 +232,6 @@ export interface NexusGenFieldTypeNames {
   }
   Events: { // field return type name
     events: 'Event'
-    jack: 'Event'
     pagination: 'Pagination'
   }
   Message: { // field return type name
@@ -255,7 +264,7 @@ export interface NexusGenFieldTypeNames {
     page_size: 'Int'
   }
   Query: { // field return type name
-    events: 'Events'
+    allEvents: 'AllEvents'
   }
   StripeCheckoutSession: { // field return type name
     id: 'String'
@@ -310,7 +319,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "CropMask" | "DatetimeTZ" | "Event" | "EventLogo" | "Events" | "Message" | "MultipartText" | "Mutation" | "OriginalImg" | "Pagination" | "Query" | "StripeCheckoutSession" | "XYCoordinates";
+export type NexusGenObjectNames = "AllEvents" | "CropMask" | "DatetimeTZ" | "Event" | "EventLogo" | "Events" | "Message" | "MultipartText" | "Mutation" | "OriginalImg" | "Pagination" | "Query" | "StripeCheckoutSession" | "XYCoordinates";
 
 export type NexusGenInputNames = never;
 

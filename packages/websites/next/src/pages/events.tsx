@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () 
   const apolloClient = initApollo<EventsPageProps>();
   const pageContent = (await contentfulClient.getEntry(
     "3yKGN5KGBDnt5fJDoJ43a7"
-  )) as EventsPageProps["events"];
+  )) as EventsPageProps["allEvents"];
 
   await apolloClient.query({
     query: EventsPageQuery

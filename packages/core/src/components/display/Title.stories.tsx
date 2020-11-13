@@ -4,7 +4,7 @@ import { Title } from "./Title";
 
 export default {
   component: Title,
-  title: "Display|Title"
+  title: "Organisms / Title"
 };
 
 export const title = () => (
