@@ -1,4 +1,4 @@
-export * from "./BlogPage";
+export * from "./Blog.page";
 export * from "./BlogCard";
 export * from "./BlogFeaturedPost";
 export * from "./BlogPostPage";

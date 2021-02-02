@@ -1,4 +1,3 @@
-import { gql } from "@apollo/client";
 import { Title } from "@heather-turano-coaching/core/components";
 import { makeRem } from "@heather-turano-coaching/core/theme";
 import { AllEvents, IWebPage } from "@heather-turano-coaching/domain";
@@ -14,51 +13,6 @@ import useSWR from "swr";
 
 import { LayoutRoot } from "../layout";
 import { Meta } from "../meta";
-
-export const EventsPageQuery = gql`
-  query EventsQuery {
-    allEvents {
-      futureEvents {
-        events {
-          summary
-          url
-          logo {
-            url
-          }
-          name {
-            text
-          }
-          start {
-            local
-          }
-          end {
-            local
-          }
-          is_free
-        }
-      }
-      pastEvents {
-        events {
-          summary
-          url
-          logo {
-            url
-          }
-          name {
-            text
-          }
-          start {
-            local
-          }
-          end {
-            local
-          }
-          is_free
-        }
-      }
-    }
-  }
-`;
 
 export type EventsPageProps = {
   pageId: string;

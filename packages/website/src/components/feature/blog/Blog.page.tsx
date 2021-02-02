@@ -15,8 +15,8 @@ import { css } from "styled-components";
 import useSWR from "swr";
 
 import { LayoutRoot } from "../layout";
+import { BlogCard, BlogFeaturedPost, getBlogPageData } from "./";
 import { BlogCardList } from "./BlogCardList";
-import { BlogCard, BlogFeaturedPost, getBlogPageData } from ".";
 
 export const Page: FC<{
   pageNum: number;

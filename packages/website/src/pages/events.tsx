@@ -1,30 +1,26 @@
-import {
-  EventsPage,
-  EventsPageProps,
-  EventsPageQuery
-} from "components/feature/events";
-import { extractSsrResponse, initApollo } from "lib/apollo";
-import { contentfulClient } from "lib/contentful";
+import { IWebPage } from "@heather-turano-coaching/domain";
+import { EventsPage, EventsPageProps } from "components/feature/events";
+import { getEntryById } from "lib/contentful";
 import { PageComponent } from "lib/page";
 import { GetServerSideProps } from "next";
 
 export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () => {
-  const apolloClient = initApollo<EventsPageProps>();
-  const pageContent = (await contentfulClient.getEntry(
-    "3yKGN5KGBDnt5fJDoJ43a7"
-  )) as EventsPageProps["allEvents"];
-
-  await apolloClient.query({
-    query: EventsPageQuery
-  });
-
-  const { ROOT_QUERY } = extractSsrResponse<EventsPageProps>(apolloClient);
+  const pageContent = await getEntryById<IWebPage>("3yKGN5KGBDnt5fJDoJ43a7");
 
   return {
     props: {
       pageId: "3yKGN5KGBDnt5fJDoJ43a7",
       pageContent,
-      ...ROOT_QUERY
+      allEvents: {
+        futureEvents: {
+          events: [],
+          pagination: {}
+        },
+        pastEvents: {
+          events: [],
+          pagination: {}
+        }
+      }
     }
   };
 };

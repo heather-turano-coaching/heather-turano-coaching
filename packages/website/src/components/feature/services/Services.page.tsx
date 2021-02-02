@@ -8,11 +8,9 @@ import {
 } from "@heather-turano-coaching/domain/generated/contentful";
 import { Hero } from "components/content/heros";
 import { EntryCollection } from "contentful";
-import { getEntryById } from "lib/contentful";
 import { PageComponent } from "lib/page";
-import React, { Fragment } from "react";
+import React from "react";
 import { css } from "styled-components";
-import useSWR from "swr";
 
 import { LayoutRoot } from "../layout";
 import { Meta } from "../meta";
@@ -29,26 +27,16 @@ export type ServicesPageProps = {
 };
 
 export const ServicesPage: PageComponent<ServicesPageProps> = ({
-  pageId,
+  pageId: _pageId,
   pageData,
   services
 }) => {
-  const {
-    data: {
-      fields: {
-        hero: { fields: heroFields }
-      }
-    }
-  } = useSWR(`/${pageId}`, async () => getEntryById<IWebPage>(pageId), {
-    initialData: pageData
-  });
-
   const { groupedServices } = useServices(services);
 
   return (
     <>
       <Meta pageTitle="Services" />
-      <Hero {...heroFields} hideGradient />
+      <Hero {...pageData.fields.hero.fields} hideGradient />
       {Object.entries(groupedServices).map(([servicesTitle, services], i) => (
         <div
           key={`${servicesTitle}_${i}`}
