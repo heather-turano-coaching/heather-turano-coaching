@@ -27,6 +27,7 @@ export const getAllContentfulPages = async (): Promise<
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getEntriesById = async <T>(
   id: string,
   query?: Record<string, string>

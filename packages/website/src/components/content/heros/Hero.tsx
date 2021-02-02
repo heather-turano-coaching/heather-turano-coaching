@@ -8,7 +8,6 @@ import { HeroPlain } from "./HeroPlain";
 import { HeroSplitHorizontal } from "./HeroSplitHorizontal";
 
 const heroComponentMap: {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   [key in IHeroFields["type"]]: FunctionComponent<HeroProps>;
 } = {
   plain: HeroPlain,

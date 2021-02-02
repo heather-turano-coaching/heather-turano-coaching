@@ -4,12 +4,10 @@ import {
   makeFlex
 } from "@heather-turano-coaching/core/components";
 import {
-  makeColor,
   makeInset,
-  makeResponsive,
-  makeSize
+  makeResponsive
 } from "@heather-turano-coaching/core/design-system";
-import { makeRem } from "@heather-turano-coaching/core/dist/src/theme";
+import { makeRem } from "@heather-turano-coaching/core/theme";
 import { ITestimonials } from "@heather-turano-coaching/domain";
 import { Container } from "@material-ui/core";
 import { RichText } from "components/atomic";

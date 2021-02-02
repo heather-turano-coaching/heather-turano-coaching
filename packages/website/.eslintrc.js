@@ -1,7 +1,9 @@
+const path = require("path");
+
 module.exports = {
   extends: ["@heather-turano-coaching/eslint-config"],
   parserOptions: {
-    project: ["./tsconfig.json"]
+    project: [path.resolve(__dirname, "./tsconfig.json")]
   },
   root: true,
   rules: {
@@ -9,6 +11,7 @@ module.exports = {
     "jsx-a11y/anchor-is-valid": 0,
     "@typescript-eslint/no-use-before-define": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/camelcase": 0
   }
 };

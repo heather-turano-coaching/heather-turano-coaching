@@ -1,5 +1,4 @@
 import {
-  Section,
   SectionCopy,
   SectionFooter,
   SectionProps,

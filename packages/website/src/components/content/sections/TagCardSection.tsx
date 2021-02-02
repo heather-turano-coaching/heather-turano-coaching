@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { universalHover } from "../../../components/styles";
+import { universalHover } from "../../styles";
 
 interface TagCardSectionProps {
   tags: Tag[];

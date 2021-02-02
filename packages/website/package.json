@@ -1,12 +1,12 @@
 {
-  "name": "@heather-turano-coaching/next",
+  "name": "@heather-turano-coaching/website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "yarn generate-types && next dev",
     "build": "yarn generate-types && next build",
     "start": "next start",
-    "generate-types": "contentful-typescript-codegen --output ../../domain/generated/contentful.d.ts"
+    "generate-types": "contentful-typescript-codegen --output ./types/contentful.d.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.2.5",
@@ -21,6 +21,7 @@
     "@types/tryghost__content-api": "^1.3.5",
     "axios": "^0.20.0",
     "contentful": "^7.14.4",
+    "contentful-management": "^6.3.0",
     "date-fns": "^2.16.1",
     "deepmerge": "^4.2.2",
     "dotenv": "^8.2.0",
@@ -49,7 +50,6 @@
     "@types/styled-components": "^5.1.3",
     "babel-eslint": "^9.0.0",
     "babel-plugin-styled-components": "^1.11.1",
-    "contentful-management": "^6.3.0",
     "contentful-typescript-codegen": "^3.2.1",
     "core-js": "^3.6.5",
     "eslint": "^7.12.1",
