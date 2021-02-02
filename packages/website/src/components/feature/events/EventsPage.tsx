@@ -5,11 +5,11 @@ import { Container } from "@material-ui/core";
 import { EventCard, EventGroup } from "components/content/events";
 import { Hero } from "components/content/heros";
 import { getEntryById } from "lib/contentful";
-import { aggregateListByDay } from "lib/dates";
 import { PageComponent } from "lib/page";
 import React from "react";
 import styled, { css } from "styled-components";
 import useSWR from "swr";
+import { aggregateListByDay } from "utils/dates";
 
 import { LayoutRoot } from "../layout";
 import { Meta } from "../meta";
