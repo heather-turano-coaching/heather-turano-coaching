@@ -10,8 +10,8 @@
     "dev": "yarn build -w",
     "build": "rm -rf dist && tsc --project tsconfig.build.json",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:dev": "start-storybook -p 6006",
+    "storybook:build": "build-storybook"
   },
   "author": "Drew DeCarme",
   "license": "MIT",

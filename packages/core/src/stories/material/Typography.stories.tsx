@@ -14,12 +14,12 @@ const Template: Story<TypographyProps> = (args) => (
   <Typography {...args}>This is a button</Typography>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const h1 = Template.bind({});
+h1.args = {
   variant: "h1"
 };
 
-export const Secondary = Template.bind({});
-Primary.args = {
+export const h2 = Template.bind({});
+h2.args = {
   variant: "h2"
 };

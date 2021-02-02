@@ -13,7 +13,8 @@ import {
 import { themeOverrides } from "./theme.config.overrides";
 import { themePalette } from "./theme.config.palette";
 import { themeProps } from "./theme.config.props";
-import { cssReset, makeMobileStyles, makeRem } from ".";
+import { cssReset } from "./theme.reset";
+import { makeFontWeight, makeMobileStyles, makeRem } from "./theme.utils";
 
 const GlobalStyle = createGlobalStyle`
   ${cssReset};
@@ -29,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     ${makeMobileStyles(theme)} {
       html,
       body {
-        font-size: 14px;
+        font-size: 16px;
       }
     }
   `}
@@ -43,14 +44,14 @@ export const HTCTheme: FC = ({ children }) => {
       h1: {
         fontFamily: "Montserrat",
         fontWeight: 700,
-        textTransform: "uppercase",
         margin: `${makeRem(16)} 0`,
         fontSize: makeRem(38),
 
         "@media (min-width:600px)": {
-          fontSize: makeRem(58),
           margin: `${makeRem(24)} 0`,
-          lineHeight: 1
+          fontSize: makeRem(44),
+          fontWeight: makeFontWeight("regular"),
+          lineHeight: 1.2
         }
       },
       h2: {
