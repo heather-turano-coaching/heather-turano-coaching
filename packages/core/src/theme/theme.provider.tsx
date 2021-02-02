@@ -43,7 +43,7 @@ export const HTCTheme: FC = ({ children }) => {
       fontFamily: "Muli",
       h1: {
         fontFamily: "Montserrat",
-        fontWeight: 700,
+        fontWeight: makeFontWeight("semiBold"),
         margin: `${makeRem(16)} 0`,
         fontSize: makeRem(38),
 
