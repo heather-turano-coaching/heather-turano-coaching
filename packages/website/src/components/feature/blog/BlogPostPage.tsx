@@ -8,7 +8,7 @@ import {
   GetSingleGhostPostBySlug,
   getSingleGhostPostBySlugEndpoint,
   ghostFetcher
-} from "lib/ghost.api";
+} from "lib/ghost/ghost.api";
 import { PageComponent } from "lib/page";
 import { formatLongDate } from "lib/utils";
 import React from "react";

@@ -1,6 +1,6 @@
 import { Title } from "@heather-turano-coaching/core/dist/src/components";
 import { Container } from "@material-ui/core";
-import { GetAllGhostPosts } from "lib/ghost.api";
+import { GetAllGhostPosts } from "lib/ghost/ghost.api";
 import { PageComponent } from "lib/page";
 import React from "react";
 

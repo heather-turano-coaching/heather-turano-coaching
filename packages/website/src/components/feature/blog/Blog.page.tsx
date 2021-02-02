@@ -8,22 +8,26 @@ import {
   GetFeaturedGhostPost,
   getAllGhostPostsEndpoint,
   ghostFetcher
-} from "lib/ghost.api";
+} from "lib/ghost/ghost.api";
 import { PageComponent } from "lib/page";
 import React, { FC, useMemo } from "react";
 import { css } from "styled-components";
 import useSWR from "swr";
 
 import { LayoutRoot } from "../layout";
-import { BlogCard, BlogFeaturedPost, getBlogPageData } from "./";
+import { getBlogPageData } from "./blog.utils";
+import { BlogCard } from "./BlogCard";
 import { BlogCardList } from "./BlogCardList";
+import { BlogFeaturedPost } from "./BlogFeaturedPost";
 
 export const Page: FC<{
   pageNum: number;
   initialValues?: GetAllGhostPosts;
 }> = ({ pageNum, initialValues }) => {
   const { data } = useSWR<GetAllGhostPosts>(
-    getAllGhostPostsEndpoint(pageNum),
+    getAllGhostPostsEndpoint({
+      page: pageNum
+    }),
     ghostFetcher,
     {
       initialData: initialValues

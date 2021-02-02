@@ -8,7 +8,7 @@ import {
   GetAllGhostPosts,
   getAllGhostPostsEndpoint,
   ghostFetcher
-} from "lib/ghost.api";
+} from "lib/ghost/ghost.api";
 import React, { FC, useCallback } from "react";
 import styled, { css } from "styled-components";
 import { useSWRInfinite } from "swr";

@@ -1,7 +1,7 @@
 import { Pagination, PostOrPage } from "@tryghost/content-api";
 import axios, { AxiosRequestConfig } from "axios";
 
-import { getEndpoint } from "./endpoint.utils";
+import { getEndpoint } from "../endpoint.utils";
 
 const ghostApiVersion = "v3";
 
@@ -45,7 +45,7 @@ export const getGhostFeaturedPostEndpoint = getEndpoint({
   }
 });
 
-export const getAllGhostPostsEndpoint = (page = 1): string =>
+export const getAllGhostPostsEndpoint = ({ page }: { page: number }): string =>
   getEndpoint({
     root: "/posts",
     queryParams: {

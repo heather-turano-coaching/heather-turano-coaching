@@ -6,15 +6,19 @@ import {
   getAllGhostPostsEndpoint,
   getGhostFeaturedPostEndpoint,
   ghostFetcher
-} from "lib/ghost.api";
+} from "lib/ghost/ghost.api";
 
 export const blogPageId = "7inppspqzOyqyHJ9r8viIj";
 
 export const getBlogPageData = async () => {
   const [data, featuredPosts, allPosts] = await Promise.all([
-    getEntryById<IWebPage>("7inppspqzOyqyHJ9r8viIj"),
+    getEntryById<IWebPage>(blogPageId),
     ghostFetcher<GetFeaturedGhostPost>(getGhostFeaturedPostEndpoint),
-    ghostFetcher<GetAllGhostPosts>(getAllGhostPostsEndpoint(1))
+    ghostFetcher<GetAllGhostPosts>(
+      getAllGhostPostsEndpoint({
+        page: 1
+      })
+    )
   ]);
   return { data, featuredPosts, allPosts };
 };

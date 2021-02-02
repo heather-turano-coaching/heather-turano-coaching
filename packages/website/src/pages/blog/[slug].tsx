@@ -4,7 +4,7 @@ import {
   GetSingleGhostPostBySlug,
   getSingleGhostPostBySlugEndpoint,
   ghostFetcher
-} from "lib/ghost.api";
+} from "lib/ghost/ghost.api";
 import { PageComponent } from "lib/page";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
