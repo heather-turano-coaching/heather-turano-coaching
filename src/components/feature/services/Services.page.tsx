@@ -1,14 +1,14 @@
 import { Title } from "@htc/core/dist/src/components";
-import { IServiceFields, IWebPage } from "@htc/domain";
+import { IServiceFields, IWebPage } from "@htc/domain/contentful";
 import {
   IServiceBasic,
   IServiceContact,
   IServiceTeachable
-} from "@htc/domain/generated/contentful";
+} from "@htc/domain/contentful/generated/contentful";
+import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
 import { Hero } from "components/content/heros";
 import { EntryCollection } from "contentful";
-import { PageComponent } from "lib/page";
 import React from "react";
 import { css } from "styled-components";
 

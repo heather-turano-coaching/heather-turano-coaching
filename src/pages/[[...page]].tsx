@@ -1,10 +1,10 @@
 import path from "path";
 
-import { IWebPage } from "@htc/domain";
-import { DynamicPage, DynamicPageProps } from "components/feature/dynamic";
+import { DynamicPage, DynamicPageProps } from "@htc/components/feature/dynamic";
+import { IWebPage } from "@htc/domain/contentful";
+import { getAllContentfulPages, getEntryById } from "@htc/lib/contentful";
+import { PageComponent } from "@htc/lib/page";
 import fs from "fs-extra";
-import { getAllContentfulPages, getEntryById } from "lib/contentful";
-import { PageComponent } from "lib/page";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 const blacklistedPages = ["blog", "events", "services"];

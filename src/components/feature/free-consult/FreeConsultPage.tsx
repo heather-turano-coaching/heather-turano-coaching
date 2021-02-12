@@ -1,5 +1,5 @@
+import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
-import { PageComponent } from "lib/page";
 import React from "react";
 import { css } from "styled-components";
 

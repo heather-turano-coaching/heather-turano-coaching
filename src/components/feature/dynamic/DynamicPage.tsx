@@ -1,8 +1,8 @@
-import { IWebPage } from "@htc/domain";
+import { IWebPage } from "@htc/domain/contentful";
+import { getEntryById } from "@htc/lib/contentful";
+import { PageComponent } from "@htc/lib/page";
 import { Blocks } from "components/content/blocks";
 import { Hero } from "components/content/heros";
-import { getEntryById } from "lib/contentful";
-import { PageComponent } from "lib/page";
 import React from "react";
 import useSWR from "swr";
 

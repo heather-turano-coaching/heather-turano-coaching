@@ -1,5 +1,6 @@
 import { Title } from "@htc/components/atomic";
-import { IWebPage } from "@htc/domain";
+import { IWebPage } from "@htc/domain/contentful";
+import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
 import { Hero } from "components/content/heros";
@@ -9,7 +10,6 @@ import {
   getAllGhostPostsEndpoint,
   ghostFetcher
 } from "lib/ghost/ghost.api";
-import { PageComponent } from "lib/page";
 import React, { FC, useMemo } from "react";
 import { css } from "styled-components";
 import useSWR from "swr";

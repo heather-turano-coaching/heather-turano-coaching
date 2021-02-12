@@ -3,8 +3,8 @@ import {
   BlogPageProps,
   blogPageId,
   getBlogPageData
-} from "components/feature/blog";
-import { PageComponent } from "lib/page";
+} from "@htc/components/feature/blog";
+import { PageComponent } from "@htc/lib/page";
 import { GetStaticProps } from "next";
 import React from "react";
 

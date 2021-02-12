@@ -4,7 +4,7 @@ import {
   SectionProps,
   Title
 } from "@htc/components/atomic";
-import { IBlock, IBlockFields } from "@htc/domain";
+import { IBlock, IBlockFields } from "@htc/domain/contentful";
 import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
 import { RichText } from "components/atomic";

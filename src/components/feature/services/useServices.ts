@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { IService, IServiceFields } from "@htc/domain";
+import { IService, IServiceFields } from "@htc/domain/contentful";
+import { getAllServices } from "@htc/lib/contentful";
 import { Entry, EntryCollection } from "contentful";
-import { getAllServices } from "lib/contentful";
 import useSWR from "swr";
 
 type GroupedServicesType = {

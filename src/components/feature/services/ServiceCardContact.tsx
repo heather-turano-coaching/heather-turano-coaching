@@ -1,4 +1,4 @@
-import { IServiceContact } from "@htc/domain";
+import { IServiceContact } from "@htc/domain/contentful";
 import { Forms } from "components/content/forms";
 import { FC } from "react";
 

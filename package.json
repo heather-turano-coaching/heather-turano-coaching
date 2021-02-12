@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "postinstall": "rm -rf node_modules/@emotion/core/types/index.d.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "storybook:dev": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "types:generate": "contentful-typescript-codegen --output ./domain/contentful/contentful.ts",
+    "types:generate": "contentful-typescript-codegen --output src/domain/contentful/contentful.ts",
     "icons:generate": "yarn svgr --typescript -d src/icons/generated src/icons/svg && prettier --write src/icons/generated/index.tsx"
   },
   "dependencies": {

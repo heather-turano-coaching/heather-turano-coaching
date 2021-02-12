@@ -1,4 +1,4 @@
-import { IForm } from "@htc/domain";
+import { IForm } from "@htc/domain/contentful";
 import { AweberForm, AweberFormProps } from "components/atomic";
 import { FC } from "react";
 

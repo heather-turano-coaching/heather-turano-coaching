@@ -1,4 +1,4 @@
-import { IServiceTeachable } from "@htc/domain";
+import { IServiceTeachable } from "@htc/domain/contentful";
 import { Actions } from "components/content/actions";
 import { FC } from "react";
 

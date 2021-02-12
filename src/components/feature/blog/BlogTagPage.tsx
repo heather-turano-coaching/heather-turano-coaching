@@ -1,7 +1,7 @@
 import { Title } from "@htc/core/dist/src/components";
+import { PageComponent } from "@htc/lib/page";
 import { Container } from "@material-ui/core";
 import { GetAllGhostPosts } from "lib/ghost/ghost.api";
-import { PageComponent } from "lib/page";
 import React from "react";
 
 import { LayoutRoot } from "../layout";

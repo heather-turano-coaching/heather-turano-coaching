@@ -1,4 +1,5 @@
 import { Title } from "@htc/components/atomic";
+import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
 import { Container, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
@@ -9,7 +10,6 @@ import {
   getSingleGhostPostBySlugEndpoint,
   ghostFetcher
 } from "lib/ghost/ghost.api";
-import { PageComponent } from "lib/page";
 import { formatLongDate } from "lib/utils";
 import React from "react";
 import { css } from "styled-components";

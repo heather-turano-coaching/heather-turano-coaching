@@ -1,11 +1,11 @@
 import { Title } from "@htc/components/atomic";
-import { AllEvents, IWebPage } from "@htc/domain";
+import { AllEvents, IWebPage } from "@htc/domain/contentful";
+import { getEntryById } from "@htc/lib/contentful";
+import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
 import { EventCard, EventGroup } from "components/content/events";
 import { Hero } from "components/content/heros";
-import { getEntryById } from "lib/contentful";
-import { PageComponent } from "lib/page";
 import React from "react";
 import styled, { css } from "styled-components";
 import useSWR from "swr";

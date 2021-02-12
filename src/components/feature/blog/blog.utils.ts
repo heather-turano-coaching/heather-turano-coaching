@@ -1,5 +1,5 @@
-import { IWebPage } from "@htc/domain";
-import { getEntryById } from "lib/contentful";
+import { IWebPage } from "@htc/domain/contentful";
+import { getEntryById } from "@htc/lib/contentful";
 import {
   GetAllGhostPosts,
   GetFeaturedGhostPost,

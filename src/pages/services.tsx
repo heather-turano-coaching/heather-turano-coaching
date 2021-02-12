@@ -1,7 +1,10 @@
-import { IServiceFields, IWebPage } from "@htc/domain";
-import { ServicesPage, ServicesPageProps } from "components/feature/services";
-import { getEntriesById, getEntryById } from "lib/contentful";
-import { PageComponent } from "lib/page";
+import {
+  ServicesPage,
+  ServicesPageProps
+} from "@htc/components/feature/services";
+import { IServiceFields, IWebPage } from "@htc/domain/contentful";
+import { getEntriesById, getEntryById } from "@htc/lib/contentful";
+import { PageComponent } from "@htc/lib/page";
 import { GetServerSideProps } from "next";
 import React from "react";
 

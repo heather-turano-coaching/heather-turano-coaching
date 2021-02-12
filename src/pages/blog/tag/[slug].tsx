@@ -1,11 +1,11 @@
-import { BlogTagPage, BlogTagPageProps } from "components/feature/blog";
+import { BlogTagPage, BlogTagPageProps } from "@htc/components/feature/blog";
+import { PageComponent } from "@htc/lib/page";
 import { getEndpoint } from "lib/endpoint.utils";
 import {
   GetAllGhostPosts,
   getAllGhostPostsByTagSlugEndpoint,
   ghostFetcher
 } from "lib/ghost/ghost.api";
-import { PageComponent } from "lib/page";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 

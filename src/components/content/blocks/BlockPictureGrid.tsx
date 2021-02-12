@@ -1,4 +1,4 @@
-import { IBlockPictureGrid } from "@htc/domain";
+import { IBlockPictureGrid } from "@htc/domain/contentful";
 import { makeDesktopStyles, makeRem } from "@htc/theme";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";

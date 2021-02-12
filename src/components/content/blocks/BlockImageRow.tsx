@@ -1,4 +1,4 @@
-import { IBlockImageRow } from "@htc/domain";
+import { IBlockImageRow } from "@htc/domain/contentful";
 import { FC } from "react";
 
 export const BlockImageRow: FC<IBlockImageRow> = (props) => (

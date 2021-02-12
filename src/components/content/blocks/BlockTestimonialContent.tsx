@@ -1,6 +1,6 @@
 import { Image, SectionCopy, makeFlex } from "@htc/components/atomic";
 import { makeInset, makeResponsive } from "@htc/core/design-system";
-import { ITestimonials } from "@htc/domain";
+import { ITestimonials } from "@htc/domain/contentful";
 import { makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
 import { RichText } from "components/atomic";

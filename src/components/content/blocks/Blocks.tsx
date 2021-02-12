@@ -5,7 +5,7 @@ import {
   IBlockPictureGrid,
   IBlockTestimonial,
   IWebPageFields
-} from "@htc/domain";
+} from "@htc/domain/contentful";
 import React, { FC, Fragment } from "react";
 
 import { BlockGrabber } from "./BlockGrabber";

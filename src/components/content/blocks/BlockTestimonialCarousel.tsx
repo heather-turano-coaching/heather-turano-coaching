@@ -1,6 +1,6 @@
 import { Carousel, CarouselFooter } from "@htc/components/atomic";
 import { makeSize } from "@htc/core/design-system";
-import { ITestimonials } from "@htc/domain";
+import { ITestimonials } from "@htc/domain/contentful";
 import { makeMobileStyles, makeRem } from "@htc/theme";
 import React, { FC, useState } from "react";
 import styled, { css } from "styled-components";

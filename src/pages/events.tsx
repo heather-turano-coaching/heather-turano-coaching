@@ -1,7 +1,7 @@
-import { IWebPage } from "@htc/domain";
-import { EventsPage, EventsPageProps } from "components/feature/events";
-import { getEntryById } from "lib/contentful";
-import { PageComponent } from "lib/page";
+import { EventsPage, EventsPageProps } from "@htc/components/feature/events";
+import { IWebPage } from "@htc/domain/contentful";
+import { getEntryById } from "@htc/lib/contentful";
+import { PageComponent } from "@htc/lib/page";
 import { GetServerSideProps } from "next";
 
 export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () => {

@@ -1,4 +1,4 @@
-import { IServiceFields, IWebPageFields } from "@htc/domain";
+import { IServiceFields, IWebPageFields } from "@htc/domain/contentful";
 import { EntryCollection, createClient } from "contentful";
 import safeJsonStringify from "safe-json-stringify";
 

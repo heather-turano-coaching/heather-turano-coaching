@@ -1,4 +1,4 @@
-import { IServiceFields } from "@htc/domain";
+import { IServiceFields } from "@htc/domain/contentful";
 import { makeMobileStyles, makeRem, makeTabletStyles } from "@htc/theme";
 import { Typography } from "@material-ui/core";
 import { RichText } from "components/atomic";
