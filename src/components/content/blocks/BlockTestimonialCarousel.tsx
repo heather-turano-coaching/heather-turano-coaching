@@ -1,7 +1,7 @@
 import { Carousel } from "@htc/components/atomic";
 import { ITestimonials } from "@htc/lib/contentful";
 import { makeMobileStyles, makeRem } from "@htc/theme";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { css } from "styled-components";
 
 import { fullScreenSansNavbar } from "../navigation";
