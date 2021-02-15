@@ -1,7 +1,6 @@
+import { makeFontWeight, makeRem } from "@htc/theme";
 import { FC } from "react";
 import styled from "styled-components";
-
-import { makeFontWeight, makeRem } from "../../../packages/src/theme";
 
 const formWrapper = ".af-form";
 const formElement = ".af-element";

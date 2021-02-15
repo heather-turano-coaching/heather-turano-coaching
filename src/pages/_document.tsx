@@ -33,6 +33,7 @@ export default class MyDocument extends Document {
       const initialProps = await Document.getInitialProps(ctx);
       return {
         ...initialProps,
+        head: initialProps.head as JSX.Element[],
         styles: [
           <React.Fragment key="styles">
             {initialProps.styles}

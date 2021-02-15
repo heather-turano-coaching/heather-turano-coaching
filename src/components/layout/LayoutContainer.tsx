@@ -1,10 +1,10 @@
-import { makeFlex, sharedHorizontalBodyPadding } from "@htc/components/atomic";
 import {
   makeInset,
   makeResponsive,
   makeSize,
   makeSpace
-} from "@htc/core/design-system";
+} from "@htc/design-system";
+import { sharedHorizontalBodyPadding } from "@htc/theme";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
@@ -45,7 +45,7 @@ const StyledLayoutContainer = styled.section<Required<LayoutContainerProps>>`
         ${makeResponsive({
           beginAt: "tabletLandscape",
           style: `
-            ${makeFlex("row", "flex-start", "flex-start")};
+            disply: flex;
           `
         })}
       `;

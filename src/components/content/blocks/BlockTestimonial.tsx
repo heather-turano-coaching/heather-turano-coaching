@@ -1,4 +1,4 @@
-import { IBlockTestimonial } from "@htc/domain/contentful";
+import { IBlockTestimonial } from "@htc/lib/contentful";
 import { makeDesktopStyles, makeRem, makeRetinaStyles } from "@htc/theme";
 import React, { FC } from "react";
 import { css } from "styled-components";

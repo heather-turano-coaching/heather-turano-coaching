@@ -1,21 +1,16 @@
 import {
   BlogPage,
   BlogPageProps,
-  blogPageId,
   getBlogPageData
 } from "@htc/components/feature/blog";
-import { PageComponent } from "@htc/lib/page";
-import { GetStaticProps } from "next";
+import { GetPageProps, PageComponent } from "@htc/lib/page";
 import React from "react";
 
-export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
-  const blogData = await getBlogPageData();
+export const getStaticProps: GetPageProps<BlogPageProps> = async () => {
+  const props = await getBlogPageData();
 
   return {
-    props: {
-      pageId: blogPageId,
-      ...blogData
-    }
+    props
   };
 };
 

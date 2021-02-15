@@ -1,13 +1,8 @@
-import {
-  SectionCopy,
-  SectionFooter,
-  SectionProps,
-  Title
-} from "@htc/components/atomic";
-import { IBlock, IBlockFields } from "@htc/domain/contentful";
+import { SectionCopy, SectionFooter, Title } from "@htc/components/atomic";
+import { RichText } from "@htc/components/atomic";
+import { IBlock, IBlockFields } from "@htc/lib/contentful";
 import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
-import { RichText } from "components/atomic";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
@@ -15,10 +10,10 @@ import { Actions } from "../actions";
 import { Forms } from "../forms";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const typeMap: { [key in IBlockFields["type"]]: SectionProps["styleType"] } = {
-  plain: "blank",
-  stacked: "layered"
-};
+// const typeMap: { [key in IBlockFields["type"]]: SectionProps["styleType"] } = {
+//   plain: "blank",
+//   stacked: "layered"
+// };
 
 const BlockSimpleVariant = styled(Container)<{
   variant: IBlockFields["type"];
@@ -38,6 +33,7 @@ const BlockSimpleVariant = styled(Container)<{
             padding-bottom: ${makeRem(160)};
           }
         `;
+
       case "stacked":
         return css`
           margin-top: ${makeRem(200)};

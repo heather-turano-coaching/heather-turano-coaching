@@ -1,7 +1,7 @@
+import { makeSize } from "@htc/design-system";
 import React, { FC, ReactNode, memo } from "react";
 import styled from "styled-components";
 
-import { makeSize } from "../../../../../src/design-system";
 import { Typography } from "../display";
 import { fontColor } from "./Footer.vars";
 

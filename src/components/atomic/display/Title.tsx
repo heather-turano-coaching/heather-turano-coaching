@@ -1,12 +1,7 @@
+import { makeColor, makeFont, makeReset } from "@htc/design-system";
+import { makeRem } from "@htc/theme";
 import React, { FC } from "react";
 import styled, { SimpleInterpolation, css } from "styled-components";
-
-import {
-  makeColor,
-  makeFont,
-  makeReset
-} from "../../../../../src/design-system";
-import { makeRem } from "../../theme";
 
 type TitleProps = {
   size: "lg" | "md" | "sm";

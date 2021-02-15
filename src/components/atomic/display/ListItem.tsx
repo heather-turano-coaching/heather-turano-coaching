@@ -1,8 +1,8 @@
+import { makeInset } from "@htc/design-system";
+import { flexRow } from "@htc/theme";
 import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 
-import { makeInset } from "../../../../../src/design-system";
-import { makeFlex } from "../utils";
 import { Typography } from "./Typography";
 
 export interface ListItemProps {
@@ -12,7 +12,7 @@ export interface ListItemProps {
 }
 
 const StyledListItem = styled.li<{ tight: boolean }>`
-  ${makeFlex("row", "flex-start", "center")};
+  ${flexRow("flex-start", "center")};
   ${({ tight }) => {
     if (tight) return makeInset({ vertical: 4, horizontal: 8 });
     return makeInset({ vertical: 12, horizontal: 20 });

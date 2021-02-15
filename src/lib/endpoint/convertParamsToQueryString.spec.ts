@@ -1,4 +1,4 @@
-import { convertParamsToQueryString } from "./endpoint.utils";
+import { convertParamsToQueryString } from "./index";
 
 describe("convertParamsToQueryString", () => {
   it("should return an empty string when the params are empty", () => {

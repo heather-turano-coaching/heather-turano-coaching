@@ -1,12 +1,12 @@
-import React, { FC, useEffect, useRef } from "react";
-import styled, { css } from "styled-components";
-
 import {
   makeDesktopStyles,
   makeFlex,
   makeMobileStyles,
   makeRem
-} from "../../../../packages/src/theme";
+} from "@htc/theme";
+import React, { FC, useEffect, useRef } from "react";
+import styled, { css } from "styled-components";
+
 import { ActiveLink } from "./ActiveLink";
 
 export const navbarHeight = makeRem(84);
@@ -158,16 +158,18 @@ const NavLink = styled.a`
 `;
 
 export const HeaderNav: FC = () => {
-  const stickyRef = useRef<HTMLDivElement>();
+  const stickyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([e]) => e.target.classList.toggle("stuck", e.intersectionRatio < 1),
-      { threshold: [1] }
-    );
+    if (stickyRef.current) {
+      const observer = new IntersectionObserver(
+        ([e]) => e.target.classList.toggle("stuck", e.intersectionRatio < 1),
+        { threshold: [1] }
+      );
 
-    observer.observe(stickyRef.current);
-  }, []);
+      observer.observe(stickyRef.current);
+    }
+  }, [stickyRef.current]);
 
   return (
     <NavbarContainer>

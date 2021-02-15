@@ -1,14 +1,14 @@
-import { rgba } from "polished";
-import React, { FC, Fragment, memo, useMemo } from "react";
-import styled, { css } from "styled-components";
-
 import {
   makeColor,
   makeInset,
   makeOutset,
   makeResponsive,
   makeSize
-} from "../../../../../src/design-system";
+} from "@htc/design-system";
+import { rgba } from "polished";
+import React, { FC, Fragment, memo, useMemo } from "react";
+import styled, { css } from "styled-components";
+
 import { Heading, Line, List, ListItem, Typography } from "../display";
 import { Button } from "../inputs";
 

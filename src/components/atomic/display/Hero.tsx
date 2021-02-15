@@ -1,13 +1,8 @@
+import { ColorProperties } from "@htc/design-system";
+import { makeColor, makeResponsive, makeSize } from "@htc/design-system";
+import { createImageBorder } from "@htc/theme";
 import React, { FC } from "react";
 import styled from "styled-components";
-
-import { ColorProperties } from "../../../../../src/design-system";
-import {
-  makeColor,
-  makeResponsive,
-  makeSize
-} from "../../../../../src/design-system";
-import { createImageBorder } from "../utils";
 
 export interface HeroProps {
   image: string;

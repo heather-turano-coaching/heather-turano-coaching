@@ -1,16 +1,16 @@
 import { BlogPostPage, BlogPostPageProps } from "@htc/components/feature/blog";
-import { PageComponent } from "@htc/lib/page";
-import { getEndpoint } from "lib/endpoint.utils";
+import { getEndpoint } from "@htc/lib/endpoint";
 import {
   GetSingleGhostPostBySlug,
   getSingleGhostPostBySlugEndpoint,
-  ghostFetcher
-} from "lib/ghost/ghost.api";
+  ghostClient
+} from "@htc/lib/ghost";
+import { PageComponent } from "@htc/lib/page";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
-  const allSlugs = await ghostFetcher<{ posts: { slug: string }[] }>(
+  const allSlugs = await ghostClient<{ posts: { slug: string }[] }>(
     getEndpoint({
       root: "/posts",
       queryParams: {
@@ -32,12 +32,12 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 export const getStaticProps: GetStaticProps<BlogPostPageProps> = async ({
   params
 }) => {
-  const slug = params.slug as string;
+  const slug = params?.slug as string;
 
   try {
-    const post = await ghostFetcher<
-      GetSingleGhostPostBySlug & { slug: string }
-    >(getSingleGhostPostBySlugEndpoint(slug));
+    const post = await ghostClient<GetSingleGhostPostBySlug & { slug: string }>(
+      getSingleGhostPostBySlugEndpoint(slug)
+    );
 
     return {
       props: {

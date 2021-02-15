@@ -1,15 +1,14 @@
 import { Tag, TagGroup } from "@htc/components/atomic";
-import { makeFlex } from "@htc/theme";
-import { makeDesktopStyles, makeRem } from "@htc/theme";
+import { CSSImageBorder } from "@htc/components/styles";
+import { makeDesktopStyles, makeFlex, makeRem } from "@htc/theme";
+import { formatShortDate } from "@htc/utils";
 import { Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
-import { CSSImageBorder } from "components/styles";
-import { formatShortDate } from "lib/utils";
 import Link from "next/link";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
-export const BlogFeaturedPost: FC<PostOrPage> = (featuredPost) => {
+export const BlogCardFeatured: FC<PostOrPage> = (featuredPost) => {
   return (
     <div
       css={css`
@@ -61,7 +60,7 @@ export const BlogFeaturedPost: FC<PostOrPage> = (featuredPost) => {
         >
           <img
             alt="featured-imge"
-            src={featuredPost.feature_image}
+            src={featuredPost.feature_image as string | undefined}
             css={css`
               width: 100%;
               border-radius: ${makeRem(4)};
@@ -82,9 +81,12 @@ export const BlogFeaturedPost: FC<PostOrPage> = (featuredPost) => {
           padding: ${makeRem(16)} 0;
         `}
       >
-        <Typography variant="body2" component="div">
-          {formatShortDate(featuredPost.published_at)}
-        </Typography>
+        {featuredPost.published_at && (
+          <Typography variant="body2" component="div">
+            {formatShortDate(featuredPost.published_at)}
+          </Typography>
+        )}
+
         <Typography
           variant="h3"
           css={css`
@@ -108,17 +110,20 @@ export const BlogFeaturedPost: FC<PostOrPage> = (featuredPost) => {
           </Typography>
         </div>
         <TagGroup>
-          {featuredPost.tags.map((tag) => (
-            <Link
-              href={"/blog/tag/[slug]"}
-              as={`/blog/tag/${tag.slug}`}
-              key={tag.id}
-            >
-              <a>
-                <Tag text={tag.name} key={tag.id} />
-              </a>
-            </Link>
-          ))}
+          {featuredPost?.tags?.map(
+            (tag) =>
+              tag.name && (
+                <Link
+                  href={"/blog/tag/[slug]"}
+                  as={`/blog/tag/${tag.slug}`}
+                  key={tag.id}
+                >
+                  <a>
+                    <Tag text={tag.name} key={tag.id} />
+                  </a>
+                </Link>
+              )
+          )}
         </TagGroup>
       </div>
     </div>

@@ -1,7 +1,7 @@
-import { IBlockGrabber } from "@htc/domain/contentful";
+import { AweberForm, RichText } from "@htc/components/atomic";
+import { BlockContainer, BlockVertSpacing } from "@htc/components/layout";
+import { IBlockGrabber } from "@htc/lib/contentful";
 import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
-import { AweberForm, RichText } from "components/atomic";
-import { BlockContainer, BlockVertSpacing } from "components/layout";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 

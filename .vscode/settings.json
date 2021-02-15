@@ -21,6 +21,7 @@
     "**/.hg/store/**": true
   },
   "cSpell.words": [
+    "Contentful",
     "eventbrite"
   ]
 }

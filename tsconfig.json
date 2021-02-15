@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    // old
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -17,16 +16,15 @@
       "@htc/components/*": ["src/components/*"],
       "@htc/design-system": ["src/design-system/index.ts"],
       "@htc/documents/*": ["src/documents/*"],
-      "@htc/domain/*": ["src/domain/*"],
+      "@htc/hooks": ["src/hooks"],
       "@htc/icons": ["src/icons/index.ts"],
       "@htc/images": ["src/images"],
       "@htc/lib/*": ["src/lib/*"],
       "@htc/theme": ["src/theme/index.ts"],
-      "@htc/utils": ["src/hooks/index.ts"]
+      "@htc/utils": ["src/utils/index.ts"]
     },
     "strict": true,
     "isolatedModules": true,
-    // new
     "downlevelIteration": true,
     "importHelpers": true,
     "declaration": true,

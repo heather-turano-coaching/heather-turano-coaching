@@ -1,9 +1,9 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, Document, MARKS } from "@contentful/rich-text-types";
+import { makeRhythm } from "@htc/design-system";
 import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 
-import { makeRhythm } from "../../../../../src/design-system";
 import { Typography, TypographyProps } from "./Typography";
 
 const StyledRichText = styled.div`

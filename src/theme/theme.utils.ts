@@ -1,5 +1,14 @@
+import { Color } from "@htc/design-system";
+import {
+  ColorProperties,
+  FontProperties,
+  SpaceProperties
+} from "@htc/design-system";
+import { makeColor, makeSpace } from "@htc/design-system";
+import { ResponsiveBreakpoints } from "@htc/design-system";
 import { Theme } from "@material-ui/core";
 import { CSSObject, DefaultTheme } from "styled-components";
+import { css } from "styled-components";
 
 import { baseFontSize } from "./theme.config.base";
 import { fontWeightValues } from "./theme.fonts";
@@ -24,6 +33,15 @@ export const makeFlex: MakeFlex = ({
     justify-content: ${justify};
     align-items: ${align};
   `;
+
+export const flexRow = (
+  justify: CSSObject["justifyContent"],
+  align: CSSObject["alignItems"]
+) => css`
+  display: flex;
+  justify-content: ${justify};
+  align-items: ${align};
+`;
 
 /**
  * Generates a rem string from a defined pixel value
@@ -76,3 +94,40 @@ export const makeDesktopStyles = (theme: DefaultTheme | Theme): string =>
  */
 export const makeRetinaStyles = (theme: DefaultTheme | Theme): string =>
   theme.breakpoints.up("lg");
+
+export type RandomColor = Extract<Color, "primary" | "secondary" | "accent">;
+
+const possibleColor: [RandomColor, RandomColor, RandomColor] = [
+  "primary",
+  "secondary",
+  "accent"
+];
+
+export const generateRandomColor = () => {
+  const randomInt = (Math.random() * 3) | 0;
+  return possibleColor[randomInt];
+};
+
+export const shareButtonAndInputFontSize: FontProperties["fontSize"] = "sm";
+export const sharedElementSpacing: SpaceProperties = 16;
+export const sharedButtonAndInputVerticalPadding = 12;
+
+export const sharedHorizontalBodyPadding: ResponsiveBreakpoints = {
+  phone: 24,
+  phoneMd: 24,
+  phoneLg: 24,
+  tabletPortrait: 32,
+  tabletLandscape: 32,
+  laptop: 32,
+  desktop: 32,
+  "4K": 32
+};
+
+export const createImageBorder = (color: ColorProperties) => css`
+  outline: 1px solid ${makeColor(color)};
+  outline-offset: -${makeSpace(20)};
+`;
+
+export const universalShadow = `0 2px 12px 0 ${makeColor({
+  scalable: { color: "gray", scale: 3 }
+})}`;

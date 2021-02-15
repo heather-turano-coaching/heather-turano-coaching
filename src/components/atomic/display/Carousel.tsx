@@ -1,12 +1,7 @@
+import { ColorProperties } from "@htc/design-system";
+import { makeColor, makeOutset, makeSize } from "@htc/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
-
-import { ColorProperties } from "../../../../../src/design-system";
-import {
-  makeColor,
-  makeOutset,
-  makeSize
-} from "../../../../../src/design-system";
 
 const StyledCarousel = styled.div`
   position: relative;

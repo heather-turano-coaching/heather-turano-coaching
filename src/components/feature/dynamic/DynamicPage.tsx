@@ -1,8 +1,7 @@
-import { IWebPage } from "@htc/domain/contentful";
-import { getEntryById } from "@htc/lib/contentful";
+import { Blocks, Hero } from "@htc/components/content";
+import { IWebPage } from "@htc/lib/contentful";
+import { getContentfulEntryById } from "@htc/lib/contentful";
 import { PageComponent } from "@htc/lib/page";
-import { Blocks } from "components/content/blocks";
-import { Hero } from "components/content/heros";
 import React from "react";
 import useSWR from "swr";
 
@@ -10,26 +9,29 @@ import { LayoutRoot } from "../layout";
 import { Meta } from "../meta";
 
 export type DynamicPageProps = {
-  pageId: string;
   data: IWebPage;
 };
 
-export const DynamicPage: PageComponent<DynamicPageProps> = ({
-  pageId,
-  data
+export const DynamicPage: PageComponent = ({
+  contentfulPageEntryId,
+  contentfulPageData
 }) => {
-  const {
-    data: {
-      fields: {
-        navbarLabel,
-        hero: { fields: heroFields },
-        blocks
-      }
-    }
-  } = useSWR<IWebPage>(pageId, {
-    initialData: data,
-    fetcher: async (pageId) => getEntryById<IWebPage>(pageId)
+  const { data } = useSWR<IWebPage>(contentfulPageEntryId, {
+    initialData: contentfulPageData,
+    fetcher: async (pageId) => getContentfulEntryById<IWebPage>(pageId)
   });
+
+  if (!data) {
+    return null;
+  }
+
+  const {
+    fields: {
+      navbarLabel,
+      hero: { fields: heroFields },
+      blocks
+    }
+  } = data;
 
   return (
     <>

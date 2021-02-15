@@ -1,12 +1,8 @@
+import { ColorProperties } from "@htc/design-system";
+import { makeColor, makeOutset, makeSize } from "@htc/design-system";
 import React, { FC, ReactNode, useCallback, useState } from "react";
 import styled from "styled-components";
 
-import { ColorProperties } from "../../../../../src/design-system";
-import {
-  makeColor,
-  makeOutset,
-  makeSize
-} from "../../../../../src/design-system";
 import { Typography } from "./Typography";
 
 export interface Step {

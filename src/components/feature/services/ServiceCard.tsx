@@ -1,9 +1,9 @@
-import { IServiceFields } from "@htc/domain/contentful";
+import { RichText } from "@htc/components/atomic";
+import { ProgramContainer } from "@htc/components/layout";
+import { CSSImageBorderSmall } from "@htc/components/styles";
+import { IServiceFields } from "@htc/lib/contentful";
 import { makeMobileStyles, makeRem, makeTabletStyles } from "@htc/theme";
 import { Typography } from "@material-ui/core";
-import { RichText } from "components/atomic";
-import { ProgramContainer } from "components/layout";
-import { CSSImageBorderSmall } from "components/styles";
 import { FC } from "react";
 import { css } from "styled-components";
 

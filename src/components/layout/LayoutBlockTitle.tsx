@@ -1,10 +1,6 @@
-import { Heading, makeFlex } from "@htc/components/atomic";
-import {
-  makeColor,
-  makeFont,
-  makeOutset,
-  makeSize
-} from "@htc/core/design-system";
+import { Heading } from "@htc/components/atomic";
+import { makeColor, makeFont, makeOutset, makeSize } from "@htc/design-system";
+import { flexRow } from "@htc/theme";
 import React, { FC } from "react";
 import styled from "styled-components";
 
@@ -15,7 +11,7 @@ interface LayoutBlockTitleProps {
 const StyledLayoutBlockTitle = styled.header`
   width: 100%;
   position: relative;
-  ${makeFlex("row", "space-between", "center")};
+  ${flexRow("space-between", "center")};
   ${makeOutset({ bottom: 16 })};
 
   &::after {

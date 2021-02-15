@@ -1,4 +1,4 @@
-import { IHeroFields } from "@htc/domain/contentful";
+import { IHeroFields } from "@htc/lib/contentful";
 import { FC, FunctionComponent } from "react";
 
 import { HeroProps } from "./HeroContainer";

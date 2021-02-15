@@ -1,24 +1,14 @@
 import { Title } from "@htc/components/atomic";
-import { AllEvents, IWebPage } from "@htc/domain/contentful";
-import { getEntryById } from "@htc/lib/contentful";
+import { Hero } from "@htc/components/content";
 import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
-import { EventCard, EventGroup } from "components/content/events";
-import { Hero } from "components/content/heros";
 import React from "react";
 import styled, { css } from "styled-components";
-import useSWR from "swr";
-import { aggregateListByDay } from "utils/dates";
 
 import { LayoutRoot } from "../layout";
 import { Meta } from "../meta";
-
-export type EventsPageProps = {
-  pageId: string;
-  pageContent: IWebPage;
-  allEvents: AllEvents;
-};
+import { EventsPageProps } from "./events.utils";
 
 const StyledUl = styled.ul`
   &:not(:last-child) {
@@ -28,35 +18,27 @@ const StyledUl = styled.ul`
     margin-bottom: ${makeRem(300)};
   }
 `;
-const StyledLi = styled.li`
-  padding: 0 ${makeRem(32)};
+// const StyledLi = styled.li`
+//   padding: 0 ${makeRem(32)};
 
-  &:not(:last-child) {
-    & > * {
-      border-bottom: ${({ theme }) => `1px solid ${theme.palette.light.main}`};
+//   &:not(:last-child) {
+//     & > * {
+//       border-bottom: ${({ theme }) => `1px solid ${theme.palette.light.main}`};
+//     }
+//   }
+// `;
+export const EventsPage: PageComponent<EventsPageProps> = ({
+  contentfulPageData: {
+    fields: {
+      hero: { fields: heroFields }
     }
   }
-`;
-export const EventsPage: PageComponent<EventsPageProps> = ({
-  pageId,
-  pageContent,
-  allEvents: { futureEvents, pastEvents }
 }) => {
-  const aggEventsFuture = aggregateListByDay(
-    futureEvents.events,
-    "start.local"
-  );
-  const aggEventsPast = aggregateListByDay(pastEvents.events, "start.local");
-
-  const {
-    data: {
-      fields: {
-        hero: { fields: heroFields }
-      }
-    }
-  } = useSWR(`/${pageId}`, async () => getEntryById<IWebPage>(pageId), {
-    initialData: pageContent
-  });
+  // const aggEventsFuture = aggregateListByDay(
+  //   futureEvents.events,
+  //   "start.local"
+  // );
+  // const aggEventsPast = aggregateListByDay(pastEvents.events, "start.local");
 
   /**
    * @todo
@@ -77,7 +59,7 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
         <Container maxWidth="md">
           <Title size="lg">Upcoming Events</Title>
           <StyledUl>
-            {Object.entries(aggEventsFuture).map(([dayValue, day]) => (
+            {/* {Object.entries(aggEventsFuture).map(([dayValue, day]) => (
               <EventGroup
                 date={day.formattedDate}
                 key={`${dayValue}_${day.date}`}
@@ -96,11 +78,11 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
                   </StyledLi>
                 ))}
               </EventGroup>
-            ))}
+            ))} */}
           </StyledUl>
           <Title size="lg">Past Events</Title>
           <StyledUl>
-            {Object.entries(aggEventsPast).map(([dayValue, day]) => (
+            {/* {Object.entries(aggEventsPast).map(([dayValue, day]) => (
               <EventGroup
                 date={day.formattedDate}
                 key={`${dayValue}_${day.date}`}
@@ -120,7 +102,7 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
                   </StyledLi>
                 ))}
               </EventGroup>
-            ))}
+            ))} */}
           </StyledUl>
         </Container>
       </div>

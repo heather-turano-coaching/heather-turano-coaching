@@ -1,6 +1,6 @@
+import { makeRem } from "@htc/theme";
 import styled from "styled-components";
 
-import { makeRem } from "../../../packages/src/theme";
 import { TextStyles } from "./TextStyles";
 
 export const TextStylesBlog = styled(TextStyles)`

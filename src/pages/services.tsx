@@ -1,30 +1,17 @@
 import {
   ServicesPage,
-  ServicesPageProps
+  ServicesPageProps,
+  getServicesPageData
 } from "@htc/components/feature/services";
-import { IServiceFields, IWebPage } from "@htc/domain/contentful";
-import { getEntriesById, getEntryById } from "@htc/lib/contentful";
-import { PageComponent } from "@htc/lib/page";
-import { GetServerSideProps } from "next";
+import { GetPageProps, PageComponent } from "@htc/lib/page";
 import React from "react";
 
-export const getServerSideProps: GetServerSideProps<ServicesPageProps> = async () => {
-  const pageId = "5oPRhGTzOaiUeiF8tTIHS5";
+export const getStaticProps: GetPageProps<ServicesPageProps> = async () => {
   try {
-    const [pageData, services] = await Promise.all<
-      ServicesPageProps["pageData"],
-      ServicesPageProps["services"]
-    >([
-      getEntryById<IWebPage>(pageId),
-      getEntriesById<IServiceFields>("service")
-    ]);
+    const props = await getServicesPageData();
 
     return {
-      props: {
-        pageId,
-        pageData,
-        services
-      }
+      props
     };
   } catch (error) {
     throw error;

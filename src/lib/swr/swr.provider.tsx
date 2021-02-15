@@ -1,13 +1,19 @@
 import React, { FC } from "react";
-import { ConfigInterface, SWRConfig } from "swr";
+import { SWRConfig } from "swr";
+
+import { api } from "../api";
 
 /**
  * Global config for fetching all data
  * and client side http cache
  */
-const swrConfig: ConfigInterface = {
+const swrConfig = {
   refreshInterval: 30000,
-  revalidateOnMount: true
+  revalidateOnMount: true,
+  fetcher: async (url: string) => {
+    const data = await api.get(url);
+    return data.data;
+  }
 };
 
 export const SWRProvider: FC = ({ children }) => (

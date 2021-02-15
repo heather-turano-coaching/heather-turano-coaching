@@ -1,7 +1,7 @@
 import { Pagination, PostOrPage } from "@tryghost/content-api";
 import axios, { AxiosRequestConfig } from "axios";
 
-import { getEndpoint } from "../endpoint.utils";
+import { getEndpoint } from "../endpoint";
 
 const ghostApiVersion = "v3";
 
@@ -12,7 +12,7 @@ export const ghostApi = axios.create({
 
 ghostApi.interceptors.request.use(
   async (config): Promise<AxiosRequestConfig> => {
-    if (config.url.includes("?")) {
+    if (config.url?.includes("?")) {
       config.url = `${config.url}&key=${process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY}`;
     } else {
       config.url = `${config.url}?key=${process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY}`;
@@ -21,7 +21,7 @@ ghostApi.interceptors.request.use(
   }
 );
 
-export const ghostFetcher = async <TData>(url: string): Promise<TData> =>
+export const ghostClient = async <TData>(url: string): Promise<TData> =>
   ghostApi.get<TData>(url).then((res) => res.data);
 
 /**
@@ -31,7 +31,7 @@ export type GhostMeta = { meta: { pagination: Pagination } };
 export type GetAllGhostPosts = {
   posts: PostOrPage[];
 } & GhostMeta;
-export type GetFeaturedGhostPost = { posts: [PostOrPage] } & GhostMeta;
+export type GetFeaturedGhostPost = PostOrPage;
 export type GetSingleGhostPostBySlug = { posts: [PostOrPage] };
 
 /**

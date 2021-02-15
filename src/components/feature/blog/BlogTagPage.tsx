@@ -1,11 +1,11 @@
-import { Title } from "@htc/core/dist/src/components";
+import { Title } from "@htc/components/atomic";
+import { GetAllGhostPosts } from "@htc/lib/ghost";
 import { PageComponent } from "@htc/lib/page";
 import { Container } from "@material-ui/core";
-import { GetAllGhostPosts } from "lib/ghost/ghost.api";
 import React from "react";
 
 import { LayoutRoot } from "../layout";
-import { BlogCardList } from "./BlogCardList";
+import { BlogList } from "./BlogList";
 
 export type BlogTagPageProps = {
   slug: string;
@@ -19,7 +19,7 @@ export const BlogTagPage: PageComponent<BlogTagPageProps> = ({
   return (
     <Container maxWidth="lg">
       <Title size="lg">Tag: {slug}</Title>
-      <BlogCardList {...data} />
+      <BlogList {...data} />
     </Container>
   );
 };

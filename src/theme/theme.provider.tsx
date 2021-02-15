@@ -34,6 +34,10 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   `}
+
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 export const HTCTheme: FC = ({ children }) => {

@@ -1,13 +1,13 @@
+import {
+  ColorProperties,
+  SizeProperties,
+  makeColor,
+  makeSize
+} from "@htc/design-system";
+import { flexRow } from "@htc/theme";
 import { rgba } from "polished";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
-
-import {
-  ColorProperties,
-  SizeProperties
-} from "../../../../../src/design-system";
-import { makeColor, makeSize } from "../../../../../src/design-system";
-import { makeFlex } from "../utils";
 
 type CustomImageSizeValues = number | null;
 
@@ -26,7 +26,7 @@ const StyledImageContainer = styled.div<
   Pick<ImageProps, "manualHeight" | "manualWidth"> &
     Required<Pick<ImageProps, "size">>
 >`
-  ${makeFlex("row", "center", "center")};
+  ${flexRow("center", "center")};
   position: relative;
 
   & > img {

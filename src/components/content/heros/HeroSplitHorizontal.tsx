@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import styled, { css } from "styled-components";
-
 import {
   makeDesktopStyles,
   makeFlex,
   makeMobileStyles,
   makeRem
-} from "../../../../packages/src/theme";
+} from "@htc/theme";
+import React, { FC } from "react";
+import styled, { css } from "styled-components";
+
 import {
   HeroContainer,
   HeroProps,

@@ -1,8 +1,7 @@
+import { makeOutset, makeResponsive } from "@htc/design-system";
+import { Layout } from "@htc/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
-
-import { makeOutset, makeResponsive } from "../../../../../src/design-system";
-import { Layout } from "../../../../../src/design-system";
 
 interface FormContainerProps {
   layout?: Layout;

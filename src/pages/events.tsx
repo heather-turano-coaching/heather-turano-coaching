@@ -1,28 +1,20 @@
-import { EventsPage, EventsPageProps } from "@htc/components/feature/events";
-import { IWebPage } from "@htc/domain/contentful";
-import { getEntryById } from "@htc/lib/contentful";
-import { PageComponent } from "@htc/lib/page";
-import { GetServerSideProps } from "next";
+import {
+  EventsPage,
+  EventsPageProps,
+  getEventsPageData
+} from "@htc/components/feature/events";
+import { GetPageProps, PageComponent } from "@htc/lib/page";
 
-export const getServerSideProps: GetServerSideProps<EventsPageProps> = async () => {
-  const pageContent = await getEntryById<IWebPage>("3yKGN5KGBDnt5fJDoJ43a7");
+export const getStaticProps: GetPageProps<EventsPageProps> = async () => {
+  try {
+    const props = await getEventsPageData();
 
-  return {
-    props: {
-      pageId: "3yKGN5KGBDnt5fJDoJ43a7",
-      pageContent,
-      allEvents: {
-        futureEvents: {
-          events: [],
-          pagination: {}
-        },
-        pastEvents: {
-          events: [],
-          pagination: {}
-        }
-      }
-    }
-  };
+    return {
+      props
+    };
+  } catch (error) {
+    throw error;
+  }
 };
 
 const Page: PageComponent<EventsPageProps> = (props) => {

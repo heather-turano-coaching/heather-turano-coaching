@@ -1,13 +1,12 @@
-import React, { FC } from "react";
-import styled, { SimpleInterpolation, css } from "styled-components";
-
 import {
+  Layout,
   makeOutset,
   makeResponsive,
   makeSpace
-} from "../../../../../src/design-system";
-import { Layout } from "../../../../../src/design-system";
-import { sharedElementSpacing } from "../utils/vars";
+} from "@htc/design-system";
+import { sharedElementSpacing } from "@htc/theme";
+import React, { FC } from "react";
+import styled, { SimpleInterpolation, css } from "styled-components";
 
 export interface FormGroupProps {
   layout?: Layout;

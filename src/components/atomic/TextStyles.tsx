@@ -1,6 +1,5 @@
+import { makeFontWeight, makeRem } from "@htc/theme";
 import styled, { css } from "styled-components";
-
-import { makeFontWeight, makeRem } from "../../../packages/src/theme";
 
 export const TextStyles = styled.div`
   box-sizing: border-box;

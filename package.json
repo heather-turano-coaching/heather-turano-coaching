@@ -9,7 +9,7 @@
     "start": "next start",
     "storybook:dev": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "types:generate": "contentful-typescript-codegen --output src/domain/contentful/contentful.ts",
+    "types:generate": "contentful-typescript-codegen --output src/lib/contentful/contentful.types.ts",
     "icons:generate": "yarn svgr --typescript -d src/icons/generated src/icons/svg && prettier --write src/icons/generated/index.tsx"
   },
   "dependencies": {
@@ -27,6 +27,7 @@
     "date-fns": "^2.16.1",
     "deepmerge": "^4.2.2",
     "dotenv": "^8.2.0",
+    "eventbrite": "^1.2.2",
     "fs-extra": "^9.0.1",
     "graphql": "15.4.0",
     "lodash": "^4.17.15",
@@ -54,6 +55,7 @@
     "@types/jest": "^26.0.20",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
+    "@types/safe-json-stringify": "^1.1.2",
     "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",

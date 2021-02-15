@@ -1,8 +1,11 @@
 import path from "path";
 
 import { DynamicPage, DynamicPageProps } from "@htc/components/feature/dynamic";
-import { IWebPage } from "@htc/domain/contentful";
-import { getAllContentfulPages, getEntryById } from "@htc/lib/contentful";
+import { IWebPage } from "@htc/lib/contentful";
+import {
+  getAllContentfulPages,
+  getContentfulEntryById
+} from "@htc/lib/contentful";
 import { PageComponent } from "@htc/lib/page";
 import fs from "fs-extra";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -10,8 +13,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 const blacklistedPages = ["blog", "events", "services"];
 const pagePathDataFile = path.resolve("./public/posts.json");
 type PageCache = {
-  pageName: string;
-  pageId: string;
+  [key in string]: string;
 };
 
 export const getStaticPaths: GetStaticPaths<{
@@ -22,27 +24,35 @@ export const getStaticPaths: GetStaticPaths<{
     pageName: page.fields.url === "index" ? undefined : page.fields.url,
     pageId: page.sys.id
   }));
-  const pagesData = pagesDataArr.reduce<PageCache>(
-    (accum, data) => ({
-      ...accum,
-      [data.pageName]: data.pageId
-    }),
-    {} as PageCache
+  const pagesData = pagesDataArr.reduce<PageCache | Record<string, unknown>>(
+    (accum, data) => {
+      if (data.pageName) {
+        return {
+          ...accum,
+          [data.pageName]: data.pageId
+        };
+      }
+      return accum;
+    },
+    {}
   );
   await fs.writeJSON(pagePathDataFile, pagesData);
-  const paths = pagesDataArr.reduce((accum, p) => {
-    if (!blacklistedPages.includes(p.pageName)) {
-      return [
-        ...accum,
-        {
-          params: {
-            page: p.pageName ? [p.pageName] : undefined
+  const paths = pagesDataArr.reduce<{ params: { page: string } }[]>(
+    (accum, p) => {
+      if (p.pageName && !blacklistedPages.includes(p.pageName)) {
+        return [
+          ...accum,
+          {
+            params: {
+              page: p.pageName
+            }
           }
-        }
-      ];
-    }
-    return accum;
-  }, []);
+        ];
+      }
+      return accum;
+    },
+    []
+  );
 
   return {
     paths,
@@ -54,8 +64,8 @@ export const getStaticProps: GetStaticProps<DynamicPageProps> = async ({
   params
 }) => {
   const cache = (await fs.readJson(pagePathDataFile)) as PageCache;
-  const page = params.page as string;
-  const data = await getEntryById<IWebPage>(cache[page]);
+  const page = params?.page as string;
+  const data = await getContentfulEntryById<IWebPage>(cache[page]);
   return {
     props: {
       pageId: cache[page],
@@ -64,8 +74,8 @@ export const getStaticProps: GetStaticProps<DynamicPageProps> = async ({
   };
 };
 
-const Page: PageComponent<DynamicPageProps> = ({ pageId, ...restProps }) => {
-  return <DynamicPage pageId={pageId} {...restProps} />;
+const Page: PageComponent<DynamicPageProps> = (props) => {
+  return <DynamicPage {...props} />;
 };
 
 Page.getPageLayout = DynamicPage.getPageLayout;

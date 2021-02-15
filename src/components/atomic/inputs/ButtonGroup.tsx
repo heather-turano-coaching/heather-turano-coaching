@@ -1,3 +1,5 @@
+import { Layout } from "@htc/design-system";
+import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
 import React, { FC } from "react";
 import styled, {
   DefaultTheme,
@@ -6,8 +8,6 @@ import styled, {
   css
 } from "styled-components";
 
-import { Layout } from "../../../../../src/design-system";
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "../../theme";
 import { StyledButton } from "./Button";
 
 interface ButtonGroupProps {

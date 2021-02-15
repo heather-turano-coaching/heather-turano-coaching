@@ -1,9 +1,8 @@
-import { Image, SectionCopy, makeFlex } from "@htc/components/atomic";
-import { makeInset, makeResponsive } from "@htc/core/design-system";
-import { ITestimonials } from "@htc/domain/contentful";
-import { makeRem } from "@htc/theme";
+import { Image, RichText, SectionCopy } from "@htc/components/atomic";
+import { makeInset, makeResponsive } from "@htc/design-system";
+import { ITestimonials } from "@htc/lib/contentful";
+import { flexRow, makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
-import { RichText } from "components/atomic";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
@@ -14,7 +13,7 @@ const StyledTestimonialContent = styled.div`
   overflow: hidden;
   padding-left: ${makeRem(32)};
   padding-right: ${makeRem(32)};
-  ${makeFlex("row", "center", "center")};
+  ${flexRow("center", "center")};
 
   & > .image {
     position: absolute;

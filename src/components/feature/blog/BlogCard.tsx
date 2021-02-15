@@ -3,9 +3,9 @@ import HeartIcon from "@htc/core/icons/heart.svg";
 import MessageSquareIcon from "@htc/core/icons/message-square.svg";
 import Share2Icon from "@htc/core/icons/share-2.svg";
 import { makeRem, makeTabletStyles } from "@htc/theme";
+import { formatShortDate } from "@htc/utils";
 import { SvgIcon, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
-import { formatShortDate } from "lib/utils";
 import Link from "next/link";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -50,7 +50,7 @@ export const BlogCard: FC<PostOrPage> = (post) => {
           `}
         >
           <img
-            src={post.feature_image}
+            src={(post.feature_image as unknown) as string | undefined}
             alt={post.slug}
             css={css`
               width: 100%;
@@ -71,9 +71,12 @@ export const BlogCard: FC<PostOrPage> = (post) => {
           flex-direction: column;
         `}
       >
-        <Typography variant="caption">
-          {formatShortDate(post.published_at)}
-        </Typography>
+        {post.published_at && (
+          <Typography variant="caption">
+            {formatShortDate(post.published_at)}
+          </Typography>
+        )}
+
         <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
           <a>
             <Typography variant="h5">{post.title}</Typography>

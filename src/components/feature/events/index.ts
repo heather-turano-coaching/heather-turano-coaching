@@ -1,1 +1,2 @@
-export * from "./EventsPage";
+export * from "./Events.page";
+export * from "./events.utils";

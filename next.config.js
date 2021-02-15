@@ -34,7 +34,6 @@ module.exports = {
       "@htc/components": path.resolve(srcDir, "./components"),
       "@htc/design-system": path.resolve(srcDir, "./design-system"),
       "@htc/documents": path.resolve(srcDir, "./documents"),
-      "@htc/domain": path.resolve(srcDir, "./domain"),
       "@htc/hooks": path.resolve(srcDir, "./hooks"),
       "@htc/icons": path.resolve(srcDir, "./icons"),
       "@htc/images": path.resolve(srcDir, "./images"),

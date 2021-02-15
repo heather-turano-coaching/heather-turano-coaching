@@ -1,5 +1,4 @@
-import { universalShadow } from "@htc/components/atomic";
-import { makeRem } from "@htc/theme";
+import { makeRem, universalShadow } from "@htc/theme";
 import { css } from "styled-components";
 
 export const universalHover = css`

@@ -1,4 +1,4 @@
-import { ColorProperties } from "../../../../../src/design-system";
+import { ColorProperties } from "@htc/design-system";
 
 export const fontColor: ColorProperties = {
   fixed: "light"

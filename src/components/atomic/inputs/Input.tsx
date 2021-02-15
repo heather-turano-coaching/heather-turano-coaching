@@ -1,18 +1,18 @@
-import React, { forwardRef } from "react";
-import styled, { css } from "styled-components";
-
 import {
   makeColor,
   makeFont,
   makeInset,
   makeReset,
   makeSpace
-} from "../../../../../src/design-system";
-import { HTMLInput } from "../types";
+} from "@htc/design-system";
 import {
   shareButtonAndInputFontSize,
   sharedButtonAndInputVerticalPadding
-} from "../utils/vars";
+} from "@htc/theme";
+import React, { forwardRef } from "react";
+import styled, { css } from "styled-components";
+
+import { HTMLInput } from "../types";
 import { InputControl } from "./InputControl";
 import { InputError, InputErrorProps } from "./InputError";
 import { InputLabel } from "./InputLabel";

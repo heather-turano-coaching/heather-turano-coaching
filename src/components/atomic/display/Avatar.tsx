@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import styled, { css } from "styled-components";
-
-import { makeColor, makeSize } from "../../../../../src/design-system";
 import {
   FontProperties,
-  SizeProperties
-} from "../../../../../src/design-system";
-import { RandomColor, generateRandomColor } from "../utils";
+  SizeProperties,
+  makeColor,
+  makeSize
+} from "@htc/design-system";
+import { RandomColor, generateRandomColor } from "@htc/theme";
+import React, { FC } from "react";
+import styled, { css } from "styled-components";
 
 export interface AvatarProps {
   image?: string;

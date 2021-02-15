@@ -1,7 +1,6 @@
+import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
-
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "../../theme";
 
 export const StyledGroup = styled.div`
   ${({ theme }) => css`

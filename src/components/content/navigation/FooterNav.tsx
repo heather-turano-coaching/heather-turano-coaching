@@ -1,6 +1,6 @@
 import { Footer, FooterSection, FooterText } from "@htc/components/atomic";
-import { makeColor } from "@htc/core/design-system";
-import { AweberForm } from "components/atomic";
+import { AweberForm } from "@htc/components/atomic";
+import { makeColor } from "@htc/design-system";
 import React, { FC } from "react";
 import { css } from "styled-components";
 

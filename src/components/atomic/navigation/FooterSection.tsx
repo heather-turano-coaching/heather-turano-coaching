@@ -1,14 +1,14 @@
-import React, { FC, useMemo } from "react";
-import styled, { css } from "styled-components";
-
 import {
   makeColor,
   makeInset,
   makeOutset,
   makeReset,
   makeSize
-} from "../../../../../src/design-system";
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "../../theme";
+} from "@htc/design-system";
+import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
+import React, { FC, useMemo } from "react";
+import styled, { css } from "styled-components";
+
 import { Typography } from "../display";
 import { fontColor } from "./Footer.vars";
 

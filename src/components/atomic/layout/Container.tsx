@@ -1,11 +1,6 @@
+import { makeInset, makeResponsive, makeSize } from "@htc/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
-
-import {
-  makeInset,
-  makeResponsive,
-  makeSize
-} from "../../../../../src/design-system";
 
 const StyledContainer = styled.div`
   ${makeInset({ horizontal: 30 })};

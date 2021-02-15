@@ -1,7 +1,7 @@
+import { makeOutset } from "@htc/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { makeOutset } from "../../../../../src/design-system";
 import { Typography } from "../display";
 import { HTMLLabel } from "../types";
 

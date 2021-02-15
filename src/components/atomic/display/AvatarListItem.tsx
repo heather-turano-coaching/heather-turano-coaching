@@ -1,13 +1,8 @@
+import { makeColor, makeInset, makeOutset, makeSize } from "@htc/design-system";
+import { RandomColor } from "@htc/theme";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import {
-  makeColor,
-  makeInset,
-  makeOutset,
-  makeSize
-} from "../../../../../src/design-system";
-import { RandomColor, makeFlex } from "../utils";
 import { Avatar, AvatarProps } from "./Avatar";
 import { Typography } from "./Typography";
 
@@ -23,7 +18,9 @@ const StyledAvatarListItem = styled.div<
   position: relative;
   box-sizing: border-box;
   ${makeInset({ horizontal: 16, vertical: 8 })};
-  ${makeFlex("row", "center", "center")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: ${makeColor({ fixed: "light" })};
   width: 100%;
 

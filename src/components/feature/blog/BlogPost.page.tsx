@@ -1,16 +1,15 @@
-import { Title } from "@htc/components/atomic";
-import { PageComponent } from "@htc/lib/page";
-import { makeRem } from "@htc/theme";
-import { Container, Typography } from "@material-ui/core";
-import { PostOrPage } from "@tryghost/content-api";
-import { TextStylesBlog } from "components/atomic";
-import { CSSImageBorder } from "components/styles";
+import { TextStylesBlog, Title } from "@htc/components/atomic";
+import { CSSImageBorder } from "@htc/components/styles";
 import {
   GetSingleGhostPostBySlug,
   getSingleGhostPostBySlugEndpoint,
-  ghostFetcher
-} from "lib/ghost/ghost.api";
-import { formatLongDate } from "lib/utils";
+  ghostClient
+} from "@htc/lib/ghost";
+import { PageComponent } from "@htc/lib/page";
+import { makeRem } from "@htc/theme";
+import { formatLongDate } from "@htc/utils";
+import { Container, Typography } from "@material-ui/core";
+import { PostOrPage } from "@tryghost/content-api";
 import React from "react";
 import { css } from "styled-components";
 import useSWR from "swr";
@@ -23,17 +22,15 @@ export type BlogPostPageProps = {
 };
 
 export const BlogPostPage: PageComponent<BlogPostPageProps> = (props) => {
-  const {
-    data: {
-      posts: [localPost]
-    }
-  } = useSWR<GetSingleGhostPostBySlug>(
+  const { data } = useSWR<GetSingleGhostPostBySlug>(
     getSingleGhostPostBySlugEndpoint(props.post.slug),
-    ghostFetcher,
+    ghostClient,
     { initialData: { posts: [props.post] } }
   );
 
-  if (!localPost.published_at) {
+  const localPost = data?.posts[0];
+
+  if (!localPost?.published_at) {
     return null;
   }
 
@@ -91,7 +88,7 @@ export const BlogPostPage: PageComponent<BlogPostPageProps> = (props) => {
       </Container>
 
       <img
-        src={localPost.feature_image}
+        src={localPost.feature_image as string | undefined}
         alt="hero"
         css={css`
           width: 100%;
@@ -113,9 +110,11 @@ export const BlogPostPage: PageComponent<BlogPostPageProps> = (props) => {
             margin: 0 auto;
           `}
         >
-          <TextStylesBlog
-            dangerouslySetInnerHTML={{ __html: localPost.html }}
-          />
+          {typeof localPost.html === "string" && (
+            <TextStylesBlog
+              dangerouslySetInnerHTML={{ __html: localPost.html }}
+            />
+          )}
         </section>
 
         {/* <Divider />

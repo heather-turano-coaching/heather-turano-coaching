@@ -6,7 +6,6 @@ export * from "./layout";
 export * from "./messaging";
 export * from "./navigation";
 export * from "./types";
-export * from "./utils";
 
 // new
 export * from "./AweberForm";

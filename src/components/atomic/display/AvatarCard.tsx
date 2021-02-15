@@ -1,19 +1,16 @@
-import { rgba } from "polished";
-import React, { FC } from "react";
-import styled, { css } from "styled-components";
-
-import {
-  SizeProperties,
-  SpaceProperties
-} from "../../../../../src/design-system";
+import { SizeProperties, SpaceProperties } from "@htc/design-system";
 import {
   makeColor,
   makeInset,
   makeOutset,
   makeRhythm,
   makeSize
-} from "../../../../../src/design-system";
-import { RandomColor, generateRandomColor } from "../utils";
+} from "@htc/design-system";
+import { RandomColor, generateRandomColor } from "@htc/theme";
+import { rgba } from "polished";
+import React, { FC } from "react";
+import styled, { css } from "styled-components";
+
 import { Avatar } from "./Avatar";
 import { Heading } from "./Heading";
 import { Typography } from "./Typography";

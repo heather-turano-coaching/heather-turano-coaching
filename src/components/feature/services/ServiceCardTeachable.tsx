@@ -1,6 +1,6 @@
-import { IServiceTeachable } from "@htc/domain/contentful";
-import { Actions } from "components/content/actions";
-import { FC } from "react";
+import { Actions } from "@htc/components/content";
+import { IServiceTeachable } from "@htc/lib/contentful";
+import React, { FC } from "react";
 
 export const ServiceCardTeachable: FC<IServiceTeachable> = ({
   fields: { actions }

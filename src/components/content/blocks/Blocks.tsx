@@ -5,7 +5,7 @@ import {
   IBlockPictureGrid,
   IBlockTestimonial,
   IWebPageFields
-} from "@htc/domain/contentful";
+} from "@htc/lib/contentful";
 import React, { FC, Fragment } from "react";
 
 import { BlockGrabber } from "./BlockGrabber";
@@ -17,6 +17,9 @@ import { BlockTestimonial } from "./BlockTestimonial";
 export const Blocks: FC<{ blocks: IWebPageFields["blocks"] }> = ({
   blocks
 }) => {
+  if (!blocks) {
+    return null;
+  }
   return (
     <>
       {blocks.map((block) => (

@@ -1,7 +1,4 @@
-import React, { FC } from "react";
-import styled from "styled-components";
-
-import { FontProperties } from "../../../../../src/design-system";
+import { FontProperties } from "@htc/design-system";
 import {
   makeColor,
   makeFont,
@@ -10,8 +7,11 @@ import {
   makeRhythm,
   makeSize,
   makeSpace
-} from "../../../../../src/design-system";
-import { createImageBorder } from "../utils/vars";
+} from "@htc/design-system";
+import { createImageBorder } from "@htc/theme";
+import React, { FC } from "react";
+import styled from "styled-components";
+
 import { CSSH2, CSSH4 } from "./Heading";
 import { typVariantMap } from "./Typography";
 

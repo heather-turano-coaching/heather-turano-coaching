@@ -1,8 +1,8 @@
+import { makeRem } from "@htc/theme";
 import { Container, Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-import { makeRem } from "../../../../packages/src/theme";
 import { navbarHeight } from "../navigation/HeaderNav";
 
 export type HeroProps = {

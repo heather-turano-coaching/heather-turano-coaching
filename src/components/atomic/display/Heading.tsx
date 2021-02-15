@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import styled, { css } from "styled-components";
-
 import {
   ColorProperties,
   FontProperties,
   SizeHeadings
-} from "../../../../../src/design-system";
-import { makeFont, makeReset } from "../../../../../src/design-system";
+} from "@htc/design-system";
+import { makeFont, makeReset } from "@htc/design-system";
+import React, { FC } from "react";
+import styled, { css } from "styled-components";
+
 import { HTMLHeading } from "../types";
 
 export type HeadingProps = HTMLHeading & {

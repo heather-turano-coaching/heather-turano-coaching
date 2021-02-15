@@ -1,21 +1,21 @@
-import { darken } from "polished";
-import React, { FC } from "react";
-import styled, { css } from "styled-components";
-
-import { ColorProperties } from "../../../../../src/design-system";
 import {
+  Color,
+  ColorProperties,
   makeColor,
   makeInset,
   makeReset,
   makeSpace
-} from "../../../../../src/design-system";
-import { Color } from "../../../../../src/design-system";
-import { Typography } from "../display";
-import { HTMLButton } from "../types";
+} from "@htc/design-system";
 import {
   shareButtonAndInputFontSize,
   sharedButtonAndInputVerticalPadding
-} from "../utils/vars";
+} from "@htc/theme";
+import { darken } from "polished";
+import React, { FC } from "react";
+import styled, { css } from "styled-components";
+
+import { Typography } from "../display";
+import { HTMLButton } from "../types";
 
 type ButtonStyleTypes = Extract<
   Color,

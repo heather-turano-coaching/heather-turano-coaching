@@ -1,12 +1,12 @@
-import React, { FC } from "react";
-import styled from "styled-components";
-
 import {
   ColorProperties,
   FontProperties,
   makeOutset,
   makeReset
-} from "../../../../../src/design-system";
+} from "@htc/design-system";
+import React, { FC } from "react";
+import styled from "styled-components";
+
 import { Typography } from "../display";
 import { HTMLButton } from "..";
 

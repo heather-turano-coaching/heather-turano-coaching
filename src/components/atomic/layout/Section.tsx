@@ -1,6 +1,3 @@
-import React, { FC } from "react";
-import styled, { SimpleInterpolation, css } from "styled-components";
-
 import {
   ColorProperties,
   ResponsiveBreakpoints,
@@ -10,7 +7,9 @@ import {
   makeResponsive,
   makeSize,
   makeSpace
-} from "../../../../../src/design-system";
+} from "@htc/design-system";
+import React, { FC } from "react";
+import styled, { SimpleInterpolation, css } from "styled-components";
 
 export interface SectionProps {
   styleType: "blank" | "layered";

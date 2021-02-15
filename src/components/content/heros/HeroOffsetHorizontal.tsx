@@ -1,3 +1,4 @@
+import { CSSImageBorder } from "@htc/components/styles";
 import {
   makeDesktopStyles,
   makeFlex,
@@ -5,7 +6,6 @@ import {
   makeRem,
   makeTabletStyles
 } from "@htc/theme";
-import { CSSImageBorder } from "components/styles";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
