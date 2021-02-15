@@ -9,7 +9,7 @@ export const getCategoriesFromTags = (tags: Tag[]): Tag[] =>
         ...accum,
         {
           ...tag,
-          name: (tag.name as string).split("-")[1]
+          name: tag.name.split("-")[1]
         }
       ];
     }

@@ -72,7 +72,7 @@ export const AweberForm: FC<{ formScript: string } & AweberFormProps> = ({
 }) => {
   return (
     <StyledForm variant={variant}>
-      <div dangerouslySetInnerHTML={{ __html: `${formScript}` }} />
+      <div dangerouslySetInnerHTML={{ __html: formScript }} />
     </StyledForm>
   );
 };

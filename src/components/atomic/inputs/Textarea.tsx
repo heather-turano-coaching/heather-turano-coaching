@@ -20,8 +20,8 @@ const StyledTextarea = styled.textarea<TextareaProps>`
   min-width: 100%;
 `;
 
-export const Textarea = forwardRef<any, TextareaProps>(
-  (
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  function Textarea(
     {
       name,
       label = undefined,
@@ -30,17 +30,19 @@ export const Textarea = forwardRef<any, TextareaProps>(
       ...restProps
     },
     ref
-  ) => (
-    <InputControl>
-      <InputLabel label={label} htmlFor={name} isValid={isValid} />
-      <StyledTextarea
-        id={name}
-        name={name}
-        isValid={isValid}
-        {...restProps}
-        ref={ref}
-      />
-      <InputError errorMessage={errorMessage} />
-    </InputControl>
-  )
+  ) {
+    return (
+      <InputControl>
+        <InputLabel label={label} htmlFor={name} isValid={isValid} />
+        <StyledTextarea
+          id={name}
+          name={name}
+          isValid={isValid}
+          {...restProps}
+          ref={ref}
+        />
+        <InputError errorMessage={errorMessage} />
+      </InputControl>
+    );
+  }
 );

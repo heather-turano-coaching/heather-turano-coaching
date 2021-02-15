@@ -1,9 +1,8 @@
-import { Carousel, CarouselFooter } from "@htc/components/atomic";
-import { makeSize } from "@htc/design-system";
+import { Carousel } from "@htc/components/atomic";
 import { ITestimonials } from "@htc/lib/contentful";
 import { makeMobileStyles, makeRem } from "@htc/theme";
-import React, { FC, useState } from "react";
-import styled, { css } from "styled-components";
+import React, { FC } from "react";
+import { css } from "styled-components";
 
 import { fullScreenSansNavbar } from "../navigation";
 import { TestimonialContent } from "./BlockTestimonialContent";
@@ -22,18 +21,18 @@ export interface Testimonial {
   maskingOpacity: number;
 }
 
-const StyledFooter = styled.div`
-  position: absolute;
-  bottom: ${makeSize({ custom: 40 })};
-  left: 0;
-  right: 0;
-`;
+// const StyledFooter = styled.div`
+//   position: absolute;
+//   bottom: ${makeSize({ custom: 40 })};
+//   left: 0;
+//   right: 0;
+// `;
 
 export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
   testimonials
 }) => {
-  const [currentEntry, setCurrentEntry] = useState<number>(0);
-  const goToEntry = (index: number) => setCurrentEntry(index);
+  const [currentEntry] = useState<number>(0);
+  // const goToEntry = (index: number) => setCurrentEntry(index);
 
   return (
     <div
@@ -52,14 +51,6 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
     >
       <Carousel>
         <TestimonialContent {...testimonials[currentEntry]} />
-        <StyledFooter>
-          <CarouselFooter
-            entries={testimonials}
-            currentEntry={currentEntry}
-            goToEntry={goToEntry}
-            activeColor={{ fixed: "light" }}
-          />
-        </StyledFooter>
       </Carousel>
     </div>
   );

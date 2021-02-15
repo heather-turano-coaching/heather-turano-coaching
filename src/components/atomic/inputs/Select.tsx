@@ -21,8 +21,8 @@ const StyledSelect = styled.select<SelectProps>`
   ${CSSInputStyle}
 `;
 
-export const Select = forwardRef<any, SelectProps>(
-  (
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
+  function Select(
     {
       name,
       label = undefined,
@@ -32,19 +32,21 @@ export const Select = forwardRef<any, SelectProps>(
       ...restProps
     },
     ref
-  ) => (
-    <InputControl>
-      <InputLabel label={label} htmlFor={name} isValid={isValid} />
-      <StyledSelect
-        id={name}
-        name={name}
-        isValid={isValid}
-        ref={ref}
-        {...restProps}
-      >
-        {children}
-      </StyledSelect>
-      <InputError errorMessage={errorMessage} />
-    </InputControl>
-  )
+  ) {
+    return (
+      <InputControl>
+        <InputLabel label={label} htmlFor={name} isValid={isValid} />
+        <StyledSelect
+          id={name}
+          name={name}
+          isValid={isValid}
+          ref={ref}
+          {...restProps}
+        >
+          {children}
+        </StyledSelect>
+        <InputError errorMessage={errorMessage} />
+      </InputControl>
+    );
+  }
 );

@@ -1,3 +1,5 @@
+import { CSSObject } from "styled-components";
+
 type ResetElements =
   | "heading"
   | "paragraph"
@@ -8,9 +10,9 @@ type ResetElements =
   | "blockquote"
   | "anchor";
 
-type Resets = { [key in ResetElements]: any };
+type Resets = { [key in ResetElements]: CSSObject };
 
-const globalResets = {
+const globalResets: CSSObject = {
   boxSizing: "border-box"
 };
 

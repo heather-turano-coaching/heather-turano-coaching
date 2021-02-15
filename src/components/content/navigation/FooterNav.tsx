@@ -1,5 +1,9 @@
-import { Footer, FooterSection, FooterText } from "@htc/components/atomic";
-import { AweberForm } from "@htc/components/atomic";
+import {
+  AweberForm,
+  Footer,
+  FooterSection,
+  FooterText
+} from "@htc/components/atomic";
 import { makeColor } from "@htc/design-system";
 import React, { FC } from "react";
 import { css } from "styled-components";
@@ -54,15 +58,7 @@ export const FooterNav: FC = () => (
       </ul>
     </FooterSection>
     <FooterSection title="Subscribe">
-      <div
-        css={css`
-          label {
-            display: none !important;
-          }
-        `}
-      >
-        <AweberForm formScript={formString} />
-      </div>
+      <AweberForm formScript={formString} />
     </FooterSection>
   </Footer>
 );

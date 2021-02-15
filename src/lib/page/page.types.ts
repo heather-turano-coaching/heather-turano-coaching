@@ -13,7 +13,9 @@ export type ContentfulPageAttributes = {
  * This automatically requires that a contentfulEntryId and the
  * web page data from contentful is added to every page props
  */
-export type GetPageProps<T> = GetStaticProps<ContentfulPageAttributes & T>;
+export type GetPageProps<T = Record<string, unknown>> = GetStaticProps<
+  ContentfulPageAttributes & T
+>;
 
 /**
  * Dynamic type to be used when typing the return of
@@ -33,7 +35,9 @@ export type GetPageProps<T> = GetStaticProps<ContentfulPageAttributes & T>;
  * }
  * ```
  */
-export type GetPageData<T> = () => Promise<ContentfulPageAttributes & T>;
+export type GetPageData<T = Record<string, unknown>, Params = undefined> = (
+  params?: Params
+) => Promise<ContentfulPageAttributes & T>;
 
 /**
  * To be used for every static proxied page

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
 import { Theme } from "@material-ui/core";
 import { SimplePaletteColorOptions } from "@material-ui/core/styles/createPalette";
 

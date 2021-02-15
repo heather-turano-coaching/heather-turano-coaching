@@ -1,4 +1,3 @@
-import { FontLinks } from "@htc/theme";
 import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@material-ui/core/styles";
 import Document, {
   DocumentContext,
@@ -7,7 +6,7 @@ import Document, {
   Main,
   NextScript
 } from "next/document";
-import React, { ReactElement } from "react";
+import React, { Fragment, ReactElement } from "react";
 import { ServerStyleSheet as StyledComponentSheets } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -31,15 +30,16 @@ export default class MyDocument extends Document {
             )
         });
       const initialProps = await Document.getInitialProps(ctx);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       return {
         ...initialProps,
-        head: initialProps.head as JSX.Element[],
         styles: [
-          <React.Fragment key="styles">
+          <Fragment key="styles">
             {initialProps.styles}
             {materialUiSheets.getStyleElement()}
             {styledComponentSheet.getStyleElement()}
-          </React.Fragment>
+          </Fragment>
         ]
       };
     } finally {
@@ -49,10 +49,8 @@ export default class MyDocument extends Document {
 
   render(): ReactElement {
     return (
-      <Html>
-        <Head>
-          <FontLinks />
-        </Head>
+      <Html lang="en">
+        <Head />
         <body>
           <Main />
           <NextScript />

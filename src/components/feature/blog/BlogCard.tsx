@@ -1,7 +1,4 @@
-import ClockIcon from "@htc/core/icons/clock.svg";
-import HeartIcon from "@htc/core/icons/heart.svg";
-import MessageSquareIcon from "@htc/core/icons/message-square.svg";
-import Share2Icon from "@htc/core/icons/share-2.svg";
+import { Clock, Heart, MessageSquare, Share2 } from "@htc/icons";
 import { makeRem, makeTabletStyles } from "@htc/theme";
 import { formatShortDate } from "@htc/utils";
 import { SvgIcon, Typography } from "@material-ui/core";
@@ -112,15 +109,15 @@ export const BlogCard: FC<PostOrPage> = (post) => {
       >
         <div>
           <StyledIcon fontSize="small" color="primary">
-            <MessageSquareIcon />
+            <MessageSquare />
           </StyledIcon>
           <StyledIconText variant="overline">0</StyledIconText>
           <StyledIcon fontSize="small" color="secondary">
-            <HeartIcon />
+            <Heart />
           </StyledIcon>
           <StyledIconText variant="overline">0</StyledIconText>
           <StyledIcon fontSize="small" color="action">
-            <ClockIcon />
+            <Clock />
           </StyledIcon>
           <StyledIconText variant="overline">
             {post.reading_time} min
@@ -128,7 +125,7 @@ export const BlogCard: FC<PostOrPage> = (post) => {
         </div>
         <div>
           <StyledIcon fontSize="small">
-            <Share2Icon />
+            <Share2 />
           </StyledIcon>
         </div>
       </div>

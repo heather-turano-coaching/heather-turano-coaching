@@ -15,7 +15,8 @@ import {
 
 const createFontColor = (
   fontColor: ColorProperties | undefined
-): { color: string } | {} => (fontColor ? { color: makeColor(fontColor) } : {});
+): { color: string } | Record<string, unknown> =>
+  fontColor ? { color: makeColor(fontColor) } : {};
 
 export const makeFont = ({
   fontSize,
