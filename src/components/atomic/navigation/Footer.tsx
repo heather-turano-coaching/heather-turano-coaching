@@ -1,5 +1,5 @@
-import { makeColor, makeInset, makeResponsive } from "@htc/design-system";
-import { makeRem, makeTabletStyles } from "@htc/theme";
+import { makeColor, makeInset } from "@htc/design-system";
+import { makeDesktopStyles, makeRem, makeTabletStyles } from "@htc/theme";
 import { Container } from "@material-ui/core";
 import { darken } from "polished";
 import React, { FC } from "react";
@@ -28,14 +28,14 @@ const StyledFooter = styled.div`
   display: column;
   flex-direction: column-reverse;
 
-  ${makeResponsive({
-    beginAt: "tabletPortrait",
-    style: `
+  ${({ theme }) => css`
+    ${makeDesktopStyles(theme)} {
+      flex-direction: row;
       display: flex;
       padding-bottom: 0;
       margin: 0 auto;
-    `
-  })};
+    }
+  `}
 `;
 
 export const Footer: FC = ({ children }) => (

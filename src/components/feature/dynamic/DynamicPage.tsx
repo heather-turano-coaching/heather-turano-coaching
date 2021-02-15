@@ -5,10 +5,7 @@ import React from "react";
 import { LayoutRoot } from "../layout";
 import { Meta } from "../meta";
 
-export const DynamicPage: PageComponent = ({
-  contentfulPageEntryId: _id,
-  contentfulPageData
-}) => {
+export const DynamicPage: PageComponent = ({ contentfulPageData }) => {
   const {
     fields: {
       navbarLabel,

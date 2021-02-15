@@ -8,3 +8,23 @@ export const getAllEventbriteEvents = async () =>
       root: "/events"
     })
   );
+
+export const getFutureEventbriteEvents = async () =>
+  api.get<EBEventsResponse>(
+    getEndpoint({
+      root: "/events",
+      queryParams: {
+        status: "live"
+      }
+    })
+  );
+
+export const getPastEventbriteEvents = async () =>
+  api.get<EBEventsResponse>(
+    getEndpoint({
+      root: "/events",
+      queryParams: {
+        status: "completed,ended"
+      }
+    })
+  );

@@ -1,7 +1,8 @@
 import { Title } from "@htc/components/atomic";
-import { Hero } from "@htc/components/content";
+import { EventCard, EventGroup, Hero } from "@htc/components/content";
 import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
+import { aggregateListByDay } from "@htc/utils";
 import { Container } from "@material-ui/core";
 import React from "react";
 import styled, { css } from "styled-components";
@@ -18,27 +19,32 @@ const StyledUl = styled.ul`
     margin-bottom: ${makeRem(300)};
   }
 `;
-// const StyledLi = styled.li`
-//   padding: 0 ${makeRem(32)};
+const StyledLi = styled.li`
+  padding: 0 ${makeRem(32)};
 
-//   &:not(:last-child) {
-//     & > * {
-//       border-bottom: ${({ theme }) => `1px solid ${theme.palette.light.main}`};
-//     }
-//   }
-// `;
+  &:not(:last-child) {
+    & > * {
+      border-bottom: ${({ theme }) => `1px solid ${theme.palette.light.main}`};
+    }
+  }
+`;
 export const EventsPage: PageComponent<EventsPageProps> = ({
   contentfulPageData: {
     fields: {
       hero: { fields: heroFields }
     }
-  }
+  },
+  pastEvents,
+  futureEvents
 }) => {
-  // const aggEventsFuture = aggregateListByDay(
-  //   futureEvents.events,
-  //   "start.local"
-  // );
-  // const aggEventsPast = aggregateListByDay(pastEvents.events, "start.local");
+  const aggEventsFuture = aggregateListByDay(
+    futureEvents.events,
+    "start.local"
+  );
+  const aggEventsPast = aggregateListByDay(pastEvents.events, "start.local");
+
+  console.log(aggEventsFuture);
+  console.log(aggEventsPast);
 
   /**
    * @todo
@@ -59,7 +65,7 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
         <Container maxWidth="md">
           <Title size="lg">Upcoming Events</Title>
           <StyledUl>
-            {/* {Object.entries(aggEventsFuture).map(([dayValue, day]) => (
+            {Object.entries(aggEventsFuture).map(([dayValue, day]) => (
               <EventGroup
                 date={day.formattedDate}
                 key={`${dayValue}_${day.date}`}
@@ -70,7 +76,7 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
                       title={event.name.text}
                       time={event.start.local}
                       endTime={event.end.local}
-                      description={event.summary}
+                      description={event.description.text}
                       image={event.logo.url}
                       reserveLink={event.url}
                       isFree={event.is_free}
@@ -78,31 +84,33 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
                   </StyledLi>
                 ))}
               </EventGroup>
-            ))} */}
+            ))}
           </StyledUl>
           <Title size="lg">Past Events</Title>
           <StyledUl>
-            {/* {Object.entries(aggEventsPast).map(([dayValue, day]) => (
-              <EventGroup
-                date={day.formattedDate}
-                key={`${dayValue}_${day.date}`}
-              >
-                {day.items.map((event) => (
-                  <StyledLi key={event.url}>
-                    <EventCard
-                      title={event.name.text}
-                      time={event.start.local}
-                      endTime={event.end.local}
-                      description={event.summary}
-                      image={event.logo.url}
-                      reserveLink={event.url}
-                      isFree={event.is_free}
-                      isPastEvent
-                    />
-                  </StyledLi>
-                ))}
-              </EventGroup>
-            ))} */}
+            {Object.entries(aggEventsPast)
+              .reverse()
+              .map(([dayValue, day]) => (
+                <EventGroup
+                  date={day.formattedDate}
+                  key={`${dayValue}_${day.date}`}
+                >
+                  {day.items.map((event) => (
+                    <StyledLi key={event.url}>
+                      <EventCard
+                        title={event.name.text}
+                        time={event.start.local}
+                        endTime={event.end.local}
+                        description={event.description.text}
+                        image={event.logo.url}
+                        reserveLink={event.url}
+                        isFree={event.is_free}
+                        isPastEvent
+                      />
+                    </StyledLi>
+                  ))}
+                </EventGroup>
+              ))}
           </StyledUl>
         </Container>
       </div>

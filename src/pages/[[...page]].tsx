@@ -1,7 +1,9 @@
 import path from "path";
 
-import { DynamicPage, DynamicPageProps } from "@htc/components/feature/dynamic";
-import { getDynamicPageProps } from "@htc/components/feature/dynamic/dynamic-page.utils";
+import {
+  DynamicPage,
+  getDynamicPageProps
+} from "@htc/components/feature/dynamic";
 import { getAllContentfulPages } from "@htc/lib/contentful";
 import { GetPageProps, PageComponent } from "@htc/lib/page";
 import fs from "fs-extra";
@@ -90,7 +92,7 @@ export const getStaticProps: GetPageProps = async ({ params }) => {
   }
 };
 
-const Page: PageComponent<DynamicPageProps> = (props) => {
+const Page: PageComponent = (props) => {
   return <DynamicPage {...props} />;
 };
 
