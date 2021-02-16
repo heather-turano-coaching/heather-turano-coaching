@@ -1,5 +1,5 @@
 import { GetAllGhostPosts } from "@htc/lib/ghost";
-import { makeRem, makeRetinaStyles, makeTabletStyles } from "@htc/theme";
+import { makeRem, makeTabletStyles } from "@htc/theme";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
@@ -19,12 +19,6 @@ const StyledBlogList = styled.div`
     ${makeTabletStyles(theme)} {
       & > * {
         width: ${`calc(50% - ${makeRem(blogCardSpacing * 2)})`};
-      }
-    }
-
-    ${makeRetinaStyles(theme)} {
-      & > * {
-        width: ${`calc(33.33% - ${makeRem(blogCardSpacing * 2)})`};
       }
     }
   `}

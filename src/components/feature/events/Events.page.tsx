@@ -1,33 +1,17 @@
-import { Title } from "@htc/components/atomic";
-import { EventCard, EventGroup, Hero } from "@htc/components/content";
+import { Hero } from "@htc/components/content";
 import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
-import { aggregateListByDay } from "@htc/utils";
 import { Container } from "@material-ui/core";
 import React from "react";
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 
 import { LayoutRoot } from "../layout";
 import { Meta } from "../meta";
 import { EventsPageProps } from "./events.utils";
+import { EventsFuture } from "./EventsFuture";
+import { EventsPast } from "./EventsPast";
+import { EventsSection } from "./EventsSection";
 
-const StyledUl = styled.ul`
-  &:not(:last-child) {
-    margin-bottom: ${makeRem(200)};
-  }
-  &:last-of-type {
-    margin-bottom: ${makeRem(300)};
-  }
-`;
-const StyledLi = styled.li`
-  padding: 0 ${makeRem(32)};
-
-  &:not(:last-child) {
-    & > * {
-      border-bottom: ${({ theme }) => `1px solid ${theme.palette.light.main}`};
-    }
-  }
-`;
 export const EventsPage: PageComponent<EventsPageProps> = ({
   contentfulPageData: {
     fields: {
@@ -37,20 +21,6 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
   pastEvents,
   futureEvents
 }) => {
-  const aggEventsFuture = aggregateListByDay(
-    futureEvents.events,
-    "start.local"
-  );
-  const aggEventsPast = aggregateListByDay(pastEvents.events, "start.local");
-
-  console.log(aggEventsFuture);
-  console.log(aggEventsPast);
-
-  /**
-   * @todo
-   * Dyanmically fetch the events
-   */
-
   return (
     <>
       <Meta pageTitle="Events" />
@@ -63,55 +33,12 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
         `}
       >
         <Container maxWidth="md">
-          <Title size="lg">Upcoming Events</Title>
-          <StyledUl>
-            {Object.entries(aggEventsFuture).map(([dayValue, day]) => (
-              <EventGroup
-                date={day.formattedDate}
-                key={`${dayValue}_${day.date}`}
-              >
-                {day.items.map((event) => (
-                  <StyledLi key={event.url}>
-                    <EventCard
-                      title={event.name.text}
-                      time={event.start.local}
-                      endTime={event.end.local}
-                      description={event.description.text}
-                      image={event.logo.url}
-                      reserveLink={event.url}
-                      isFree={event.is_free}
-                    />
-                  </StyledLi>
-                ))}
-              </EventGroup>
-            ))}
-          </StyledUl>
-          <Title size="lg">Past Events</Title>
-          <StyledUl>
-            {Object.entries(aggEventsPast)
-              .reverse()
-              .map(([dayValue, day]) => (
-                <EventGroup
-                  date={day.formattedDate}
-                  key={`${dayValue}_${day.date}`}
-                >
-                  {day.items.map((event) => (
-                    <StyledLi key={event.url}>
-                      <EventCard
-                        title={event.name.text}
-                        time={event.start.local}
-                        endTime={event.end.local}
-                        description={event.description.text}
-                        image={event.logo.url}
-                        reserveLink={event.url}
-                        isFree={event.is_free}
-                        isPastEvent
-                      />
-                    </StyledLi>
-                  ))}
-                </EventGroup>
-              ))}
-          </StyledUl>
+          <EventsSection title="Upcoming Events">
+            <EventsFuture events={futureEvents} />
+          </EventsSection>
+          <EventsSection title="Past Events">
+            <EventsPast events={pastEvents} />
+          </EventsSection>
         </Container>
       </div>
     </>

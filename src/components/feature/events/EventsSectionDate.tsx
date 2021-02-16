@@ -3,11 +3,14 @@ import { Typography } from "@material-ui/core";
 import { FC } from "react";
 import { css } from "styled-components";
 
-export type EventGroupProps = {
+export type EventsSectionDateProps = {
   date: string;
 };
 
-export const EventGroup: FC<EventGroupProps> = ({ date, children }) => (
+export const EventsSectionDate: FC<EventsSectionDateProps> = ({
+  date,
+  children
+}) => (
   <li
     css={css`
       & + & {
@@ -15,7 +18,9 @@ export const EventGroup: FC<EventGroupProps> = ({ date, children }) => (
       }
     `}
   >
-    <Typography variant="h4">{date}</Typography>
+    <Typography variant="h5" component="h4">
+      {date}
+    </Typography>
     <ul
       css={css`
         background-color: ${({ theme }) => theme.palette.common.white};
