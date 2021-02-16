@@ -8,7 +8,7 @@ import Link from "next/link";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
-export const BlogCardFeatured: FC<PostOrPage> = (featuredPost) => {
+export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
   return (
     <div
       css={css`

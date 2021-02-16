@@ -5,7 +5,7 @@ import { Container } from "@material-ui/core";
 import React from "react";
 
 import { LayoutRoot } from "../layout";
-import { BlogList } from "./BlogList";
+import { BlogSectionAll } from "./BlogSectionAll";
 
 export type BlogTagPageProps = {
   slug: string;
@@ -19,7 +19,7 @@ export const BlogTagPage: PageComponent<BlogTagPageProps> = ({
   return (
     <Container maxWidth="lg">
       <Title size="lg">Tag: {slug}</Title>
-      <BlogList {...data} />
+      <BlogSectionAll {...data} />
     </Container>
   );
 };

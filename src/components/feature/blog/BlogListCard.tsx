@@ -4,7 +4,7 @@ import { formatShortDate } from "@htc/utils";
 import { SvgIcon, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
 import Link from "next/link";
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import styled, { css } from "styled-components";
 
 export const blogCardSpacing = 24;
@@ -22,7 +22,7 @@ const StyledIconText = styled(Typography)`
   }
 `;
 
-export const BlogCard: FC<PostOrPage> = (post) => {
+export const BlogListCard: FC<PostOrPage> = memo(function BlogListCard(post) {
   return (
     <div
       css={css`
@@ -131,4 +131,4 @@ export const BlogCard: FC<PostOrPage> = (post) => {
       </div>
     </div>
   );
-};
+});

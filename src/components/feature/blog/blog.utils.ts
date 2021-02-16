@@ -13,7 +13,7 @@ import { BlogPageProps } from "./Blog.page";
 export const blogPageId = "7inppspqzOyqyHJ9r8viIj";
 
 export const getBlogPageData: GetPageData<BlogPageProps> = async () => {
-  const [contentfulPageData, featuredPost, allPosts] = await Promise.all([
+  const [contentfulPageData, featuredPosts, allPosts] = await Promise.all([
     getContentfulPageById(blogPageId),
     ghostClient<GetFeaturedGhostPost>(getGhostFeaturedPostEndpoint),
     ghostClient<GetAllGhostPosts>(
@@ -26,7 +26,7 @@ export const getBlogPageData: GetPageData<BlogPageProps> = async () => {
   return {
     contentfulPageEntryId: blogPageId,
     contentfulPageData,
-    featuredPost,
+    featuredPosts,
     allPosts
   };
 };

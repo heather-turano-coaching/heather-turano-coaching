@@ -31,7 +31,9 @@ export type GhostMeta = { meta: { pagination: Pagination } };
 export type GetAllGhostPosts = {
   posts: PostOrPage[];
 } & GhostMeta;
-export type GetFeaturedGhostPost = PostOrPage;
+export type GetFeaturedGhostPost = {
+  posts: PostOrPage[];
+} & GhostMeta;
 export type GetSingleGhostPostBySlug = { posts: [PostOrPage] };
 
 /**
