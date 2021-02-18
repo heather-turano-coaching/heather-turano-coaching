@@ -1,5 +1,5 @@
 import { Clock, Heart, MessageSquare, Share2 } from "@htc/icons";
-import { makeRem, makeTabletStyles } from "@htc/theme";
+import { makeRem } from "@htc/theme";
 import { formatShortDate } from "@htc/utils";
 import { SvgIcon, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
@@ -47,18 +47,11 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
           visible: { opacity: 1, y: 0 }
         }}
         css={css`
-          margin: ${makeRem(blogCardSpacing)} ${makeRem(16)};
           box-shadow: 0 0 10px 3px rgba(207, 207, 207, 0.5);
           border-radius: ${makeRem(4)};
           overflow: hidden;
           display: flex;
           flex-direction: column;
-
-          ${({ theme }) => css`
-            ${makeTabletStyles(theme)} {
-              margin: ${makeRem(blogCardSpacing)};
-            }
-          `}
         `}
       >
         <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>

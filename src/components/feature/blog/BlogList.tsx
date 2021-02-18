@@ -3,12 +3,9 @@ import { PostOrPage } from "@tryghost/content-api";
 import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";
 
-import { BlogListCard, blogCardSpacing } from "./BlogListCard";
+import { BlogListCard } from "./BlogListCard";
 
 const SyledBlogList = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
   box-sizing: border-box;
 
   & > * {
@@ -18,7 +15,10 @@ const SyledBlogList = styled.div`
   ${({ theme }) => css`
     ${makeTabletStyles(theme)} {
       & > * {
-        width: ${`calc(50% - ${makeRem(blogCardSpacing * 2)})`};
+        width: 54%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: ${makeRem(80)};
       }
     }
   `}
