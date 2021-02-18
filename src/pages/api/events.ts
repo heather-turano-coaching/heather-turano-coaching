@@ -1,4 +1,4 @@
-import { convertParamsToQueryString } from "@htc/lib/endpoint";
+import { convertParamsToQueryString } from "@htc/utils";
 import eventbrite from "eventbrite";
 import { NextApiHandler } from "next";
 

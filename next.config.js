@@ -1,5 +1,5 @@
 const path = require("path");
-require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
 
 const srcDir = path.resolve(__dirname, "./src");
 
@@ -34,6 +34,7 @@ module.exports = {
       "@htc/components": path.resolve(srcDir, "./components"),
       "@htc/design-system": path.resolve(srcDir, "./design-system"),
       "@htc/documents": path.resolve(srcDir, "./documents"),
+      "@htc/models": path.resolve(srcDir, "./models"),
       "@htc/hooks": path.resolve(srcDir, "./hooks"),
       "@htc/icons": path.resolve(srcDir, "./icons"),
       "@htc/images": path.resolve(srcDir, "./images"),

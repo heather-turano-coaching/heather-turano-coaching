@@ -169,7 +169,7 @@ export const HeaderNav: FC = () => {
 
       observer.observe(stickyRef.current);
     }
-  }, [stickyRef.current]);
+  }, []);
 
   return (
     <NavbarContainer>

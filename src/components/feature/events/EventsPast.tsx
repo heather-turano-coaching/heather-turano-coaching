@@ -9,10 +9,12 @@ import { EventsSectionDateItem } from "./EventsSectionDateItem";
 export const EventsPast: FC<{ events: EBEventsResponse }> = ({ events }) => {
   const aggEventsPast = useMemo(
     () => aggregateListByDay(events.events, "start.local"),
-    []
+    [events.events]
   );
 
-  const pastEvents = useMemo(() => Object.entries(aggEventsPast).reverse(), []);
+  const pastEvents = useMemo(() => Object.entries(aggEventsPast).reverse(), [
+    aggEventsPast
+  ]);
 
   return (
     <>

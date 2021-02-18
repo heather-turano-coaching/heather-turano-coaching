@@ -1,6 +1,6 @@
 import { Title } from "@htc/components/atomic";
-import { GetAllGhostPosts } from "@htc/lib/ghost";
 import { PageComponent } from "@htc/lib/page";
+import { GetAllGhostPosts } from "@htc/lib/server/ghost";
 import { Container } from "@material-ui/core";
 import React from "react";
 

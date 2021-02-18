@@ -1,4 +1,4 @@
-import { convertParamsToQueryString } from "./index";
+import { convertParamsToQueryString } from "./convertParamsToQueryString";
 
 describe("convertParamsToQueryString", () => {
   it("should return an empty string when the params are empty", () => {

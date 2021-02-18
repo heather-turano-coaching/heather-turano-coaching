@@ -3,8 +3,11 @@ import { makeRem, makeTabletStyles } from "@htc/theme";
 import { formatShortDate } from "@htc/utils";
 import { SvgIcon, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
+import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import React, { FC, memo } from "react";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import styled, { css } from "styled-components";
 
 export const blogCardSpacing = 24;
@@ -22,113 +25,132 @@ const StyledIconText = styled(Typography)`
   }
 `;
 
-export const BlogListCard: FC<PostOrPage> = memo(function BlogListCard(post) {
-  return (
-    <div
-      css={css`
-        margin: ${makeRem(blogCardSpacing)} ${makeRem(16)};
-        box-shadow: 0 0 10px 3px rgba(207, 207, 207, 0.5);
-        border-radius: ${makeRem(4)};
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
+export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
+  function BlogListCard({ index, ...post }) {
+    const controls = useAnimation();
+    const [ref, inView] = useInView();
 
-        ${({ theme }) => css`
-          ${makeTabletStyles(theme)} {
-            margin: ${makeRem(blogCardSpacing)};
-          }
-        `}
-      `}
-    >
-      <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
-        <a
-          css={css`
-            width: 100%;
-          `}
-        >
-          <img
-            src={(post.feature_image as unknown) as string | undefined}
-            alt={post.slug}
-            css={css`
-              width: 100%;
-              height: ${makeRem(300)};
-              display: block;
-              background-color: ${({ theme }) => theme.palette.light.light};
-              object-fit: cover;
-              object-position: top left;
-            `}
-          />
-        </a>
-      </Link>
-      <div
+    useEffect(() => {
+      if (inView) {
+        controls.start("visible");
+      }
+    }, [controls, inView]);
+
+    return (
+      <motion.div
+        ref={ref}
+        animate={controls}
+        initial="hidden"
+        transition={{ duration: 0.5 }}
+        variants={{
+          hidden: { opacity: 0, y: -50 },
+          visible: { opacity: 1, y: 0 }
+        }}
         css={css`
-          padding: ${makeRem(blogCardSidePadding)};
-          flex: 1;
+          margin: ${makeRem(blogCardSpacing)} ${makeRem(16)};
+          box-shadow: 0 0 10px 3px rgba(207, 207, 207, 0.5);
+          border-radius: ${makeRem(4)};
+          overflow: hidden;
           display: flex;
           flex-direction: column;
+
+          ${({ theme }) => css`
+            ${makeTabletStyles(theme)} {
+              margin: ${makeRem(blogCardSpacing)};
+            }
+          `}
         `}
       >
-        {post.published_at && (
-          <Typography variant="caption">
-            {formatShortDate(post.published_at)}
-          </Typography>
-        )}
-
         <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
-          <a>
-            <Typography variant="h5">{post.title}</Typography>
+          <a
+            css={css`
+              width: 100%;
+            `}
+          >
+            <img
+              src={(post.feature_image as unknown) as string | undefined}
+              alt={post.slug}
+              css={css`
+                width: 100%;
+                height: ${makeRem(300)};
+                display: block;
+                background-color: ${({ theme }) => theme.palette.light.light};
+                object-fit: cover;
+                object-position: top left;
+              `}
+            />
           </a>
         </Link>
-        <Typography
-          variant="body2"
-          color="textPrimary"
+        <div
           css={css`
-            margin-bottom: ${makeRem(28)} !important;
+            padding: ${makeRem(blogCardSidePadding)};
             flex: 1;
-            font-size: ${makeRem(16)} !important;
+            display: flex;
+            flex-direction: column;
           `}
         >
-          {post.excerpt}
-        </Typography>
-      </div>
-      <div
-        css={css`
-          border-top: 1px solid ${({ theme }) => theme.palette.light.main};
-          height: ${makeRem(60)};
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 0 ${makeRem(blogCardSidePadding)};
+          {post.published_at && (
+            <Typography variant="caption">
+              {formatShortDate(post.published_at)}
+            </Typography>
+          )}
 
-          & > * {
+          <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
+            <a>
+              <Typography variant="h5">{post.title}</Typography>
+            </a>
+          </Link>
+          <Typography
+            variant="body2"
+            color="textPrimary"
+            css={css`
+              margin-bottom: ${makeRem(28)} !important;
+              flex: 1;
+              font-size: ${makeRem(16)} !important;
+            `}
+          >
+            {post.excerpt}
+          </Typography>
+        </div>
+        <div
+          css={css`
+            border-top: 1px solid ${({ theme }) => theme.palette.light.main};
+            height: ${makeRem(60)};
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            line-height: ${makeRem(60)};
-          }
-        `}
-      >
-        <div>
-          <StyledIcon fontSize="small" color="primary">
-            <MessageSquare />
-          </StyledIcon>
-          <StyledIconText variant="overline">0</StyledIconText>
-          <StyledIcon fontSize="small" color="secondary">
-            <Heart />
-          </StyledIcon>
-          <StyledIconText variant="overline">0</StyledIconText>
-          <StyledIcon fontSize="small" color="action">
-            <Clock />
-          </StyledIcon>
-          <StyledIconText variant="overline">
-            {post.reading_time} min
-          </StyledIconText>
+            padding: 0 ${makeRem(blogCardSidePadding)};
+
+            & > * {
+              display: flex;
+              align-items: center;
+              line-height: ${makeRem(60)};
+            }
+          `}
+        >
+          <div>
+            <StyledIcon fontSize="small" color="primary">
+              <MessageSquare />
+            </StyledIcon>
+            <StyledIconText variant="overline">0</StyledIconText>
+            <StyledIcon fontSize="small" color="secondary">
+              <Heart />
+            </StyledIcon>
+            <StyledIconText variant="overline">0</StyledIconText>
+            <StyledIcon fontSize="small" color="action">
+              <Clock />
+            </StyledIcon>
+            <StyledIconText variant="overline">
+              {post.reading_time} min
+            </StyledIconText>
+          </div>
+          <div>
+            <StyledIcon fontSize="small">
+              <Share2 />
+            </StyledIcon>
+          </div>
         </div>
-        <div>
-          <StyledIcon fontSize="small">
-            <Share2 />
-          </StyledIcon>
-        </div>
-      </div>
-    </div>
-  );
-});
+      </motion.div>
+    );
+  }
+);

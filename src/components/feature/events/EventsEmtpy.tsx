@@ -1,5 +1,6 @@
 import { flexRow, makeRem } from "@htc/theme";
 import { Typography } from "@material-ui/core";
+import Image from "next/image";
 import { FC } from "react";
 import { css } from "styled-components";
 
@@ -8,16 +9,21 @@ export const EventsEmtpy: FC = () => {
     <div
       css={css`
         box-sizing: border-box;
-        height: ${makeRem(240)};
+        min-height: ${makeRem(260)};
         width: 100%;
         background: ${({ theme }) => theme.palette.common.white};
         ${flexRow("center", "center")};
         text-align: center;
-        padding-right: ${makeRem(32)};
-        padding-left: ${makeRem(32)};
+        padding: ${makeRem(32)};
       `}
     >
       <div>
+        <Image
+          src="/images/lotus-flower.png"
+          alt="a lotus flower"
+          width={40}
+          height={40}
+        />
         <Typography variant="h4" component="p" color="textSecondary">
           No upcoming events
         </Typography>

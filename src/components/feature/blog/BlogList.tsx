@@ -26,16 +26,19 @@ const SyledBlogList = styled.div`
 
 type BlogListProps = {
   posts: PostOrPage[];
+  loading?: boolean;
 };
 
 export const BlogList = forwardRef<HTMLDivElement, BlogListProps>(
   function BlogList({ posts }, ref) {
     return (
-      <SyledBlogList ref={ref}>
-        {posts.map((post) => (
-          <BlogListCard {...post} key={post.id} />
-        ))}
-      </SyledBlogList>
+      <>
+        <SyledBlogList ref={ref}>
+          {posts.map((post, index) => (
+            <BlogListCard {...post} key={post.id} index={index} />
+          ))}
+        </SyledBlogList>
+      </>
     );
   }
 );

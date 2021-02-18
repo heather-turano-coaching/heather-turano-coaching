@@ -12,7 +12,7 @@ export const EventsSection: FC<{ title: string }> = ({ title, children }) => {
         () => (
           <Title size="lg">{title}</Title>
         ),
-        []
+        [title]
       )}
       <ul
         css={css`

@@ -1,4 +1,3 @@
-import { Title } from "@htc/components/atomic";
 import { Hero } from "@htc/components/content";
 import { GetAllGhostPosts, GetFeaturedGhostPost } from "@htc/lib/ghost";
 import { PageComponent } from "@htc/lib/page";

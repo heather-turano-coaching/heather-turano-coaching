@@ -61,7 +61,8 @@ module.exports = {
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error", { functions: false }],
     // React Rules
-    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
     "react/prop-types": [0],
     "prettier/prettier": ["error", { singleQuote: false }],
     "import/no-extraneous-dependencies": [

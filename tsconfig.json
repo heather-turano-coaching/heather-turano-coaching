@@ -20,6 +20,7 @@
       "@htc/icons": ["src/icons/index.ts"],
       "@htc/images": ["src/images"],
       "@htc/lib/*": ["src/lib/*"],
+      "@htc/models": ["src/models/index.ts"],
       "@htc/theme": ["src/theme/index.ts"],
       "@htc/utils": ["src/utils/index.ts"]
     },
