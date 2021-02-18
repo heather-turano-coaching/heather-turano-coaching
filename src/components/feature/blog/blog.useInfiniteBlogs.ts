@@ -42,7 +42,7 @@ export const useInfiniteBlogs = (
 
   /**
    * The handler for when the container
-   * get's to a specific tolerance
+   * gets to a specific tolerance
    */
   const handleScrollResponse = useCallback(() => {
     if (meta.pagination.next) {
