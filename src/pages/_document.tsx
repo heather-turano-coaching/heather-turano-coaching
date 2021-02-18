@@ -6,7 +6,7 @@ import Document, {
   Main,
   NextScript
 } from "next/document";
-import React, { Fragment, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { ServerStyleSheet as StyledComponentSheets } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -30,16 +30,16 @@ export default class MyDocument extends Document {
             )
         });
       const initialProps = await Document.getInitialProps(ctx);
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+
       return {
         ...initialProps,
+        head: initialProps.head as JSX.Element[],
         styles: [
-          <Fragment key="styles">
+          <React.Fragment key="styles">
             {initialProps.styles}
             {materialUiSheets.getStyleElement()}
             {styledComponentSheet.getStyleElement()}
-          </Fragment>
+          </React.Fragment>
         ]
       };
     } finally {

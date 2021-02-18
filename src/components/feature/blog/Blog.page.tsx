@@ -36,7 +36,6 @@ export const BlogPage: PageComponent<BlogPageProps> = ({
         <BlogSection title="Older posts">
           <BlogSectionAll {...allPosts} />
         </BlogSection>
-        <Title size="lg" copy="Featured post" />
       </Container>
     </>
   );

@@ -5,7 +5,9 @@ import { darken } from "polished";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-const StyledFooterContainer = styled.footer`
+const StyledFooterContainer = styled.footer.attrs({
+  id: "footer"
+})`
   width: 100%;
   box-sizing: border-box;
   background: ${darken(0.1, makeColor({ scalable: { color: "secondary" } }))};

@@ -1,7 +1,6 @@
-import { GetAllGhostPosts } from "@htc/lib/ghost";
 import { makeRem, makeTabletStyles } from "@htc/theme";
 import { PostOrPage } from "@tryghost/content-api";
-import React, { FC } from "react";
+import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";
 
 import { BlogListCard, blogCardSpacing } from "./BlogListCard";
@@ -25,12 +24,18 @@ const SyledBlogList = styled.div`
   `}
 `;
 
-export const BlogList: FC<{ posts: PostOrPage[] }> = ({ posts }) => {
-  return (
-    <SyledBlogList>
-      {posts.map((post) => (
-        <BlogListCard {...post} key={post.id} />
-      ))}
-    </SyledBlogList>
-  );
+type BlogListProps = {
+  posts: PostOrPage[];
 };
+
+export const BlogList = forwardRef<HTMLDivElement, BlogListProps>(
+  function BlogList({ posts }, ref) {
+    return (
+      <SyledBlogList ref={ref}>
+        {posts.map((post) => (
+          <BlogListCard {...post} key={post.id} />
+        ))}
+      </SyledBlogList>
+    );
+  }
+);
