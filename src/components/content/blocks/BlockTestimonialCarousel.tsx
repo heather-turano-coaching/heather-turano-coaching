@@ -60,7 +60,7 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
             width: ${makeRem(600)};
             min-height: ${makeRem(1000)};
             box-shadow: 17px 88px 60px -100px rgb(79 94 120 / 18%),
-              11px 0 20px -9px rgb(79 94 120 / 10%);
+              -1px 2px 20px -7px rgb(79 94 120 / 10%);
             border-radius: ${makeRem(2)};
             position: relative;
 
@@ -176,7 +176,9 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
                     `}
                   `}
                 >
-                  <Typography variant="overline">written by</Typography>
+                  <Typography variant="overline">
+                    {testimonials[imageIndex].fields.customerLocation}
+                  </Typography>
                   <Typography
                     variant="h5"
                     component="p"

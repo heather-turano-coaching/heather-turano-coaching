@@ -108,7 +108,7 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
               font-size: ${makeRem(16)} !important;
             `}
           >
-            {post.excerpt}
+            {post.custom_excerpt || post.excerpt}
           </Typography>
         </div>
         <div

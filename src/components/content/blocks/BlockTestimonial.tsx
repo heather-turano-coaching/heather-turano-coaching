@@ -1,9 +1,8 @@
+import { Title } from "@htc/components/atomic";
 import { IBlockTestimonial } from "@htc/lib/contentful";
-import { makeDesktopStyles, makeRem, makeRetinaStyles } from "@htc/theme";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
-import { BlockSimple } from "./BlockSimple";
 import { TestimonialCarousel } from "./BlockTestimonialCarousel";
 
 export const BlockTestimonial: FC<IBlockTestimonial> = ({
@@ -11,7 +10,7 @@ export const BlockTestimonial: FC<IBlockTestimonial> = ({
 }) => {
   return (
     <div>
-      <BlockSimple {...block} />
+      <Title size="lg">{block.fields.title}</Title>
       <div
         css={css`
           width: 100%;

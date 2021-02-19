@@ -81,7 +81,7 @@ export const BlogPostPage: PageComponent<BlogPostPageProps> = (props) => {
                 }
               `}
             >
-              {localPost.excerpt}
+              {localPost.custom_excerpt}
             </Typography>
           </header>
         </div>
