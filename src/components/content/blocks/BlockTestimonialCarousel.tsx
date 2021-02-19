@@ -204,9 +204,6 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
               left: ${makeRem(36)};
 
               ${({ theme }) => css`
-                ${makeTabletStyles(theme)} {
-                  left: 0;
-                }
                 ${makeDesktopStyles(theme)} {
                   left: -${makeRem(72)};
                 }
@@ -224,9 +221,6 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
               right: ${makeRem(36)};
 
               ${({ theme }) => css`
-                ${makeTabletStyles(theme)} {
-                  right: 0;
-                }
                 ${makeDesktopStyles(theme)} {
                   right: -${makeRem(72)};
                 }

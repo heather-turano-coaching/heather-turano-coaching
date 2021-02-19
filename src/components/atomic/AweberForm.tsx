@@ -20,7 +20,8 @@ const StyledForm = styled.div<AweberFormProps>`
 
   ${formElement} {
     width: 100%;
-
+    display: flex;
+    flex-direction: column;
     &:not(:last-child) {
       margin-bottom: ${makeRem(20)};
     }
@@ -31,6 +32,7 @@ const StyledForm = styled.div<AweberFormProps>`
       font-family: "Muli";
       display: inline-block;
       margin-bottom: ${makeRem(4)};
+      text-align: left;
     }
 
     input,

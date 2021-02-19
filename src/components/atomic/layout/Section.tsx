@@ -149,7 +149,8 @@ export const SectionCopy: FC = ({ children }) => (
 );
 
 const StyledSectionFooter = styled.div`
-  ${makeOutset({ top: "xl", bottom: 0, horizontal: "auto" })}
+  ${makeOutset({ top: "xl", bottom: 0, horizontal: "auto" })};
+  text-align: center;
 `;
 export const SectionFooter: FC = ({ children }) => (
   <StyledSectionFooter>{children}</StyledSectionFooter>

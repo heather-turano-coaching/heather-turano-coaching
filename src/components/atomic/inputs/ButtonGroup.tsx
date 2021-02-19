@@ -30,7 +30,6 @@ const buttonGroupStyleMap: {
         button,
         a {
           text-align: center;
-          display: block;
           &:not(:first-child) {
             margin-top: ${makeRem(16)};
           }

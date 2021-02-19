@@ -24,7 +24,7 @@ export const EventsEmtpy: FC = () => {
           width={40}
           height={40}
         />
-        <Typography variant="h4" component="p" color="textSecondary">
+        <Typography variant="h4" component="p" color="textPrimary">
           No upcoming events
         </Typography>
         <Typography

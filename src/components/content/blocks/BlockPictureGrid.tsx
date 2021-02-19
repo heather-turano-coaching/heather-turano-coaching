@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 
 import { BlockSimple } from "./BlockSimple";
 
-const StyledGrip = styled.div`
+const StyledGrid = styled.div`
   display: flex;
   flex: 1;
   flex-wrap: wrap;
@@ -79,7 +79,7 @@ export const BlockPictureGrid: FC<IBlockPictureGrid> = ({
       >
         <BlockSimple {...block} />
       </div>
-      <StyledGrip>
+      <StyledGrid>
         {images.map((clientImage) => (
           <StyledGridImage key={clientImage.fields.file.url}>
             <img
@@ -88,7 +88,7 @@ export const BlockPictureGrid: FC<IBlockPictureGrid> = ({
             />
           </StyledGridImage>
         ))}
-      </StyledGrip>
+      </StyledGrid>
     </div>
   );
 };

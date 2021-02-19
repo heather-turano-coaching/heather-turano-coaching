@@ -13,6 +13,10 @@ const SyledBlogList = styled.div`
   }
 
   ${({ theme }) => css`
+    & > * {
+      margin-bottom: ${makeRem(80)};
+    }
+
     ${makeTabletStyles(theme)} {
       & > * {
         width: 54%;
