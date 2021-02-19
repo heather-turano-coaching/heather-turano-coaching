@@ -10,34 +10,19 @@ export const BlockTestimonial: FC<IBlockTestimonial> = ({
   fields: { block, testimonialEntries }
 }) => {
   return (
-    <div
-      css={css`
-        width: 100%;
-
-        ${({ theme }) => css`
-          ${makeRetinaStyles(theme)} {
-            display: flex;
-          }
-        `}
-
-        * {
-          box-sizing: border-box;
-        }
-      `}
-    >
+    <div>
+      <BlockSimple {...block} />
       <div
         css={css`
-          flex: 1;
-          ${({ theme }) => css`
-            ${makeDesktopStyles(theme)} {
-              padding: 0 ${makeRem(40)};
-            }
-          `}
+          width: 100%;
+          max-width: 100%;
+          position: relative;
+          justify-content: center;
+          display: flex;
         `}
       >
-        <BlockSimple {...block} />
+        <TestimonialCarousel testimonials={testimonialEntries} />
       </div>
-      <TestimonialCarousel testimonials={testimonialEntries} />
     </div>
   );
 };

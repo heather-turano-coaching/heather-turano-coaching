@@ -1,5 +1,5 @@
 import { Clock, Heart, MessageSquare, Share2 } from "@htc/icons";
-import { makeRem } from "@htc/theme";
+import { makeRem, makeTabletStyles } from "@htc/theme";
 import { formatShortDate } from "@htc/utils";
 import { SvgIcon, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
@@ -41,7 +41,7 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
         ref={ref}
         animate={controls}
         initial="hidden"
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.8 }}
         variants={{
           hidden: { opacity: 0, y: -50 },
           visible: { opacity: 1, y: 0 }
@@ -70,6 +70,12 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
                 background-color: ${({ theme }) => theme.palette.light.light};
                 object-fit: cover;
                 object-position: top left;
+
+                ${({ theme }) => css`
+                  ${makeTabletStyles(theme)} {
+                    height: ${makeRem(400)};
+                  }
+                `}
               `}
             />
           </a>

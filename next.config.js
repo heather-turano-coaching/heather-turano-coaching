@@ -46,6 +46,10 @@ module.exports = {
     return config;
   },
 
+  images: {
+    domains: ["images.ctfassets.net"]
+  },
+
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname
   }
