@@ -3,12 +3,10 @@ import { PageComponent } from "@htc/lib/page";
 import React from "react";
 
 import { LayoutRoot } from "../layout";
-import { Meta } from "../meta";
 
 export const DynamicPage: PageComponent = ({ contentfulPageData }) => {
   const {
     fields: {
-      navbarLabel,
       hero: { fields: heroFields },
       blocks
     }
@@ -16,7 +14,6 @@ export const DynamicPage: PageComponent = ({ contentfulPageData }) => {
 
   return (
     <>
-      <Meta pageTitle={navbarLabel} />
       <Hero {...heroFields} />
       <Blocks blocks={blocks} />
     </>

@@ -6,3 +6,4 @@ export * from "./getRoutes";
 export * from "./useUpdateUrl";
 export * from "./convertParamsToQueryString";
 export * from "./useQueryString";
+export * from "./capitalize";

@@ -7,6 +7,8 @@ import {
 } from "@htc/lib/ghost";
 import { PageComponent } from "@htc/lib/page";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
+import React from "react";
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   const allSlugs = await ghostClient<{ tags: { slug: string }[] }>(
@@ -57,7 +59,15 @@ export const getStaticProps: GetStaticProps<BlogTagPageProps> = async ({
 };
 
 const Page: PageComponent<BlogTagPageProps> = (props) => {
-  return <BlogTagPage {...props} />;
+  return (
+    <>
+      <NextSeo
+        title={props.slug}
+        description={`Read the latest posts from Heather that are tagged with "${props.slug}"`}
+      />
+      <BlogTagPage {...props} />
+    </>
+  );
 };
 
 Page.getPageLayout = BlogTagPage.getPageLayout;

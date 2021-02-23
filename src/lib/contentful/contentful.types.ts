@@ -306,6 +306,33 @@ export interface IHero extends Entry<IHeroFields> {
   };
 }
 
+export interface ISeoFields {
+  /** title */
+  title: string;
+
+  /** description */
+  description: string;
+}
+
+/** A specific set of fields that enables different sites and services to read, index and then rank your page */
+
+export interface ISeo extends Entry<ISeoFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "seo";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface IServiceFields {
   /** System ID */
   systemId: string;
@@ -487,6 +514,9 @@ export interface IWebPageFields {
   /** URL */
   url: string;
 
+  /** SEO */
+  seo: ISeo;
+
   /** Navbar Label */
   navbarLabel: string;
 
@@ -537,6 +567,7 @@ export type CONTENT_TYPE =
   | "certification"
   | "form"
   | "hero"
+  | "seo"
   | "service"
   | "serviceBasic"
   | "serviceContact"

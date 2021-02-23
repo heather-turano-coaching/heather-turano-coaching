@@ -1,3 +1,4 @@
+import { ContentfulSeo } from "@htc/components/feature/seo";
 import {
   ServicesPage,
   ServicesPageProps,
@@ -19,7 +20,12 @@ export const getStaticProps: GetPageProps<ServicesPageProps> = async () => {
 };
 
 const Page: PageComponent<ServicesPageProps> = (props) => {
-  return <ServicesPage {...props} />;
+  return (
+    <>
+      <ContentfulSeo {...props} />
+      <ServicesPage {...props} />
+    </>
+  );
 };
 
 Page.getPageLayout = ServicesPage.getPageLayout;

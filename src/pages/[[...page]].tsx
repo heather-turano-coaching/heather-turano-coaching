@@ -4,6 +4,7 @@ import {
   DynamicPage,
   getDynamicPageProps
 } from "@htc/components/feature/dynamic";
+import { ContentfulSeo } from "@htc/components/feature/seo";
 import { getAllContentfulPages } from "@htc/lib/contentful";
 import { GetPageProps, PageComponent } from "@htc/lib/page";
 import fs from "fs-extra";
@@ -93,7 +94,12 @@ export const getStaticProps: GetPageProps = async ({ params }) => {
 };
 
 const Page: PageComponent = (props) => {
-  return <DynamicPage {...props} />;
+  return (
+    <>
+      <ContentfulSeo {...props} />
+      <DynamicPage {...props} />
+    </>
+  );
 };
 
 Page.getPageLayout = DynamicPage.getPageLayout;

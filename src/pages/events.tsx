@@ -3,7 +3,9 @@ import {
   EventsPageProps,
   getEventsPageData
 } from "@htc/components/feature/events";
+import { ContentfulSeo } from "@htc/components/feature/seo";
 import { GetPageProps, PageComponent } from "@htc/lib/page";
+import React from "react";
 
 export const getStaticProps: GetPageProps<EventsPageProps> = async () => {
   try {
@@ -18,7 +20,12 @@ export const getStaticProps: GetPageProps<EventsPageProps> = async () => {
 };
 
 const Page: PageComponent<EventsPageProps> = (props) => {
-  return <EventsPage {...props} />;
+  return (
+    <>
+      <ContentfulSeo {...props} />
+      <EventsPage {...props} />
+    </>
+  );
 };
 
 Page.getPageLayout = EventsPage.getPageLayout;

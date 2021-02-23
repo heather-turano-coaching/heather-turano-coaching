@@ -6,7 +6,6 @@ import React from "react";
 import { css } from "styled-components";
 
 import { LayoutRoot } from "../layout";
-import { Meta } from "../meta";
 import { EventsPageProps } from "./events.utils";
 import { EventsFuture } from "./EventsFuture";
 import { EventsPast } from "./EventsPast";
@@ -23,7 +22,6 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
 }) => {
   return (
     <>
-      <Meta pageTitle="Events" />
       <Hero {...heroFields} hideGradient />
       <div
         css={css`

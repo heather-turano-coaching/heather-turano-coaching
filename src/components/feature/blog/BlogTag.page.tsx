@@ -18,7 +18,7 @@ export const BlogTagPage: PageComponent<BlogTagPageProps> = ({
 }) => {
   return (
     <Container maxWidth="lg">
-      <Title size="lg">Tag: {slug}</Title>
+      <Title size="lg">{slug}</Title>
       <BlogSectionAll {...data} />
     </Container>
   );

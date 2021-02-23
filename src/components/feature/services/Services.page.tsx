@@ -12,7 +12,6 @@ import { EntryCollection } from "contentful";
 import { css } from "styled-components";
 
 import { LayoutRoot } from "../layout";
-import { Meta } from "../meta";
 import { ServiceCard } from "./ServiceCard";
 import { ServiceCardBasic } from "./ServiceCardBasic";
 import { ServiceCardContact } from "./ServiceCardContact";
@@ -35,7 +34,6 @@ export const ServicesPage: PageComponent<ServicesPageProps> = ({
 
   return (
     <>
-      <Meta pageTitle="Services" />
       <Hero {...heroFields} hideGradient />
 
       {groupedServices &&

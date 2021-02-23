@@ -1,4 +1,5 @@
 import { BlogPostPage, BlogPostPageProps } from "@htc/components/feature/blog";
+import { GhostSeo } from "@htc/components/feature/seo";
 import { getEndpoint } from "@htc/lib/endpoint";
 import {
   GetSingleGhostPostBySlug,
@@ -53,7 +54,12 @@ export const getStaticProps: GetStaticProps<BlogPostPageProps> = async ({
 };
 
 const Page: PageComponent<BlogPostPageProps> = (props) => {
-  return <BlogPostPage {...props} />;
+  return (
+    <>
+      <GhostSeo {...props} />
+      <BlogPostPage {...props} />
+    </>
+  );
 };
 
 Page.getPageLayout = BlogPostPage.getPageLayout;
