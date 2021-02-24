@@ -1,13 +1,9 @@
-import {
-  makeDesktopStyles,
-  makeFlex,
-  makeMobileStyles,
-  makeRem
-} from "@htc/theme";
+import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
 import React, { FC, useEffect, useRef } from "react";
 import styled, { css } from "styled-components";
 
 import { ActiveLink } from "./ActiveLink";
+import { SideNav } from "./SideNav";
 
 export const navbarHeight = makeRem(84);
 export const fullScreenSansNavbar = `calc(100vh - ${navbarHeight})`;
@@ -60,6 +56,7 @@ const Navbar = styled.div`
   position: sticky;
   top: -${makeRem(1)};
   margin-top: ${makeRem(1)};
+  height: ${navbarHeight};
 
   padding: 0 ${makeRem(24)};
   z-index: 100;
@@ -80,29 +77,31 @@ const Navbar = styled.div`
 
     ${makeDesktopStyles(theme)} {
       background: ${theme.palette.common.white};
-
-      ${makeFlex({
-        direction: "row",
-        justify: "space-between",
-        align: "center"
-      })}
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
     }
   `}
 `;
 
 const NavbarUl = styled.ul`
-  width: 100%;
-  height: ${navbarHeight};
   display: flex;
   align-items: center;
+  flex: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
 
   ${({ theme }) => css`
     ${makeMobileStyles(theme)} {
       justify-content: space-between;
+      height: 100%;
+      padding: ${makeRem(16)};
     }
 
     ${makeDesktopStyles(theme)} {
-      justify-content: flex-end;
+      justify-content: center;
     }
   `}
 `;
@@ -207,6 +206,7 @@ export const HeaderNav: FC = () => {
             </ActiveLink>
           </NavbarLi>
         </NavbarUl>
+        <SideNav />
       </Navbar>
     </NavbarContainer>
   );

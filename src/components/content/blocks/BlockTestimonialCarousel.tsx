@@ -108,7 +108,7 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
                   opacity: 0
                 }}
                 transition={{
-                  scale: { type: "spring", duration: 20 },
+                  scale: { type: "spring", duration: 10 },
                   opacity: { type: "spring", duration: 1 }
                 }}
               >
