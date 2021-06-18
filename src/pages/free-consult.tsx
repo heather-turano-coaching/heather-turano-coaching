@@ -1,7 +1,7 @@
-import { FreeConsultPage } from "@htc/components/feature/free-consult";
 import { PageComponent } from "@htc/lib/page";
 import { NextSeo } from "next-seo";
 import React from "react";
+import { FreeConsultPage } from "src/features/free-consult";
 
 const Page: PageComponent = (props) => {
   return (

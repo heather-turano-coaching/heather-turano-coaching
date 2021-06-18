@@ -1,7 +1,9 @@
+import { getEndpoint } from "@htc/lib/endpoint";
 import { makeRem } from "@htc/theme";
 import { motion } from "framer-motion";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
+import useSWR from "swr";
 
 import { SideNavMenuItem } from "./SideNavMenuItem";
 
@@ -23,47 +25,55 @@ const StyledMenuSection = styled.div`
   }
 `;
 
-export const SideNavMenu: FC = () => (
-  <div
-    css={css`
-      padding-left: ${makeRem(20)};
-      padding-right: ${makeRem(20)};
-    `}
-  >
-    <StyledMenuSection>
-      <motion.ul
-        variants={variants}
-        css={css`
-          width: ${makeRem(300)};
-        `}
-      >
-        <SideNavMenuItem />
-        <SideNavMenuItem />
-        <SideNavMenuItem />
-        <SideNavMenuItem />
-        <SideNavMenuItem />
-        <SideNavMenuItem />
-      </motion.ul>
-    </StyledMenuSection>
-    <StyledMenuSection>
-      <motion.ul
-        variants={variants}
-        css={css`
-          width: ${makeRem(300)};
-        `}
-      >
-        <SideNavMenuItem />
-      </motion.ul>
-    </StyledMenuSection>
-    <StyledMenuSection>
-      <motion.ul
-        variants={variants}
-        css={css`
-          width: ${makeRem(300)};
-        `}
-      >
-        <SideNavMenuItem label="contact me" />
-      </motion.ul>
-    </StyledMenuSection>
-  </div>
-);
+export const SideNavMenu: FC = () => {
+  const { data } = useSWR(
+    getEndpoint({
+      root: "/pages"
+    })
+  );
+
+  return (
+    <div
+      css={css`
+        padding-left: ${makeRem(20)};
+        padding-right: ${makeRem(20)};
+      `}
+    >
+      <StyledMenuSection>
+        <motion.ul
+          variants={variants}
+          css={css`
+            width: ${makeRem(300)};
+          `}
+        >
+          <SideNavMenuItem />
+          <SideNavMenuItem />
+          <SideNavMenuItem />
+          <SideNavMenuItem />
+          <SideNavMenuItem />
+          <SideNavMenuItem />
+        </motion.ul>
+      </StyledMenuSection>
+      <StyledMenuSection>
+        <motion.ul
+          variants={variants}
+          css={css`
+            width: ${makeRem(300)};
+          `}
+        >
+          <SideNavMenuItem />
+        </motion.ul>
+      </StyledMenuSection>
+      <StyledMenuSection>
+        <motion.ul
+          variants={variants}
+          css={css`
+            width: ${makeRem(300)};
+          `}
+        >
+          <SideNavMenuItem label="contact me" />
+        </motion.ul>
+      </StyledMenuSection>
+    </div>
+  );
+};

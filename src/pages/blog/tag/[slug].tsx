@@ -1,4 +1,3 @@
-import { BlogTagPage, BlogTagPageProps } from "@htc/components/feature/blog";
 import { getEndpoint } from "@htc/lib/endpoint";
 import {
   GetAllGhostPosts,
@@ -9,6 +8,7 @@ import { PageComponent } from "@htc/lib/page";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
 import React from "react";
+import { BlogTagPage, BlogTagPageProps } from "src/features/blog";
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   const allSlugs = await ghostClient<{ tags: { slug: string }[] }>(

@@ -61,7 +61,7 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
             `}
           >
             <img
-              src={(post.feature_image as unknown) as string | undefined}
+              src={post.feature_image as unknown as string | undefined}
               alt={post.slug}
               css={css`
                 width: 100%;

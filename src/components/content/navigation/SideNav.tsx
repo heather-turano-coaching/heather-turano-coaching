@@ -75,6 +75,7 @@ export const SideNav: FC = () => {
           -webkit-user-select: none;
           -moz-user-select: none;
           -ms-user-select: none;
+          user-select: none;
           cursor: pointer;
           position: absolute;
           top: 18px;

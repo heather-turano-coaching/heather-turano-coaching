@@ -26,7 +26,7 @@ export const SideNavMenuItem: FC<{ label?: string }> = ({ label }) => {
     <motion.li
       variants={variants}
       whileHover={{ scale: 0.95 }}
-      whileTap={{ scale: 1 }}
+      whileTap={{ scale: 1.02 }}
       css={css`
         list-style: none;
         margin-bottom: ${makeRem(20)};
@@ -36,10 +36,11 @@ export const SideNavMenuItem: FC<{ label?: string }> = ({ label }) => {
       `}
     >
       <Typography
-        variant="h6"
+        variant="body2"
         component="div"
         css={css`
           font-weight: inherit;
+          text-transform: uppercase;
         `}
       >
         {label || "-- --"}

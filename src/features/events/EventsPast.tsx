@@ -12,9 +12,10 @@ export const EventsPast: FC<{ events: EBEventsResponse }> = ({ events }) => {
     [events.events]
   );
 
-  const pastEvents = useMemo(() => Object.entries(aggEventsPast).reverse(), [
-    aggEventsPast
-  ]);
+  const pastEvents = useMemo(
+    () => Object.entries(aggEventsPast).reverse(),
+    [aggEventsPast]
+  );
 
   return (
     <>

@@ -82,7 +82,7 @@ export function useMutateFetch<
       if ((response.statusText = "ok") && method === "DELETE") {
         setApiState({
           loading: false,
-          data: (true as unknown) as ResponseDataObj,
+          data: true as unknown as ResponseDataObj,
           error: null
         });
       } else if (response.status >= 400) {

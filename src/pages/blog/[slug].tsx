@@ -1,5 +1,3 @@
-import { BlogPostPage, BlogPostPageProps } from "@htc/components/feature/blog";
-import { GhostSeo } from "@htc/components/feature/seo";
 import { getEndpoint } from "@htc/lib/endpoint";
 import {
   GetSingleGhostPostBySlug,
@@ -9,6 +7,8 @@ import {
 import { PageComponent } from "@htc/lib/page";
 import { GetStaticPaths, GetStaticProps } from "next";
 import React from "react";
+import { BlogPostPage, BlogPostPageProps } from "src/features/blog";
+import { GhostSeo } from "src/features/seo";
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   const allSlugs = await ghostClient<{ posts: { slug: string }[] }>(

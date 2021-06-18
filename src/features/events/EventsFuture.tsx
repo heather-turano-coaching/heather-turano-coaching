@@ -10,9 +10,10 @@ import { EventsSectionDateItem } from "./EventsSectionDateItem";
 export const EventsFuture: FC<{ events: EBEventsResponse }> = ({ events }) => {
   const aggEventsFuture = aggregateListByDay(events.events, "start.local");
 
-  const futureEvents = useMemo(() => Object.entries(aggEventsFuture), [
-    aggEventsFuture
-  ]);
+  const futureEvents = useMemo(
+    () => Object.entries(aggEventsFuture),
+    [aggEventsFuture]
+  );
 
   if (futureEvents.length === 0) {
     return <EventsEmtpy />;

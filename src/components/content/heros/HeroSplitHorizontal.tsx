@@ -89,24 +89,23 @@ export const HeroImageImg = styled.img`
   z-index: -2;
 `;
 
-export const HeroSplitHorizontal: FC<
-  HeroProps & { hideGradient?: boolean }
-> = ({ title, subTitle, image, imageAlt, children, hideGradient = false }) => {
-  return (
-    <HeroWrapper>
-      <HeroContainer
-        css={css`
-          max-width: ${makeRem(900)};
-        `}
-      >
-        <HeroImageContent>
-          <HeroTitle>{title}</HeroTitle>
-          <HeroSubTitle>{subTitle}</HeroSubTitle>
-          {children}
-        </HeroImageContent>
-      </HeroContainer>
-      {!hideGradient && <HeroImageBg />}
-      <HeroImageImg src={image} alt={imageAlt} />
-    </HeroWrapper>
-  );
-};
+export const HeroSplitHorizontal: FC<HeroProps & { hideGradient?: boolean }> =
+  ({ title, subTitle, image, imageAlt, children, hideGradient = false }) => {
+    return (
+      <HeroWrapper>
+        <HeroContainer
+          css={css`
+            max-width: ${makeRem(900)};
+          `}
+        >
+          <HeroImageContent>
+            <HeroTitle>{title}</HeroTitle>
+            <HeroSubTitle>{subTitle}</HeroSubTitle>
+            {children}
+          </HeroImageContent>
+        </HeroContainer>
+        {!hideGradient && <HeroImageBg />}
+        <HeroImageImg src={image} alt={imageAlt} />
+      </HeroWrapper>
+    );
+  };

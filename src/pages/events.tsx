@@ -1,11 +1,11 @@
+import { GetPageProps, PageComponent } from "@htc/lib/page";
+import React from "react";
 import {
   EventsPage,
   EventsPageProps,
   getEventsPageData
-} from "@htc/components/feature/events";
-import { ContentfulSeo } from "@htc/components/feature/seo";
-import { GetPageProps, PageComponent } from "@htc/lib/page";
-import React from "react";
+} from "src/features/events";
+import { ContentfulSeo } from "src/features/seo";
 
 export const getStaticProps: GetPageProps<EventsPageProps> = async () => {
   try {

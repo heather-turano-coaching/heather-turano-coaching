@@ -1,7 +1,7 @@
-import { defaultSeoConfig } from "@htc/components/feature/seo";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import React, { ReactElement, useEffect } from "react";
+import { defaultSeoConfig } from "src/features/seo";
 
 export default function MyApp({
   Component,

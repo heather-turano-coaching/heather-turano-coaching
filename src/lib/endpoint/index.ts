@@ -1,12 +1,13 @@
 import { convertParamsToQueryString } from "@htc/utils";
 import { Params } from "@tryghost/content-api";
 
-type GhostApiRoutes =
+type ApiRoutes =
   | "/posts"
   | "/posts/slug"
   | "/tags"
   | "/tags/slug"
-  | "/events";
+  | "/events"
+  | "/pages";
 
 export const parseDynamic = (
   dynamic: string | number | (string | number)[]
@@ -19,7 +20,7 @@ export const parseDynamic = (
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 type GetEndpoint<QP = Record<string, unknown>> = <QueryParams = QP>(params: {
-  root: GhostApiRoutes;
+  root: ApiRoutes;
   dynamic?: string | number | (string | number)[];
   queryString?: string;
   queryParams?: QueryParams;
@@ -35,7 +36,7 @@ type GetEndpoint<QP = Record<string, unknown>> = <QueryParams = QP>(params: {
  * The root parameter is strongly typed to ensure that
  * no calls are made that aren't already documented using the types
  * This gives a more reliable base to start off of and to know
- * what needs to be or should be added to the GhostApiRoutes type
+ * what needs to be or should be added to the ApiRoutes type
  *
  * Examples:
  *

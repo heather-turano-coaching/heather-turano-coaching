@@ -1,11 +1,7 @@
-import {
-  BlogPage,
-  BlogPageProps,
-  getBlogPageData
-} from "@htc/components/feature/blog";
-import { ContentfulSeo } from "@htc/components/feature/seo";
 import { GetPageProps, PageComponent } from "@htc/lib/page";
 import React from "react";
+import { BlogPage, BlogPageProps, getBlogPageData } from "src/features/blog";
+import { ContentfulSeo } from "src/features/seo";
 
 export const getStaticProps: GetPageProps<BlogPageProps> = async () => {
   const props = await getBlogPageData();

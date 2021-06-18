@@ -27,7 +27,7 @@ export const getContentfulEntryById = async <T>(id: string) => {
     });
     // Needed because some types are cast to specific strings
     // rather than a generic string
-    return (data as unknown) as T;
+    return data as unknown as T;
   } catch (error) {
     throw new Error(
       formatError(

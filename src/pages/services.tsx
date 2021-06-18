@@ -1,11 +1,11 @@
-import { ContentfulSeo } from "@htc/components/feature/seo";
+import { GetPageProps, PageComponent } from "@htc/lib/page";
+import React from "react";
+import { ContentfulSeo } from "src/features/seo";
 import {
   ServicesPage,
   ServicesPageProps,
   getServicesPageData
-} from "@htc/components/feature/services";
-import { GetPageProps, PageComponent } from "@htc/lib/page";
-import React from "react";
+} from "src/features/services";
 
 export const getStaticProps: GetPageProps<ServicesPageProps> = async () => {
   try {
