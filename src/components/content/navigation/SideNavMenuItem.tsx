@@ -1,6 +1,7 @@
 import { makeRem } from "@htc/theme";
 import { Typography } from "@material-ui/core";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
@@ -21,7 +22,10 @@ const variants = {
   }
 };
 
-export const SideNavMenuItem: FC<{ label?: string }> = ({ label }) => {
+export const SideNavMenuItem: FC<{ label: string; href: string }> = ({
+  label,
+  href
+}) => {
   return (
     <motion.li
       variants={variants}
@@ -35,16 +39,18 @@ export const SideNavMenuItem: FC<{ label?: string }> = ({ label }) => {
         cursor: pointer;
       `}
     >
-      <Typography
-        variant="body2"
-        component="div"
-        css={css`
-          font-weight: inherit;
-          text-transform: uppercase;
-        `}
-      >
-        {label || "-- --"}
-      </Typography>
+      <Link href={href} passHref>
+        <Typography
+          variant="body2"
+          component="a"
+          css={css`
+            font-weight: inherit;
+            text-transform: uppercase;
+          `}
+        >
+          {label}
+        </Typography>
+      </Link>
     </motion.li>
   );
 };

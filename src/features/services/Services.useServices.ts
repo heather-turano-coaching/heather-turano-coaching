@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { IServiceFields } from "@htc/lib/contentful";
+import { IService, IServiceFields } from "@htc/lib/contentful";
 import { getAllServices } from "@htc/lib/contentful";
-import { Entry, EntryCollection } from "contentful";
+import { ContentfulPagination } from "@htc/lib/contentful/contentful.types.custom";
+import { Entry } from "contentful";
 import useSWR from "swr";
 
 type GroupedServicesType = {
@@ -13,9 +14,9 @@ type UseServicesReturn = {
 };
 
 export const useServices = (
-  services: EntryCollection<IServiceFields>
+  services: ContentfulPagination<IService>
 ): UseServicesReturn => {
-  const { data } = useSWR<EntryCollection<IServiceFields>>(
+  const { data } = useSWR<ContentfulPagination<IService>>(
     "services",
     getAllServices,
     {

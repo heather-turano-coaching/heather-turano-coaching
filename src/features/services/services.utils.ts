@@ -1,5 +1,5 @@
 import {
-  IServiceFields,
+  IService,
   getContentfulEntriesById,
   getContentfulPageById
 } from "@htc/lib/contentful";
@@ -12,7 +12,7 @@ export const servicesPageId = "5oPRhGTzOaiUeiF8tTIHS5";
 export const getServicesPageData: GetPageData<ServicesPageProps> = async () => {
   const [contentfulPageData, services] = await Promise.all([
     getContentfulPageById(servicesPageId),
-    getContentfulEntriesById<IServiceFields>("service")
+    getContentfulEntriesById<IService>("service")
   ]);
 
   return {

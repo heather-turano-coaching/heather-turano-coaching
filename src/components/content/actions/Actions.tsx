@@ -13,11 +13,14 @@ export const Actions: FC<{ actions: IAction[] | undefined }> = memo(
     return (
       <ButtonGroup layout="inline" align="center">
         {actions.map(({ fields: action }) => {
+          if (!action) {
+            return null;
+          }
           const Btn = (
             <Button
               size="large"
               key={action.label}
-              variant={action.type === "primary" ? "contained" : "outlined"}
+              variant={action?.type === "primary" ? "contained" : "outlined"}
               color={action.type}
             >
               {action.label}

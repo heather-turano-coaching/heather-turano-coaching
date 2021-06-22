@@ -1,8 +1,12 @@
 import { IWebPage, getContentfulEntriesById } from "@htc/lib/contentful";
+import { ContentfulPagination } from "@htc/lib/contentful/contentful.types.custom";
 import { throwApiError, validateMethod } from "@htc/lib/server";
 import { NextApiHandler } from "next";
 
-const getAllPages: NextApiHandler = async (req, res) => {
+const getAllPages: NextApiHandler<ContentfulPagination<IWebPage>> = async (
+  req,
+  res
+) => {
   if (req.method !== "GET") {
     res.status(500).json;
   }

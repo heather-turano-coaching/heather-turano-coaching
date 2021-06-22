@@ -1,14 +1,14 @@
 import { Title } from "@htc/components/atomic";
 import { Hero } from "@htc/components/content";
 import {
+  IService,
   IServiceBasic,
   IServiceContact,
-  IServiceFields,
   IServiceTeachable
 } from "@htc/lib/contentful";
+import { ContentfulPagination } from "@htc/lib/contentful/contentful.types.custom";
 import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
-import { EntryCollection } from "contentful";
 import { css } from "styled-components";
 
 import { LayoutRoot } from "../layout";
@@ -19,7 +19,7 @@ import { ServiceCardTeachable } from "./ServiceCardTeachable";
 import { useServices } from "./Services.useServices";
 
 export type ServicesPageProps = {
-  services: EntryCollection<IServiceFields>;
+  services: ContentfulPagination<IService>;
 };
 
 export const ServicesPage: PageComponent<ServicesPageProps> = ({

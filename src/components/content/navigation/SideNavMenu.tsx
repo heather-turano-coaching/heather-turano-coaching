@@ -1,7 +1,10 @@
+import { IWebPage } from "@htc/lib/contentful";
+import { ContentfulPagination } from "@htc/lib/contentful/contentful.types.custom";
 import { getEndpoint } from "@htc/lib/endpoint";
 import { makeRem } from "@htc/theme";
 import { motion } from "framer-motion";
 import React, { FC } from "react";
+import { useMemo } from "react";
 import styled, { css } from "styled-components";
 import useSWR from "swr";
 
@@ -26,11 +29,29 @@ const StyledMenuSection = styled.div`
 `;
 
 export const SideNavMenu: FC = () => {
-  const { data } = useSWR(
+  const { data } = useSWR<ContentfulPagination<IWebPage>>(
     getEndpoint({
       root: "/pages"
     })
   );
+
+  const DynamicSection = useMemo(() => {
+    if (!data) {
+      return null;
+    }
+    return data.items.map(
+      (webPageItem) =>
+        webPageItem.fields.displayInNavbar && (
+          <SideNavMenuItem
+            key={webPageItem.sys.id}
+            label={webPageItem.fields.navbarLabel}
+            href={
+              webPageItem.fields.url === "index" ? "/" : webPageItem.fields.url
+            }
+          />
+        )
+    );
+  }, [data]);
 
   return (
     <div
@@ -46,12 +67,7 @@ export const SideNavMenu: FC = () => {
             width: ${makeRem(300)};
           `}
         >
-          <SideNavMenuItem />
-          <SideNavMenuItem />
-          <SideNavMenuItem />
-          <SideNavMenuItem />
-          <SideNavMenuItem />
-          <SideNavMenuItem />
+          {DynamicSection}
         </motion.ul>
       </StyledMenuSection>
       <StyledMenuSection>
@@ -61,7 +77,7 @@ export const SideNavMenu: FC = () => {
             width: ${makeRem(300)};
           `}
         >
-          <SideNavMenuItem />
+          <SideNavMenuItem label="free consultation" href="/free-consult" />
         </motion.ul>
       </StyledMenuSection>
       <StyledMenuSection>
@@ -71,7 +87,7 @@ export const SideNavMenu: FC = () => {
             width: ${makeRem(300)};
           `}
         >
-          <SideNavMenuItem label="contact me" />
+          <SideNavMenuItem label="contact me" href="/contact-me" />
         </motion.ul>
       </StyledMenuSection>
     </div>

@@ -2,7 +2,8 @@ import { formatError } from "@htc/utils";
 import { createClient } from "contentful";
 import safeJsonStringify from "safe-json-stringify";
 
-import { IServiceFields, IWebPage, IWebPageFields } from "./contentful.types";
+import { IService, IWebPage, IWebPageFields } from "./contentful.types";
+import { ContentfulPagination } from "./contentful.types.custom";
 
 export const contentfulClient = createClient({
   space: process.env.NEXT_PUBLIC_HTC_CONTENTFUL_SPACE_ID,
@@ -45,11 +46,10 @@ export const getContentfulEntryById = async <T>(id: string) => {
 export const getContentfulEntriesById = async <T>(
   id: string,
   query?: Record<string, string>
-) => {
+): Promise<ContentfulPagination<T>> => {
   try {
     const rawData = await contentfulClient.getEntries<T>({
       content_type: id,
-      include: 10,
       ...query
     });
     const stringifiedData = safeJsonStringify(rawData);
@@ -95,4 +95,4 @@ export const getContentfulPageById = async (pageId: string) =>
   await getContentfulEntryById<IWebPage>(pageId);
 
 export const getAllServices = async () =>
-  await getContentfulEntriesById<IServiceFields>("service");
+  await getContentfulEntriesById<IService>("service");
