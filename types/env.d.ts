@@ -1,9 +1,21 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
+    // ghost
+    NEXT_PUBLIC_HTC_GHOST_API_CONTENT_VERSION: string;
+    NEXT_PUBLIC_HTC_GHOST_API_CONTENT_KEY: string;
+    NEXT_PUBLIC_HTC_GHOST_API_ADMIN_VERSION: string;
+    NEXT_PUBLIC_HTC_GHOST_API_ADMIN_KEY: string;
+    NEXT_PUBLIC_HTC_GHOST_API_URL: string;
+    // contentful
+    HTC_CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN: string;
+    HTC_CONTENTFUL_ENVIRONMENT: string;
     NEXT_PUBLIC_HTC_CONTENTFUL_SPACE_ID: string;
     NEXT_PUBLIC_HTC_CONTENTFUL_ACCESS_TOKEN: string;
+    // eventbrite
+    HTC_EVENTBRITE_API_KEY: string;
+    HTC_EVENTBRITE_CLIENT_SECRET: string;
     HTC_EVENTBRITE_PRIVATE_TOKEN: string;
+    HTC_EVENTBRITE_PUBLIC_TOKEN: string;
     HTC_EVENTBRITE_ORG_ID: string;
-    HTC_API_HOSTNAME: string;
   }
 }

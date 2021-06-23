@@ -36,16 +36,6 @@ envVarGroups:
     envVars:
       - key: NEXT_PUBLIC_HTC_GHOST_API_URL
         sync: false
-      - key: NEXT_PUBLIC_HTC_GHOST_CONTENT_API_KEY
+      - key: NEXT_PUBLIC_HTC_GHOST_API_CONTENT_KEY
         sync: false
-  - name: htc-contentful
-    envVars:
-      # new
-      - key: HTC_CONTENTFUL_SPACE_ID
-        sync: false
-      - key: HTC_CONTENTFUL_ACCESS_TOKEN
-        sync: false
-      - key: HTC_CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN
-        sync: false
-      - key: HTC_CONTENTFUL_ENVIRONMENT
-        sync: false
+
