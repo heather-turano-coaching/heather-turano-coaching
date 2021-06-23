@@ -1,4 +1,5 @@
 import { Hero } from "@htc/components/content";
+import { EBEventsResponse } from "@htc/lib/eventbrite";
 import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
@@ -6,10 +7,14 @@ import React from "react";
 import { css } from "styled-components";
 
 import { LayoutRoot } from "../layout";
-import { EventsPageProps } from "./events.utils";
 import { EventsFuture } from "./EventsFuture";
 import { EventsPast } from "./EventsPast";
 import { EventsSection } from "./EventsSection";
+
+export type EventsPageProps = {
+  futureEvents: EBEventsResponse;
+  pastEvents: EBEventsResponse;
+};
 
 export const EventsPage: PageComponent<EventsPageProps> = ({
   contentfulPageData: {

@@ -1,3 +1,2 @@
-export * from "./eventbrite.client";
+export * from "./eventbrite.api-server";
 export * from "./eventbrite.types";
-export * from "./eventbrite.api";
