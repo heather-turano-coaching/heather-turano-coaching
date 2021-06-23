@@ -11,7 +11,9 @@ const getAllPages: NextApiHandler<ContentfulPagination<IWebPage>> = async (
     res.status(500).json;
   }
   try {
-    const entires = await getContentfulEntriesById<IWebPage>("webPage");
+    const entires = await getContentfulEntriesById<IWebPage>("webPage", {
+      preview: req.preview || false
+    });
     res.status(200).json(entires);
   } catch (error) {
     throwApiError({

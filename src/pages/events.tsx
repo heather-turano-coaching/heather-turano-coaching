@@ -10,10 +10,12 @@ import { ContentfulSeo } from "src/features/seo";
 
 const eventsContentfulPageId = "3yKGN5KGBDnt5fJDoJ43a7";
 
-export const getStaticProps: GetPageProps<EventsPageProps> = async () => {
+export const getStaticProps: GetPageProps<EventsPageProps> = async ({
+  preview = false
+}) => {
   try {
     const [contentfulPageData, futureEvents, pastEvents] = await Promise.all([
-      getContentfulPageById(eventsContentfulPageId),
+      getContentfulPageById(eventsContentfulPageId, { preview }),
       getFutureEventbriteEvents(),
       getPastEventbriteEvents()
     ]);

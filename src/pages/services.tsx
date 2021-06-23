@@ -10,11 +10,13 @@ import { ServicesPage, ServicesPageProps } from "src/features/services";
 
 export const servicesPageId = "5oPRhGTzOaiUeiF8tTIHS5";
 
-export const getStaticProps: GetPageProps<ServicesPageProps> = async () => {
+export const getStaticProps: GetPageProps<ServicesPageProps> = async ({
+  preview = false
+}) => {
   try {
     const [contentfulPageData, services] = await Promise.all([
-      getContentfulPageById(servicesPageId),
-      getContentfulEntriesById<IService>("service")
+      getContentfulPageById(servicesPageId, { preview }),
+      getContentfulEntriesById<IService>("service", { preview })
     ]);
 
     return {

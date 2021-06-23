@@ -7,7 +7,7 @@ export const preview: NextApiHandler = async (req, res) => {
   const { secret, slug } = req.query;
   let url: string | undefined = undefined;
 
-  const dynamicContentfulPages = await getAllContentfulPages();
+  const dynamicContentfulPages = await getAllContentfulPages({ preview: true });
 
   // check the secret token
   if (secret !== process.env.HTC_CONTENTFUL_PREVIEW_SECRET || !slug) {
@@ -36,15 +36,7 @@ export const preview: NextApiHandler = async (req, res) => {
 
   res.setPreviewData({});
 
-  // Redirect to the path from the fetched post
-  // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-  // res.writeHead(307, { Location: `/posts/${post.slug}` })
-  res.write(
-    `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0; url=/${url}" />
-    <script>window.location.href = '/${url}'</script>
-    </head>`
-  );
-  res.end();
+  res.redirect(`/${url}`);
 };
 
 export default preview;

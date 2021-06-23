@@ -14,11 +14,12 @@ import { ContentfulSeo } from "src/features/seo";
 export const blogPageId = "7inppspqzOyqyHJ9r8viIj";
 
 export const getStaticProps: GetPageProps<BlogPageProps> = async ({
-  params
+  params,
+  preview = false
 }) => {
   try {
     const [contentfulPageData, featuredPosts, allPosts] = await Promise.all([
-      getContentfulPageById(blogPageId),
+      getContentfulPageById(blogPageId, { preview }),
       ghostClient<GetFeaturedGhostPost>(getGhostFeaturedPostEndpoint),
       ghostClient<GetAllGhostPosts>(
         getAllGhostPostsEndpoint({
