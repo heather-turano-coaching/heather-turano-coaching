@@ -1,73 +1,5 @@
 services:
-  # Websites
-  - type: web
-    name: Website (DEV)
-    env: node
-    branch: master
-    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: yarn && yarn build:website:dev
-    startCommand: yarn start:website:dev
-    domains:
-      - dev.heatherturanocoaching.com
-    envVars:
-      - fromGroup: htc-npm
-      - fromGroup: htc-ghost
-      - fromGroup: htc-api
-      - fromGroup: htc-contentful
-      - fromGroup: htc-stripe
-
-  - type: web
-    name: 100 Days of Mindful Movement
-    env: static
-    branch: master
-    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: yarn build:mindful-movement
-    staticPublishPath: ./packages/websites/mindful-movement/public
-    domains:
-      - mindfulmovement100.com
-    envVars:
-      - fromGroup: htc-npm
-      - fromGroup: htc-stripe
-      - key: GATSBY_HTC_API
-        value: https://api.heatherturanocoaching.com/graphql
-
-  # - type: web
-  #   name: Packages
-  #   env: static
-  #   branch: master
-  #   repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-  #   buildCommand: yarn build:packages
-  #   staticPublishPath: ./packages/websites/packages/public
-  #   domains:
-  #     - packages.heatherturanocoaching.com
-  #   envVars:
-  #     - fromGroup: htc-npm
-  #     - fromGroup: htc-stripe
-  #     - key: GATSBY_HTC_API
-  #       value: https://api.heatherturanocoaching.com/graphql
-
-  # API
-  - type: web
-    name: Api
-    env: node
-    branch: master
-    repo: https://github.com/heather-turano-coaching/heather-turano-coaching
-    buildCommand: yarn && yarn build:api
-    startCommand: yarn start:api
-    domains:
-      - api.heatherturanocoaching.com
-    envVars:
-      - fromGroup: htc-npm
-      - fromGroup: htc-api
-      - fromGroup: htc-eventbrite
-      - fromGroup: htc-stripe
-      - key: HTC_DB_CONNECTION_STRING
-        fromDatabase:
-          name: htc-db
-          property: connectionString
-      - key: HTC_MINDFUL_MOVEMENT_REDIRECT_ROOT_URL
-        value: https://mindfulmovement100.com
-
+  # Blog
   - type: web
     name: Ghost
     env: docker
@@ -99,52 +31,15 @@ services:
       - key: mail__options__auth__pass
         sync: false
 
-databases:
-  - name: htc-db
-    databaseName: htc_db
-    user: admin
-
 envVarGroups:
-  - name: htc-api
-    envVars:
-      - key: HTC_MINDFUL_MOVEMENT_REDIRECT_ROOT_URL
-        sync: false
-      - key: HTC_API_HOSTNAME
-        sync: false
-  - name: htc-eventbrite
-    envVars:
-      - key: HTC_EVENTBRITE_API_KEY
-        sync: false
-      - key: HTC_EVENTBRITE_CLIENT_SECRET
-        sync: false
-      - key: HTC_EVENTBRITE_PRIVATE_TOKEN
-        sync: false
-      - key: HTC_EVENTBRITE_PUBLIC_TOKEN
-        sync: false
-      - key: HTC_EVENTBRITE_ORG_ID
-        sync: false
   - name: htc-ghost
     envVars:
-      - key: GHOST_API_URL
-        value: https://blog.heatherturanocoaching.com
-      - key: GHOST_CONTENT_API_KEY
+      - key: NEXT_PUBLIC_HTC_GHOST_API_URL
         sync: false
-      - key: NEXT_PUBLIC_GHOST_API_URL
-        sync: false
-      - key: NEXT_PUBLIC_GHOST_CONTENT_API_KEY
+      - key: NEXT_PUBLIC_HTC_GHOST_CONTENT_API_KEY
         sync: false
   - name: htc-contentful
     envVars:
-      - key: CONTENTFUL_HTC_SPACE_ID
-        sync: false
-      - key: CONTENTFUL_HTC_ACCESS_TOKEN
-        sync: false
-      - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_SPACE_ID
-        sync: false
-      - key: HTC_MINDFUL_MOVEMENT_CONTENTFUL_ACCESS_TOKEN
-        sync: false
-      - key: CONTENTFUL_HTC_MANAGEMENT_API_ACCESS_TOKEN
-        sync: false
       # new
       - key: HTC_CONTENTFUL_SPACE_ID
         sync: false
@@ -153,14 +48,4 @@ envVarGroups:
       - key: HTC_CONTENTFUL_MANAGEMENT_API_ACCESS_TOKEN
         sync: false
       - key: HTC_CONTENTFUL_ENVIRONMENT
-        sync: false
-  - name: htc-npm
-    envVars:
-      - key: FONTAWESOME_NPM_AUTH_TOKEN
-        sync: false
-  - name: htc-stripe
-    envVars:
-      - key: GATSBY_HTC_STRIPE_PUBLISHABLE_KEY
-        sync: false
-      - key: HTC_STRIPE_SECRET_KEY
         sync: false

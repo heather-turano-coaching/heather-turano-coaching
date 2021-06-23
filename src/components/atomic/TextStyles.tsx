@@ -23,7 +23,11 @@ export const TextStyles = styled.div`
 
   h1 {
     ${({ theme }) => css`
-      font-size: ${theme.typography.h3.fontSize};
+      font-size: ${
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        theme.typography.h3.fontSize
+      };
       font-family: ${theme.typography.h3.fontFamily};
       font-weight: ${theme.typography.h3.fontWeight};
     `};
@@ -33,7 +37,11 @@ export const TextStyles = styled.div`
 
   h2 {
     ${({ theme }) => css`
-      font-size: ${theme.typography.h4.fontSize};
+      font-size: ${
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        theme.typography.h4.fontSize
+      };
       font-family: ${theme.typography.h4.fontFamily};
       font-weight: ${theme.typography.h4.fontWeight};
     `};
@@ -86,7 +94,11 @@ export const TextStyles = styled.div`
       text-align: center;
       padding: ${makeRem(4)};
       ${({ theme }) => css`
-        font-size: ${theme.typography.caption.fontSize};
+        font-size: ${
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          theme.typography.caption.fontSize
+        };
         font-family: ${theme.typography.caption.fontFamily};
         background: ${theme.palette.light.light};
       `};

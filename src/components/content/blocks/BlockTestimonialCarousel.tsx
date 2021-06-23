@@ -104,7 +104,7 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
                   opacity: 1
                 }}
                 exit={{
-                  top: 1.2,
+                  y: 1.2,
                   opacity: 0
                 }}
                 transition={{
@@ -139,15 +139,15 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
               <motion.div
                 key={page}
                 initial={{
-                  top: 40,
+                  y: 40,
                   opacity: 0
                 }}
                 animate={{
-                  top: 0,
+                  y: 0,
                   opacity: 1
                 }}
                 exit={{
-                  top: 40,
+                  y: 40,
                   opacity: 0
                 }}
                 transition={{

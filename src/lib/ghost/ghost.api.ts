@@ -6,16 +6,16 @@ import { getEndpoint } from "../endpoint";
 const ghostApiVersion = "v3";
 
 export const ghostApi = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_GHOST_API_URL}/ghost/api/${ghostApiVersion}/content`,
+  baseURL: `${process.env.NEXT_PUBLIC_HTC_GHOST_API_URL}/ghost/api/${ghostApiVersion}/content`,
   responseType: "json"
 });
 
 ghostApi.interceptors.request.use(
   async (config): Promise<AxiosRequestConfig> => {
     if (config.url?.includes("?")) {
-      config.url = `${config.url}&key=${process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY}`;
+      config.url = `${config.url}&key=${process.env.NEXT_PUBLIC_HTC_GHOST_CONTENT_API_KEY}`;
     } else {
-      config.url = `${config.url}?key=${process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY}`;
+      config.url = `${config.url}?key=${process.env.NEXT_PUBLIC_HTC_GHOST_CONTENT_API_KEY}`;
     }
     return config;
   }
