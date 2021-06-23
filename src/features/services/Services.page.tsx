@@ -1,13 +1,13 @@
 import { Title } from "@htc/components/atomic";
 import { Hero } from "@htc/components/content";
+import { PageComponent } from "@htc/lib/page";
 import {
   IService,
   IServiceBasic,
   IServiceContact,
   IServiceTeachable
-} from "@htc/lib/contentful";
-import { ContentfulPagination } from "@htc/lib/contentful/contentful.types.custom";
-import { PageComponent } from "@htc/lib/page";
+} from "@htc/lib/server/contentful";
+import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
 import { makeRem } from "@htc/theme";
 import { css } from "styled-components";
 
@@ -50,23 +50,26 @@ export const ServicesPage: PageComponent<ServicesPageProps> = ({
           >
             <Title size="lg">{servicesTitle}</Title>
             {services.map(({ fields: { type, ...restfields } }, i) => {
-              const contentType = type.sys.contentType.sys.id;
-              return (
-                <ServiceCard
-                  {...restfields}
-                  key={`${type.fields.systemId}_${i}`}
-                >
-                  {contentType === "serviceBasic" && (
-                    <ServiceCardBasic {...(type as IServiceBasic)} />
-                  )}
-                  {contentType === "serviceContact" && (
-                    <ServiceCardContact {...(type as IServiceContact)} />
-                  )}
-                  {contentType === "serviceTeachable" && (
-                    <ServiceCardTeachable {...(type as IServiceTeachable)} />
-                  )}
-                </ServiceCard>
-              );
+              if (type) {
+                const contentType = type.sys.contentType.sys.id;
+                return (
+                  <ServiceCard
+                    {...restfields}
+                    key={`${type.fields.systemId}_${i}`}
+                  >
+                    {contentType === "serviceBasic" && (
+                      <ServiceCardBasic {...(type as IServiceBasic)} />
+                    )}
+                    {contentType === "serviceContact" && (
+                      <ServiceCardContact {...(type as IServiceContact)} />
+                    )}
+                    {contentType === "serviceTeachable" && (
+                      <ServiceCardTeachable {...(type as IServiceTeachable)} />
+                    )}
+                  </ServiceCard>
+                );
+              }
+              return null;
             })}
           </div>
         ))}

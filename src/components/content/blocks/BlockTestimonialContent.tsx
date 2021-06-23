@@ -1,6 +1,6 @@
 import { Image, RichText, SectionCopy } from "@htc/components/atomic";
 import { makeInset, makeResponsive } from "@htc/design-system";
-import { ITestimonials } from "@htc/lib/contentful";
+import { ITestimonials } from "@htc/lib/server/contentful";
 import { flexRow, makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
 import React, { FC } from "react";

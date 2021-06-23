@@ -1,6 +1,6 @@
 import { RichText } from "@htc/components/atomic";
 import { ChevronLeft, ChevronRight } from "@htc/icons";
-import { ITestimonials } from "@htc/lib/contentful";
+import { ITestimonials } from "@htc/lib/server/contentful";
 import {
   makeDesktopStyles,
   makeMobileStyles,

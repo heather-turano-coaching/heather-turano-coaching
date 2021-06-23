@@ -18,7 +18,7 @@ export const HeroContainer = styled(Container)<{ $disableFull?: boolean }>`
   ${({ $disableFull }) =>
     !$disableFull &&
     css`
-      height: 100%;
+      align-self: stretch;
     `}
 `;
 

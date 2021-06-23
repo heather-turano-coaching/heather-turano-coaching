@@ -1,5 +1,6 @@
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
+import Head from "next/head";
 import React, { ReactElement, useEffect } from "react";
 import { defaultSeoConfig } from "src/features/seo";
 
@@ -19,6 +20,14 @@ export default function MyApp({
 
   return getLayout(
     <>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1"
+        />
+      </Head>
       <DefaultSeo {...defaultSeoConfig} />
       <Component {...pageProps} />
     </>

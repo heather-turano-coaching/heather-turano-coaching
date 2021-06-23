@@ -48,7 +48,9 @@ export default class MyDocument extends Document {
   render(): ReactElement {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link rel="stylesheet" href="/fonts/muli/muli.css" />
+        </Head>
         <body>
           <Main />
           <NextScript />

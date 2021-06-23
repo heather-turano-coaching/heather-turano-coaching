@@ -40,7 +40,7 @@ export const typVariantMap: {
   }
 };
 
-const StyledTypography = styled.p<
+const StyledTypography = styled.div<
   Omit<TypographyProps, "fontSize"> & { fontSize: FontProperties["fontSize"] }
 >`
   ${makeReset("paragraph")};

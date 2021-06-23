@@ -1,21 +1,35 @@
 import { GetPageProps, PageComponent } from "@htc/lib/page";
+import {
+  IService,
+  getContentfulEntriesById,
+  getContentfulPageById
+} from "@htc/lib/server/contentful";
 import React from "react";
 import { ContentfulSeo } from "src/features/seo";
-import {
-  ServicesPage,
-  ServicesPageProps,
-  getServicesPageData
-} from "src/features/services";
+import { ServicesPage, ServicesPageProps } from "src/features/services";
 
-export const getStaticProps: GetPageProps<ServicesPageProps> = async () => {
+export const servicesPageId = "5oPRhGTzOaiUeiF8tTIHS5";
+
+export const getStaticProps: GetPageProps<ServicesPageProps> = async ({
+  preview = false
+}) => {
   try {
-    const props = await getServicesPageData();
+    const [contentfulPageData, services] = await Promise.all([
+      getContentfulPageById(servicesPageId, { preview }),
+      getContentfulEntriesById<IService>("service", { preview })
+    ]);
 
     return {
-      props
+      props: {
+        contentfulPageEntryId: servicesPageId,
+        contentfulPageData: contentfulPageData,
+        services
+      }
     };
   } catch (error) {
-    throw error;
+    return {
+      notFound: true
+    };
   }
 };
 
