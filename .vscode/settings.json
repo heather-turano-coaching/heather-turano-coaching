@@ -1,18 +1,4 @@
 {
-  "eslint.workingDirectories": [
-    "packages/api",
-    "packages/components",
-    "packages/core",
-    "packages/design-system",
-    "packages/documents",
-    "packages/domain",
-    "packages/gatsby",
-    "packages/hooks",
-    "packages/websites/mindful-movement",
-    "packages/websites/packages",
-    "packages/websites/website",
-    "packages/websites/next"
-  ],
   "prettier.packageManager": "yarn",
   "prettier.trailingComma": "none",
   "files.watcherExclude": {
@@ -20,7 +6,5 @@
     "**/.git/subtree-cache/**": true,
     "**/.hg/store/**": true
   },
-  "cSpell.words": [
-    "eventbrite"
-  ]
+  "cSpell.words": ["Contentful", "eventbrite"]
 }
