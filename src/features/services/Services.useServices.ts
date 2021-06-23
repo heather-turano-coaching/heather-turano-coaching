@@ -1,9 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { IService, IServiceFields } from "@htc/lib/server/contentful";
-import { getAllServices } from "@htc/lib/server/contentful";
 import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
 import { Entry } from "contentful";
-import useSWR from "swr";
 
 type GroupedServicesType = {
   [key in IServiceFields["category"]]: Entry<IServiceFields>[];
