@@ -21,7 +21,6 @@ const sidebar = {
   }),
   closed: {
     width: 0,
-    boxShadow: "initial",
     transition: {
       delay: 0.5,
       type: "spring",

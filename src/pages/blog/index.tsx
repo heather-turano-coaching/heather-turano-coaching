@@ -1,16 +1,44 @@
+import {
+  GetAllGhostPosts,
+  GetFeaturedGhostPost,
+  getAllGhostPostsEndpoint,
+  getGhostFeaturedPostEndpoint,
+  ghostClient
+} from "@htc/lib/ghost";
 import { GetPageProps, PageComponent } from "@htc/lib/page";
+import { getContentfulPageById } from "@htc/lib/server/contentful";
 import React from "react";
-import { BlogPage, BlogPageProps, getBlogPageData } from "src/features/blog";
+import { BlogPage, BlogPageProps } from "src/features/blog";
 import { ContentfulSeo } from "src/features/seo";
 
-export const getStaticProps: GetPageProps<BlogPageProps> = async () => {
+export const blogPageId = "7inppspqzOyqyHJ9r8viIj";
+
+export const getStaticProps: GetPageProps<BlogPageProps> = async ({
+  params
+}) => {
   try {
-    const props = await getBlogPageData();
+    const [contentfulPageData, featuredPosts, allPosts] = await Promise.all([
+      getContentfulPageById(blogPageId),
+      ghostClient<GetFeaturedGhostPost>(getGhostFeaturedPostEndpoint),
+      ghostClient<GetAllGhostPosts>(
+        getAllGhostPostsEndpoint({
+          page: params?.pageNum ? Number(params.pageNum) : 1
+        })
+      )
+    ]);
+
     return {
-      props
+      props: {
+        contentfulPageEntryId: blogPageId,
+        contentfulPageData,
+        featuredPosts,
+        allPosts
+      }
     };
   } catch (error) {
-    throw new Error(error);
+    return {
+      notFound: true
+    };
   }
 };
 

@@ -1,10 +1,13 @@
 import path from "path";
 
-import { getAllContentfulPages } from "@htc/lib/contentful";
 import { GetPageProps, PageComponent } from "@htc/lib/page";
+import {
+  getAllContentfulPages,
+  getContentfulPageById
+} from "@htc/lib/server/contentful";
 import fs from "fs-extra";
 import { GetStaticPaths } from "next";
-import { DynamicPage, getDynamicPageProps } from "src/features/dynamic";
+import { DynamicPage } from "src/features/dynamic";
 import { ContentfulSeo } from "src/features/seo";
 
 const blacklistedPages = ["blog", "events", "services"];
@@ -84,8 +87,14 @@ export const getStaticProps: GetPageProps = async ({ params }) => {
     const page = params?.page as string;
     const pageId = cache[page];
 
-    const props = await getDynamicPageProps(pageId);
-    return { props };
+    const contentfulPageData = await getContentfulPageById(pageId);
+
+    return {
+      props: {
+        contentfulPageEntryId: pageId,
+        contentfulPageData
+      }
+    };
   } catch (error) {
     throw error;
   }

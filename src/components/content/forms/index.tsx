@@ -1,5 +1,5 @@
 import { AweberForm, AweberFormProps } from "@htc/components/atomic";
-import { IForm } from "@htc/lib/contentful";
+import { IForm } from "@htc/lib/server/contentful";
 import { FC } from "react";
 
 export const Forms: FC<{ form?: IForm } & AweberFormProps> = ({

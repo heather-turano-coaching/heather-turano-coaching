@@ -1,5 +1,5 @@
 import { ButtonGroup } from "@htc/components/atomic";
-import { IAction } from "@htc/lib/contentful/contentful";
+import { IAction } from "@htc/lib/server/contentful/contentful";
 import { Button } from "@material-ui/core";
 import Link from "next/link";
 import React, { FC, memo } from "react";

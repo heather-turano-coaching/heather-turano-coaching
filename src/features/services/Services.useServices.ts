@@ -1,9 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { IService, IServiceFields } from "@htc/lib/contentful";
-import { getAllServices } from "@htc/lib/contentful";
-import { ContentfulPagination } from "@htc/lib/contentful/contentful.types.custom";
+import { IService, IServiceFields } from "@htc/lib/server/contentful";
+import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
 import { Entry } from "contentful";
-import useSWR from "swr";
 
 type GroupedServicesType = {
   [key in IServiceFields["category"]]: Entry<IServiceFields>[];
@@ -16,15 +13,7 @@ type UseServicesReturn = {
 export const useServices = (
   services: ContentfulPagination<IService>
 ): UseServicesReturn => {
-  const { data } = useSWR<ContentfulPagination<IService>>(
-    "services",
-    getAllServices,
-    {
-      initialData: services
-    }
-  );
-
-  const groupedServices = data?.items.reduce<GroupedServicesType>(
+  const groupedServices = services.items.reduce<GroupedServicesType>(
     (accum, d) => {
       const key = d.fields.category;
 
