@@ -15,7 +15,6 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
     getEndpoint({
       root: "/tags",
       queryParams: {
-        fields: "slug",
         limit: "all"
       }
     })

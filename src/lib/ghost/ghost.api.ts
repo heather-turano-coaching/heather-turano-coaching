@@ -3,19 +3,23 @@ import axios, { AxiosRequestConfig } from "axios";
 
 import { getEndpoint } from "../endpoint";
 
-const ghostApiVersion = "v3";
+// const ghostApi = new GhostContentAPI({
+//   url: process.env.NEXT_PUBLIC_HTC_GHOST_API_URL as string,
+//   key: process.env.NEXT_PUBLIC_HTC_GHOST_API_CONTENT_KEY,
+//   version: process.env.NEXT_PUBLIC_HTC_GHOST_API_CONTENT_VERSION as GhostContentAPIOptions["version"]
+// });
 
 export const ghostApi = axios.create({
-  baseURL: `${process.env.NEXT_PUBLIC_HTC_GHOST_API_URL}/ghost/api/${ghostApiVersion}/content`,
+  baseURL: `${process.env.NEXT_PUBLIC_HTC_GHOST_API_URL}/ghost/api/${process.env.NEXT_PUBLIC_HTC_GHOST_API_CONTENT_VERSION}/content`,
   responseType: "json"
 });
 
 ghostApi.interceptors.request.use(
   async (config): Promise<AxiosRequestConfig> => {
     if (config.url?.includes("?")) {
-      config.url = `${config.url}&key=${process.env.NEXT_PUBLIC_HTC_GHOST_CONTENT_API_KEY}`;
+      config.url = `${config.url}&key=${process.env.NEXT_PUBLIC_HTC_GHOST_API_CONTENT_KEY}`;
     } else {
-      config.url = `${config.url}?key=${process.env.NEXT_PUBLIC_HTC_GHOST_CONTENT_API_KEY}`;
+      config.url = `${config.url}?key=${process.env.NEXT_PUBLIC_HTC_GHOST_API_CONTENT_KEY}`;
     }
     return config;
   }

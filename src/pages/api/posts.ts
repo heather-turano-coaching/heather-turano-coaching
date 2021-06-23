@@ -13,9 +13,9 @@ export const ghostApi = axios.create({
 ghostApi.interceptors.request.use(
   async (config): Promise<AxiosRequestConfig> => {
     if (config.url?.includes("?")) {
-      config.url = `${config.url}&key=${process.env.NEXT_PUBLIC_HTC_GHOST_CONTENT_API_KEY}`;
+      config.url = `${config.url}&key=${process.env.NEXT_PUBLIC_HTC_GHOST_API_URL}`;
     } else {
-      config.url = `${config.url}?key=${process.env.NEXT_PUBLIC_HTC_GHOST_CONTENT_API_KEY}`;
+      config.url = `${config.url}?key=${process.env.NEXT_PUBLIC_HTC_GHOST_API_URL}`;
     }
     return config;
   }

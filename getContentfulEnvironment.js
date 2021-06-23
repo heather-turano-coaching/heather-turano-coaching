@@ -9,7 +9,7 @@ module.exports = async function () {
   });
 
   const space = await contentfulClient.getSpace(
-    process.env.HTC_CONTENTFUL_SPACE_ID
+    process.env.NEXT_PUBLIC_HTC_CONTENTFUL_SPACE_ID
   );
   return await space.getEnvironment(process.env.HTC_CONTENTFUL_ENVIRONMENT);
 };
