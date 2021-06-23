@@ -27,7 +27,7 @@ export const preview: NextApiHandler = async (req, res) => {
       contentfulPage.sys.id === slug &&
       contentfulPage.fields.url === "index"
     ) {
-      url = "/";
+      url = "";
     }
     if (
       contentfulPage.sys.id === slug &&
