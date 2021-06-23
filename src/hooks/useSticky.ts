@@ -1,4 +1,4 @@
-import { useState, RefObject, useEffect } from "react";
+import { RefObject, useEffect, useState } from "react";
 
 export function useSticky<RefType extends HTMLElement>({
   offset = 0,
@@ -18,11 +18,11 @@ export function useSticky<RefType extends HTMLElement>({
         const position = ref.current.getBoundingClientRect().top;
         const stick = position < top;
         if (testId && testId === ref.current.id) {
-          console.log("top", top);
-          console.log("position", position);
-          console.log("stick", stick);
-          console.group("Sticky Values");
-          console.groupEnd();
+          // console.log("top", top);
+          // console.log("position", position);
+          // console.log("stick", stick);
+          // console.group("Sticky Values");
+          // console.groupEnd();
         }
         setSticky(stick);
       }
