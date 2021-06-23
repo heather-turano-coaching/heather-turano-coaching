@@ -80,7 +80,7 @@ export const SideNavMenu: FC = () => {
           <SideNavMenuItem label="free consultation" href="/free-consult" />
         </motion.ul>
       </StyledMenuSection>
-      <StyledMenuSection>
+      {/* <StyledMenuSection>
         <motion.ul
           variants={variants}
           css={css`
@@ -89,7 +89,7 @@ export const SideNavMenu: FC = () => {
         >
           <SideNavMenuItem label="contact me" href="/contact-me" />
         </motion.ul>
-      </StyledMenuSection>
+      </StyledMenuSection> */}
     </div>
   );
 };

@@ -5,12 +5,6 @@ import safeJsonStringify from "safe-json-stringify";
 import { IService, IWebPage, IWebPageFields } from "./contentful.types";
 import { ContentfulPagination } from "./contentful.types.custom";
 
-console.log(
-  process.env.HTC_CONTENTFUL_HOST,
-  process.env.HTC_CONTENTFUL_SPACE_ID,
-  process.env.HTC_CONTENTFUL_API_CONTENT_ACCESS_TOKEN
-);
-
 export const contentfulClient = createClient({
   host: process.env.HTC_CONTENTFUL_HOST,
   space: process.env.HTC_CONTENTFUL_SPACE_ID,

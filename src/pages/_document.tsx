@@ -48,7 +48,15 @@ export default class MyDocument extends Document {
   render(): ReactElement {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <meta charSet="utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1"
+          />
+          <link rel="stylesheet" href="/fonts/muli/muli.css" />
+        </Head>
         <body>
           <Main />
           <NextScript />

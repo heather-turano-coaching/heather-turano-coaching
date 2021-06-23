@@ -16,15 +16,7 @@ type UseServicesReturn = {
 export const useServices = (
   services: ContentfulPagination<IService>
 ): UseServicesReturn => {
-  const { data } = useSWR<ContentfulPagination<IService>>(
-    "services",
-    getAllServices,
-    {
-      initialData: services
-    }
-  );
-
-  const groupedServices = data?.items.reduce<GroupedServicesType>(
+  const groupedServices = services.items.reduce<GroupedServicesType>(
     (accum, d) => {
       const key = d.fields.category;
 

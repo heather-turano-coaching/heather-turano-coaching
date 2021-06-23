@@ -50,23 +50,26 @@ export const ServicesPage: PageComponent<ServicesPageProps> = ({
           >
             <Title size="lg">{servicesTitle}</Title>
             {services.map(({ fields: { type, ...restfields } }, i) => {
-              const contentType = type.sys.contentType.sys.id;
-              return (
-                <ServiceCard
-                  {...restfields}
-                  key={`${type.fields.systemId}_${i}`}
-                >
-                  {contentType === "serviceBasic" && (
-                    <ServiceCardBasic {...(type as IServiceBasic)} />
-                  )}
-                  {contentType === "serviceContact" && (
-                    <ServiceCardContact {...(type as IServiceContact)} />
-                  )}
-                  {contentType === "serviceTeachable" && (
-                    <ServiceCardTeachable {...(type as IServiceTeachable)} />
-                  )}
-                </ServiceCard>
-              );
+              if (type) {
+                const contentType = type.sys.contentType.sys.id;
+                return (
+                  <ServiceCard
+                    {...restfields}
+                    key={`${type.fields.systemId}_${i}`}
+                  >
+                    {contentType === "serviceBasic" && (
+                      <ServiceCardBasic {...(type as IServiceBasic)} />
+                    )}
+                    {contentType === "serviceContact" && (
+                      <ServiceCardContact {...(type as IServiceContact)} />
+                    )}
+                    {contentType === "serviceTeachable" && (
+                      <ServiceCardTeachable {...(type as IServiceTeachable)} />
+                    )}
+                  </ServiceCard>
+                );
+              }
+              return null;
             })}
           </div>
         ))}

@@ -28,8 +28,7 @@ const StyledFooterSection = styled.div<Pick<FooterSectionProps, "sectionSize">>`
     }
   `}
 
-  & > p {
-    ${makeOutset({ bottom: 24 })}
+  & .heading {
     font-weight: 700;
     text-transform: uppercase;
   }
@@ -80,7 +79,12 @@ export const FooterSection: FC<FooterSectionProps> = ({
     {useMemo(
       () => (
         <StyledFooterSectionTitle>
-          <Typography variant="label" fontSize="xs" fontColor={fontColor}>
+          <Typography
+            variant="label"
+            fontSize="xs"
+            fontColor={fontColor}
+            className="heading"
+          >
             {title}
           </Typography>
         </StyledFooterSectionTitle>
