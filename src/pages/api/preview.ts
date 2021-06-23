@@ -40,8 +40,8 @@ export const preview: NextApiHandler = async (req, res) => {
   // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
   // res.writeHead(307, { Location: `/posts/${post.slug}` })
   res.write(
-    `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0; url=${url}" />
-    <script>window.location.href = '${url}'</script>
+    `<!DOCTYPE html><html><head><meta http-equiv="Refresh" content="0; url=/${url}" />
+    <script>window.location.href = '/${url}'</script>
     </head>`
   );
   res.end();
