@@ -10,12 +10,11 @@ import { ContentfulSeo } from "src/features/seo";
 export const getStaticProps: GetPageProps<EventsPageProps> = async () => {
   try {
     const props = await getEventsPageData();
-
     return {
       props
     };
   } catch (error) {
-    throw error;
+    throw new Error(error);
   }
 };
 

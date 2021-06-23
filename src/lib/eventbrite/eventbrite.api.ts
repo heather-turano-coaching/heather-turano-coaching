@@ -1,16 +1,16 @@
-import { api } from "../api";
+import { apiClient } from "../api";
 import { getEndpoint } from "../endpoint";
 import { EBEventsResponse } from "./eventbrite.types";
 
 export const getAllEventbriteEvents = async () =>
-  api.get<EBEventsResponse>(
+  apiClient.get<EBEventsResponse>(
     getEndpoint({
       root: "/events"
     })
   );
 
 export const getFutureEventbriteEvents = async () =>
-  api.get<EBEventsResponse>(
+  apiClient.get<EBEventsResponse>(
     getEndpoint({
       root: "/events",
       queryParams: {
@@ -20,7 +20,7 @@ export const getFutureEventbriteEvents = async () =>
   );
 
 export const getPastEventbriteEvents = async () =>
-  api.get<EBEventsResponse>(
+  apiClient.get<EBEventsResponse>(
     getEndpoint({
       root: "/events",
       queryParams: {

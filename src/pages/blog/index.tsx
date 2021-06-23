@@ -4,11 +4,14 @@ import { BlogPage, BlogPageProps, getBlogPageData } from "src/features/blog";
 import { ContentfulSeo } from "src/features/seo";
 
 export const getStaticProps: GetPageProps<BlogPageProps> = async () => {
-  const props = await getBlogPageData();
-
-  return {
-    props
-  };
+  try {
+    const props = await getBlogPageData();
+    return {
+      props
+    };
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 const Page: PageComponent<BlogPageProps> = (props) => {

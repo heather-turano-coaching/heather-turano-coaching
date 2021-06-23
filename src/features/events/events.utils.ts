@@ -14,16 +14,20 @@ export type EventsPageProps = {
 };
 
 export const getEventsPageData: GetPageData<EventsPageProps> = async () => {
-  const [contentfulPageData, futureEvents, pastEvents] = await Promise.all([
-    getContentfulPageById(eventsPageId),
-    getFutureEventbriteEvents(),
-    getPastEventbriteEvents()
-  ]);
+  try {
+    const [contentfulPageData, futureEvents, pastEvents] = await Promise.all([
+      getContentfulPageById(eventsPageId),
+      getFutureEventbriteEvents(),
+      getPastEventbriteEvents()
+    ]);
 
-  return {
-    contentfulPageEntryId: eventsPageId,
-    contentfulPageData,
-    futureEvents: futureEvents.data,
-    pastEvents: pastEvents.data
-  };
+    return {
+      contentfulPageEntryId: eventsPageId,
+      contentfulPageData,
+      futureEvents: futureEvents.data,
+      pastEvents: pastEvents.data
+    };
+  } catch (error) {
+    throw new Error(error);
+  }
 };

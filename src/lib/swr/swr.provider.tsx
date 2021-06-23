@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { SWRConfig } from "swr";
 
-import { api } from "../api";
+import { apiClient } from "../api";
 
 /**
  * Global config for fetching all data
@@ -11,7 +11,7 @@ const swrConfig = {
   refreshInterval: 30000,
   revalidateOnMount: true,
   fetcher: async (url: string) => {
-    const data = await api.get(url);
+    const data = await apiClient.get(url);
     return data.data;
   }
 };
