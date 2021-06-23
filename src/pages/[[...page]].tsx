@@ -1,7 +1,7 @@
 import path from "path";
 
-import { getAllContentfulPages } from "@htc/lib/contentful";
 import { GetPageProps, PageComponent } from "@htc/lib/page";
+import { getAllContentfulPages } from "@htc/lib/server/contentful";
 import fs from "fs-extra";
 import { GetStaticPaths } from "next";
 import { DynamicPage, getDynamicPageProps } from "src/features/dynamic";

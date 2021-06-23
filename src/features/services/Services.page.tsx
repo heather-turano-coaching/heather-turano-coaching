@@ -1,13 +1,13 @@
 import { Title } from "@htc/components/atomic";
 import { Hero } from "@htc/components/content";
+import { PageComponent } from "@htc/lib/page";
 import {
   IService,
   IServiceBasic,
   IServiceContact,
   IServiceTeachable
-} from "@htc/lib/contentful";
-import { ContentfulPagination } from "@htc/lib/contentful/contentful.types.custom";
-import { PageComponent } from "@htc/lib/page";
+} from "@htc/lib/server/contentful";
+import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
 import { makeRem } from "@htc/theme";
 import { css } from "styled-components";
 

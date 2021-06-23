@@ -1,6 +1,6 @@
-import { IWebPage } from "@htc/lib/contentful";
-import { ContentfulPagination } from "@htc/lib/contentful/contentful.types.custom";
 import { getEndpoint } from "@htc/lib/endpoint";
+import { IWebPage } from "@htc/lib/server/contentful";
+import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
 import { makeRem } from "@htc/theme";
 import { motion } from "framer-motion";
 import React, { FC } from "react";

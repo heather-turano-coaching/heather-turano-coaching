@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { ReactNode } from "react";
 
-import { IWebPage } from "../contentful";
+import { IWebPage } from "../server/contentful";
 
 export type ContentfulPageAttributes = {
   contentfulPageEntryId: string;

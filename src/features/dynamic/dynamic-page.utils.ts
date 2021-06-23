@@ -1,5 +1,5 @@
-import { getContentfulPageById } from "@htc/lib/contentful";
 import { GetPageData } from "@htc/lib/page";
+import { getContentfulPageById } from "@htc/lib/server/contentful";
 
 export const getDynamicPageProps: GetPageData<
   Record<string, unknown>,

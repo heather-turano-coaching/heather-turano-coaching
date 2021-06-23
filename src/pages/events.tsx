@@ -1,9 +1,9 @@
-import { getContentfulPageById } from "@htc/lib/contentful";
 import {
   getFutureEventbriteEvents,
   getPastEventbriteEvents
 } from "@htc/lib/eventbrite";
 import { GetPageProps, PageComponent } from "@htc/lib/page";
+import { getContentfulPageById } from "@htc/lib/server/contentful";
 import React from "react";
 import { EventsPage, EventsPageProps } from "src/features/events";
 import { ContentfulSeo } from "src/features/seo";

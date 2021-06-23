@@ -1,6 +1,6 @@
 import { SectionCopy, SectionFooter, Title } from "@htc/components/atomic";
 import { RichText } from "@htc/components/atomic";
-import { IBlock, IBlockFields } from "@htc/lib/contentful";
+import { IBlock, IBlockFields } from "@htc/lib/server/contentful";
 import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
 import React, { FC } from "react";
