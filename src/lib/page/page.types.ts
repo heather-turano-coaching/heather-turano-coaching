@@ -4,7 +4,6 @@ import { ReactNode } from "react";
 import { IWebPage } from "../server/contentful";
 
 export type ContentfulPageAttributes = {
-  contentfulPageEntryId: string;
   contentfulPageData: IWebPage;
 };
 
@@ -13,8 +12,10 @@ export type ContentfulPageAttributes = {
  * This automatically requires that a contentfulEntryId and the
  * web page data from contentful is added to every page props
  */
-export type GetPageProps<T = Record<string, unknown>> = GetStaticProps<
-  ContentfulPageAttributes & T
+export type GetContentfulPageProps<T = Record<string, unknown>> =
+  GetStaticProps<ContentfulPageAttributes & { preview: boolean } & T>;
+export type GetGhostPageProps<T = Record<string, unknown>> = GetStaticProps<
+  { preview: boolean } & T
 >;
 
 /**
@@ -26,9 +27,8 @@ export type GetPageProps<T = Record<string, unknown>> = GetStaticProps<
  *
  * @example
  * ```ts
- * export const getBlogPageData: GetPageData<BlogPageProps> = () => {
+ * export const getServicesPageData: GetPageData<ServicesPageProps> = () => {
  *  return {
- *    contentfulPageEntryId,
  *    contentfulPageData,
  *    ...blogProps
  *  }
@@ -42,10 +42,14 @@ export type GetPageData<T = Record<string, unknown>, Params = undefined> = (
 /**
  * To be used for every static proxied page
  */
+export type GetPageLayout<P> = (
+  page: ReactNode | React.ElementType,
+  pageProps: P & { preview: boolean | undefined }
+) => ReactNode;
 export type PageComponent<P = Record<string, unknown>> = React.FC<
   P & ContentfulPageAttributes
 > & {
-  getPageLayout: (page: ReactNode) => ReactNode;
+  getPageLayout: GetPageLayout<P>;
 };
 
 /**

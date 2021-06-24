@@ -1,4 +1,4 @@
-import { GetPageProps, PageComponent } from "@htc/lib/page";
+import { GetContentfulPageProps, PageComponent } from "@htc/lib/page";
 import {
   IService,
   getContentfulEntriesById,
@@ -10,28 +10,27 @@ import { ServicesPage, ServicesPageProps } from "src/features/services";
 
 export const servicesPageId = "5oPRhGTzOaiUeiF8tTIHS5";
 
-export const getStaticProps: GetPageProps<ServicesPageProps> = async ({
-  preview = false
-}) => {
-  try {
-    const [contentfulPageData, services] = await Promise.all([
-      getContentfulPageById(servicesPageId, { preview }),
-      getContentfulEntriesById<IService>("service", { preview })
-    ]);
+export const getStaticProps: GetContentfulPageProps<ServicesPageProps> =
+  async ({ preview = false }) => {
+    try {
+      const [contentfulPageData, services] = await Promise.all([
+        getContentfulPageById(servicesPageId, { preview }),
+        getContentfulEntriesById<IService>("service", { preview })
+      ]);
 
-    return {
-      props: {
-        contentfulPageEntryId: servicesPageId,
-        contentfulPageData: contentfulPageData,
-        services
-      }
-    };
-  } catch (error) {
-    return {
-      notFound: true
-    };
-  }
-};
+      return {
+        props: {
+          preview,
+          contentfulPageData: contentfulPageData,
+          services
+        }
+      };
+    } catch (error) {
+      return {
+        notFound: true
+      };
+    }
+  };
 
 const Page: PageComponent<ServicesPageProps> = (props) => {
   return (

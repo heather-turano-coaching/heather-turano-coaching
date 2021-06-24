@@ -10,7 +10,7 @@ export const preview: NextApiHandler = async (req, res) => {
   const dynamicContentfulPages = await getAllContentfulPages({ preview: true });
 
   // check the secret token
-  if (secret !== process.env.HTC_CONTENTFUL_PREVIEW_SECRET) {
+  if (secret !== process.env.HTC_CONTENTFUL_PREVIEW_SECRET || !slug) {
     return res.status(401).json({ message: `Invalid token: ${secret}` });
   }
 
@@ -37,7 +37,7 @@ export const preview: NextApiHandler = async (req, res) => {
     }
   });
 
-  if (!url) {
+  if (typeof url === undefined) {
     return res.status(401).json({
       message: `Invalid slug. The slug parameter of "${slug}" does not match any page IDs in contentful or static page names created in the code.`
     });

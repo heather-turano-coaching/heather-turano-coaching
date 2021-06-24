@@ -24,6 +24,6 @@ export const BlogTagPage: PageComponent<BlogTagPageProps> = ({
   );
 };
 
-BlogTagPage.getPageLayout = function getPageLayout(page) {
-  return <LayoutRoot>{page}</LayoutRoot>;
+BlogTagPage.getPageLayout = function getPageLayout(page, { preview }) {
+  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
 };

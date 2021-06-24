@@ -1,4 +1,4 @@
-import { GetPageProps, PageComponent } from "@htc/lib/page";
+import { GetContentfulPageProps, PageComponent } from "@htc/lib/page";
 import {
   IWebPage,
   getAllContentfulPages,
@@ -51,7 +51,7 @@ export const getStaticPaths: GetStaticPaths<{ page: string[] | undefined }> =
     };
   };
 
-export const getStaticProps: GetPageProps = async ({
+export const getStaticProps: GetContentfulPageProps = async ({
   params,
   preview = false
 }) => {
@@ -63,7 +63,7 @@ export const getStaticProps: GetPageProps = async ({
 
   return {
     props: {
-      contentfulPageEntryId: slug,
+      preview,
       contentfulPageData: pageData as unknown as IWebPage
     },
     revalidate: 10

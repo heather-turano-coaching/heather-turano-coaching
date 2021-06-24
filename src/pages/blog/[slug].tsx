@@ -4,8 +4,8 @@ import {
   getSingleGhostPostBySlugEndpoint,
   ghostClient
 } from "@htc/lib/ghost";
-import { PageComponent } from "@htc/lib/page";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetGhostPageProps, PageComponent } from "@htc/lib/page";
+import { GetStaticPaths } from "next";
 import React from "react";
 import { BlogPostPage, BlogPostPageProps } from "src/features/blog";
 import { GhostSeo } from "src/features/seo";
@@ -30,8 +30,9 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<BlogPostPageProps> = async ({
-  params
+export const getStaticProps: GetGhostPageProps<BlogPostPageProps> = async ({
+  params,
+  preview = false
 }) => {
   const slug = params?.slug as string;
 
@@ -42,6 +43,7 @@ export const getStaticProps: GetStaticProps<BlogPostPageProps> = async ({
 
     return {
       props: {
+        preview,
         slug,
         post: post.posts[0]
       }

@@ -1,3 +1,4 @@
+import { makeRem } from "@htc/theme";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import Head from "next/head";
@@ -17,6 +18,7 @@ export default function MyApp({
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const getLayout = Component.getPageLayout || ((page) => page);
+  const preview = pageProps.preview || false;
 
   return getLayout(
     <>
@@ -27,9 +29,15 @@ export default function MyApp({
           name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1"
         />
+        {preview && (
+          <style>{`html {
+            border: ${makeRem(6)} solid hotpink;
+        }`}</style>
+        )}
       </Head>
       <DefaultSeo {...defaultSeoConfig} />
       <Component {...pageProps} />
-    </>
+    </>,
+    pageProps
   );
 }

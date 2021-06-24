@@ -77,6 +77,6 @@ export const ServicesPage: PageComponent<ServicesPageProps> = ({
   );
 };
 
-ServicesPage.getPageLayout = function getPageLayout(page) {
-  return <LayoutRoot>{page}</LayoutRoot>;
+ServicesPage.getPageLayout = function getPageLayout(page, { preview }) {
+  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
 };

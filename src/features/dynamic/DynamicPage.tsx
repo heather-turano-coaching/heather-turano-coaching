@@ -20,6 +20,6 @@ export const DynamicPage: PageComponent = ({ contentfulPageData }) => {
   );
 };
 
-DynamicPage.getPageLayout = function getPageLayout(page) {
-  return <LayoutRoot>{page}</LayoutRoot>;
+DynamicPage.getPageLayout = function getPageLayout(page, { preview }) {
+  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
 };

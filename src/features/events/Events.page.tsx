@@ -48,6 +48,6 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
   );
 };
 
-EventsPage.getPageLayout = function getPageLayout(page) {
-  return <LayoutRoot>{page}</LayoutRoot>;
+EventsPage.getPageLayout = function getPageLayout(page, { preview }) {
+  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
 };

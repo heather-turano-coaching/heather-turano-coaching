@@ -135,6 +135,6 @@ export const BlogPostPage: PageComponent<BlogPostPageProps> = (props) => {
   );
 };
 
-BlogPostPage.getPageLayout = function getPageLayout(page) {
-  return <LayoutRoot>{page}</LayoutRoot>;
+BlogPostPage.getPageLayout = function getPageLayout(page, { preview }) {
+  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
 };

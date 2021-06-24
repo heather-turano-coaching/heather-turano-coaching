@@ -5,7 +5,7 @@ import {
   getGhostFeaturedPostEndpoint,
   ghostClient
 } from "@htc/lib/ghost";
-import { GetPageProps, PageComponent } from "@htc/lib/page";
+import { GetContentfulPageProps, PageComponent } from "@htc/lib/page";
 import { getContentfulPageById } from "@htc/lib/server/contentful";
 import React from "react";
 import { BlogPage, BlogPageProps } from "src/features/blog";
@@ -13,7 +13,7 @@ import { ContentfulSeo } from "src/features/seo";
 
 export const blogPageId = "7inppspqzOyqyHJ9r8viIj";
 
-export const getStaticProps: GetPageProps<BlogPageProps> = async ({
+export const getStaticProps: GetContentfulPageProps<BlogPageProps> = async ({
   params,
   preview = false
 }) => {
@@ -30,7 +30,7 @@ export const getStaticProps: GetPageProps<BlogPageProps> = async ({
 
     return {
       props: {
-        contentfulPageEntryId: blogPageId,
+        preview,
         contentfulPageData,
         featuredPosts,
         allPosts

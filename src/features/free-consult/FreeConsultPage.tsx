@@ -25,6 +25,6 @@ export const FreeConsultPage: PageComponent = () => {
   );
 };
 
-FreeConsultPage.getPageLayout = function getPageLayout(page) {
-  return <LayoutRoot>{page}</LayoutRoot>;
+FreeConsultPage.getPageLayout = function getPageLayout(page, { preview }) {
+  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
 };

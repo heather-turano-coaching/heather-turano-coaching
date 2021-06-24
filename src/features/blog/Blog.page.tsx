@@ -40,6 +40,6 @@ export const BlogPage: PageComponent<BlogPageProps> = ({
   );
 };
 
-BlogPage.getPageLayout = function getPageLayout(page) {
-  return <LayoutRoot>{page}</LayoutRoot>;
+BlogPage.getPageLayout = function getPageLayout(page, { preview }) {
+  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
 };
