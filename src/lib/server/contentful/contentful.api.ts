@@ -2,7 +2,11 @@ import { formatError } from "@htc/utils";
 import { createClient } from "contentful";
 import safeJsonStringify from "safe-json-stringify";
 
-import { IService, IWebPage, IWebPageFields } from "./contentful.types";
+import {
+  IService,
+  IWebPage,
+  IWebPageFields
+} from "../../contentful/contentful.types";
 import { ContentfulPagination } from "./contentful.types.custom";
 
 export const contentfulPreviewClient = createClient({

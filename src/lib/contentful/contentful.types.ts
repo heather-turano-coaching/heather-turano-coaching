@@ -353,7 +353,11 @@ export interface IServiceFields {
   description: Document;
 
   /** Type */
-  type: IServiceBasic | IServiceContact | IServiceTeachable;
+  type:
+    | IServiceBasic
+    | IServiceContact
+    | IServiceQuickAction
+    | IServiceTeachable;
 }
 
 /** A service offering */
@@ -434,6 +438,33 @@ export interface IServiceContact extends Entry<IServiceContactFields> {
     contentType: {
       sys: {
         id: "serviceContact";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
+export interface IServiceQuickActionFields {
+  /** System Id */
+  systemId: string;
+
+  /** Actions */
+  actions: IAction[];
+}
+
+/** A type of service that can have 1 or many quick action buttons associated with it. it will not open up to a new page, but instead will contain buttons after the description which can be linked to anywhere */
+
+export interface IServiceQuickAction extends Entry<IServiceQuickActionFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "serviceQuickAction";
         linkType: "ContentType";
         type: "Link";
       };
@@ -571,6 +602,7 @@ export type CONTENT_TYPE =
   | "service"
   | "serviceBasic"
   | "serviceContact"
+  | "serviceQuickAction"
   | "serviceTeachable"
   | "testimonials"
   | "webPage";

@@ -5,16 +5,19 @@ import {
   IService,
   IServiceBasic,
   IServiceContact,
+  IServiceQuickAction,
   IServiceTeachable
 } from "@htc/lib/server/contentful";
 import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
 import { makeRem } from "@htc/theme";
+import React from "react";
 import { css } from "styled-components";
 
 import { LayoutRoot } from "../layout";
 import { ServiceCard } from "./ServiceCard";
 import { ServiceCardBasic } from "./ServiceCardBasic";
 import { ServiceCardContact } from "./ServiceCardContact";
+import { ServiceCardQuickAction } from "./ServiceCardQuickAction";
 import { ServiceCardTeachable } from "./ServiceCardTeachable";
 import { useServices } from "./Services.useServices";
 
@@ -65,6 +68,11 @@ export const ServicesPage: PageComponent<ServicesPageProps> = ({
                     )}
                     {contentType === "serviceTeachable" && (
                       <ServiceCardTeachable {...(type as IServiceTeachable)} />
+                    )}
+                    {contentType === "serviceQuickAction" && (
+                      <ServiceCardQuickAction
+                        {...(type as IServiceQuickAction)}
+                      />
                     )}
                   </ServiceCard>
                 );
