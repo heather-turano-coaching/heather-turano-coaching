@@ -73,6 +73,7 @@ export const getContentfulEntriesById = async <T>(
   try {
     const rawData = await apiClient.getEntries<T>({
       content_type: id,
+      include: 10,
       ...query
     });
     const stringifiedData = safeJsonStringify(rawData);
