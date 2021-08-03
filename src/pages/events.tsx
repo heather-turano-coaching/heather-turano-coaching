@@ -24,7 +24,8 @@ export const getStaticProps: GetContentfulPageProps<EventsPageProps> = async ({
         contentfulPageData,
         futureEvents,
         pastEvents
-      }
+      },
+      revalidate: 10
     };
   } catch (error) {
     return {
