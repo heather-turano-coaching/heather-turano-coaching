@@ -2,8 +2,8 @@ import { SectionCopy, SectionFooter, Title } from "@htc/components/atomic";
 import { RichText } from "@htc/components/atomic";
 import { IBlock, IBlockFields } from "@htc/lib/server/contentful";
 import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
-import { Container } from "@material-ui/core";
-import React, { FC } from "react";
+import { Container, Typography } from "@material-ui/core";
+import React, { FC, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
 import { Actions } from "../actions";
@@ -82,6 +82,29 @@ export const BlockSimple: FC<IBlock> = ({ fields }) => {
           form={fields.form}
           variant={fields.type === "stacked" ? "dark" : "light"}
         />
+      </SectionFooter>
+    </BlockSimpleVariant>
+  );
+};
+
+export const BlockSimplePlain: FC<{
+  title: string;
+  type: IBlockFields["type"];
+  footer?: ReactNode;
+}> = ({ title, type, children, footer }) => {
+  return (
+    <BlockSimpleVariant variant={type}>
+      <Title size="lg">{title}</Title>
+      <SectionCopy>
+        <Typography variant="body1">{children}</Typography>
+      </SectionCopy>
+      <SectionFooter>
+        {footer}
+        {/* <Actions actions={fields.actions} />
+      <Forms
+        form={fields.form}
+        variant={type === "stacked" ? "dark" : "light"}
+      /> */}
       </SectionFooter>
     </BlockSimpleVariant>
   );
