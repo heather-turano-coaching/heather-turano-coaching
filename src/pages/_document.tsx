@@ -50,6 +50,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link rel="stylesheet" href="/fonts/muli/muli.css" />
+          <link rel="stylesheet" href="/fonts/montserrat/montserrat.css" />
         </Head>
         <body>
           <Main />
