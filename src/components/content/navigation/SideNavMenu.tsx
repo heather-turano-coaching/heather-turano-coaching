@@ -3,14 +3,16 @@ import { IWebPage } from "@htc/lib/server/contentful";
 import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
 import { makeRem } from "@htc/theme";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { useMemo } from "react";
 import styled, { css } from "styled-components";
 import useSWR from "swr";
 
+import { SideNavVariants } from "./side-nav.utils";
 import { SideNavMenuItem } from "./SideNavMenuItem";
 
-const variants = {
+const variants: SideNavVariants = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 }
   },
@@ -29,29 +31,12 @@ const StyledMenuSection = styled.div`
 `;
 
 export const SideNavMenu: FC = () => {
+  const { asPath } = useRouter();
   const { data } = useSWR<ContentfulPagination<IWebPage>>(
     getEndpoint({
       root: "/pages"
     })
   );
-
-  const DynamicSection = useMemo(() => {
-    if (!data) {
-      return null;
-    }
-    return data.items.map(
-      (webPageItem) =>
-        webPageItem.fields.displayInNavbar && (
-          <SideNavMenuItem
-            key={webPageItem.sys.id}
-            label={webPageItem.fields.navbarLabel}
-            href={
-              webPageItem.fields.url === "index" ? "/" : webPageItem.fields.url
-            }
-          />
-        )
-    );
-  }, [data]);
 
   return (
     <div
@@ -67,19 +52,44 @@ export const SideNavMenu: FC = () => {
             width: ${makeRem(300)};
           `}
         >
-          {DynamicSection}
+          {data?.items.map((webPageItem) => {
+            if (webPageItem.fields.displayInNavbar) {
+              return (
+                <SideNavMenuItem
+                  key={webPageItem.sys.id}
+                  label={webPageItem.fields.navbarLabel}
+                  disableLink={
+                    webPageItem.fields.url === "index"
+                      ? asPath.startsWith("/home")
+                      : asPath.startsWith(`/${webPageItem.fields.url}`)
+                  }
+                  href={
+                    webPageItem.fields.url === "index"
+                      ? "/"
+                      : webPageItem.fields.url
+                  }
+                />
+              );
+            }
+            return null;
+          })}
         </motion.ul>
       </StyledMenuSection>
-      <StyledMenuSection>
-        <motion.ul
-          variants={variants}
-          css={css`
-            width: ${makeRem(300)};
-          `}
-        >
-          <SideNavMenuItem label="free consultation" href="/free-consult" />
-        </motion.ul>
-      </StyledMenuSection>
+      {useMemo(
+        () => (
+          <StyledMenuSection>
+            <motion.ul
+              variants={variants}
+              css={css`
+                width: ${makeRem(300)};
+              `}
+            >
+              <SideNavMenuItem label="free consultation" href="/free-consult" />
+            </motion.ul>
+          </StyledMenuSection>
+        ),
+        []
+      )}
       {/* <StyledMenuSection>
         <motion.ul
           variants={variants}

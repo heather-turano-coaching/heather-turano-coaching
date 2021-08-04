@@ -1,11 +1,12 @@
 import { Menu } from "@htc/icons";
 import { makeRem } from "@htc/theme";
 import { SvgIcon } from "@material-ui/core";
-import { motion, useCycle } from "framer-motion";
+import { motion } from "framer-motion";
 import { lighten } from "polished";
-import React, { FC, useCallback, useRef } from "react";
+import React, { FC, useRef } from "react";
 import { css } from "styled-components";
 
+import { SideNavProvider, useSideNavContext } from "./SideNav.context";
 import { useDimensions } from "./SideNav.use-dimensions";
 import { SideNavMenu } from "./SideNavMenu";
 
@@ -30,14 +31,11 @@ const sidebar = {
   }
 };
 
-export const SideNav: FC = () => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
+export const SideNavContent: FC = () => {
+  const { isOpen, handleToggle } = useSideNavContext();
+
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
-
-  const handleToggle = useCallback(() => {
-    toggleOpen();
-  }, [toggleOpen]);
 
   return (
     <motion.nav
@@ -91,5 +89,13 @@ export const SideNav: FC = () => {
         </SvgIcon>
       </button>
     </motion.nav>
+  );
+};
+
+export const SideNav: FC = () => {
+  return (
+    <SideNavProvider>
+      <SideNavContent />
+    </SideNavProvider>
   );
 };
