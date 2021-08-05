@@ -128,14 +128,14 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
           `}
         >
           <div>
-            <StyledIcon fontSize="small" color="primary">
+            {/* <StyledIcon fontSize="small" color="primary">
               <MessageSquare />
             </StyledIcon>
             <StyledIconText variant="overline">0</StyledIconText>
             <StyledIcon fontSize="small" color="secondary">
               <Heart />
             </StyledIcon>
-            <StyledIconText variant="overline">0</StyledIconText>
+            <StyledIconText variant="overline">0</StyledIconText> */}
             <StyledIcon fontSize="small" color="action">
               <Clock />
             </StyledIcon>
@@ -144,9 +144,9 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
             </StyledIconText>
           </div>
           <div>
-            <StyledIcon fontSize="small">
+            {/* <StyledIcon fontSize="small">
               <Share2 />
-            </StyledIcon>
+            </StyledIcon> */}
           </div>
         </div>
       </motion.div>
