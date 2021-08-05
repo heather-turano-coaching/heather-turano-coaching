@@ -33,11 +33,9 @@ export default class MyDocument extends Document {
         ...initialProps,
         head: initialProps.head as JSX.Element[],
         styles: [
-          <React.Fragment key="styles">
-            {initialProps.styles}
-            {materialUiSheets.getStyleElement()}
-            {styledComponentSheet.getStyleElement()}
-          </React.Fragment>
+          <>{React.Children.toArray(initialProps.styles)}</>,
+          materialUiSheets.getStyleElement(),
+          <>{styledComponentSheet.getStyleElement()}</>
         ]
       };
     } finally {

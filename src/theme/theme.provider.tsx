@@ -1,7 +1,7 @@
 import {
   MuiThemeProvider,
   StylesProvider,
-  createMuiTheme
+  createTheme
 } from "@material-ui/core";
 import React, { FC } from "react";
 import {
@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: themePalette,
   typography: {
     fontFamily: "Muli",

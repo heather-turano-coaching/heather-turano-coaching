@@ -10,6 +10,7 @@ const Page: PageComponent = (props) => {
         title="Free 30-Minute Consultation"
         description="Sign up for a free 30 minute consultation to understand and learn how Heather can help you."
       />
+
       <FreeConsultPage {...props} />
     </>
   );
