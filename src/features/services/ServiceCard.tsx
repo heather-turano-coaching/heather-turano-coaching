@@ -2,7 +2,12 @@ import { RichText } from "@htc/components/atomic";
 import { ProgramContainer } from "@htc/components/layout";
 import { CSSImageBorderSmall } from "@htc/components/styles";
 import { IServiceFields } from "@htc/lib/server/contentful";
-import { makeMobileStyles, makeRem, makeTabletStyles } from "@htc/theme";
+import {
+  makeDesktopStyles,
+  makeMobileStyles,
+  makeRem,
+  makeTabletStyles
+} from "@htc/theme";
 import { Typography } from "@material-ui/core";
 import { FC } from "react";
 import { css } from "styled-components";
@@ -21,6 +26,7 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
 
         ${({ theme }) => css`
           ${makeMobileStyles(theme)} {
+            flex-direction: column;
             padding: ${makeRem(40)} ${makeRem(32)};
           }
 
@@ -39,8 +45,6 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
       <div
         css={css`
           width: ${makeRem(320)};
-          min-width: ${makeRem(320)};
-          margin-right: ${makeRem(40)};
 
           & > img {
             width: 100%;
@@ -51,6 +55,11 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
             ${makeMobileStyles(theme)} {
               width: 100%;
               margin-bottom: ${makeRem(32)};
+            }
+
+            ${makeDesktopStyles(theme)} {
+              margin-right: ${makeRem(40)};
+              min-width: ${makeRem(320)};
             }
           `}
         `}
