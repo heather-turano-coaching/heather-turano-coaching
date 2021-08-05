@@ -6,7 +6,7 @@ import Document, {
   Main,
   NextScript
 } from "next/document";
-import React, { ReactElement } from "react";
+import React, { Fragment, ReactElement } from "react";
 import { ServerStyleSheet as StyledComponentSheets } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -33,9 +33,11 @@ export default class MyDocument extends Document {
         ...initialProps,
         head: initialProps.head as JSX.Element[],
         styles: [
-          <>{React.Children.toArray(initialProps.styles)}</>,
-          materialUiSheets.getStyleElement(),
-          <>{styledComponentSheet.getStyleElement()}</>
+          <Fragment key="doc-styles">
+            {React.Children.toArray(initialProps.styles)}
+            {materialUiSheets.getStyleElement()}
+            {styledComponentSheet.getStyleElement()}
+          </Fragment>
         ]
       };
     } finally {

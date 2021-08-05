@@ -7,6 +7,19 @@ export const TextStyles = styled.div`
     box-sizing: border-box;
   }
 
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  a {
+    text-decoration: underline;
+    font-weight: ${makeFontWeight("bold")};
+    ${({ theme }) => css`
+      color: ${theme.palette.primary.dark};
+    `};
+  }
+
   p {
     font-family: "Muli";
     font-size: ${makeRem(16)};
@@ -103,10 +116,5 @@ export const TextStyles = styled.div`
         background: ${theme.palette.light.light};
       `};
     }
-  }
-
-  img {
-    display: block;
-    width: 100%;
   }
 `;
