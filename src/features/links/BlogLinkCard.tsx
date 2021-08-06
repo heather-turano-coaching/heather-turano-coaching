@@ -9,7 +9,7 @@ import { LinkCardTitle } from "./LinkCardTitle";
 
 export type BlogLinkCardProps = {
   title: string;
-  subTitle: string;
+  subTitle?: string;
   href: string;
   important?: boolean;
   overline: string;
@@ -35,7 +35,11 @@ export const BlogLinkCard: FC<BlogLinkCardProps> = ({
         <LinkCardImage src={src} alt={alt} />
         <div>
           <LinkCardTitle important={important}>{title}</LinkCardTitle>
-          <LinkCardSubTitle important={important}>{subTitle}</LinkCardSubTitle>
+          {subTitle && (
+            <LinkCardSubTitle important={important}>
+              {subTitle}
+            </LinkCardSubTitle>
+          )}
         </div>
       </LinkCardLayout>
     </LinkCard>

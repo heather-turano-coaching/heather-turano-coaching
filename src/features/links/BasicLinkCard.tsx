@@ -7,7 +7,7 @@ import { LinkCardTitle } from "./LinkCardTitle";
 
 export type BasicLinkCardProps = {
   title: string;
-  subTitle: string;
+  subTitle?: string;
   href: string;
   important?: boolean;
 };
@@ -22,7 +22,9 @@ export const BasicLinkCard: FC<BasicLinkCardProps> = ({
     <LinkCard href={href} important={important}>
       <LinkCardLayout orientation="column">
         <LinkCardTitle important={important}> {title}</LinkCardTitle>
-        <LinkCardSubTitle important={important}>{subTitle}</LinkCardSubTitle>
+        {subTitle && (
+          <LinkCardSubTitle important={important}>{subTitle}</LinkCardSubTitle>
+        )}
       </LinkCardLayout>
     </LinkCard>
   );

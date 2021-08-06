@@ -38,11 +38,22 @@ export type GetAllGhostPosts = {
 export type GetFeaturedGhostPost = {
   posts: PostOrPage[];
 } & GhostMeta;
+export type GetLatestGhostPost = {
+  posts: PostOrPage[];
+} & GhostMeta;
 export type GetSingleGhostPostBySlug = { posts: [PostOrPage] };
 
 /**
  * Endpoints
  */
+export const getGhostLatestPostEndpoint = getEndpoint({
+  root: "/posts",
+  queryParams: {
+    include: "1",
+    order: "published_at DESC"
+  }
+});
+
 export const getGhostFeaturedPostEndpoint = getEndpoint({
   root: "/posts",
   queryParams: {
