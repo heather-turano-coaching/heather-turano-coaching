@@ -1,5 +1,6 @@
 import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
 import React, { FC, useEffect, useRef } from "react";
+import { useMemo } from "react";
 import styled, { css } from "styled-components";
 
 import { ActiveLink } from "./ActiveLink";
@@ -156,7 +157,7 @@ const NavLink = styled.a`
   }
 `;
 
-export const HeaderNav: FC = () => {
+export const HeaderNav: FC<{ hideNavBar: boolean }> = ({ hideNavBar }) => {
   const stickyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -170,44 +171,52 @@ export const HeaderNav: FC = () => {
     }
   }, []);
 
+  const Navigation = useMemo(
+    () =>
+      !hideNavBar && (
+        <Navbar ref={stickyRef}>
+          <DesktopLogo>
+            <img src="/logo-inline.svg" alt="htc-logo-inline" />
+          </DesktopLogo>
+          <NavbarUl>
+            <NavbarLi>
+              <ActiveLink href="/">
+                <NavLink>Home</NavLink>
+              </ActiveLink>
+            </NavbarLi>
+            <NavbarLi>
+              <ActiveLink href="/about">
+                <NavLink>About</NavLink>
+              </ActiveLink>
+            </NavbarLi>
+            <NavbarLi>
+              <ActiveLink href="/services">
+                <NavLink>Services</NavLink>
+              </ActiveLink>
+            </NavbarLi>
+            <NavbarLi>
+              <ActiveLink href="/events">
+                <NavLink>Events</NavLink>
+              </ActiveLink>
+            </NavbarLi>
+            <NavbarLi>
+              <ActiveLink href="/blog" as="/blog">
+                <NavLink>Blog</NavLink>
+              </ActiveLink>
+            </NavbarLi>
+          </NavbarUl>
+          <SideNav />
+        </Navbar>
+      ),
+    [hideNavBar]
+  );
+
   return (
     <NavbarContainer>
       <MobileLogo>
         <img src="/logo-stacked.png" alt="htc-logo-stacked" />
       </MobileLogo>
-      <Navbar ref={stickyRef}>
-        <DesktopLogo>
-          <img src="/logo-inline.svg" alt="htc-logo-inline" />
-        </DesktopLogo>
-        <NavbarUl>
-          <NavbarLi>
-            <ActiveLink href="/">
-              <NavLink>Home</NavLink>
-            </ActiveLink>
-          </NavbarLi>
-          <NavbarLi>
-            <ActiveLink href="/about">
-              <NavLink>About</NavLink>
-            </ActiveLink>
-          </NavbarLi>
-          <NavbarLi>
-            <ActiveLink href="/services">
-              <NavLink>Services</NavLink>
-            </ActiveLink>
-          </NavbarLi>
-          <NavbarLi>
-            <ActiveLink href="/events">
-              <NavLink>Events</NavLink>
-            </ActiveLink>
-          </NavbarLi>
-          <NavbarLi>
-            <ActiveLink href="/blog" as="/blog">
-              <NavLink>Blog</NavLink>
-            </ActiveLink>
-          </NavbarLi>
-        </NavbarUl>
-        <SideNav />
-      </Navbar>
+      {Navigation}
     </NavbarContainer>
   );
 };
