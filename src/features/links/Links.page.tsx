@@ -32,53 +32,58 @@ export const LinksPage: PageComponent<LinksPageProps> = ({
         padding-right: ${makeRem(16)};
       `}
     >
-      {contentfulData.fields.items.map(
-        ({ fields: { cardType, title, subTitle, link } }) => {
-          if (cardType === "card-important" || cardType === "card-regular") {
-            return (
-              <BasicLinkCard
-                title={title}
-                subTitle={subTitle}
-                href={link}
-                important={cardType === "card-important"}
-              />
-            );
-          }
-          if (cardType === "blog-featured-post" && featuredPost) {
-            return (
-              <BlogLinkCard
-                title={featuredPost.title as string}
-                subTitle={
-                  featuredPost.excerpt
-                    ? featuredPost.excerpt.substr(0, 180)
-                    : undefined
-                }
-                href={`/blog/${featuredPost.slug}`}
-                src={featuredPost.feature_image as string}
-                alt={featuredPost.published_at as string}
-                overline="featured post"
-              />
-            );
-          }
-          if (cardType === "blog-latest-post" && latestPost) {
-            return (
-              <BlogLinkCard
-                title={latestPost.title as string}
-                subTitle={
-                  latestPost.excerpt
-                    ? latestPost.excerpt.substr(0, 180)
-                    : undefined
-                }
-                href={`/blog/${latestPost.slug}`}
-                src={latestPost.feature_image as string}
-                alt={latestPost.published_at as string}
-                overline="latest post"
-              />
-            );
-          }
+      {contentfulData.fields.items.map(({ fields }) => {
+        if (!fields) {
           return null;
         }
-      )}
+
+        if (
+          fields.cardType === "card-important" ||
+          fields.cardType === "card-regular"
+        ) {
+          return (
+            <BasicLinkCard
+              title={fields.title}
+              subTitle={fields.subTitle}
+              href={fields.link}
+              important={fields.cardType === "card-important"}
+            />
+          );
+        }
+        if (fields.cardType === "blog-featured-post" && featuredPost) {
+          return (
+            <BlogLinkCard
+              title={featuredPost.title as string}
+              subTitle={
+                featuredPost.excerpt
+                  ? featuredPost.excerpt.substr(0, 180)
+                  : undefined
+              }
+              href={`/blog/${featuredPost.slug}`}
+              src={featuredPost.feature_image as string}
+              alt={featuredPost.published_at as string}
+              overline="featured post"
+            />
+          );
+        }
+        if (fields.cardType === "blog-latest-post" && latestPost) {
+          return (
+            <BlogLinkCard
+              title={latestPost.title as string}
+              subTitle={
+                latestPost.excerpt
+                  ? latestPost.excerpt.substr(0, 180)
+                  : undefined
+              }
+              href={`/blog/${latestPost.slug}`}
+              src={latestPost.feature_image as string}
+              alt={latestPost.published_at as string}
+              overline="latest post"
+            />
+          );
+        }
+        return null;
+      })}
     </div>
   );
 };
