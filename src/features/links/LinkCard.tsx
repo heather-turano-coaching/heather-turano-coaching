@@ -1,12 +1,19 @@
-import { makeFontWeight, makeRem } from "@htc/theme";
-import { Typography } from "@material-ui/core";
+import { makeRem } from "@htc/theme";
 import Link from "next/link";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-const StyledLinkCard = styled.a<{ important: boolean }>`
+export type LinkCardProps = {
+  href: string;
+  important?: boolean;
+  flushLeft?: boolean;
+  flushRight?: boolean;
+};
+
+const StyledLinkCard = styled.a<Omit<LinkCardProps, "href">>`
   display: block;
-  padding: ${makeRem(20)} ${makeRem(16)};
+  padding-top: ${makeRem(24)};
+  padding-bottom: ${makeRem(24)};
   border-radius: ${makeRem(4)};
   box-shadow: 0 0 17px #cdd7d8;
 
@@ -14,39 +21,28 @@ const StyledLinkCard = styled.a<{ important: boolean }>`
     margin-top: ${makeRem(24)};
   }
 
-  ${({ theme, important }) => css`
+  ${({ theme, important, flushLeft, flushRight }) => css`
     background-color: ${important ? theme.palette.primary.dark : "#fff"};
-
-    & > h4 {
-      color: #fff;
-      color: ${important ? "#fff" : theme.palette.primary.dark};
-      margin: 0;
-      font-size: ${makeRem(14)};
-      font-family: "Muli";
-      font-weight: ${makeFontWeight("extraBold")};
-
-      & + * {
-        margin-top: ${makeRem(8)};
-        font-size: ${makeRem(12)};
-        color: ${important
-          ? theme.palette.primary.light
-          : theme.palette.noir.dark};
-      }
-    }
+    padding-left: ${flushLeft ? 0 : makeRem(16)};
+    padding-right: ${flushRight ? 0 : makeRem(16)};
   `}
 `;
 
-export const LinkCard: FC<{
-  href: string;
-  title: string;
-  subTitle?: string;
-  important?: boolean;
-}> = ({ href, title, subTitle, important = false }) => {
+export const LinkCard: FC<LinkCardProps> = ({
+  href,
+  important = false,
+  children,
+  flushLeft = false,
+  flushRight = false
+}) => {
   return (
     <Link href={href} passHref>
-      <StyledLinkCard important={important}>
-        <Typography variant="h4">{title}</Typography>
-        <Typography variant="body1">{subTitle}</Typography>
+      <StyledLinkCard
+        important={important}
+        flushLeft={flushLeft}
+        flushRight={flushRight}
+      >
+        {children}
       </StyledLinkCard>
     </Link>
   );
