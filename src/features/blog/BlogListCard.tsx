@@ -1,4 +1,4 @@
-import { Clock, Heart, MessageSquare, Share2 } from "@htc/icons";
+import { Clock } from "@htc/icons";
 import { makeRem, makeTabletStyles } from "@htc/theme";
 import { formatShortDate } from "@htc/utils";
 import { SvgIcon, Typography } from "@material-ui/core";
