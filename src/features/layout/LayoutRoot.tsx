@@ -14,8 +14,8 @@ const Providers: FC = ({ children }) => (
 
 export const LayoutRoot: FC<{
   preview: boolean | undefined;
-  hideNavBar: boolean;
-}> = ({ children, preview = false, hideNavBar }) => {
+  hideNavBar?: boolean;
+}> = ({ children, preview = false, hideNavBar = false }) => {
   const { push } = useRouter();
   const handleExitPreviewMode = useCallback(() => {
     push(`/api/preview/clear?redirectTo=${window.location.pathname}`);
