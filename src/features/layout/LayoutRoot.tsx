@@ -12,10 +12,10 @@ const Providers: FC = ({ children }) => (
   </HTCTheme>
 );
 
-export const LayoutRoot: FC<{ preview: boolean | undefined }> = ({
-  children,
-  preview = false
-}) => {
+export const LayoutRoot: FC<{
+  preview: boolean | undefined;
+  hideNavBar?: boolean;
+}> = ({ children, preview = false, hideNavBar = false }) => {
   const { push } = useRouter();
   const handleExitPreviewMode = useCallback(() => {
     push(`/api/preview/clear?redirectTo=${window.location.pathname}`);
@@ -24,7 +24,7 @@ export const LayoutRoot: FC<{ preview: boolean | undefined }> = ({
   return (
     <>
       <Providers>
-        <HeaderNav />
+        <HeaderNav hideNavBar={hideNavBar} />
         {children}
         <FooterNav />
       </Providers>

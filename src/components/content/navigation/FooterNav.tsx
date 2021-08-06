@@ -15,10 +15,10 @@ export const FooterNav: FC = () => (
     <FooterSection title="Heather Turano Coaching, LLC">
       <FooterText>
         <span>
-          Copyright © 2018, Heather Turano Coaching, LLC, All Rights Reserved.
-          Live Life Mindful is a trademark of Heather Turano Coaching, LLC. The
-          use of the trademark Live Life Mindful outside the bounds of this
-          website requires exclusive written consent from Heather Turano
+          Copyright © 2018 - 2021, Heather Turano Coaching, LLC, All Rights
+          Reserved. Live Life Mindful is a trademark of Heather Turano Coaching,
+          LLC. The use of the trademark Live Life Mindful outside the bounds of
+          this website requires exclusive written consent from Heather Turano
           Coaching, LLC.
         </span>
       </FooterText>
@@ -35,7 +35,7 @@ export const FooterNav: FC = () => (
               color: ${makeColor({ fixed: "light" })};
             `}
           >
-            Imagined Elements, LLC
+            Drew DeCarme
           </a>
         </div>
       </FooterText>
