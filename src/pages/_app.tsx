@@ -2,6 +2,7 @@ import { makeRem } from "@htc/theme";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React, { ReactElement, useEffect } from "react";
 import { defaultSeoConfig } from "src/features/seo";
 
@@ -9,11 +10,28 @@ export default function MyApp({
   Component,
   pageProps
 }: AppProps): ReactElement {
+  const router = useRouter();
+
   useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles && jssStyles.parentNode)
       jssStyles.parentNode.removeChild(jssStyles);
   }, []);
+
+  useEffect(() => {
+    if (
+      process.env.NODE_ENV === "production" &&
+      typeof window !== "undefined"
+    ) {
+      router.events.on("routeChangeStart", (url) => {
+        if (window._paq) {
+          window._paq.push(["setCustomUrl", url]);
+          window._paq.push(["setDocumentTitle", document.title]);
+          window._paq.push(["trackPageView"]);
+        }
+      });
+    }
+  }, [router.events]);
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -33,6 +51,30 @@ export default function MyApp({
           <style>{`html {
             border: ${makeRem(6)} solid hotpink;
         }`}</style>
+        )}
+        {/* Matoma */}
+        {process.env.NODE_ENV === "production" && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                  const _paq = (window._paq = window._paq || []);
+                  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+                  _paq.push(["trackPageView"]);
+                  _paq.push(["enableLinkTracking"]);
+                  (function () {
+                    _paq.push(["setTrackerUrl", "https://heatherturanocoaching.matomo.cloud/matomo.php"]);
+                    _paq.push(["setSiteId", "1"]);
+                    const d = document,
+                      g = d.createElement("script"),
+                      s = d.getElementsByTagName("script")[0];
+                    g.type = "text/javascript";
+                    g.async = true;
+                    g.src = "//cdn.matomo.cloud/heatherturanocoaching.matomo.cloud/matomo.js";
+                    s.parentNode.insertBefore(g, s);
+                  })();
+          `
+            }}
+          />
         )}
       </Head>
       <DefaultSeo {...defaultSeoConfig} />
