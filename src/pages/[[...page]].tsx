@@ -6,7 +6,7 @@ import {
 } from "@htc/lib/server/contentful";
 import { GetStaticPaths } from "next";
 import { useRouter } from "next/router";
-import { DynamicPage } from "src/features/dynamic";
+import { DynamicPage } from "src/features/dynamic-page";
 import { ContentfulSeo } from "src/features/seo";
 
 const blacklistedPages = ["blog", "events", "services", "index"];

@@ -623,7 +623,7 @@ export interface IWebPageFields {
   displayInNavbar: boolean;
 
   /** Hero */
-  hero: IHero;
+  hero?: IHero | undefined;
 
   /** Blocks */
   blocks?:

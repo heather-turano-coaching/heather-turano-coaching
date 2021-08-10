@@ -6,15 +6,12 @@ import { LayoutRoot } from "../layout";
 
 export const DynamicPage: PageComponent = ({ contentfulPageData }) => {
   const {
-    fields: {
-      hero: { fields: heroFields },
-      blocks
-    }
+    fields: { hero, blocks }
   } = contentfulPageData;
 
   return (
     <>
-      <Hero {...heroFields} />
+      {hero && <Hero {...hero.fields} />}
       <Blocks blocks={blocks} />
     </>
   );
