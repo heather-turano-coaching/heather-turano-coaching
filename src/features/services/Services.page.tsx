@@ -27,9 +27,7 @@ export type ServicesPageProps = {
 
 export const ServicesPage: PageComponent<ServicesPageProps> = ({
   contentfulPageData: {
-    fields: {
-      hero: { fields: heroFields }
-    }
+    fields: { hero }
   },
   services
 }) => {
@@ -37,7 +35,7 @@ export const ServicesPage: PageComponent<ServicesPageProps> = ({
 
   return (
     <>
-      <Hero {...heroFields} hideGradient />
+      {hero && <Hero {...hero.fields} hideGradient />}
 
       {groupedServices &&
         Object.entries(groupedServices).map(([servicesTitle, services], i) => (

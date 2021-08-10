@@ -16,16 +16,14 @@ export type BlogPageProps = {
 
 export const BlogPage: PageComponent<BlogPageProps> = ({
   contentfulPageData: {
-    fields: {
-      hero: { fields: heroFields }
-    }
+    fields: { hero }
   },
   featuredPosts,
   allPosts
 }) => {
   return (
     <>
-      <Hero {...heroFields} />
+      {hero && <Hero {...hero.fields} />}
       <Container>
         <BlogSection title="Featured post">
           <BlogSectionFeatured

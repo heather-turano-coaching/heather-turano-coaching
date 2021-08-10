@@ -18,16 +18,14 @@ export type EventsPageProps = {
 
 export const EventsPage: PageComponent<EventsPageProps> = ({
   contentfulPageData: {
-    fields: {
-      hero: { fields: heroFields }
-    }
+    fields: { hero }
   },
   pastEvents,
   futureEvents
 }) => {
   return (
     <>
-      <Hero {...heroFields} hideGradient />
+      {hero && <Hero {...hero.fields} hideGradient />}
       <div
         css={css`
           background-color: ${({ theme }) => theme.palette.light.light};
