@@ -1,5 +1,4 @@
 {
-  "prettier.packageManager": "yarn",
   "prettier.trailingComma": "none",
   "files.watcherExclude": {
     "**/.git/objects/**": true,

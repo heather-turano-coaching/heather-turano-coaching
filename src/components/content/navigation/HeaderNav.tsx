@@ -1,4 +1,5 @@
 import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
+import Link from "next/link";
 import React, { FC, useEffect, useRef } from "react";
 import { useMemo } from "react";
 import styled, { css } from "styled-components";
@@ -40,8 +41,11 @@ const MobileLogo = styled.div`
   }}
 `;
 
-const DesktopLogo = styled.div`
+const DesktopLogo = styled.a`
   ${({ theme }) => css`
+    cursor: pointer;
+    z-index: 100;
+
     ${makeMobileStyles(theme)} {
       display: none;
     }
@@ -175,9 +179,11 @@ export const HeaderNav: FC<{ hideNavBar: boolean }> = ({ hideNavBar }) => {
     () =>
       !hideNavBar && (
         <Navbar ref={stickyRef}>
-          <DesktopLogo>
-            <img src="/logo-inline.svg" alt="htc-logo-inline" />
-          </DesktopLogo>
+          <Link href="/">
+            <DesktopLogo>
+              <img src="/logo-inline.svg" alt="htc-logo-inline" />
+            </DesktopLogo>
+          </Link>
           <NavbarUl>
             <NavbarLi>
               <ActiveLink href="/">
