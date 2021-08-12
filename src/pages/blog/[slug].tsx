@@ -15,7 +15,8 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
     getEndpoint({
       root: "/posts",
       queryParams: {
-        fields: "slug"
+        fields: "slug",
+        limit: "all"
       }
     })
   );
