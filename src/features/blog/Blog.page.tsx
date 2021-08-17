@@ -1,28 +1,33 @@
-import { Hero } from "@htc/components/content";
+import {
+  BlogSection,
+  BlogSectionAll,
+  BlogSectionFeatured,
+  Hero
+} from "@htc/components/content";
+import { ContentfulPageProps, FeaturePageComponent } from "@htc/features/page";
+import { ContentfulSeo } from "@htc/features/seo";
 import { GetAllGhostPosts, GetFeaturedGhostPost } from "@htc/lib/ghost";
-import { PageComponent } from "@htc/lib/page";
 import { Container } from "@material-ui/core";
 import React from "react";
 
-import { LayoutRoot } from "../layout";
-import { BlogSection } from "./BlogSection";
-import { BlogSectionAll } from "./BlogSectionAll";
-import { BlogSectionFeatured } from "./BlogSectionFeatured";
+import { withBlogPageLayout } from "./Blog.layout";
 
-export type BlogPageProps = {
+export type BlogPageProps = ContentfulPageProps<{
   featuredPosts: GetFeaturedGhostPost;
   allPosts: GetAllGhostPosts;
-};
+}>;
 
-export const BlogPage: PageComponent<BlogPageProps> = ({
-  contentfulPageData: {
-    fields: { hero }
-  },
+export const BlogPage: FeaturePageComponent<BlogPageProps> = ({
+  contentfulPageData,
   featuredPosts,
   allPosts
 }) => {
+  const {
+    fields: { hero }
+  } = contentfulPageData;
   return (
     <>
+      <ContentfulSeo contentfulPageData={contentfulPageData} />
       {hero && <Hero {...hero.fields} />}
       <Container>
         <BlogSection title="Featured post">
@@ -38,6 +43,4 @@ export const BlogPage: PageComponent<BlogPageProps> = ({
   );
 };
 
-BlogPage.getPageLayout = function getPageLayout(page, { preview }) {
-  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
-};
+BlogPage.withPageLayout = withBlogPageLayout;

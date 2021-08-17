@@ -1,14 +1,12 @@
+import { BlogPostPage, BlogPostPageProps } from "@htc/features/blog-post";
+import { withPage } from "@htc/features/page";
 import { getEndpoint } from "@htc/lib/endpoint";
 import {
   GetSingleGhostPostBySlug,
   getSingleGhostPostBySlugEndpoint,
   ghostClient
 } from "@htc/lib/ghost";
-import { GetGhostPageProps, PageComponent } from "@htc/lib/page";
-import { GetStaticPaths } from "next";
-import React from "react";
-import { BlogPostPage, BlogPostPageProps } from "src/features/blog";
-import { GhostSeo } from "src/features/seo";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   const allSlugs = await ghostClient<{ posts: { slug: string }[] }>(
@@ -31,7 +29,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   };
 };
 
-export const getStaticProps: GetGhostPageProps<BlogPostPageProps> = async ({
+export const getStaticProps: GetStaticProps<BlogPostPageProps> = async ({
   params,
   preview = false
 }) => {
@@ -56,15 +54,4 @@ export const getStaticProps: GetGhostPageProps<BlogPostPageProps> = async ({
   }
 };
 
-const Page: PageComponent<BlogPostPageProps> = (props) => {
-  return (
-    <>
-      <GhostSeo {...props} />
-      <BlogPostPage {...props} />
-    </>
-  );
-};
-
-Page.getPageLayout = BlogPostPage.getPageLayout;
-
-export default Page;
+export default withPage(BlogPostPage);

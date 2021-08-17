@@ -1,7 +1,6 @@
+import { BlogPostPageProps } from "@htc/features/blog-post";
 import { NextSeo } from "next-seo";
 import React, { FC } from "react";
-
-import { BlogPostPageProps } from "../blog";
 
 type PostMeta = string | undefined;
 

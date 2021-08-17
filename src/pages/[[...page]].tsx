@@ -1,13 +1,11 @@
-import { GetContentfulPageProps, PageComponent } from "@htc/lib/page";
+import { withPage } from "@htc/features/page";
 import {
   IWebPage,
   getAllContentfulPages,
   getContentfulPageBySlug
 } from "@htc/lib/server/contentful";
-import { GetStaticPaths } from "next";
-import { useRouter } from "next/router";
-import { DynamicPage } from "src/features/dynamic-page";
-import { ContentfulSeo } from "src/features/seo";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { DynamicPage, DynamicPageProps } from "src/features/dynamic-page";
 
 const blacklistedPages = ["blog", "events", "services", "index"];
 
@@ -51,7 +49,7 @@ export const getStaticPaths: GetStaticPaths<{ page: string[] | undefined }> =
     };
   };
 
-export const getStaticProps: GetContentfulPageProps = async ({
+export const getStaticProps: GetStaticProps<DynamicPageProps> = async ({
   params,
   preview = false
 }) => {
@@ -70,20 +68,4 @@ export const getStaticProps: GetContentfulPageProps = async ({
   };
 };
 
-const Page: PageComponent = (props) => {
-  const router = useRouter();
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-    <>
-      <ContentfulSeo {...props} />
-      <DynamicPage {...props} />
-    </>
-  );
-};
-
-Page.getPageLayout = DynamicPage.getPageLayout;
-
-export default Page;
+export default withPage(DynamicPage);

@@ -1,11 +1,12 @@
 import { TextStylesBlog, Title } from "@htc/components/atomic";
 import { CSSImageBorder } from "@htc/components/styles";
+import { FeaturePageComponent, PageProps } from "@htc/features/page";
+import { GhostSeo } from "@htc/features/seo";
 import {
   GetSingleGhostPostBySlug,
   getSingleGhostPostBySlugEndpoint,
   ghostClient
 } from "@htc/lib/ghost";
-import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
 import { formatLongDate } from "@htc/utils";
 import { Container, Typography } from "@material-ui/core";
@@ -14,14 +15,16 @@ import React from "react";
 import { css } from "styled-components";
 import useSWR from "swr";
 
-import { LayoutRoot } from "../layout";
+import { withBlogPostPageLayout } from "./BlogPost.layout";
 
-export type BlogPostPageProps = {
+export type BlogPostPageProps = PageProps<{
   post: PostOrPage;
   slug: string;
-};
+}>;
 
-export const BlogPostPage: PageComponent<BlogPostPageProps> = (props) => {
+export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
+  props
+) => {
   const { data } = useSWR<GetSingleGhostPostBySlug>(
     getSingleGhostPostBySlugEndpoint(props.post.slug),
     ghostClient,
@@ -36,6 +39,7 @@ export const BlogPostPage: PageComponent<BlogPostPageProps> = (props) => {
 
   return (
     <>
+      <GhostSeo {...props} />
       <Container>
         <div
           css={css`
@@ -135,6 +139,4 @@ export const BlogPostPage: PageComponent<BlogPostPageProps> = (props) => {
   );
 };
 
-BlogPostPage.getPageLayout = function getPageLayout(page, { preview }) {
-  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
-};
+BlogPostPage.withPageLayout = withBlogPostPageLayout;

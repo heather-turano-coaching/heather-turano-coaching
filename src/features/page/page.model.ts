@@ -1,0 +1,72 @@
+import { ParsedUrlQuery } from "querystring";
+
+import { IWebPage } from "@htc/lib/server/contentful";
+import {
+  GetServerSideProps,
+  GetStaticProps,
+  NextComponentType,
+  NextPageContext
+} from "next";
+import { AppProps } from "next/app";
+import { FC } from "react";
+
+export type PageComponentProps = {
+  preview: boolean | undefined;
+};
+export type DefaultPageComponentProps = Record<string, unknown> &
+  PageComponentProps;
+
+export type PageProps<P = Record<string, unknown>> = {
+  preview: boolean | undefined;
+} & P;
+export type ContentfulPageData = {
+  contentfulPageData: IWebPage;
+};
+export type ContentfulPageProps<P = Record<string, unknown>> =
+  ContentfulPageData & PageProps<P>;
+
+export type WithPage<P> = (
+  FeaturePageComponent: FeaturePageComponent<P>
+) => FC<P & PageComponentProps>;
+
+export type WithPageLayout<P = DefaultPageComponentProps> = (
+  PageComponent: FeaturePageComponent<P>
+) => FC<P & PageComponentProps>;
+
+// `src/feature` pages
+export type FeaturePageComponent<P = DefaultPageComponentProps> =
+  React.FC<P> & {
+    withPageLayout: WithPageLayout<P>;
+  };
+
+// utils
+export type GetAuthenticatedServerSideProps<
+  P = Record<string, unknown>,
+  UrlQuery extends ParsedUrlQuery = ParsedUrlQuery
+> = GetServerSideProps<P, UrlQuery>;
+
+export type CustomAppProps<P = Record<string, unknown>> = Omit<
+  AppProps<P>,
+  "pageProps"
+> & {
+  pageProps: Record<string, unknown>;
+  err?: Error & {
+    statusCode?: number;
+  };
+  Component: NextComponentType<NextPageContext>;
+};
+
+export type ContentfulPageAttributes = {
+  contentfulPageData: IWebPage;
+};
+
+/**
+ * Augmented type intended to be a replacement for GetStaticProps.
+ * This automatically requires that a contentfulEntryId and the
+ * web page data from contentful is added to every page props
+ */
+export type GetContentfulPageProps<T = Record<string, unknown>> =
+  GetStaticProps<ContentfulPageAttributes & { preview: boolean } & T>;
+export type GetGhostPageProps<T = Record<string, unknown>> = GetStaticProps<
+  { preview: boolean } & T
+>;

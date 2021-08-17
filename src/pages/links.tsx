@@ -1,3 +1,4 @@
+import { withPage } from "@htc/features/page";
 import {
   GetFeaturedGhostPost,
   GetLatestGhostPost,
@@ -5,14 +6,11 @@ import {
   getGhostLatestPostEndpoint,
   ghostClient
 } from "@htc/lib/ghost";
-import { PageComponent } from "@htc/lib/page";
 import {
   IPageCollection,
   getContentfulEntryById
 } from "@htc/lib/server/contentful";
 import { GetStaticProps } from "next";
-import { NextSeo } from "next-seo";
-import React from "react";
 import { LinksPage, LinksPageProps } from "src/features/links";
 
 export const getStaticProps: GetStaticProps<LinksPageProps> = async ({
@@ -36,20 +34,4 @@ export const getStaticProps: GetStaticProps<LinksPageProps> = async ({
   };
 };
 
-const Page: PageComponent<LinksPageProps> = (props) => {
-  return (
-    <>
-      <NextSeo
-        title={props.contentfulData.fields.seo?.fields.title}
-        description={props.contentfulData.fields.seo?.fields.description}
-        nofollow
-        noindex
-      />
-      <LinksPage {...props} />
-    </>
-  );
-};
-
-Page.getPageLayout = LinksPage.getPageLayout;
-
-export default Page;
+export default withPage(LinksPage);

@@ -1,9 +1,9 @@
-import { ContentfulPageAttributes } from "@htc/lib/page";
+import { ContentfulPageData } from "@htc/features/page";
 import { capitalize } from "@htc/utils";
 import { NextSeo } from "next-seo";
 import { FC } from "react";
 
-export const ContentfulSeo: FC<ContentfulPageAttributes> = ({
+export const ContentfulSeo: FC<ContentfulPageData> = ({
   contentfulPageData: {
     fields: { seo }
   }
