@@ -6,7 +6,12 @@ import { withAdminPageLayout } from "./Admin.layout";
 export const AdminPage: FeaturePageComponent = () => {
   const { user } = useUser();
 
-  return <h1>Welcome, {user ? user.name : "-- --"}</h1>;
+  return (
+    <>
+      <h1>Welcome, {user ? user.name : "-- --"}</h1>
+      <a href="/api/auth/logout?returnTo=/admin/sign-in">sign out</a>
+    </>
+  );
 };
 
 AdminPage.withPageLayout = withAdminPageLayout;
