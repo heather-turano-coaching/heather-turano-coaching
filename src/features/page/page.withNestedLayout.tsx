@@ -1,14 +1,12 @@
 import React, { FC } from "react";
 
-import { FeaturePageComponent } from "./page.model";
+import { PageProps } from "./page.model";
 
-export const withNestedLayout = <
-  P extends Record<string, unknown> = Record<string, unknown>
->(
-  NestedLayoutComponent: FC<P>,
-  PageComponent: FeaturePageComponent<P>
-): FC<P> => {
-  return function NestedLayout(props) {
+export const withNestedLayout = <P extends Record<string, unknown>>(
+  NestedLayoutComponent: FC<PageProps<P>>,
+  PageComponent: FC<PageProps<P>>
+) => {
+  return function NestedLayout(props: PageProps<P>) {
     return (
       <NestedLayoutComponent {...props}>
         <PageComponent {...props} />

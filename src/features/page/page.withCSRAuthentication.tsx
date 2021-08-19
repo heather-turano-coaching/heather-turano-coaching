@@ -5,17 +5,12 @@ import {
 } from "@auth0/nextjs-auth0";
 import React, { FC } from "react";
 
-import {
-  DefaultPageComponentProps,
-  FeaturePageComponent,
-  PageComponentProps
-} from "./page.model";
+import { FeaturePageComponent, PageProps } from "./page.model";
 import { withPage } from "./page.withPage";
 import { PageLoading } from "./PageLoading";
 
 export const withCSRAuthentication = <
-  P extends PageComponentProps &
-    WithPageAuthRequiredProps = DefaultPageComponentProps & {
+  P extends PageProps & WithPageAuthRequiredProps = PageProps & {
     user: UserProfile;
   }
 >(

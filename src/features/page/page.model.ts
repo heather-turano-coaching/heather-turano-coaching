@@ -10,12 +10,6 @@ import {
 import { AppProps } from "next/app";
 import { FC } from "react";
 
-export type PageComponentProps = {
-  preview: boolean | undefined;
-};
-export type DefaultPageComponentProps = Record<string, unknown> &
-  PageComponentProps;
-
 export type PageProps<P = Record<string, unknown>> = {
   preview: boolean | undefined;
 } & P;
@@ -27,17 +21,18 @@ export type ContentfulPageProps<P = Record<string, unknown>> =
 
 export type WithPage<P> = (
   FeaturePageComponent: FeaturePageComponent<P>
-) => FC<P & PageComponentProps>;
+) => FC<P & PageProps<P>>;
 
-export type WithPageLayout<P = DefaultPageComponentProps> = (
-  PageComponent: FeaturePageComponent<P>
-) => FC<P & PageComponentProps>;
+export type PageLayout<P = Record<string, unknown>> = FC<PageProps<P>>;
+
+export type WithPageLayout<P = PageProps> = (
+  PageComponent: FC<PageProps<P>>
+) => FC<PageProps<P>>;
 
 // `src/feature` pages
-export type FeaturePageComponent<P = DefaultPageComponentProps> =
-  React.FC<P> & {
-    withPageLayout: WithPageLayout<P>;
-  };
+export type FeaturePageComponent<P = PageProps> = React.FC<P> & {
+  withPageLayout: WithPageLayout<P>;
+};
 
 // utils
 export type GetAuthenticatedServerSideProps<
