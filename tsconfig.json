@@ -14,6 +14,7 @@
     "baseUrl": "./", // import directly from the root directory
     "paths": {
       "@htc/components/*": ["src/components/*"],
+      "@htc/features/*": ["src/features/*"],
       "@htc/design-system": ["src/design-system/index.ts"],
       "@htc/documents/*": ["src/documents/*"],
       "@htc/hooks": ["src/hooks"],

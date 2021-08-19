@@ -1,22 +1,4 @@
-import { PageComponent } from "@htc/lib/page";
-import { NextSeo } from "next-seo";
-import React from "react";
-import { SubscriptionSuccessful } from "src/features/subscription";
+import { withPage } from "@htc/features/page";
+import { SubscriptionSuccessful } from "@htc/features/subscription-successful";
 
-const Page: PageComponent = (props) => {
-  return (
-    <>
-      <NextSeo
-        nofollow
-        noindex
-        title="Subscriptiong Activated!"
-        description="You have successfully signed up for email services. Yasss!"
-      />
-      <SubscriptionSuccessful {...props} />
-    </>
-  );
-};
-
-Page.getPageLayout = SubscriptionSuccessful.getPageLayout;
-
-export default Page;
+export default withPage(SubscriptionSuccessful);

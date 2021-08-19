@@ -1,30 +1,33 @@
 import { Hero } from "@htc/components/content";
+import { ContentfulPageProps, FeaturePageComponent } from "@htc/features/page";
 import { EBEventsResponse } from "@htc/lib/eventbrite";
-import { PageComponent } from "@htc/lib/page";
 import { makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
 import React from "react";
 import { css } from "styled-components";
 
-import { LayoutRoot } from "../layout";
+import { ContentfulSeo } from "../seo";
+import { withEventsPageLayout } from "./Events.layout";
 import { EventsFuture } from "./EventsFuture";
 import { EventsPast } from "./EventsPast";
 import { EventsSection } from "./EventsSection";
 
-export type EventsPageProps = {
+export type EventsPageProps = ContentfulPageProps<{
   futureEvents: EBEventsResponse;
   pastEvents: EBEventsResponse;
-};
+}>;
 
-export const EventsPage: PageComponent<EventsPageProps> = ({
-  contentfulPageData: {
-    fields: { hero }
-  },
+export const EventsPage: FeaturePageComponent<EventsPageProps> = ({
+  contentfulPageData,
   pastEvents,
   futureEvents
 }) => {
+  const {
+    fields: { hero }
+  } = contentfulPageData;
   return (
     <>
+      <ContentfulSeo contentfulPageData={contentfulPageData} />
       {hero && <Hero {...hero.fields} hideGradient />}
       <div
         css={css`
@@ -46,6 +49,4 @@ export const EventsPage: PageComponent<EventsPageProps> = ({
   );
 };
 
-EventsPage.getPageLayout = function getPageLayout(page, { preview }) {
-  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
-};
+EventsPage.withPageLayout = withEventsPageLayout;

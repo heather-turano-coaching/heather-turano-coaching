@@ -1,3 +1,5 @@
+import { BlogPage, BlogPageProps } from "@htc/features/blog";
+import { withPage } from "@htc/features/page";
 import {
   GetAllGhostPosts,
   GetFeaturedGhostPost,
@@ -5,15 +7,12 @@ import {
   getGhostFeaturedPostEndpoint,
   ghostClient
 } from "@htc/lib/ghost";
-import { GetContentfulPageProps, PageComponent } from "@htc/lib/page";
 import { getContentfulPageById } from "@htc/lib/server/contentful";
-import React from "react";
-import { BlogPage, BlogPageProps } from "src/features/blog";
-import { ContentfulSeo } from "src/features/seo";
+import { GetStaticProps } from "next";
 
 export const blogPageId = "7inppspqzOyqyHJ9r8viIj";
 
-export const getStaticProps: GetContentfulPageProps<BlogPageProps> = async ({
+export const getStaticProps: GetStaticProps<BlogPageProps> = async ({
   params,
   preview = false
 }) => {
@@ -43,15 +42,4 @@ export const getStaticProps: GetContentfulPageProps<BlogPageProps> = async ({
   }
 };
 
-const Page: PageComponent<BlogPageProps> = (props) => {
-  return (
-    <>
-      <ContentfulSeo {...props} />
-      <BlogPage {...props} />
-    </>
-  );
-};
-
-Page.getPageLayout = BlogPage.getPageLayout;
-
-export default Page;
+export default withPage<BlogPageProps>(BlogPage);

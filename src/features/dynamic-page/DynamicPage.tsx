@@ -1,22 +1,33 @@
 import { Blocks, Hero } from "@htc/components/content";
-import { PageComponent } from "@htc/lib/page";
+import { ContentfulPageProps, FeaturePageComponent } from "@htc/features/page";
+import { ContentfulSeo } from "@htc/features/seo";
+import { useRouter } from "next/router";
 import React from "react";
 
-import { LayoutRoot } from "../layout";
+import { withDynamicPagePageLayout } from "./DynamicPage.layout";
 
-export const DynamicPage: PageComponent = ({ contentfulPageData }) => {
+export type DynamicPageProps = ContentfulPageProps;
+
+export const DynamicPage: FeaturePageComponent<DynamicPageProps> = ({
+  contentfulPageData
+}) => {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
   const {
     fields: { hero, blocks }
   } = contentfulPageData;
 
   return (
     <>
+      <ContentfulSeo contentfulPageData={contentfulPageData} />
       {hero && <Hero {...hero.fields} />}
       <Blocks blocks={blocks} />
     </>
   );
 };
 
-DynamicPage.getPageLayout = function getPageLayout(page, { preview }) {
-  return <LayoutRoot preview={preview}>{page}</LayoutRoot>;
-};
+DynamicPage.withPageLayout = withDynamicPagePageLayout;

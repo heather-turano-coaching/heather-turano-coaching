@@ -1,14 +1,13 @@
+import { withPage } from "@htc/features/page";
 import {
   getFutureEventbriteEvents,
   getPastEventbriteEvents
 } from "@htc/lib/eventbrite";
-import { GetContentfulPageProps, PageComponent } from "@htc/lib/page";
 import { getContentfulPageById } from "@htc/lib/server/contentful";
-import React from "react";
+import { GetStaticProps } from "next";
 import { EventsPage, EventsPageProps } from "src/features/events";
-import { ContentfulSeo } from "src/features/seo";
 
-export const getStaticProps: GetContentfulPageProps<EventsPageProps> = async ({
+export const getStaticProps: GetStaticProps<EventsPageProps> = async ({
   preview = false
 }) => {
   try {
@@ -34,15 +33,4 @@ export const getStaticProps: GetContentfulPageProps<EventsPageProps> = async ({
   }
 };
 
-const Page: PageComponent<EventsPageProps> = (props) => {
-  return (
-    <>
-      <ContentfulSeo {...props} />
-      <EventsPage {...props} />
-    </>
-  );
-};
-
-Page.getPageLayout = EventsPage.getPageLayout;
-
-export default Page;
+export default withPage(EventsPage);

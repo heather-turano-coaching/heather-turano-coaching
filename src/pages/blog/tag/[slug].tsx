@@ -1,14 +1,12 @@
+import { BlogTagPage, BlogTagPageProps } from "@htc/features/blog-tag";
+import { withPage } from "@htc/features/page";
 import { getEndpoint } from "@htc/lib/endpoint";
 import {
   GetAllGhostPosts,
   getAllGhostPostsByTagSlugEndpoint,
   ghostClient
 } from "@htc/lib/ghost";
-import { GetGhostPageProps, PageComponent } from "@htc/lib/page";
-import { GetStaticPaths } from "next";
-import { NextSeo } from "next-seo";
-import React from "react";
-import { BlogTagPage, BlogTagPageProps } from "src/features/blog";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   const allSlugs = await ghostClient<{ tags: { slug: string }[] }>(
@@ -30,7 +28,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   };
 };
 
-export const getStaticProps: GetGhostPageProps<BlogTagPageProps> = async ({
+export const getStaticProps: GetStaticProps<BlogTagPageProps> = async ({
   params,
   preview = false
 }) => {
@@ -59,18 +57,4 @@ export const getStaticProps: GetGhostPageProps<BlogTagPageProps> = async ({
   }
 };
 
-const Page: PageComponent<BlogTagPageProps> = (props) => {
-  return (
-    <>
-      <NextSeo
-        title={props.slug}
-        description={`Read the latest posts from Heather that are tagged with "${props.slug}"`}
-      />
-      <BlogTagPage {...props} />
-    </>
-  );
-};
-
-Page.getPageLayout = BlogTagPage.getPageLayout;
-
-export default Page;
+export default withPage<BlogTagPageProps>(BlogTagPage);

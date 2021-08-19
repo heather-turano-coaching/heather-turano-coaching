@@ -1,3 +1,4 @@
+import { UserProvider } from "@auth0/nextjs-auth0";
 import { makeRem } from "@htc/theme";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
@@ -32,11 +33,10 @@ export default function MyApp({
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const getLayout = Component.getPageLayout || ((page) => page);
   const preview = pageProps.preview || false;
 
-  return getLayout(
-    <>
+  return (
+    <UserProvider>
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -73,7 +73,6 @@ export default function MyApp({
       </Head>
       <DefaultSeo {...defaultSeoConfig} />
       <Component {...pageProps} />
-    </>,
-    pageProps
+    </UserProvider>
   );
 }
