@@ -1,6 +1,10 @@
 import { LegalDocPage, LegalDocProps } from "@htc/features/legal";
 import { withPage } from "@htc/features/page";
-import { getAllLegalDocs, getLegalDocBySlug } from "@htc/lib/server/lib.legal";
+import {
+  getAllLegalDocs,
+  getLegalDocBySlug,
+  getLegalDocSlugs
+} from "@htc/lib/server/lib.legal";
 import markdownToHtml from "@htc/lib/server/lib.markdown-to-html";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -15,7 +19,7 @@ export const getStaticPaths: GetStaticPaths = () => {
         }
       };
     }),
-    fallback: true
+    fallback: "blocking"
   };
 };
 
@@ -24,15 +28,24 @@ export const getStaticProps: GetStaticProps<LegalDocProps> = async ({
 }) => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const legalDoc = getLegalDocBySlug(params.slug, ["slug", "content"]);
-
+  const legalDoc = getLegalDocBySlug(params.slug, ["slug", "content", "title"]);
+  const legalDocRoutes: LegalDocProps["legalDocRoutes"] =
+    getLegalDocSlugs().map((slug) => {
+      return {
+        href: `/legal/${slug}`,
+        title: slug.split("-").join(" ")
+      };
+    });
   const content = await markdownToHtml(legalDoc.content || "");
+
   return {
     props: {
       legalDoc: {
         ...legalDoc,
+        slug: legalDoc.slug,
         content
-      }
+      },
+      legalDocRoutes
     }
   };
 };

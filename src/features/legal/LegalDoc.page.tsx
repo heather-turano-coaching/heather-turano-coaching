@@ -7,7 +7,9 @@ export type LegalDocProps = {
   legalDoc: {
     [key: string]: string;
     content: string;
+    slug: string;
   };
+  legalDocRoutes: { href: string; title: string }[];
 };
 
 export const LegalDocPage: FeaturePageComponent<LegalDocProps> = (props) => {
@@ -15,7 +17,6 @@ export const LegalDocPage: FeaturePageComponent<LegalDocProps> = (props) => {
   if (!router.isFallback && !props?.legalDoc.slug) {
     return <div>uh oh...</div>;
   }
-
   return <code>{JSON.stringify(props, null, 4)}</code>;
 };
 
