@@ -31,7 +31,7 @@ export type WithPageLayout<P = PageProps> = (
 
 // `src/feature` pages
 export type FeaturePageComponent<P = PageProps> = React.FC<P> & {
-  withPageLayout: WithPageLayout<P>;
+  withPageLayout: WithPageLayout<PageProps<P>>;
 };
 
 // utils

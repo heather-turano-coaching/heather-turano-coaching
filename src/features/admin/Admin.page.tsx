@@ -9,7 +9,7 @@ export const AdminPage: FeaturePageComponent = () => {
   return (
     <>
       <h1>Welcome, {user ? user.name : "-- --"}</h1>
-      <a href="/api/auth/logout?returnTo=/admin/sign-in">sign out</a>
+      {/* <a href="/api/auth/logout?returnTo=/admin/sign-in">sign out</a> */}
     </>
   );
 };

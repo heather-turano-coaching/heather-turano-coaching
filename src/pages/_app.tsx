@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { UserProvider } from "@auth0/nextjs-auth0";
 import { CookiesConsent } from "@htc/features/cookies";
 import { SWRProvider } from "@htc/lib/swr";
@@ -11,6 +12,10 @@ import Script from "next/script";
 import React, { ReactElement, useEffect } from "react";
 import { defaultSeoConfig } from "src/features/seo";
 import { css } from "styled-components";
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import styles from "./_app.css";
 
 export default function MyApp({
   Component,

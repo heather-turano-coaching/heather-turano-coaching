@@ -34,41 +34,39 @@ const StyledCard = styled.a`
 
 export const LegalPage: FeaturePageComponent = () => {
   return (
-    <div css={css``}>
-      <Container>
-        <Typography
-          variant="body1"
-          css={css`
-            && {
-              text-align: center;
+    <Container>
+      <Typography
+        variant="body1"
+        css={css`
+          && {
+            text-align: center;
+          }
+        `}
+      >
+        Feel free to visit one of the links below to understand more about the
+        legal parameters required and expected of our users while using{" "}
+        <strong>heatherturanocoaching.com</strong>.
+      </Typography>
+      <div
+        css={css`
+          ${({ theme }) => css`
+            padding: ${makeRem(48)} 0 ${makeRem(64)};
+            ${makeDesktopStyles(theme)} {
+              display: flex;
+              justify-content: center;
             }
           `}
-        >
-          Feel free to visit one of the links below to understand more about the
-          legal parameters required and expected of our users while using{" "}
-          <strong>heatherturanocoaching.com</strong>.
-        </Typography>
-        <div
-          css={css`
-            ${({ theme }) => css`
-              padding: ${makeRem(48)} 0 ${makeRem(64)};
-              ${makeDesktopStyles(theme)} {
-                display: flex;
-                justify-content: center;
-              }
-            `}
-          `}
-        >
-          <Link href="/legal/privacy-policy">
-            <StyledCard>
-              <Typography variant="h5" component="div">
-                Privacy Policy
-              </Typography>
-            </StyledCard>
-          </Link>
-        </div>
-      </Container>
-    </div>
+        `}
+      >
+        <Link href="/legal/privacy-policy" passHref>
+          <StyledCard>
+            <Typography variant="h5" component="div">
+              Privacy Policy
+            </Typography>
+          </StyledCard>
+        </Link>
+      </div>
+    </Container>
   );
 };
 

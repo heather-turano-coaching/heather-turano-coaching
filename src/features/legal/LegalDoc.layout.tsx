@@ -113,7 +113,7 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
               `}
             `}
           >
-            <Link href={route.href}>
+            <Link href={route.href} passHref>
               <ActiveLink isActive={route.href.includes(props.legalDoc.slug)}>
                 <Typography variant="body1" component="div">
                   {route.title}
