@@ -11,7 +11,7 @@ import { withLegalPageLayout } from "./Legal.layout";
 const StyledCard = styled.a`
   padding: ${makeRem(32)};
   box-shadow: 0 0 17px rgb(205, 215, 216);
-  min-height: ${makeRem(240)};
+  min-height: ${makeRem(180)};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,10 +19,12 @@ const StyledCard = styled.a`
 
   ${({ theme }) => css`
     min-width: 100%;
+    transform: scale(1);
 
     ${makeDesktopStyles(theme)} {
       min-width: 33.333%;
-      transform: scale(1);
+      margin-left: ${makeRem(16)};
+      margin-right: ${makeRem(16)};
 
       &:hover {
         transform: scale(1.1);
@@ -62,6 +64,13 @@ export const LegalPage: FeaturePageComponent = () => {
           <StyledCard>
             <Typography variant="h5" component="div">
               Privacy Policy
+            </Typography>
+          </StyledCard>
+        </Link>
+        <Link href="/legal/terms-of-service" passHref>
+          <StyledCard>
+            <Typography variant="h5" component="div">
+              Terms of Service
             </Typography>
           </StyledCard>
         </Link>

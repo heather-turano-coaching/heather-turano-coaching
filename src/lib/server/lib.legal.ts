@@ -3,11 +3,10 @@ import { join } from "path";
 
 import matter from "gray-matter";
 
-const legalDir = join(process.cwd(), "./src/features/legal");
+const legalDir = join(process.cwd(), "./src/features/legal/docs");
 
 export const parseLegalDocSlug = (slug: string) => {
-  const slugWithoutMd = slug.replace(/\.md$/, "");
-  const realSlug = slugWithoutMd.replace(/^(legal\.)/, "");
+  const realSlug = slug.replace(/\.md$/, "");
   return realSlug;
 };
 
@@ -18,7 +17,7 @@ export const getLegalDocSlugs = () =>
     .map((slug) => parseLegalDocSlug(slug));
 
 export const getLegalDocBySlug = (slug: string, fields: string[]) => {
-  const fullPath = join(legalDir, `legal.${slug}.md`);
+  const fullPath = join(legalDir, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
