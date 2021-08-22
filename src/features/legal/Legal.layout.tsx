@@ -1,4 +1,4 @@
-import { Title } from "@htc/components/atomic";
+import { Container, Title } from "@htc/components/atomic";
 import { LayoutRoot } from "@htc/features/layout";
 import { PageLayout } from "@htc/features/page";
 import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
@@ -15,9 +15,12 @@ export const LegalPageLayout: PageLayout = ({ children, ...props }) => {
           <div
             css={css`
               margin-top: ${makeRem(48)};
+              text-align: center;
             `}
           >
-            <Title size="lg">Legal</Title>
+            <Container>
+              <Title size="lg">Legal</Title>
+            </Container>
           </div>
         ),
         []
