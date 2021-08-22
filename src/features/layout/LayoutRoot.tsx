@@ -1,16 +1,9 @@
 import { FooterNav, HeaderNav } from "@htc/components/content";
-import { SWRProvider } from "@htc/lib/swr";
-import { HTCTheme, makeRem } from "@htc/theme";
+import { makeRem } from "@htc/theme";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { useCallback } from "react";
 import { css } from "styled-components";
-
-const Providers: FC = ({ children }) => (
-  <HTCTheme>
-    <SWRProvider>{children}</SWRProvider>
-  </HTCTheme>
-);
 
 export const LayoutRoot: FC<{
   preview: boolean | undefined;
@@ -23,11 +16,9 @@ export const LayoutRoot: FC<{
 
   return (
     <>
-      <Providers>
-        <HeaderNav hideNavBar={hideNavBar} />
-        {children}
-        <FooterNav />
-      </Providers>
+      <HeaderNav hideNavBar={hideNavBar} />
+      {children}
+      <FooterNav />
       {preview && (
         <div
           css={css`

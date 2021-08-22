@@ -10,5 +10,6 @@ export * from "./types";
 // new
 export * from "./AweberForm";
 export * from "./RichText";
+export * from "./RichTextHTML";
 export * from "./TextStyles";
 export * from "./TextStylesBlog";

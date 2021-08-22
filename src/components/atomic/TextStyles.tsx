@@ -21,7 +21,8 @@ export const TextStyles = styled.div`
     `};
   }
 
-  p {
+  p,
+  li {
     font-family: "Muli";
     font-size: ${makeRem(16)};
     line-height: ${makeRem(16 * 2)};

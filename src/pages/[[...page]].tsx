@@ -45,7 +45,7 @@ export const getStaticPaths: GetStaticPaths<{ page: string[] | undefined }> =
 
     return {
       paths,
-      fallback: true
+      fallback: false
     };
   };
 
