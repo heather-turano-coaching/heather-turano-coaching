@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-css-tags */
 import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@material-ui/core/styles";
 import Document, {
   DocumentContext,
@@ -48,7 +49,10 @@ export default class MyDocument extends Document {
   render(): ReactElement {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link rel="stylesheet" href="/fonts/muli/muli.css" />
+          <link rel="stylesheet" href="/fonts/montserrat/montserrat.css" />
+        </Head>
         <body>
           <Main />
           <NextScript />

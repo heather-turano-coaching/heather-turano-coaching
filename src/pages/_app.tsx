@@ -13,10 +13,6 @@ import React, { ReactElement, useEffect } from "react";
 import { defaultSeoConfig } from "src/features/seo";
 import { css } from "styled-components";
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import styles from "./_app.css";
-
 export default function MyApp({
   Component,
   pageProps
