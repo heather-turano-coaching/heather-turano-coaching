@@ -71,16 +71,18 @@ export default function MyApp({
                 <br />
                 <br />
                 We never have and <strong>never will</strong> collect and/or
-                sell your personal data. Read more about our{" "}
-                <Link href="/cookie-policy">
+                sell your personal data. Read more about our use of cookies in
+                our{" "}
+                <Link href="/legal/privacy-policy">
                   <a
                     css={css`
                       text-decoration: underline;
                     `}
                   >
-                    cookie policy
+                    privacy policy
                   </a>
                 </Link>
+                <span>.</span>
               </div>
             }
           >
