@@ -1,5 +1,10 @@
 import { PageLayout, withPageLayout } from "@htc/features/page";
-import { makeDesktopStyles, makeFontWeight, makeRem } from "@htc/theme";
+import {
+  makeDesktopStyles,
+  makeFontWeight,
+  makeMobileStyles,
+  makeRem
+} from "@htc/theme";
 import { Typography } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";
@@ -20,19 +25,32 @@ export const ActiveLink = styled.a<{ isActive: boolean }>`
     isActive &&
     css`
       color: ${theme.palette.primary.dark};
-      padding-left: ${makeRem(24)} !important;
       position: relative;
 
+      &::before {
+        background: ${theme.palette.primary.dark};
+        display: block;
+        position: absolute;
+      }
+
+      ${makeMobileStyles(theme)} {
+        &::before {
+          content: "";
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: ${makeRem(2)};
+        }
+      }
+
       ${makeDesktopStyles(theme)} {
+        padding-left: ${makeRem(24)} !important;
         &::before {
           content: "";
           left: 0;
           top: 0;
           bottom: 0;
           width: ${makeRem(4)};
-          background: ${theme.palette.primary.dark};
-          display: block;
-          position: absolute;
         }
       }
 
@@ -73,7 +91,8 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
             ${makeDesktopStyles(theme)} {
               flex-direction: column;
               justify-content: flex-start;
-              min-width: ${makeRem(260)};
+              min-width: ${makeRem(240)};
+              max-width: 20%;
               margin-right: ${makeRem(40)};
               border-right: 1px solid ${theme.palette.light.main};
             }
@@ -85,9 +104,13 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
             key={route.href}
             css={css`
               width: 100%;
-              &:not(:first-child) {
-                margin-top: ${makeRem(16)};
-              }
+              ${({ theme }) => css`
+                ${makeDesktopStyles(theme)} {
+                  &:not(:first-child) {
+                    margin-top: ${makeRem(16)};
+                  }
+                }
+              `}
             `}
           >
             <Link href={route.href}>
@@ -100,7 +123,20 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
           </li>
         ))}
       </ul>
-      {children}
+      <div
+        css={css`
+          ${({ theme }) => css`
+            padding-left: ${makeRem(36)};
+            padding-right: ${makeRem(36)};
+
+            ${makeDesktopStyles(theme)} {
+              max-width: ${makeRem(740)};
+            }
+          `}
+        `}
+      >
+        {children}
+      </div>
     </LegalPageLayout>
   );
 };

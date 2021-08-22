@@ -1,3 +1,4 @@
+import { RichTextHTML } from "@htc/components/atomic";
 import { FeaturePageComponent } from "@htc/features/page";
 import { useRouter } from "next/router";
 
@@ -17,7 +18,11 @@ export const LegalDocPage: FeaturePageComponent<LegalDocProps> = (props) => {
   if (!router.isFallback && !props?.legalDoc.slug) {
     return <div>uh oh...</div>;
   }
-  return <code>{JSON.stringify(props, null, 4)}</code>;
+  return (
+    <RichTextHTML htmlString={props.legalDoc.content}>
+      {JSON.stringify(props, null, 4)}
+    </RichTextHTML>
+  );
 };
 
 LegalDocPage.withPageLayout = withLegalDocPageLayout;

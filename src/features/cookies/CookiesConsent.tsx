@@ -53,8 +53,9 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
           bottom: 0;
           height: auto;
           z-index: 100;
-          background: ${rgba("#fff", 0.8)};
+          background: ${rgba("#fff", 0.93)};
           padding: ${makeRem(32)};
+          box-shadow: 0 0 17px rgb(205, 215, 216);
 
           ${({ theme }) => css`
             ${makeDesktopStyles(theme)} {
@@ -62,7 +63,6 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
               left: initial;
               right: ${makeRem(40)};
               bottom: ${makeRem(40)};
-              box-shadow: 0 0 17px rgb(205, 215, 216);
               border-radius: ${makeRem(4)};
             }
           `}
