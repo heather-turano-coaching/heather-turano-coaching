@@ -1,21 +1,18 @@
 import { LegalDocPage, LegalDocProps } from "@htc/features/legal";
 import { withPage } from "@htc/features/page";
-import {
-  getAllLegalDocs,
-  getLegalDocBySlug,
-  getLegalDocSlugs
-} from "@htc/lib/server/lib.legal";
+import { getLegalDocBySlug, getLegalDocSlugs } from "@htc/lib/server/lib.legal";
 import markdownToHtml from "@htc/lib/server/lib.markdown-to-html";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const legalDocs = getAllLegalDocs(["slug"]);
+  const slugs = getLegalDocSlugs();
 
   return {
-    paths: legalDocs.map((legalDoc) => {
+    paths: slugs.map((slug) => {
+      console.log(slug);
       return {
         params: {
-          slug: legalDoc.slug
+          slug
         }
       };
     }),
