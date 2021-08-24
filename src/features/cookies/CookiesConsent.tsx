@@ -1,6 +1,7 @@
 import { makeDesktopStyles, makeFontWeight, makeRem } from "@htc/theme";
 import { Button, Typography } from "@material-ui/core";
 import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 import { rgba } from "polished";
 import { useCallback } from "react";
 import { useRef } from "react";
@@ -23,6 +24,7 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
   title = "We Use Cookies",
   children
 }) => {
+  const { pathname } = useRouter();
   const cookieName = useRef(`${namespace}_${consentCookieName}`);
   const [didConsent, setDidConsent] = useState<"true" | "false" | undefined>(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -42,8 +44,13 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
     setDidConsent("false");
   }, [expiresInDays]);
 
-  // a decision hasn't been made
+  // a route has been restricted
+  if (pathname.includes("/links")) {
+    return null;
+  }
+
   if (typeof didConsent === "undefined") {
+    // a decision hasn't been made
     return (
       <div
         css={css`
