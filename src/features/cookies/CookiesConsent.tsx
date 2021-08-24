@@ -1,7 +1,11 @@
-import { makeDesktopStyles, makeFontWeight, makeRem } from "@htc/theme";
+import {
+  makeDesktopStyles,
+  makeFontWeight,
+  makeMobileStyles,
+  makeRem
+} from "@htc/theme";
 import { Button, Typography } from "@material-ui/core";
 import Cookies from "js-cookie";
-import { useRouter } from "next/router";
 import { rgba } from "polished";
 import { useCallback } from "react";
 import { useRef } from "react";
@@ -14,6 +18,7 @@ type CookiesConsentProps = {
   title?: string;
   description: ReactNode;
   expiresInDays?: number;
+  disableOnRoutes?: string[];
 };
 
 export const CookiesConsent: FC<CookiesConsentProps> = ({
@@ -24,7 +29,6 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
   title = "We Use Cookies",
   children
 }) => {
-  const { pathname } = useRouter();
   const cookieName = useRef(`${namespace}_${consentCookieName}`);
   const [didConsent, setDidConsent] = useState<"true" | "false" | undefined>(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -45,9 +49,9 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
   }, [expiresInDays]);
 
   // a route has been restricted
-  if (pathname.includes("/links")) {
-    return null;
-  }
+  // if (pathname.includes("/links")) {
+  //   return null;
+  // }
 
   if (typeof didConsent === "undefined") {
     // a decision hasn't been made
@@ -61,10 +65,12 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
           height: auto;
           z-index: 100;
           background: ${rgba("#fff", 0.93)};
-          padding: ${makeRem(32)};
+          padding: ${makeRem(16)} ${makeRem(32)};
           box-shadow: 0 0 17px rgb(205, 215, 216);
 
           ${({ theme }) => css`
+            ${makeMobileStyles(theme)} {
+            }
             ${makeDesktopStyles(theme)} {
               width: ${makeRem(360)};
               left: initial;
@@ -87,12 +93,31 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
               && {
                 margin-bottom: ${makeRem(20)};
                 font-weight: ${makeFontWeight("semiBold")};
+
+                ${({ theme }) => css`
+                  ${makeMobileStyles(theme)} {
+                    font-size: ${makeRem(18)};
+                  }
+                `}
               }
             `}
           >
             {title}
           </Typography>
-          <Typography variant="body2">{description}</Typography>
+          <Typography
+            variant="body2"
+            css={css`
+              && {
+                ${({ theme }) => css`
+                  ${makeMobileStyles(theme)} {
+                    font-size: ${makeRem(12)};
+                  }
+                `}
+              }
+            `}
+          >
+            {description}
+          </Typography>
         </div>
         <div
           css={css`

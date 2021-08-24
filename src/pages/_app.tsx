@@ -65,15 +65,10 @@ export default function MyApp({
             namespace="heatherturanocoaching"
             description={
               <div>
-                Some of them are essential and some of them are related to
-                helping us better understand you, but <strong>ALL</strong> of
-                them are used to help us provide you the best and most{" "}
-                <strong>private</strong> experince possible.
-                <br />
-                <br />
-                We never have and <strong>never will</strong> collect and/or
-                sell your personal data. Read more about our use of cookies in
-                our{" "}
+                All of our cookies are utilized to provide you{" "}
+                <strong>the best user experience</strong> possible. We never
+                have and <strong>never will</strong> collect and/or sell your
+                personal data. Read more about our use of cookies in our{" "}
                 <Link href="/legal/privacy-policy">
                   <a
                     css={css`
