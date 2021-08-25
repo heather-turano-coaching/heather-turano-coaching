@@ -1,4 +1,4 @@
-export const formString = `
+export const subscribeFormString = `
 <!-- AWeber Web Form Generator 3.0.1 -->
 
 <form method="post" class="af-form-wrapper" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl"  >
@@ -17,7 +17,7 @@ export const formString = `
 <div id="af-form-1923112781" class="af-form"><div id="af-body-1923112781" class="af-body af-standards">
 <div class="af-element">
 <label class="previewLabel" for="awf_field-109279700"></label>
-<div class="af-textWrap"><input class="text" id="awf_field-109279700" type="text" name="email" value="" tabindex="500" onfocus=" if (this.value == '') { this.value = ''; }" onblur="if (this.value == '') { this.value='';} " />
+<div class="af-textWrap"><input class="text" id="awf_field-109279700" type="text" placeholder="Email Address" name="email" value="" tabindex="500" onfocus=" if (this.value == '') { this.value = ''; }" onblur="if (this.value == '') { this.value='';} " />
 </div><div class="af-clear"></div>
 </div>
 <div class="af-element buttonContainer">

@@ -15,7 +15,7 @@ import { Forms } from "../forms";
 //   stacked: "layered"
 // };
 
-const BlockSimpleVariant = styled(Container)<{
+export const BlockSimpleVariant = styled(Container)<{
   variant: IBlockFields["type"];
 }>`
   max-width: ${makeRem(700)};

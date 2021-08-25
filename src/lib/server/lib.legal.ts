@@ -7,7 +7,6 @@ const legalDir = join(process.cwd(), "./src/features/legal/docs");
 
 export const parseLegalDocSlug = (slug: string) => {
   const realSlug = slug.replace(/\.md$/, "");
-  console.log("realSlug", realSlug);
   return realSlug;
 };
 
@@ -31,7 +30,6 @@ export const getLegalDocBySlug = (slug: string, fields: string[]) => {
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === "slug") {
-      console.log("field", slug);
       items[field] = slug;
     }
     if (field === "content") {
@@ -48,11 +46,9 @@ export const getLegalDocBySlug = (slug: string, fields: string[]) => {
 
 export const getAllLegalDocs = (fields: string[] = []) => {
   const slugs = getLegalDocSlugs();
-  console.log(slugs);
   const legalDocks = slugs.map((slug) =>
     getLegalDocBySlug(parseLegalDocSlug(slug), fields)
   );
-  console.log("legalDocks", legalDocks);
 
   return legalDocks;
 };
