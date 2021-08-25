@@ -2,10 +2,13 @@ import { BlogPostPage, BlogPostPageProps } from "@htc/features/blog-post";
 import { withPage } from "@htc/features/page";
 import { getEndpoint } from "@htc/lib/endpoint";
 import {
+  GetGhostPostsWithFilter,
   GetSingleGhostPostBySlug,
+  getAllGhostPostsByTagSlugEndpoint,
   getSingleGhostPostBySlugEndpoint,
   ghostClient
 } from "@htc/lib/ghost";
+import { PostOrPage } from "@tryghost/content-api";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
@@ -39,12 +42,57 @@ export const getStaticProps: GetStaticProps<BlogPostPageProps> = async ({
     const post = await ghostClient<GetSingleGhostPostBySlug & { slug: string }>(
       getSingleGhostPostBySlugEndpoint(slug)
     );
+    const blogPost = post.posts[0];
+    if (blogPost.tags && blogPost.tags.length > 3) {
+      const getSuggestedPosts1 = ghostClient<GetGhostPostsWithFilter>(
+        getAllGhostPostsByTagSlugEndpoint(blogPost.tags[0].slug)
+      );
+      const getSuggestedPosts2 = ghostClient<GetGhostPostsWithFilter>(
+        getAllGhostPostsByTagSlugEndpoint(blogPost.tags[1].slug)
+      );
+      const getSuggestedPosts3 = ghostClient<GetGhostPostsWithFilter>(
+        getAllGhostPostsByTagSlugEndpoint(blogPost.tags[2].slug)
+      );
+      const [suggestedPosts1, suggestedPosts2, suggestedPosts3] =
+        await Promise.all([
+          getSuggestedPosts1,
+          getSuggestedPosts2,
+          getSuggestedPosts3
+        ]);
+
+      const allSuggestedPosts = [
+        ...suggestedPosts1.posts,
+        ...suggestedPosts2.posts,
+        ...suggestedPosts3.posts
+      ].reduce<PostOrPage[]>((accum, post) => {
+        if (accum.length === 3) {
+          return accum;
+        }
+        if (accum.find((addedPost) => addedPost.id === post.id)) {
+          return accum;
+        }
+        if (post.id === blogPost.id) {
+          return accum;
+        }
+        return [...accum, post];
+      }, []);
+
+      return {
+        props: {
+          preview,
+          slug,
+          post: post.posts[0],
+          suggestedBlogPosts: allSuggestedPosts
+        }
+      };
+    }
 
     return {
       props: {
         preview,
         slug,
-        post: post.posts[0]
+        post: post.posts[0],
+        suggestedBlogPosts: []
       }
     };
   } catch {

@@ -42,7 +42,7 @@ export type GetLatestGhostPost = {
   posts: PostOrPage[];
 } & GhostMeta;
 export type GetSingleGhostPostBySlug = { posts: [PostOrPage] };
-
+export type GetGhostPostsWithFilter = { posts: PostOrPage[] & GhostMeta };
 /**
  * Endpoints
  */

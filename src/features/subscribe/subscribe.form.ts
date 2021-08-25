@@ -1,4 +1,4 @@
-export const formString = `
+export const subscribeFormString = `
 <!-- AWeber Web Form Generator 3.0.1 -->
 
 <form method="post" class="af-form-wrapper" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl"  >
