@@ -9,7 +9,6 @@ export const getStaticPaths: GetStaticPaths = () => {
 
   return {
     paths: slugs.map((slug) => {
-      console.log(slug);
       return {
         params: {
           slug
