@@ -4,7 +4,7 @@ import {
   TextStylesBlog,
   Title
 } from "@htc/components/atomic";
-import { BlockSimpleVariant, BlogSuggestedCard } from "@htc/components/content";
+import { BlockSimpleVariant, BlogCardSuggested } from "@htc/components/content";
 import { CSSImageBorder } from "@htc/components/styles";
 import { FeaturePageComponent, PageProps } from "@htc/features/page";
 import { GhostSeo } from "@htc/features/seo";
@@ -13,10 +13,11 @@ import {
   getSingleGhostPostBySlugEndpoint,
   ghostClient
 } from "@htc/lib/ghost";
-import { makeMobileStyles, makeRem } from "@htc/theme";
+import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
 import { formatLongDate } from "@htc/utils";
 import { Container, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
+import Link from "next/link";
 import React from "react";
 import { css } from "styled-components";
 import useSWR from "swr";
@@ -183,7 +184,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
       </div>
       <BlockSimpleVariant variant="plain">
         <Title size="md">You might be interested in...</Title>
-        <SectionCopy>
+        {/* <SectionCopy>
           <Typography
             css={css`
               && {
@@ -194,10 +195,27 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
             Based upon this article, we suggest the below for some more expanded
             readings...
           </Typography>
-        </SectionCopy>
-        {props.suggestedBlogPosts?.map((blogPost) => (
-          <BlogSuggestedCard key={blogPost.id} {...blogPost} />
-        ))}
+        </SectionCopy> */}
+        <ul
+          css={css`
+            ${({ theme }) => css`
+              ${makeDesktopStyles(theme)} {
+                display: flex;
+                justify-content: center;
+              }
+            `}
+          `}
+        >
+          {props.suggestedBlogPosts?.map((blogPost) => (
+            <li key={blogPost.id}>
+              <Link href={`/blog/${blogPost.slug}`} passHref>
+                <a>
+                  <BlogCardSuggested {...blogPost} />
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </BlockSimpleVariant>
     </>
   );

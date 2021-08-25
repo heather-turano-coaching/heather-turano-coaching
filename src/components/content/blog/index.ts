@@ -4,4 +4,4 @@ export * from "./BlogSection";
 export * from "./BlogSectionAll";
 export * from "./BlogSectionFeatured";
 export * from "./blog.useInfiniteBlogs";
-export * from "./BlogSuggestedCard";
+export * from "./BlogCardSuggested";
