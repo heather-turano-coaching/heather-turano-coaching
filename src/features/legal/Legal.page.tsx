@@ -1,6 +1,5 @@
-import { Container } from "@htc/components/atomic";
-import { makeDesktopStyles, makeRem } from "@htc/theme";
-import { Typography } from "@material-ui/core";
+import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
+import { Container, Typography } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";
 import styled, { css } from "styled-components";
@@ -20,6 +19,12 @@ const StyledCard = styled.a`
   ${({ theme }) => css`
     min-width: 100%;
     transform: scale(1);
+
+    ${makeMobileStyles(theme)} {
+      & + && {
+        margin-top: ${makeRem(32)};
+      }
+    }
 
     ${makeDesktopStyles(theme)} {
       min-width: 33.333%;
@@ -42,6 +47,8 @@ export const LegalPage: FeaturePageComponent = () => {
         css={css`
           && {
             text-align: center;
+            max-width: ${makeRem(700)};
+            margin: 0 auto;
           }
         `}
       >

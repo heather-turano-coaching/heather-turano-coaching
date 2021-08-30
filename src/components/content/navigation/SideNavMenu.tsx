@@ -1,6 +1,5 @@
 import { getEndpoint } from "@htc/lib/endpoint";
-import { IWebPage } from "@htc/lib/server/contentful";
-import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
+import { INavbar } from "@htc/lib/server/contentful";
 import { makeRem } from "@htc/theme";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
@@ -32,9 +31,9 @@ const StyledMenuSection = styled.div`
 
 export const SideNavMenu: FC = () => {
   const { asPath } = useRouter();
-  const { data } = useSWR<ContentfulPagination<IWebPage>>(
+  const { data } = useSWR<INavbar>(
     getEndpoint({
-      root: "/pages"
+      root: "/navigation/side"
     })
   );
 
@@ -52,54 +51,74 @@ export const SideNavMenu: FC = () => {
             width: ${makeRem(300)};
           `}
         >
-          {data?.items.map((webPageItem) => {
-            if (webPageItem.fields.displayInNavbar) {
-              return (
-                <SideNavMenuItem
-                  key={webPageItem.sys.id}
-                  label={webPageItem.fields.navbarLabel}
-                  disableLink={
-                    webPageItem.fields.url === "index"
-                      ? asPath.startsWith("/home")
-                      : asPath.startsWith(`/${webPageItem.fields.url}`)
-                  }
-                  href={
-                    webPageItem.fields.url === "index"
-                      ? "/"
-                      : webPageItem.fields.url
-                  }
-                />
-              );
-            }
-            return null;
-          })}
+          {data?.fields.group1?.map((page) => (
+            <SideNavMenuItem
+              key={page.sys.id}
+              label={page.fields.navbarLabel}
+              disableLink={
+                page.fields.url === "index"
+                  ? asPath.startsWith("/home")
+                  : asPath.startsWith(`/${page.fields.url}`)
+              }
+              href={page.fields.url === "index" ? "/" : page.fields.url}
+            />
+          ))}
         </motion.ul>
       </StyledMenuSection>
       {useMemo(
-        () => (
-          <StyledMenuSection>
-            <motion.ul
-              variants={variants}
-              css={css`
-                width: ${makeRem(300)};
-              `}
-            >
-              <SideNavMenuItem label="free consultation" href="/free-consult" />
-            </motion.ul>
-          </StyledMenuSection>
-        ),
-        []
+        () =>
+          data?.fields.group2 && (
+            <StyledMenuSection>
+              <motion.ul
+                variants={variants}
+                css={css`
+                  width: ${makeRem(300)};
+                `}
+              >
+                {data?.fields.group2?.map((page) => (
+                  <SideNavMenuItem
+                    key={page.sys.id}
+                    label={page.fields.navbarLabel}
+                    disableLink={
+                      page.fields.url === "index"
+                        ? asPath.startsWith("/home")
+                        : asPath.startsWith(`/${page.fields.url}`)
+                    }
+                    href={page.fields.url === "index" ? "/" : page.fields.url}
+                  />
+                ))}
+              </motion.ul>
+            </StyledMenuSection>
+          ),
+        [asPath, data?.fields.group2]
       )}
-      {/* <StyledMenuSection>
-        <motion.ul
-          variants={variants}
-          css={css`
-            width: ${makeRem(300)};
-          `}
-        >
-          <SideNavMenuItem label="contact me" href="/contact-me" />
-        </motion.ul>
-      </StyledMenuSection> */}
+      {useMemo(
+        () =>
+          data?.fields.group3 && (
+            <StyledMenuSection>
+              <motion.ul
+                variants={variants}
+                css={css`
+                  width: ${makeRem(300)};
+                `}
+              >
+                {data?.fields.group3?.map((page) => (
+                  <SideNavMenuItem
+                    key={page.sys.id}
+                    label={page.fields.navbarLabel}
+                    disableLink={
+                      page.fields.url === "index"
+                        ? asPath.startsWith("/home")
+                        : asPath.startsWith(`/${page.fields.url}`)
+                    }
+                    href={page.fields.url === "index" ? "/" : page.fields.url}
+                  />
+                ))}
+              </motion.ul>
+            </StyledMenuSection>
+          ),
+        [asPath, data?.fields.group3]
+      )}
     </div>
   );
 };

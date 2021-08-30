@@ -25,15 +25,15 @@ export const preview: NextApiHandler = async (req, res) => {
   dynamicContentfulPages.items.forEach((contentfulPage) => {
     if (
       contentfulPage.sys.id === slug &&
-      contentfulPage.fields.url === "index"
+      contentfulPage.fields.navbarItem.fields.url === "/"
     ) {
       url = "";
     }
     if (
       contentfulPage.sys.id === slug &&
-      contentfulPage.fields.url !== "index"
+      contentfulPage.fields.navbarItem.fields.url !== "/"
     ) {
-      url = contentfulPage.fields.url;
+      url = contentfulPage.fields.navbarItem.fields.url;
     }
   });
 
@@ -45,7 +45,7 @@ export const preview: NextApiHandler = async (req, res) => {
 
   res.setPreviewData({});
 
-  res.redirect(`/${url}`);
+  res.redirect(`${url}`);
 };
 
 export default preview;

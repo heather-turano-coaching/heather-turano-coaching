@@ -7,6 +7,7 @@ type ApiRoutes =
   | "/tags"
   | "/tags/slug"
   | "/events"
+  | "/navigation/side"
   | "/pages";
 
 export const parseDynamic = (

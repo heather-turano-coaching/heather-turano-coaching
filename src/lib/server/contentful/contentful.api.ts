@@ -138,9 +138,10 @@ export const getContentfulPageBySlug = async (
 ) => {
   const apiClient = getContentfulApiClient(options.preview);
 
-  return apiClient.getEntries<ContentfulPagination<IWebPage>>({
+  return apiClient.getEntries<IWebPage>({
     content_type: "webPage",
-    "fields.url": slug,
+    "fields.navbarItem.fields.url": slug,
+    "fields.navbarItem.sys.contentType.sys.id": "navbarItem",
     include: 10
   });
 };
