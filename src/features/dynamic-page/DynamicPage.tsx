@@ -11,8 +11,6 @@ export type DynamicPageProps = ContentfulPageProps;
 export const DynamicPage: FeaturePageComponent<DynamicPageProps> = ({
   contentfulPageData
 }) => {
-  console.log(contentfulPageData);
-
   const router = useRouter();
 
   if (router.isFallback) {

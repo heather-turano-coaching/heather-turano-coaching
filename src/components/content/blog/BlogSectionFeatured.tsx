@@ -9,7 +9,6 @@ import React, { FC } from "react";
 import { css } from "styled-components";
 
 export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
-  console.log(featuredPost);
   return (
     <div
       css={css`

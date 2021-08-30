@@ -29,7 +29,7 @@ export const getStaticPaths: GetStaticPaths<{ page: string[] | undefined }> =
               page:
                 item.fields.navbarItem.fields.url === "/"
                   ? undefined
-                  : [item.fields.navbarItem.fields.url]
+                  : [item.fields.navbarItem.fields.url.replace("/", "")]
             }
           }
         ];
@@ -47,12 +47,10 @@ export const getStaticProps: GetStaticProps<DynamicPageProps> = async ({
   params,
   preview = false
 }) => {
-  console.log(params);
   const slug = params?.page?.[0] ? `/${params.page[0]}` : "/";
   const page = await getContentfulPageBySlug(slug as string, {
     preview
   });
-  // console.log(page);
   const pageData = page.items[0];
 
   return {
