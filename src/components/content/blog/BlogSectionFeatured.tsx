@@ -9,6 +9,7 @@ import React, { FC } from "react";
 import { css } from "styled-components";
 
 export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
+  console.log(featuredPost);
   return (
     <div
       css={css`
@@ -106,7 +107,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
               margin-bottom: ${makeRem(48)} !important;
             `}
           >
-            {featuredPost.custom_excerpt}
+            {featuredPost.custom_excerpt || featuredPost.excerpt}
           </Typography>
         </div>
         <TagGroup>
