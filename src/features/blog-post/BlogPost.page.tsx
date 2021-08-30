@@ -209,7 +209,16 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
           {props.suggestedBlogPosts?.map((blogPost) => (
             <li key={blogPost.id}>
               <Link href={`/blog/${blogPost.slug}`} passHref>
-                <a>
+                <a
+                  css={css`
+                    ${({ theme }) => css`
+                      ${makeMobileStyles(theme)} {
+                        display: flex;
+                        justify-content: center;
+                      }
+                    `}
+                  `}
+                >
                   <BlogCardSuggested {...blogPost} />
                 </a>
               </Link>

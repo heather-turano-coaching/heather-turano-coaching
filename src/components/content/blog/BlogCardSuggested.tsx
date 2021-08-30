@@ -16,7 +16,7 @@ export const BlogCardSuggested: FC<PostOrPage> = (props) => {
   return (
     <div
       css={css`
-        min-height: ${makeRem(120)};
+        min-height: ${makeRem(180)};
         max-width: ${makeRem(300)};
         display: flex;
         justify-content: flex-start;
@@ -32,6 +32,7 @@ export const BlogCardSuggested: FC<PostOrPage> = (props) => {
             margin-left: ${makeRem(12)};
             margin-right: ${makeRem(12)};
             height: ${makeRem(340)};
+            min-width: ${makeRem(300)};
 
             &:hover {
               transform: scale(1.05);
