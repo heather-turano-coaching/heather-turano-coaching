@@ -22,7 +22,8 @@
     "src/**/*.tsx",
     ".eslintrc.js",
     "next.config.js",
-    "babel.config.js"
+    "babel.config.js",
+    "types/**/*.d.ts"
   ],
   "exclude": ["node_modules"]
 }

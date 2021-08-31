@@ -1,10 +1,10 @@
-export * from "./classification";
-export * from "./complex";
+export * from "./tag";
+export * from "./product";
 export * from "./display";
 export * from "./inputs";
 export * from "./layout";
 export * from "./messaging";
-export * from "./navigation";
+export * from "./footer";
 export * from "./types";
 
 // new
