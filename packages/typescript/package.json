@@ -1,0 +1,25 @@
+{
+  "name": "@htc/typescript",
+  "version": "1.0.0",
+  "description": "Shareable typescript base config for all Heather Turano Coaching, LLC projects",
+  "keywords": [
+    "htc",
+    "heather-turano-coaching",
+    "tsconfig",
+    "typescript"
+  ],
+  "author": "Drew DeCarme <drewdecarme@gmail.com>",
+  "homepage": "http://docs.heatherturanocoaching.com",
+  "license": "MIT",
+  "main": "tsconfig.json",
+  "files": [
+    "tsconfig.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heather-turano-coaching/heather-turano-coaching.git"
+  },
+  "bugs": {
+    "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
+  }
+}

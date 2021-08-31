@@ -23,10 +23,12 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            styledComponentSheet.collectStyles(
-              materialUiSheets.collect(<App {...props} />)
-            )
+          enhanceApp: (App) =>
+            function EnchanceApp(props) {
+              return styledComponentSheet.collectStyles(
+                materialUiSheets.collect(<App {...props} />)
+              );
+            }
         });
       const initialProps = await Document.getInitialProps(ctx);
 

@@ -84,6 +84,7 @@ export default function MyApp({
           >
             {process.env.NODE_ENV === "production" && (
               <Script
+                id="matomo"
                 dangerouslySetInnerHTML={{
                   __html: `
   var _paq = window._paq = window._paq || [];

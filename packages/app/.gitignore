@@ -29,17 +29,6 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-.env
-.env.production
 
 # vercel
 .vercel
-
-#### Custom
-# Generated Files
-contentful.model.ts
-
-# Packages
-node_modules
-.next
-dist

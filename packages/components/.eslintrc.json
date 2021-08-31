@@ -1,0 +1,3 @@
+{
+  "extends": "@htc/eslint-config/react-lib"
+}

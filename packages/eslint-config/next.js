@@ -11,7 +11,7 @@ module.exports = {
     },
     ecmaVersion: 2018,
     sourceType: "module",
-    project: ["./tsconfig.json"]
+    project: ["@htc/typescript/tsconfig.next.json"]
   },
   rules: {
     // Typescript Overrides
@@ -24,12 +24,6 @@ module.exports = {
     // Next Overrides
     "@next/next/no-img-element": 0,
     // Import Overrides
-    "import/no-anonymous-default-export": 0,
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        devDependencies: ["src/**/*.spec.ts*", "src/**/*.stories.tsx"]
-      }
-    ]
+    "import/no-anonymous-default-export": 0
   }
 };

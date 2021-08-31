@@ -1,0 +1,28 @@
+{
+  "extends": "@htc/typescript/tsconfig.next.json",
+  "compilerOptions": {
+    "baseUrl": "./", // import directly from the root directory
+    "paths": {
+      "@htc/components/*": ["src/components/*"],
+      "@htc/features/*": ["src/features/*"],
+      "@htc/design-system": ["src/design-system/index.ts"],
+      "@htc/documents/*": ["src/documents/*"],
+      "@htc/hooks": ["src/hooks"],
+      "@htc/icons": ["src/icons/index.ts"],
+      "@htc/images": ["src/images"],
+      "@htc/lib/*": ["src/lib/*"],
+      "@htc/models": ["src/models/index.ts"],
+      "@htc/theme": ["src/theme/index.ts"],
+      "@htc/utils": ["src/utils/index.ts"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".eslintrc.js",
+    "next.config.js",
+    "babel.config.js"
+  ],
+  "exclude": ["node_modules"]
+}
