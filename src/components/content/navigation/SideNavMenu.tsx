@@ -119,6 +119,33 @@ export const SideNavMenu: FC = () => {
           ),
         [asPath, data?.fields.group3]
       )}
+      {useMemo(
+        () =>
+          data?.fields.group4 && (
+            <StyledMenuSection>
+              <motion.ul
+                variants={variants}
+                css={css`
+                  width: ${makeRem(300)};
+                `}
+              >
+                {data?.fields.group4?.map((page) => (
+                  <SideNavMenuItem
+                    key={page.sys.id}
+                    label={page.fields.navbarLabel}
+                    disableLink={
+                      page.fields.url === "index"
+                        ? asPath.startsWith("/home")
+                        : asPath.startsWith(`/${page.fields.url}`)
+                    }
+                    href={page.fields.url === "index" ? "/" : page.fields.url}
+                  />
+                ))}
+              </motion.ul>
+            </StyledMenuSection>
+          ),
+        [asPath, data?.fields.group4]
+      )}
     </div>
   );
 };
