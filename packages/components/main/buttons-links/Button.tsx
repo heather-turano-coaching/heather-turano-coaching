@@ -123,7 +123,8 @@ export const StyledButton = styled.button<
 `;
 
 export const Button: FC<ButtonProps> = ({
-  label,
+  children,
+  label = undefined,
   styleType = "primary",
   loading = false,
   ...restProps
@@ -150,7 +151,7 @@ export const Button: FC<ButtonProps> = ({
         return { scalable: { color: "gray" } };
       })()}
     >
-      {label}
+      {label || children}
     </Typography>
   </StyledButton>
 );

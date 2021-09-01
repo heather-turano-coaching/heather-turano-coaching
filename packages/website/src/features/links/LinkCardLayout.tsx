@@ -1,4 +1,4 @@
-import { makeRem } from "@htc-website/components";
+import { theme.size.makeRem } from "@htc-website/components";
 import styled, { css } from "styled-components";
 
 export const LinkCardLayout = styled.div<{ orientation: "row" | "column" }>`
@@ -7,7 +7,7 @@ export const LinkCardLayout = styled.div<{ orientation: "row" | "column" }>`
     css`
       display: flex;
       & > * + * {
-        margin-left: ${makeRem(16)};
+        margin-left: ${theme.size.makeRem(16)};
       }
     `}
 `;

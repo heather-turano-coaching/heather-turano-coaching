@@ -1,8 +1,8 @@
 import {
-  makeDesktopStyles,
+  theme.breakpoints.laptop,
   makeFontWeight,
-  makeMobileStyles,
-  makeRem
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem
 } from "@htc-website/components";
 import { PageLayout, withPageLayout } from "@htc-website/features/page";
 import { Typography } from "@material-ui/core";
@@ -17,7 +17,7 @@ export const ActiveLink = styled.a<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: ${makeRem(50)};
+  height: ${theme.size.makeRem(50)};
   width: 100%;
   text-transform: capitalize;
 
@@ -33,24 +33,24 @@ export const ActiveLink = styled.a<{ isActive: boolean }>`
         position: absolute;
       }
 
-      ${makeMobileStyles(theme)} {
+      ${theme.breakpoints.mobileOnly(theme)} {
         &::before {
           content: "";
           left: 0;
           right: 0;
           bottom: 0;
-          height: ${makeRem(2)};
+          height: ${theme.size.makeRem(2)};
         }
       }
 
-      ${makeDesktopStyles(theme)} {
-        padding-left: ${makeRem(24)} !important;
+      ${theme.breakpoints.laptop(theme)} {
+        padding-left: ${theme.size.makeRem(24)} !important;
         &::before {
           content: "";
           left: 0;
           top: 0;
           bottom: 0;
-          width: ${makeRem(4)};
+          width: ${theme.size.makeRem(4)};
         }
       }
 
@@ -60,13 +60,13 @@ export const ActiveLink = styled.a<{ isActive: boolean }>`
     `}
 
   ${({ theme }) => css`
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop(theme)} {
       justify-content: flex-start;
-      padding-left: ${makeRem(20)};
-      padding-right: ${makeRem(20)};
+      padding-left: ${theme.size.makeRem(20)};
+      padding-right: ${theme.size.makeRem(20)};
 
       & > * {
-        font-size: ${makeRem(18)} !important;
+        font-size: ${theme.size.makeRem(18)} !important;
       }
     }
   `}
@@ -81,19 +81,19 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
       <ul
         css={css`
           width: 100%;
-          padding: ${makeRem(20)};
+          padding: ${theme.size.makeRem(20)};
           display: flex;
           justify-content: space-evenly;
-          margin-bottom: ${makeRem(40)};
+          margin-bottom: ${theme.size.makeRem(40)};
 
           ${({ theme }) => css`
             padding-top: 0;
-            ${makeDesktopStyles(theme)} {
+            ${theme.breakpoints.laptop(theme)} {
               flex-direction: column;
               justify-content: flex-start;
-              min-width: ${makeRem(240)};
+              min-width: ${theme.size.makeRem(240)};
               max-width: 20%;
-              margin-right: ${makeRem(40)};
+              margin-right: ${theme.size.makeRem(40)};
               border-right: 1px solid ${theme.palette.light.main};
             }
           `}
@@ -105,9 +105,9 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
             css={css`
               width: 100%;
               ${({ theme }) => css`
-                ${makeDesktopStyles(theme)} {
+                ${theme.breakpoints.laptop(theme)} {
                   &:not(:first-child) {
-                    margin-top: ${makeRem(16)};
+                    margin-top: ${theme.size.makeRem(16)};
                   }
                 }
               `}
@@ -126,11 +126,11 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
       <div
         css={css`
           ${({ theme }) => css`
-            padding-left: ${makeRem(36)};
-            padding-right: ${makeRem(36)};
+            padding-left: ${theme.size.makeRem(36)};
+            padding-right: ${theme.size.makeRem(36)};
 
-            ${makeDesktopStyles(theme)} {
-              max-width: ${makeRem(740)};
+            ${theme.breakpoints.laptop(theme)} {
+              max-width: ${theme.size.makeRem(740)};
             }
           `}
         `}

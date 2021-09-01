@@ -1,8 +1,8 @@
 import {
   Group,
-  makeDesktopStyles,
-  makeMobileStyles,
-  makeRem
+  theme.breakpoints.laptop,
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem
 } from "@htc/components";
 import { Button, Typography } from "@material-ui/core";
 import { differenceInHours, format } from "date-fns";
@@ -34,10 +34,10 @@ export const EventCard: FC<EventCardProps> = (props) => {
   return (
     <div
       css={css`
-        padding: ${makeRem(32)} 0;
+        padding: ${theme.size.makeRem(32)} 0;
 
         ${({ theme }) => css`
-          ${makeDesktopStyles(theme)} {
+          ${theme.breakpoints.laptop(theme)} {
             display: flex;
           }
         `}
@@ -49,19 +49,19 @@ export const EventCard: FC<EventCardProps> = (props) => {
         css={css`
           display: block;
           width: 100%;
-          height: ${makeRem(144)};
-          border-radius: ${makeRem(4)};
+          height: ${theme.size.makeRem(144)};
+          border-radius: ${theme.size.makeRem(4)};
           object-fit: cover;
 
           ${({ theme }) => css`
             background-color: ${theme.palette.primary.light};
-            ${makeMobileStyles(theme)} {
-              margin-bottom: ${makeRem(24)};
+            ${theme.breakpoints.mobileOnly(theme)} {
+              margin-bottom: ${theme.size.makeRem(24)};
             }
 
-            ${makeDesktopStyles(theme)} {
-              width: ${makeRem(144)};
-              margin-right: ${makeRem(32)};
+            ${theme.breakpoints.laptop(theme)} {
+              width: ${theme.size.makeRem(144)};
+              margin-right: ${theme.size.makeRem(32)};
             }
           `}
         `}
@@ -70,17 +70,17 @@ export const EventCard: FC<EventCardProps> = (props) => {
         css={css`
           flex: 1;
           ${({ theme }) => css`
-            ${makeMobileStyles(theme)} {
+            ${theme.breakpoints.mobileOnly(theme)} {
               & > .subHeader {
-                margin-bottom: ${makeRem(16)};
+                margin-bottom: ${theme.size.makeRem(16)};
               }
             }
 
-            ${makeDesktopStyles(theme)} {
+            ${theme.breakpoints.laptop(theme)} {
               & > .subHeader {
-                margin-bottom: ${makeRem(8)};
+                margin-bottom: ${theme.size.makeRem(8)};
               }
-              margin-right: ${makeRem(32)};
+              margin-right: ${theme.size.makeRem(32)};
             }
           `}
         `}
@@ -102,12 +102,12 @@ export const EventCard: FC<EventCardProps> = (props) => {
           css={css`
             && {
               ${({ theme }) => css`
-                ${makeMobileStyles(theme)} {
-                  margin-bottom: ${makeRem(16)};
+                ${theme.breakpoints.mobileOnly(theme)} {
+                  margin-bottom: ${theme.size.makeRem(16)};
                 }
 
-                ${makeDesktopStyles(theme)} {
-                  margin: ${makeRem(4)} 0 ${makeRem(16)} 0;
+                ${theme.breakpoints.laptop(theme)} {
+                  margin: ${theme.size.makeRem(4)} 0 ${theme.size.makeRem(16)} 0;
                 }
               `}
             }
@@ -120,12 +120,12 @@ export const EventCard: FC<EventCardProps> = (props) => {
       <div
         css={css`
           ${({ theme }) => css`
-            ${makeMobileStyles(theme)} {
+            ${theme.breakpoints.mobileOnly(theme)} {
               text-align: center;
-              margin-top: ${makeRem(60)};
+              margin-top: ${theme.size.makeRem(60)};
             }
 
-            ${makeDesktopStyles(theme)} {
+            ${theme.breakpoints.laptop(theme)} {
             }
           `}
         `}
@@ -150,12 +150,12 @@ export const EventCard: FC<EventCardProps> = (props) => {
         {/* <div
           css={css`
             ${({ theme }) => css`
-              ${makeMobileStyles(theme)} {
+              ${theme.breakpoints.mobileOnly(theme)} {
                 text-align: center;
-                margin-top: ${makeRem(32)};
+                margin-top: ${theme.size.makeRem(32)};
               }
 
-              ${makeDesktopStyles(theme)} {
+              ${theme.breakpoints.laptop(theme)} {
               }
             `}
           `}

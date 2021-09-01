@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [".eslintrc.js", "getContentfulEnvironment.js"],
+  "include": ["index.d.ts"]
+}

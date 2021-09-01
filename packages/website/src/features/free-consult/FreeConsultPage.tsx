@@ -1,4 +1,4 @@
-import { makeRem } from "@htc-website/components";
+import { theme.size.makeRem } from "@htc-website/components";
 /* eslint-disable @next/next/no-sync-scripts */
 import { FeaturePageComponent } from "@htc-website/features/page";
 import { NextSeo } from "next-seo";
@@ -17,7 +17,7 @@ export const FreeConsultPage: FeaturePageComponent = () => {
       />
       <div
         css={css`
-          height: ${makeRem(1000)};
+          height: ${theme.size.makeRem(1000)};
 
           .calendly-inline-widget {
             height: 100% !important;

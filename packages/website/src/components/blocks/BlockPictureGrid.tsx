@@ -1,4 +1,4 @@
-import { makeDesktopStyles, makeRem } from "@htc-website/components";
+import { theme.breakpoints.laptop, theme.size.makeRem } from "@htc-website/components";
 import { IBlockPictureGrid } from "@htc-website/lib/server/contentful";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -31,7 +31,7 @@ const StyledGridImage = styled.div`
   }
 
   ${({ theme }) => css`
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop(theme)} {
       & > .image {
         height: 100%;
 
@@ -54,7 +54,7 @@ export const BlockPictureGrid: FC<IBlockPictureGrid> = ({
           box-sizing: border-box;
         }
         ${({ theme }) => css`
-          ${makeDesktopStyles(theme)} {
+          ${theme.breakpoints.laptop(theme)} {
             display: flex;
           }
         `}
@@ -65,8 +65,8 @@ export const BlockPictureGrid: FC<IBlockPictureGrid> = ({
           flex: 1;
 
           ${({ theme }) => css`
-            ${makeDesktopStyles(theme)} {
-              padding: 0 ${makeRem(40)};
+            ${theme.breakpoints.laptop(theme)} {
+              padding: 0 ${theme.size.makeRem(40)};
               order: 2;
             }
 

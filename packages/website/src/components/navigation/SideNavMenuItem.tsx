@@ -1,4 +1,4 @@
-import { makeFontWeight, makeRem } from "@htc-website/components";
+import { makeFontWeight, theme.size.makeRem } from "@htc-website/components";
 import { Typography } from "@material-ui/core";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -89,7 +89,7 @@ export const SideNavMenuItem: FC<{
       {...whileHoverAndTab}
       css={css`
         list-style: none;
-        margin-bottom: ${makeRem(20)};
+        margin-bottom: ${theme.size.makeRem(20)};
         display: flex;
         align-items: center;
         cursor: ${disableLink ? "cursor" : "initial"};

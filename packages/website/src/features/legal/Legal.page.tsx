@@ -1,7 +1,7 @@
 import {
-  makeDesktopStyles,
-  makeMobileStyles,
-  makeRem
+  theme.breakpoints.laptop,
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem
 } from "@htc-website/components";
 import { Container, Typography } from "@material-ui/core";
 import Link from "next/link";
@@ -12,28 +12,28 @@ import { FeaturePageComponent } from "../page";
 import { withLegalPageLayout } from "./Legal.layout";
 
 const StyledCard = styled.a`
-  padding: ${makeRem(32)};
+  padding: ${theme.size.makeRem(32)};
   box-shadow: 0 0 17px rgb(205, 215, 216);
-  min-height: ${makeRem(180)};
+  min-height: ${theme.size.makeRem(180)};
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: ${makeRem(4)};
+  border-radius: ${theme.size.makeRem(4)};
 
   ${({ theme }) => css`
     min-width: 100%;
     transform: scale(1);
 
-    ${makeMobileStyles(theme)} {
+    ${theme.breakpoints.mobileOnly(theme)} {
       & + && {
-        margin-top: ${makeRem(32)};
+        margin-top: ${theme.size.makeRem(32)};
       }
     }
 
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop(theme)} {
       min-width: 33.333%;
-      margin-left: ${makeRem(16)};
-      margin-right: ${makeRem(16)};
+      margin-left: ${theme.size.makeRem(16)};
+      margin-right: ${theme.size.makeRem(16)};
 
       &:hover {
         transform: scale(1.1);
@@ -51,7 +51,7 @@ export const LegalPage: FeaturePageComponent = () => {
         css={css`
           && {
             text-align: center;
-            max-width: ${makeRem(700)};
+            max-width: ${theme.size.makeRem(700)};
             margin: 0 auto;
           }
         `}
@@ -63,8 +63,8 @@ export const LegalPage: FeaturePageComponent = () => {
       <div
         css={css`
           ${({ theme }) => css`
-            padding: ${makeRem(48)} 0 ${makeRem(64)};
-            ${makeDesktopStyles(theme)} {
+            padding: ${theme.size.makeRem(48)} 0 ${theme.size.makeRem(64)};
+            ${theme.breakpoints.laptop(theme)} {
               display: flex;
               justify-content: center;
             }

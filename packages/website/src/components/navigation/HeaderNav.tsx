@@ -1,7 +1,7 @@
 import {
-  makeDesktopStyles,
-  makeMobileStyles,
-  makeRem
+  theme.breakpoints.laptop,
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem
 } from "@htc-website/components";
 import Link from "next/link";
 import React, { FC, useEffect, useRef } from "react";
@@ -11,7 +11,7 @@ import styled, { css } from "styled-components";
 import { ActiveLink } from "./ActiveLink";
 import { SideNav } from "./SideNav";
 
-export const navbarHeight = makeRem(84);
+export const navbarHeight = theme.size.makeRem(84);
 export const fullScreenSansNavbar = `calc(100vh - ${navbarHeight})`;
 
 const NavbarContainer = styled.nav`
@@ -30,15 +30,15 @@ const MobileLogo = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: ${makeRem(200)};
+  height: ${theme.size.makeRem(200)};
 
   img {
-    width: ${makeRem(200)};
+    width: ${theme.size.makeRem(200)};
   }
 
   ${({ theme }) => {
     return css`
-      ${makeDesktopStyles(theme)} {
+      ${theme.breakpoints.laptop(theme)} {
         display: none;
       }
     `;
@@ -50,24 +50,24 @@ const DesktopLogo = styled.a`
     cursor: pointer;
     z-index: 100;
 
-    ${makeMobileStyles(theme)} {
+    ${theme.breakpoints.mobileOnly(theme)} {
       display: none;
     }
   `}
 
   img {
-    width: ${makeRem(200)};
+    width: ${theme.size.makeRem(200)};
   }
 `;
 
 const Navbar = styled.div`
   width: 100%;
   position: sticky;
-  top: -${makeRem(1)};
-  margin-top: ${makeRem(1)};
+  top: -${theme.size.makeRem(1)};
+  margin-top: ${theme.size.makeRem(1)};
   height: ${navbarHeight};
 
-  padding: 0 ${makeRem(24)};
+  padding: 0 ${theme.size.makeRem(24)};
   z-index: 100;
   transition: all 0.2s ease-in-out 0s;
 
@@ -76,7 +76,7 @@ const Navbar = styled.div`
   }
 
   ${({ theme }) => css`
-    ${makeMobileStyles(theme)} {
+    ${theme.breakpoints.mobileOnly(theme)} {
       background: ${theme.palette.light.light};
 
       &.stuck {
@@ -84,7 +84,7 @@ const Navbar = styled.div`
       }
     }
 
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop(theme)} {
       background: ${theme.palette.common.white};
       display: flex;
       flex-direction: row;
@@ -103,13 +103,13 @@ const NavbarUl = styled.ul`
   right: 0;
 
   ${({ theme }) => css`
-    ${makeMobileStyles(theme)} {
+    ${theme.breakpoints.mobileOnly(theme)} {
       justify-content: space-between;
       height: 100%;
-      padding: ${makeRem(16)};
+      padding: ${theme.size.makeRem(16)};
     }
 
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop(theme)} {
       justify-content: center;
     }
   `}
@@ -117,27 +117,27 @@ const NavbarUl = styled.ul`
 
 const NavbarLi = styled.li`
   ${({ theme }) => css`
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop(theme)} {
       &:not(:last-child) {
-        margin-right: ${makeRem(32)};
+        margin-right: ${theme.size.makeRem(32)};
       }
     }
   `}
 `;
 
 const NavLink = styled.a`
-  height: ${makeRem(44)};
-  line-height: ${makeRem(44)};
+  height: ${theme.size.makeRem(44)};
+  line-height: ${theme.size.makeRem(44)};
   display: block;
   font-family: "Muli";
   text-transform: uppercase;
-  font-size: ${makeRem(16)};
+  font-size: ${theme.size.makeRem(16)};
   font-weight: 500;
   position: relative;
   transition: all 0.15s ease-in-out 0s;
 
   ${({ theme }) => css`
-    ${makeMobileStyles(theme)} {
+    ${theme.breakpoints.mobileOnly(theme)} {
       flex: 1;
     }
   `}
@@ -148,7 +148,7 @@ const NavLink = styled.a`
     left: 0;
     right: 0;
     bottom: 0;
-    height: ${makeRem(1)};
+    height: ${theme.size.makeRem(1)};
     transition: all 0.15s ease-in-out 0s;
   }
 

@@ -1,7 +1,7 @@
-import { makeRem } from "@htc-website/components";
+import { theme.size.makeRem } from "@htc-website/components";
 import { css } from "styled-components";
 
 export const BlogCardShadow = css`
   box-shadow: 0 0 10px 3px rgba(207, 207, 207, 0.5);
-  border-radius: ${makeRem(4)};
+  border-radius: ${theme.size.makeRem(4)};
 `;

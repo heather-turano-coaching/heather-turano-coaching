@@ -1,8 +1,8 @@
 import {
-  makeDesktopStyles,
+  theme.breakpoints.laptop,
   makeFlex,
-  makeMobileStyles,
-  makeRem,
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem,
   makeTabletStyles
 } from "@htc-website/components";
 import { CSSImageBorder } from "@htc-website/components/styles";
@@ -26,13 +26,13 @@ export const HeroOffsetHorizontal: FC<HeroProps> = ({
   <HeroWrapper>
     <HeroContainer
       css={css`
-        padding-top: ${makeRem(60)};
-        padding-bottom: ${makeRem(60)};
+        padding-top: ${theme.size.makeRem(60)};
+        padding-bottom: ${theme.size.makeRem(60)};
 
         ${({ theme }) => css`
-          ${makeDesktopStyles(theme)} {
-            padding-top: ${makeRem(100)};
-            padding-bottom: ${makeRem(100)};
+          ${theme.breakpoints.laptop(theme)} {
+            padding-top: ${theme.size.makeRem(100)};
+            padding-bottom: ${theme.size.makeRem(100)};
           }
         `}
 
@@ -43,7 +43,7 @@ export const HeroOffsetHorizontal: FC<HeroProps> = ({
           top: 0;
           right: 0;
           height: 70%;
-          max-height: ${makeRem(600)};
+          max-height: ${theme.size.makeRem(600)};
           background-color: ${({ theme }) => theme.palette.secondary.light};
           z-index: -1;
         }
@@ -52,7 +52,7 @@ export const HeroOffsetHorizontal: FC<HeroProps> = ({
       <div
         css={css`
           ${({ theme }) => css`
-            ${makeDesktopStyles(theme)} {
+            ${theme.breakpoints.laptop(theme)} {
               ${makeFlex({
                 direction: "row",
                 justify: "space-between",
@@ -64,21 +64,21 @@ export const HeroOffsetHorizontal: FC<HeroProps> = ({
       >
         <div
           css={css`
-            padding: 0 ${makeRem(40)};
+            padding: 0 ${theme.size.makeRem(40)};
             z-index: 10;
 
             ${({ theme }) => css`
-              ${makeMobileStyles(theme)} {
+              ${theme.breakpoints.mobileOnly(theme)} {
                 width: 100%;
-                padding-bottom: ${makeRem(48)};
-                min-height: ${makeRem(300)};
+                padding-bottom: ${theme.size.makeRem(48)};
+                min-height: ${theme.size.makeRem(300)};
               }
 
               ${makeTabletStyles(theme)} {
-                height: ${makeRem(300)};
+                height: ${theme.size.makeRem(300)};
               }
 
-              ${makeDesktopStyles(theme)} {
+              ${theme.breakpoints.laptop(theme)} {
                 height: 100%;
                 width: 45%;
               }
@@ -93,23 +93,23 @@ export const HeroOffsetHorizontal: FC<HeroProps> = ({
           alt={imageAlt}
           css={css`
             ${({ theme }) => css`
-              ${makeMobileStyles(theme)} {
+              ${theme.breakpoints.mobileOnly(theme)} {
                 width: 100%;
-                height: ${makeRem(300)};
+                height: ${theme.size.makeRem(300)};
               }
 
               ${makeTabletStyles(theme)} {
-                height: ${makeRem(300)};
+                height: ${theme.size.makeRem(300)};
               }
 
-              ${makeDesktopStyles(theme)} {
+              ${theme.breakpoints.laptop(theme)} {
                 position: absolute;
-                right: ${makeRem(24)};
-                top: ${makeRem(40)};
+                right: ${theme.size.makeRem(24)};
+                top: ${theme.size.makeRem(40)};
                 bottom: 0;
                 width: 50%;
-                height: ${`calc(100% - ${makeRem(80)})`};
-                max-height: ${makeRem(880)};
+                height: ${`calc(100% - ${theme.size.makeRem(80)})`};
+                max-height: ${theme.size.makeRem(880)};
               }
             `}
 

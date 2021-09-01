@@ -1,4 +1,4 @@
-import { makeRem } from "@htc-website/components";
+import { theme.size.makeRem } from "@htc-website/components";
 import { Hero } from "@htc-website/components/content";
 import {
   ContentfulPageProps,
@@ -35,8 +35,8 @@ export const EventsPage: FeaturePageComponent<EventsPageProps> = ({
       <div
         css={css`
           background-color: ${({ theme }) => theme.palette.light.light};
-          padding-top: ${makeRem(60)};
-          padding-bottom: ${makeRem(60)};
+          padding-top: ${theme.size.makeRem(60)};
+          padding-bottom: ${theme.size.makeRem(60)};
         `}
       >
         <Container maxWidth="md">

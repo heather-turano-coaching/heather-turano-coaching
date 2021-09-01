@@ -1,4 +1,4 @@
-import { makeRem } from "@htc-website/components";
+import { theme.size.makeRem } from "@htc-website/components";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
@@ -15,8 +15,8 @@ export const HeroPlain: FC<HeroProps> = ({ title, subTitle }) => (
     <HeroContainer $disableFull>
       <div
         css={css`
-          max-width: ${makeRem(600)};
-          padding: ${makeRem(100)} 0;
+          max-width: ${theme.size.makeRem(600)};
+          padding: ${theme.size.makeRem(100)} 0;
           margin: 0 auto;
           text-align: center;
         `}

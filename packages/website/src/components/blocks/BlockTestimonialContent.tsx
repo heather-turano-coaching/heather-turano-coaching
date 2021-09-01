@@ -1,5 +1,5 @@
 import { Image, RichText, SectionCopy } from "@htc-website/components";
-import { flexRow, makeRem } from "@htc-website/components";
+import { flexRow, theme.size.makeRem } from "@htc-website/components";
 import { makeInset, makeResponsive } from "@htc-website/design-system";
 import { ITestimonials } from "@htc-website/lib/server/contentful";
 import { Container } from "@material-ui/core";
@@ -11,8 +11,8 @@ const StyledTestimonialContent = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding-left: ${makeRem(32)};
-  padding-right: ${makeRem(32)};
+  padding-left: ${theme.size.makeRem(32)};
+  padding-right: ${theme.size.makeRem(32)};
   ${flexRow("center", "center")};
 
   & > .image {
@@ -32,10 +32,10 @@ const StyledTesimonialTextConatiner = styled(Container)`
   position: relative;
   ${({ theme }) => css`
     color: ${theme.palette.common.white};
-    border-top: ${makeRem(2)} solid ${theme.palette.common.white};
-    padding-top: ${makeRem(32)};
-    padding-bottom: ${makeRem(32)};
-    border-bottom: ${makeRem(2)} solid ${theme.palette.common.white};
+    border-top: ${theme.size.makeRem(2)} solid ${theme.palette.common.white};
+    padding-top: ${theme.size.makeRem(32)};
+    padding-bottom: ${theme.size.makeRem(32)};
+    border-bottom: ${theme.size.makeRem(2)} solid ${theme.palette.common.white};
   `}
 
   ${makeResponsive({

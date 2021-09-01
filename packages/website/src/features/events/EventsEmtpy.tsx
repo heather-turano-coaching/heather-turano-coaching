@@ -1,4 +1,4 @@
-import { flexRow, makeRem } from "@htc-website/components";
+import { flexRow, theme.size.makeRem } from "@htc-website/components";
 import { Typography } from "@material-ui/core";
 import Image from "next/image";
 import { FC } from "react";
@@ -9,12 +9,12 @@ export const EventsEmtpy: FC = () => {
     <div
       css={css`
         box-sizing: border-box;
-        min-height: ${makeRem(260)};
+        min-height: ${theme.size.makeRem(260)};
         width: 100%;
         background: ${({ theme }) => theme.palette.common.white};
         ${flexRow("center", "center")};
         text-align: center;
-        padding: ${makeRem(32)};
+        padding: ${theme.size.makeRem(32)};
       `}
     >
       <div>

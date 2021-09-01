@@ -4,8 +4,8 @@ import {
   RichText,
   SectionCopy,
   Title,
-  makeDesktopStyles,
-  makeRem,
+  theme.breakpoints.laptop,
+  theme.size.makeRem,
   makeTabletStyles
 } from "@htc/components";
 import React, { FC } from "react";
@@ -31,7 +31,7 @@ export const BlockImageRow: FC<IBlockImageRow> = ({ fields }) => {
       </SectionCopy>
       <div
         css={css`
-          margin-top: ${makeRem(64)};
+          margin-top: ${theme.size.makeRem(64)};
           display: flex;
           justify-content: center;
           align-items: center;
@@ -51,7 +51,7 @@ export const BlockImageRow: FC<IBlockImageRow> = ({ fields }) => {
               `}
 
               ${({ theme }) => css`
-                ${makeDesktopStyles(theme)} {
+                ${theme.breakpoints.laptop(theme)} {
                   width: 20%;
                 }
               `}

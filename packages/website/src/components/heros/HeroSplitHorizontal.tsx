@@ -1,8 +1,8 @@
 import {
-  makeDesktopStyles,
+  theme.breakpoints.laptop,
   makeFlex,
-  makeMobileStyles,
-  makeRem
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem
 } from "@htc-website/components";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -25,7 +25,7 @@ export const HeroImageContent: FC = ({ children }) => (
       ${({ theme }) => css`
         color: ${theme.palette.common.white};
 
-        ${makeDesktopStyles(theme)} {
+        ${theme.breakpoints.laptop(theme)} {
           ${makeFlex({
             direction: "row",
             justify: "flex-start",
@@ -38,7 +38,7 @@ export const HeroImageContent: FC = ({ children }) => (
     <div
       css={css`
         ${({ theme }) => css`
-          ${makeMobileStyles(theme)} {
+          ${theme.breakpoints.mobileOnly(theme)} {
             max-width: 90%;
             text-align: center;
             height: 100%;
@@ -48,9 +48,9 @@ export const HeroImageContent: FC = ({ children }) => (
             margin: 0 auto;
           }
 
-          ${makeDesktopStyles(theme)} {
+          ${theme.breakpoints.laptop(theme)} {
             max-width: 45%;
-            padding: ${makeRem(32)} 0;
+            padding: ${theme.size.makeRem(32)} 0;
           }
         `}
       `}
@@ -95,7 +95,7 @@ export const HeroSplitHorizontal: FC<HeroProps & { hideGradient?: boolean }> =
       <HeroWrapper>
         <HeroContainer
           css={css`
-            max-width: ${makeRem(900)};
+            max-width: ${theme.size.makeRem(900)};
           `}
         >
           <HeroImageContent>

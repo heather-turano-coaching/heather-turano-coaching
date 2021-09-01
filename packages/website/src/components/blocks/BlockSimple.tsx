@@ -1,9 +1,9 @@
 import { SectionCopy, SectionFooter, Title } from "@htc-website/components";
 import { RichText } from "@htc-website/components";
 import {
-  makeDesktopStyles,
-  makeMobileStyles,
-  makeRem
+  theme.breakpoints.laptop,
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem
 } from "@htc-website/components";
 import { IBlock, IBlockFields } from "@htc-website/lib/server/contentful";
 import { Container, Typography } from "@material-ui/core";
@@ -22,41 +22,41 @@ import { Forms } from "../forms";
 export const BlockSimpleVariant = styled(Container)<{
   variant: IBlockFields["type"];
 }>`
-  max-width: ${makeRem(700)};
+  max-width: ${theme.size.makeRem(700)};
 
   ${({ theme, variant }) => {
     switch (variant) {
       case "plain":
         return css`
-          ${makeMobileStyles(theme)} {
-            margin-top: ${makeRem(120)};
-            margin-bottom: ${makeRem(120)};
+          ${theme.breakpoints.mobileOnly(theme)} {
+            margin-top: ${theme.size.makeRem(120)};
+            margin-bottom: ${theme.size.makeRem(120)};
           }
-          ${makeDesktopStyles(theme)} {
-            padding-top: ${makeRem(160)};
-            padding-bottom: ${makeRem(160)};
+          ${theme.breakpoints.laptop(theme)} {
+            padding-top: ${theme.size.makeRem(160)};
+            padding-bottom: ${theme.size.makeRem(160)};
           }
         `;
 
       case "stacked":
         return css`
-          margin-top: ${makeRem(200)};
-          margin-bottom: ${makeRem(200)};
-          padding-top: ${makeRem(60)};
-          padding-bottom: ${makeRem(60)};
+          margin-top: ${theme.size.makeRem(200)};
+          margin-bottom: ${theme.size.makeRem(200)};
+          padding-top: ${theme.size.makeRem(60)};
+          padding-bottom: ${theme.size.makeRem(60)};
           background-color: ${theme.palette.light.light};
           position: relative;
 
-          ${makeDesktopStyles(theme)} {
-            padding: ${makeRem(60)};
+          ${theme.breakpoints.laptop(theme)} {
+            padding: ${theme.size.makeRem(60)};
 
             &::after {
               content: "";
               position: absolute;
               height: 100%;
               width: 100%;
-              right: -${makeRem(56)};
-              bottom: -${makeRem(56)};
+              right: -${theme.size.makeRem(56)};
+              bottom: -${theme.size.makeRem(56)};
               background: ${theme.palette.primary.light};
               z-index: -1;
             }

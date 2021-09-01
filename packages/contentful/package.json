@@ -10,13 +10,7 @@
   ],
   "author": "Drew DeCarme <drewdecarme@gmail.com>",
   "license": "MIT",
-  "main": "index.d.ts",
-  "directories": {
-    "dist": "dist"
-  },
-  "files": [
-    "dist"
-  ],
+  "main": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heather-turano-coaching/heather-turano-coaching.git"

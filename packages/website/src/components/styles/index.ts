@@ -1,4 +1,4 @@
-import { makeRem, universalShadow } from "@htc-website/components";
+import { theme.size.makeRem, universalShadow } from "@htc-website/components";
 import { css } from "styled-components";
 
 export const universalHover = css`
@@ -18,5 +18,5 @@ export const CSSImageBorder = css`
 
 export const CSSImageBorderSmall = css`
   outline: 1px solid #fff;
-  outline-offset: -${makeRem(12)};
+  outline-offset: -${theme.size.makeRem(12)};
 `;

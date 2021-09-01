@@ -1,4 +1,4 @@
-import { makeRem } from "@htc-website/components";
+import { theme.size.makeRem } from "@htc-website/components";
 import { Typography } from "@material-ui/core";
 import { FC } from "react";
 import { css } from "styled-components";
@@ -14,7 +14,7 @@ export const EventsSectionDate: FC<EventsSectionDateProps> = ({
   <li
     css={css`
       & + & {
-        margin-top: ${makeRem(64)};
+        margin-top: ${theme.size.makeRem(64)};
       }
     `}
   >

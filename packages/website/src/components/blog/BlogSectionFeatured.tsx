@@ -1,5 +1,5 @@
 import { Tag, TagGroup } from "@htc-website/components";
-import { makeDesktopStyles, makeFlex, makeRem } from "@htc-website/components";
+import { theme.breakpoints.laptop, makeFlex, theme.size.makeRem } from "@htc-website/components";
 import { CSSImageBorder } from "@htc-website/components/styles";
 import { formatShortDate } from "@htc-website/utils";
 import { Typography } from "@material-ui/core";
@@ -13,19 +13,19 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
     <div
       css={css`
         ${({ theme }) => css`
-          ${makeDesktopStyles(theme)} {
-            min-height: ${makeRem(600)};
-            height: ${makeRem(600)};
-            padding: 0 ${makeRem(48)};
+          ${theme.breakpoints.laptop(theme)} {
+            min-height: ${theme.size.makeRem(600)};
+            height: ${theme.size.makeRem(600)};
+            padding: 0 ${theme.size.makeRem(48)};
             ${makeFlex({
               direction: "row",
               justify: "space-evenly",
               align: "center"
             })};
-            margin-bottom: ${makeRem(100)};
+            margin-bottom: ${theme.size.makeRem(100)};
 
             img {
-              margin-right: ${makeRem(40)};
+              margin-right: ${theme.size.makeRem(40)};
             }
           }
         `}
@@ -36,8 +36,8 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
           css={css`
             flex: 1;
             ${({ theme }) => css`
-              ${makeDesktopStyles(theme)} {
-                margin-right: ${makeRem(40)};
+              ${theme.breakpoints.laptop(theme)} {
+                margin-right: ${theme.size.makeRem(40)};
                 height: 100%;
                 position: relative;
 
@@ -47,10 +47,10 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
                   height: 100%;
                   position: absolute;
                   display: block;
-                  left: -${makeRem(10)};
-                  bottom: -${makeRem(10)};
+                  left: -${theme.size.makeRem(10)};
+                  bottom: -${theme.size.makeRem(10)};
                   z-index: -1;
-                  border-radius: ${makeRem(4)};
+                  border-radius: ${theme.size.makeRem(4)};
                   background-color: ${({ theme }) =>
                     theme.palette.primary.light};
                 }
@@ -63,7 +63,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
             src={featuredPost.feature_image as string | undefined}
             css={css`
               width: 100%;
-              border-radius: ${makeRem(4)};
+              border-radius: ${theme.size.makeRem(4)};
               object-fit: cover;
               height: 100%;
               ${CSSImageBorder};
@@ -78,7 +78,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
           display: flex;
           flex-direction: column;
           height: 100%;
-          padding: ${makeRem(16)} 0;
+          padding: ${theme.size.makeRem(16)} 0;
         `}
       >
         {featuredPost.published_at && (
@@ -90,7 +90,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
         <Typography
           variant="h3"
           css={css`
-            margin-bottom: ${makeRem(24)} !important;
+            margin-bottom: ${theme.size.makeRem(24)} !important;
           `}
         >
           {featuredPost.title}
@@ -103,7 +103,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
           <Typography
             variant="subtitle2"
             css={css`
-              margin-bottom: ${makeRem(48)} !important;
+              margin-bottom: ${theme.size.makeRem(48)} !important;
             `}
           >
             {featuredPost.custom_excerpt || featuredPost.excerpt}

@@ -1,4 +1,4 @@
-import { makeRem } from "@htc-website/components";
+import { theme.size.makeRem } from "@htc-website/components";
 import { Container, Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -23,13 +23,13 @@ export const HeroContainer = styled(Container)<{ $disableFull?: boolean }>`
 `;
 
 export const HeroWrapper = styled.div<{ $disableFull?: boolean }>`
-  width: ${`calc(100% + ${makeRem(2)})`};
+  width: ${`calc(100% + ${theme.size.makeRem(2)})`};
 
   position: relative;
-  left: -${makeRem(1)};
-  top: -${makeRem(1)};
-  bottom: -${makeRem(1)};
-  right: -${makeRem(1)};
+  left: -${theme.size.makeRem(1)};
+  top: -${theme.size.makeRem(1)};
+  bottom: -${theme.size.makeRem(1)};
+  right: -${theme.size.makeRem(1)};
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -37,7 +37,7 @@ export const HeroWrapper = styled.div<{ $disableFull?: boolean }>`
   ${({ $disableFull }) =>
     !$disableFull &&
     css`
-      min-height: ${`calc((100vh + ${makeRem(2)}) - ${navbarHeight})`};
+      min-height: ${`calc((100vh + ${theme.size.makeRem(2)}) - ${navbarHeight})`};
     `}
 
   & * {

@@ -5,9 +5,9 @@ import {
   Title
 } from "@htc-website/components";
 import {
-  makeDesktopStyles,
-  makeMobileStyles,
-  makeRem
+  theme.breakpoints.laptop,
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem
 } from "@htc-website/components";
 import {
   BlockSimpleVariant,
@@ -59,7 +59,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
       <Container>
         <div
           css={css`
-            margin-top: ${makeRem(40)};
+            margin-top: ${theme.size.makeRem(40)};
             & > * {
               font-weight: 400 !important;
             }
@@ -74,14 +74,14 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
         >
           <header
             css={css`
-              margin: ${makeRem(80)} auto;
+              margin: ${theme.size.makeRem(80)} auto;
             `}
           >
             <Typography
               variant="h2"
               component="h1"
               css={css`
-                max-width: ${makeRem(640)};
+                max-width: ${theme.size.makeRem(640)};
                 && {
                   margin-left: auto;
                   margin-right: auto;
@@ -96,7 +96,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
                 && {
                   margin-left: auto;
                   margin-right: auto;
-                  max-width: ${makeRem(976)};
+                  max-width: ${theme.size.makeRem(976)};
                   line-height: 2;
                 }
               `}
@@ -112,7 +112,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
         alt="hero"
         css={css`
           width: 100%;
-          margin-bottom: ${makeRem(64)};
+          margin-bottom: ${theme.size.makeRem(64)};
           max-height: 80vh;
           object-fit: cover;
           object-position: top;
@@ -120,13 +120,13 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
           margin-left: auto;
           margin-right: auto;
           display: block;
-          max-width: ${makeRem(1400)};
+          max-width: ${theme.size.makeRem(1400)};
         `}
       />
       <Container>
         <section
           css={css`
-            max-width: ${makeRem(680)};
+            max-width: ${theme.size.makeRem(680)};
             margin: 0 auto;
           `}
         >
@@ -143,10 +143,10 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
           src={localPost.primary_author.profile_image}
           css={css`
             && {
-              margin-top: ${makeRem(48)};
-              margin-bottom: ${makeRem(48)};
-              height: ${makeRem(280)};
-              width: ${makeRem(280)};
+              margin-top: ${theme.size.makeRem(48)};
+              margin-bottom: ${theme.size.makeRem(48)};
+              height: ${theme.size.makeRem(280)};
+              width: ${theme.size.makeRem(280)};
             }
           `}
         /> */}
@@ -156,9 +156,9 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
           ${({ theme }) => css`
             background: ${theme.palette.accent.light};
 
-            ${makeMobileStyles(theme)} {
-              padding-top: ${makeRem(32)};
-              padding-bottom: ${makeRem(32)};
+            ${theme.breakpoints.mobileOnly(theme)} {
+              padding-top: ${theme.size.makeRem(32)};
+              padding-bottom: ${theme.size.makeRem(32)};
             }
           `}
         `}
@@ -180,7 +180,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
           <SectionFooter>
             <div
               css={css`
-                max-width: ${makeRem(400)};
+                max-width: ${theme.size.makeRem(400)};
                 margin: 0 auto;
               `}
             >
@@ -206,7 +206,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
         <ul
           css={css`
             ${({ theme }) => css`
-              ${makeDesktopStyles(theme)} {
+              ${theme.breakpoints.laptop(theme)} {
                 display: flex;
                 justify-content: center;
               }
@@ -219,7 +219,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
                 <a
                   css={css`
                     ${({ theme }) => css`
-                      ${makeMobileStyles(theme)} {
+                      ${theme.breakpoints.mobileOnly(theme)} {
                         display: flex;
                         justify-content: center;
                       }

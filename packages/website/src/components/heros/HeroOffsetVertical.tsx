@@ -1,4 +1,4 @@
-import { makeDesktopStyles, makeFlex, makeRem } from "@htc-website/components";
+import { theme.breakpoints.laptop, makeFlex, theme.size.makeRem } from "@htc-website/components";
 import { Container } from "@material-ui/core";
 import { rgba } from "polished";
 import React, { FC } from "react";
@@ -11,7 +11,7 @@ import {
   HeroWrapper
 } from "./HeroContainer";
 
-const whiteSpaceHeight = makeRem(300);
+const whiteSpaceHeight = theme.size.makeRem(300);
 
 const HeroImgContainer = styled.div`
   height: ${`calc(100% - ${whiteSpaceHeight})`};
@@ -36,7 +36,7 @@ const HeroImg = styled.img`
 
 const OpaqueBlock = styled.div`
   background-color: ${({ theme }) => rgba(theme.palette.light.main, 0.5)};
-  padding: 0 ${makeRem(40)};
+  padding: 0 ${theme.size.makeRem(40)};
   min-height: ${whiteSpaceHeight};
   ${makeFlex({
     direction: "row",
@@ -45,11 +45,11 @@ const OpaqueBlock = styled.div`
   })}
 
   ${({ theme }) => css`
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop(theme)} {
       max-width: 60%;
       width: 60%;
       justify-content: flex-start;
-      padding: 0 ${makeRem(40)};
+      padding: 0 ${theme.size.makeRem(40)};
     }
   `}
 `;
@@ -63,7 +63,7 @@ const OpaqueBlockContainer = styled.div<{ align: "flex-end" | "flex-start" }>`
       align: align
     })};
 
-    padding-top: ${align === "flex-end" ? makeRem(32) : 0};
+    padding-top: ${align === "flex-end" ? theme.size.makeRem(32) : 0};
   `}
 `;
 
@@ -93,7 +93,7 @@ export const HeroOffsetVertical: FC<HeroProps> = ({
           <OpaqueBlockContainer
             align="flex-start"
             css={css`
-              padding-bottom: ${makeRem(400)};
+              padding-bottom: ${theme.size.makeRem(400)};
             `}
           >
             <OpaqueBlock>

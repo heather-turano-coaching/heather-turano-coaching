@@ -1,8 +1,8 @@
 import { RichText } from "@htc-website/components";
 import {
-  makeDesktopStyles,
-  makeMobileStyles,
-  makeRem,
+  theme.breakpoints.laptop,
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem,
   makeTabletStyles
 } from "@htc-website/components";
 import { ProgramContainer } from "@htc-website/components/layout";
@@ -21,19 +21,19 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
       css={css`
         background: ${({ theme }) => theme.palette.common.white};
         box-shadow: 0 0 17px 11px rgba(218, 218, 218, 0.5);
-        border-radius: ${makeRem(4)};
-        padding: ${makeRem(60)} ${makeRem(40)};
+        border-radius: ${theme.size.makeRem(4)};
+        padding: ${theme.size.makeRem(60)} ${theme.size.makeRem(40)};
 
         ${({ theme }) => css`
-          ${makeMobileStyles(theme)} {
+          ${theme.breakpoints.mobileOnly(theme)} {
             flex-direction: column;
-            padding: ${makeRem(40)} ${makeRem(32)};
+            padding: ${theme.size.makeRem(40)} ${theme.size.makeRem(32)};
           }
 
           ${makeTabletStyles(theme)} {
             display: flex;
             align-items: flex-start;
-            padding: ${makeRem(60)} ${makeRem(40)};
+            padding: ${theme.size.makeRem(60)} ${theme.size.makeRem(40)};
           }
         `}
 
@@ -44,7 +44,7 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
     >
       <div
         css={css`
-          width: ${makeRem(320)};
+          width: ${theme.size.makeRem(320)};
 
           & > img {
             width: 100%;
@@ -52,14 +52,14 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
           }
 
           ${({ theme }) => css`
-            ${makeMobileStyles(theme)} {
+            ${theme.breakpoints.mobileOnly(theme)} {
               width: 100%;
-              margin-bottom: ${makeRem(32)};
+              margin-bottom: ${theme.size.makeRem(32)};
             }
 
-            ${makeDesktopStyles(theme)} {
-              margin-right: ${makeRem(40)};
-              min-width: ${makeRem(320)};
+            ${theme.breakpoints.laptop(theme)} {
+              margin-right: ${theme.size.makeRem(40)};
+              min-width: ${theme.size.makeRem(320)};
             }
           `}
         `}
@@ -75,7 +75,7 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
           css={css`
             text-transform: uppercase;
             margin-top: 0;
-            margin-bottom: ${makeRem(8)};
+            margin-bottom: ${theme.size.makeRem(8)};
           `}
         >
           {restProps.title}
@@ -84,7 +84,7 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
           variant="subtitle2"
           color="textSecondary"
           css={css`
-            margin-bottom: ${makeRem(32)};
+            margin-bottom: ${theme.size.makeRem(32)};
           `}
         >
           {restProps.subTitle}
@@ -92,7 +92,7 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
         <div
           css={css`
             & + * {
-              margin-top: ${makeRem(32)};
+              margin-top: ${theme.size.makeRem(32)};
             }
           `}
         >

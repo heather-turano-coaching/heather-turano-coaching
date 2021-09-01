@@ -1,4 +1,4 @@
-import { makeFontWeight, makeRem } from "@htc-website/components";
+import { makeFontWeight, theme.size.makeRem } from "@htc-website/components";
 import { Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import styled from "styled-components";
@@ -9,8 +9,8 @@ const StyledLinkCardOverline = styled(Typography)<LinkCardOverlineProps>`
   color: #fff;
   color: ${({ theme, important }) =>
     important ? theme.palette.primary.light : theme.palette.secondary.dark};
-  margin-bottom: ${makeRem(24)};
-  font-size: ${makeRem(10)};
+  margin-bottom: ${theme.size.makeRem(24)};
+  font-size: ${theme.size.makeRem(10)};
   font-family: "Muli";
   font-weight: ${makeFontWeight("extraBold")} !important;
   text-transform: uppercase;

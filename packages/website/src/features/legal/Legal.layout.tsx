@@ -1,8 +1,8 @@
 import { Container, Title } from "@htc-website/components";
 import {
-  makeDesktopStyles,
-  makeMobileStyles,
-  makeRem
+  theme.breakpoints.laptop,
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem
 } from "@htc-website/components";
 import { LayoutRoot } from "@htc-website/features/layout";
 import { PageLayout } from "@htc-website/features/page";
@@ -18,7 +18,7 @@ export const LegalPageLayout: PageLayout = ({ children, ...props }) => {
         () => (
           <div
             css={css`
-              margin-top: ${makeRem(48)};
+              margin-top: ${theme.size.makeRem(48)};
               text-align: center;
             `}
           >
@@ -38,11 +38,11 @@ export const LegalPageLayout: PageLayout = ({ children, ...props }) => {
           height: 100%;
 
           ${({ theme }) => css`
-            ${makeMobileStyles(theme)} {
+            ${theme.breakpoints.mobileOnly(theme)} {
               flex-direction: column;
             }
 
-            ${makeDesktopStyles(theme)} {
+            ${theme.breakpoints.laptop(theme)} {
               flex-direction: row;
             }
           `}

@@ -1,14 +1,14 @@
-import { IBlockGrabber } from "@htc-website/lib/server/contentful";
 import { RichText } from "@htc/components";
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/components";
+import { IBlockGrabber } from "@htc/contentful";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
+import { AweberForm } from "../AweberForm";
 import { HeroTitle } from "../heros";
-import { BlockContainer } from "../layout";
+import { BlockContainer, BlockVertSpacing } from "../layout";
 
 const TextCol = styled.div`
-  max-width: ${makeRem(360)};
+  max-width: ${({ theme }) => theme.size.makeRem(360)};
 `;
 
 const headerRowHeight = 200;
@@ -16,11 +16,11 @@ const headerRowHeight = 200;
 const HeaderRow = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: ${makeRem(40)};
 
   ${({ theme }) => css`
-    ${makeDesktopStyles(theme)} {
-      height: ${makeRem(headerRowHeight)};
+    margin-bottom: ${theme.size.makeRem(40)};
+    ${theme.breakpoints.laptop(theme)} {
+      height: ${theme.size.makeRem(headerRowHeight)};
     }
   `}
 `;
@@ -52,7 +52,8 @@ export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
           position: absolute;
           left: 0;
           right: 0;
-          top: ${makeRem(headerRowHeight + BlockVertSpacing)};
+          top: ${({ theme }) =>
+            theme.size.makeRem(headerRowHeight + BlockVertSpacing)};
           bottom: 0;
           background: ${({ theme }) => theme.palette.accent.light};
           z-index: -1;
@@ -64,12 +65,12 @@ export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
           css={css`
             display: flex;
             ${({ theme }) => css`
-              ${makeMobileStyles(theme)} {
+              ${theme.breakpoints.mobileOnly(theme)} {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
               }
-              ${makeDesktopStyles(theme)} {
+              ${theme.breakpoints.laptop(theme)} {
                 justify-content: flex-end;
               }
             `}
@@ -78,7 +79,7 @@ export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
           <div
             css={css`
               ${({ theme }) => css`
-                ${makeDesktopStyles(theme)} {
+                ${theme.breakpoints.laptop(theme)} {
                   display: none;
                 }
               `}
@@ -93,7 +94,7 @@ export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
             <RichText
               richText={fields.description}
               copyProps={{
-                variant: "subtitle2"
+                variant: "paragraph"
               }}
             />
             <br />
@@ -106,7 +107,7 @@ export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
           <div
             css={css`
               ${({ theme }) => css`
-                ${makeMobileStyles(theme)} {
+                ${theme.breakpoints.mobileOnly(theme)} {
                   display: none;
                 }
               `}

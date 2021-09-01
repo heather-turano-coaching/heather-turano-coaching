@@ -2,7 +2,7 @@ import { Container, ContainerProps } from "@material-ui/core";
 import { FC } from "react";
 import { css } from "styled-components";
 
-import { makeRem } from "../theme";
+import { theme.size.makeRem } from "../theme";
 
 export const BlockVertSpacing = 100;
 export const ProgramVertSpacing = 60;
@@ -16,8 +16,8 @@ export const BlockContainer: FC<ContainerProps> = ({
     maxWidth={maxWidth}
     {...restProps}
     css={css`
-      padding-top: ${makeRem(BlockVertSpacing)};
-      padding-bottom: ${makeRem(BlockVertSpacing)};
+      padding-top: ${theme.size.makeRem(BlockVertSpacing)};
+      padding-bottom: ${theme.size.makeRem(BlockVertSpacing)};
     `}
   >
     {children}
@@ -34,7 +34,7 @@ export const ProgramContainer: FC<ContainerProps> = ({
     {...restProps}
     css={css`
       &:not(:last-child) {
-        padding-bottom: ${makeRem(ProgramVertSpacing)};
+        padding-bottom: ${theme.size.makeRem(ProgramVertSpacing)};
       }
     `}
   >

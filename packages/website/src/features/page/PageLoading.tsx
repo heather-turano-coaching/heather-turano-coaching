@@ -1,4 +1,4 @@
-import { makeRem } from "@htc-website/components";
+import { theme.size.makeRem } from "@htc-website/components";
 import { css } from "styled-components";
 
 import { PageStandalone } from "./PageStandalone";
@@ -11,7 +11,7 @@ export function PageLoading() {
           color: #fff;
           text-align: center;
           display: block;
-          margin-top: ${makeRem(48)};
+          margin-top: ${theme.size.makeRem(48)};
         `}
       >
         Authenticating...

@@ -1,6 +1,6 @@
 import {
-  makeDesktopStyles,
-  makeRem,
+  theme.breakpoints.laptop,
+  theme.size.makeRem,
   makeTabletStyles
 } from "@htc-website/components";
 import { PostOrPage } from "@tryghost/content-api";
@@ -18,28 +18,28 @@ const SyledBlogList = styled.div`
 
   ${({ theme }) => css`
     & > * {
-      margin-bottom: ${makeRem(80)};
+      margin-bottom: ${theme.size.makeRem(80)};
     }
 
     ${makeTabletStyles(theme)} {
       display: flex;
       flex-wrap: wrap;
       & > * {
-        width: ${`calc(50% - ${makeRem(2 * 2 * 8)})`};
-        margin-left: ${makeRem(16)};
-        margin-right: ${makeRem(16)};
-        margin-bottom: ${makeRem(80)};
+        width: ${`calc(50% - ${theme.size.makeRem(2 * 2 * 8)})`};
+        margin-left: ${theme.size.makeRem(16)};
+        margin-right: ${theme.size.makeRem(16)};
+        margin-bottom: ${theme.size.makeRem(80)};
       }
     }
 
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop(theme)} {
       display: flex;
       justify-content: center;
       & > * {
-        width: ${`calc(33.3% - ${makeRem(3 * 2 * 8)})`};
-        margin-left: ${makeRem(16)};
-        margin-right: ${makeRem(16)};
-        margin-bottom: ${makeRem(80)};
+        width: ${`calc(33.3% - ${theme.size.makeRem(3 * 2 * 8)})`};
+        margin-left: ${theme.size.makeRem(16)};
+        margin-right: ${theme.size.makeRem(16)};
+        margin-bottom: ${theme.size.makeRem(80)};
       }
     }
   `}

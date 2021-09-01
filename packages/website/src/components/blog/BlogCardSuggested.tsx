@@ -1,8 +1,8 @@
 import {
-  makeDesktopStyles,
+  theme.breakpoints.laptop,
   makeFontWeight,
-  makeMobileStyles,
-  makeRem
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem
 } from "@htc-website/components";
 import { formatShortDate } from "@htc-website/utils";
 import { Typography } from "@material-ui/core";
@@ -16,23 +16,23 @@ export const BlogCardSuggested: FC<PostOrPage> = (props) => {
   return (
     <div
       css={css`
-        min-height: ${makeRem(180)};
-        max-width: ${makeRem(300)};
+        min-height: ${theme.size.makeRem(180)};
+        max-width: ${theme.size.makeRem(300)};
         display: flex;
         justify-content: flex-start;
-        border-radius: ${makeRem(4)};
-        margin-top: ${makeRem(24)};
+        border-radius: ${theme.size.makeRem(4)};
+        margin-top: ${theme.size.makeRem(24)};
         transform: scale(1);
         ${BlogCardShadow};
         transition: all 0.15s ease-in-out;
 
         ${({ theme }) => css`
-          ${makeDesktopStyles(theme)} {
+          ${theme.breakpoints.laptop(theme)} {
             flex-direction: column;
-            margin-left: ${makeRem(12)};
-            margin-right: ${makeRem(12)};
-            height: ${makeRem(340)};
-            min-width: ${makeRem(300)};
+            margin-left: ${theme.size.makeRem(12)};
+            margin-right: ${theme.size.makeRem(12)};
+            height: ${theme.size.makeRem(340)};
+            min-width: ${theme.size.makeRem(300)};
 
             &:hover {
               transform: scale(1.05);
@@ -48,18 +48,18 @@ export const BlogCardSuggested: FC<PostOrPage> = (props) => {
           object-fit: cover;
 
           ${({ theme }) => css`
-            ${makeMobileStyles(theme)} {
+            ${theme.breakpoints.mobileOnly(theme)} {
               border-top-left-radius: inherit;
               border-bottom-left-radius: inherit;
-              max-width: ${makeRem(120)};
+              max-width: ${theme.size.makeRem(120)};
               height: auto;
             }
 
-            ${makeDesktopStyles(theme)} {
+            ${theme.breakpoints.laptop(theme)} {
               border-top-left-radius: inherit;
               border-top-right-radius: inherit;
               width: auto;
-              height: ${makeRem(200)};
+              height: ${theme.size.makeRem(200)};
             }
           `}
         `}
@@ -67,10 +67,10 @@ export const BlogCardSuggested: FC<PostOrPage> = (props) => {
       <div
         css={css`
           flex: 1;
-          padding-left: ${makeRem(20)};
-          padding-right: ${makeRem(20)};
-          padding-top: ${makeRem(20)};
-          padding-bottom: ${makeRem(20)};
+          padding-left: ${theme.size.makeRem(20)};
+          padding-right: ${theme.size.makeRem(20)};
+          padding-top: ${theme.size.makeRem(20)};
+          padding-bottom: ${theme.size.makeRem(20)};
         `}
       >
         <Typography
@@ -87,7 +87,7 @@ export const BlogCardSuggested: FC<PostOrPage> = (props) => {
           css={css`
             && {
               display: block;
-              margin-top: ${makeRem(8)};
+              margin-top: ${theme.size.makeRem(8)};
             }
           `}
         >

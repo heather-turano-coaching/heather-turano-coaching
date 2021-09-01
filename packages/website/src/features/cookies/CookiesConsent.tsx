@@ -1,13 +1,7 @@
-import {
-  makeDesktopStyles,
-  makeFontWeight,
-  makeMobileStyles,
-  makeRem
-} from "@htc-website/components";
-import { Button, Typography } from "@material-ui/core";
+import { Button, Typography, makeFontWeight } from "@htc/components";
 import Cookies from "js-cookie";
 import { rgba } from "polished";
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 import { useRef } from "react";
 import { FC, ReactNode, useState } from "react";
 import { css } from "styled-components";
@@ -65,25 +59,23 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
           height: auto;
           z-index: 100;
           background: ${rgba("#fff", 0.93)};
-          padding: ${makeRem(16)} ${makeRem(32)};
           box-shadow: 0 0 17px rgb(205, 215, 216);
 
           ${({ theme }) => css`
-            ${makeMobileStyles(theme)} {
-            }
-            ${makeDesktopStyles(theme)} {
-              width: ${makeRem(360)};
+            padding: ${theme.size.makeRem(16)} ${theme.size.makeRem(32)};
+            ${theme.breakpoints.laptop(theme)} {
+              width: ${theme.size.makeRem(360)};
               left: initial;
-              right: ${makeRem(40)};
-              bottom: ${makeRem(40)};
-              border-radius: ${makeRem(4)};
+              right: ${theme.size.makeRem(40)};
+              bottom: ${theme.size.makeRem(40)};
+              border-radius: ${theme.size.makeRem(4)};
             }
           `}
         `}
       >
         <div
           css={css`
-            margin-bottom: ${makeRem(20)};
+            margin-bottom: ${({ theme }) => theme.size.makeRem(20)};
           `}
         >
           <Typography
@@ -91,12 +83,12 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
             component="div"
             css={css`
               && {
-                margin-bottom: ${makeRem(20)};
-                font-weight: ${makeFontWeight("semiBold")};
-
                 ${({ theme }) => css`
-                  ${makeMobileStyles(theme)} {
-                    font-size: ${makeRem(18)};
+                  margin-bottom: ${theme.size.makeRem(20)};
+                  font-weight: ${makeFontWeight("semiBold")};
+
+                  ${theme.breakpoints.mobileOnly(theme)} {
+                    font-size: ${theme.size.makeRem(18)};
                   }
                 `}
               }
@@ -105,12 +97,12 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
             {title}
           </Typography>
           <Typography
-            variant="body2"
+            variant="paragraph"
             css={css`
               && {
                 ${({ theme }) => css`
-                  ${makeMobileStyles(theme)} {
-                    font-size: ${makeRem(12)};
+                  ${theme.breakpoints.mobileOnly(theme)} {
+                    font-size: ${theme.size.makeRem(12)};
                   }
                 `}
               }
@@ -125,14 +117,14 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
             justify-content: flex-end;
 
             & > * {
-              margin-left: ${makeRem(16)} !important;
+              margin-left: ${({ theme }) => theme.size.makeRem(16)} !important;
             }
           `}
         >
-          <Button onClick={handleDecline} variant="text">
+          <Button onClick={handleDecline} styleType="text">
             Decline
           </Button>
-          <Button onClick={handleAccept} variant="contained" color="primary">
+          <Button onClick={handleAccept} styleType="primary">
             Accept
           </Button>
         </div>

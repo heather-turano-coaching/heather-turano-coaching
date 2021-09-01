@@ -1,8 +1,8 @@
 import { RichText } from "@htc-website/components";
 import {
-  makeDesktopStyles,
-  makeMobileStyles,
-  makeRem,
+  theme.breakpoints.laptop,
+  theme.breakpoints.mobileOnly,
+  theme.size.makeRem,
   makeTabletStyles
 } from "@htc-website/components";
 import { ChevronLeft, ChevronRight } from "@htc-website/icons";
@@ -16,16 +16,16 @@ import styled, { css } from "styled-components";
 const StyledNavButton = styled.button`
   position: absolute;
   transform: translate(0, 50%);
-  height: ${makeRem(48)};
-  width: ${makeRem(48)};
-  border-radius: ${makeRem(8)};
+  height: ${theme.size.makeRem(48)};
+  width: ${theme.size.makeRem(48)};
+  border-radius: ${theme.size.makeRem(8)};
   border: 0;
   background: ${({ theme }) => theme.palette.primary.main};
   color: #fff;
   cursor: pointer;
 
   ${({ theme }) => css`
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop(theme)} {
       opacity: 0.5;
       transition: opacity 0.2s ease-in-out;
       &:hover {
@@ -56,27 +56,27 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
         <div
           css={css`
             max-width: 100%;
-            margin: ${makeRem(8)};
-            width: ${makeRem(600)};
-            min-height: ${makeRem(1000)};
+            margin: ${theme.size.makeRem(8)};
+            width: ${theme.size.makeRem(600)};
+            min-height: ${theme.size.makeRem(1000)};
             box-shadow: 17px 88px 60px -100px rgb(79 94 120 / 18%),
               -1px 2px 20px -7px rgb(79 94 120 / 10%);
-            border-radius: ${makeRem(2)};
+            border-radius: ${theme.size.makeRem(2)};
             position: relative;
 
             ${({ theme }) => css`
               ${makeTabletStyles(theme)} {
-                min-height: ${makeRem(900)};
+                min-height: ${theme.size.makeRem(900)};
               }
-              ${makeDesktopStyles(theme)} {
-                min-height: ${makeRem(860)};
+              ${theme.breakpoints.laptop(theme)} {
+                min-height: ${theme.size.makeRem(860)};
               }
             `}
           `}
         >
           <div
             css={css`
-              height: ${makeRem(280)};
+              height: ${theme.size.makeRem(280)};
               border-top-left-radius: inherit;
               border-top-right-radius: inherit;
               overflow: hidden;
@@ -161,17 +161,17 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
                 <div
                   css={css`
                     ${({ theme }) => css`
-                      ${makeMobileStyles(theme)} {
-                        padding-left: ${makeRem(32)};
-                        padding-right: ${makeRem(32)};
-                        padding-top: ${makeRem(72)};
-                        padding-bottom: ${makeRem(32)};
+                      ${theme.breakpoints.mobileOnly(theme)} {
+                        padding-left: ${theme.size.makeRem(32)};
+                        padding-right: ${theme.size.makeRem(32)};
+                        padding-top: ${theme.size.makeRem(72)};
+                        padding-bottom: ${theme.size.makeRem(32)};
                       }
                       ${makeTabletStyles(theme)} {
-                        padding-left: ${makeRem(32)};
-                        padding-right: ${makeRem(32)};
-                        padding-top: ${makeRem(48)};
-                        padding-bottom: ${makeRem(72)};
+                        padding-left: ${theme.size.makeRem(32)};
+                        padding-right: ${theme.size.makeRem(32)};
+                        padding-top: ${theme.size.makeRem(48)};
+                        padding-bottom: ${theme.size.makeRem(72)};
                       }
                     `}
                   `}
@@ -183,7 +183,7 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
                     variant="h5"
                     component="p"
                     css={css`
-                      margin-bottom: ${makeRem(32)};
+                      margin-bottom: ${theme.size.makeRem(32)};
                     `}
                   >
                     {testimonials[imageIndex].fields.customerDescription}
@@ -202,12 +202,12 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
           </div>
           <StyledNavButton
             css={css`
-              top: ${makeRem(280 - 48)};
-              left: ${makeRem(36)};
+              top: ${theme.size.makeRem(280 - 48)};
+              left: ${theme.size.makeRem(36)};
 
               ${({ theme }) => css`
-                ${makeDesktopStyles(theme)} {
-                  left: -${makeRem(72)};
+                ${theme.breakpoints.laptop(theme)} {
+                  left: -${theme.size.makeRem(72)};
                 }
               `}
             `}
@@ -219,12 +219,12 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
           </StyledNavButton>
           <StyledNavButton
             css={css`
-              top: ${makeRem(280 - 48)};
-              right: ${makeRem(36)};
+              top: ${theme.size.makeRem(280 - 48)};
+              right: ${theme.size.makeRem(36)};
 
               ${({ theme }) => css`
-                ${makeDesktopStyles(theme)} {
-                  right: -${makeRem(72)};
+                ${theme.breakpoints.laptop(theme)} {
+                  right: -${theme.size.makeRem(72)};
                 }
               `}
             `}

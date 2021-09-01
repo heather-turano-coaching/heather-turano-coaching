@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { UserProvider } from "@auth0/nextjs-auth0";
-import { HTCTheme, makeRem } from "@htc-website/components";
 import { CookiesConsent } from "@htc-website/features/cookies";
 import { SWRProvider } from "@htc-website/lib/swr";
+import { ThemeProvider } from "@htc/components";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import Head from "next/head";
@@ -42,7 +42,7 @@ export default function MyApp({
   const preview = pageProps.preview || false;
 
   return (
-    <HTCTheme>
+    <ThemeProvider>
       <SWRProvider>
         <UserProvider>
           <Head>
@@ -54,7 +54,7 @@ export default function MyApp({
             />
             {preview && (
               <style>{`html {
-            border: ${makeRem(6)} solid hotpink;
+            border: 6px solid hotpink;
         }`}</style>
             )}
           </Head>
@@ -104,6 +104,6 @@ export default function MyApp({
           </CookiesConsent>
         </UserProvider>
       </SWRProvider>
-    </HTCTheme>
+    </ThemeProvider>
   );
 }
