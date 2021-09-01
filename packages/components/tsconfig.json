@@ -2,8 +2,8 @@
   "extends": "@htc/typescript/tsconfig.next.json",
   "include": [
     "next-env.d.ts",
-    "main/**/*.ts",
-    "main/**/*.tsx",
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
     "src/**/*.ts",
     "src/**/*.tsx",
     ".eslintrc.js",
