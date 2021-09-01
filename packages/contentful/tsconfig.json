@@ -6,6 +6,5 @@
     "declaration": true,
     "declarationMap": true
   },
-  "include": ["src", ".eslintrc.js", "index.d.ts"],
-  "exclude": ["getContentfulEnvironment.js"]
+  "include": ["src", "index.d.ts"]
 }

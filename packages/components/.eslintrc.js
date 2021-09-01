@@ -7,7 +7,7 @@ module.exports = {
     "import/no-extraneous-dependencies": [
       "error",
       {
-        packageDir: [path.join(__dirname, "./packages/components")]
+        packageDir: __dirname
       }
     ]
   }

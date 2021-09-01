@@ -1,5 +1,3 @@
-import { Theme } from "@material-ui/core";
-import { CSSObject, DefaultTheme } from "styled-components";
 import { css } from "styled-components";
 
 import {
@@ -11,46 +9,7 @@ import {
   makeColor,
   makeSpace
 } from "../design-system";
-import { baseFontSize } from "./theme.config.base";
-import { fontWeightValues } from "./theme.fonts";
-import { FontWeights } from "./theme.types";
-
-type MakeFlex = (params: {
-  direction?: CSSObject["flexDirection"];
-  justify?: CSSObject["justifyContent"];
-  align?: CSSObject["alignItems"];
-}) => string;
-
-/**
- * A function that makes a component a flex container
- */
-export const makeFlex: MakeFlex = ({
-  direction = "row",
-  justify = "flex-start",
-  align = "flex-start"
-}) => `
-    display: flex;
-    flex-direction: ${direction};
-    justify-content: ${justify};
-    align-items: ${align};
-  `;
-
-export const flexRow = (
-  justify: CSSObject["justifyContent"],
-  align: CSSObject["alignItems"]
-) => css`
-  display: flex;
-  justify-content: ${justify};
-  align-items: ${align};
-`;
-
-/**
- * Generates a rem string from a defined pixel value
- *
- * @param sizeInPixels size in pixels
- */
-export const makeRem = (sizeInPixels: number): string =>
-  `${sizeInPixels / baseFontSize}rem`;
+import { FontWeights, fontWeightValues } from "./theme.config.fonts";
 
 /**
  * Returns the number font weight associated with
@@ -59,42 +18,6 @@ export const makeRem = (sizeInPixels: number): string =>
  */
 export const makeFontWeight = (weight: FontWeights): number =>
   fontWeightValues[weight];
-
-/**
- * Creates a valid media query string that can be interpolated
- * inside of a styled-component and used as a gated selector
- *
- * 600px and down
- */
-export const makeMobileStyles = (theme: DefaultTheme | Theme): string =>
-  theme.breakpoints.down("sm");
-
-/**
- * Creates a valid media query string that can be interpolated
- * inside of a styled-component and used as a gated selector
- *
- * 600px and up
- */
-export const makeTabletStyles = (theme: DefaultTheme | Theme): string =>
-  theme.breakpoints.up("sm");
-
-/**
- * Creates a valid media query string that can be interpolated
- * inside of a styled-component and used as a gated selector
- *
- * 960px and up
- */
-export const makeDesktopStyles = (theme: DefaultTheme | Theme): string =>
-  theme.breakpoints.up("md");
-
-/**
- * Creates a valid media query string that can be interpolated
- * inside of a styled-component and used as a gated selector
- *
- * xl and up
- */
-export const makeRetinaStyles = (theme: DefaultTheme | Theme): string =>
-  theme.breakpoints.up("lg");
 
 export type RandomColor = Extract<Color, "primary" | "secondary" | "accent">;
 

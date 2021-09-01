@@ -1,12 +1,12 @@
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, Document, MARKS } from "@contentful/rich-text-types";
-import { Typography, TypographyTypeMap } from "@material-ui/core";
 import React, { FC, ReactNode } from "react";
 
+import { Typography, TypographyProps } from "../display";
 import { TextStyles } from "./TextStyles";
 
 export const RichText: FC<{
-  copyProps: TypographyTypeMap["props"];
+  copyProps: TypographyProps;
   richText: string | JSON | Document;
 }> = ({ copyProps, richText }) => {
   const json = typeof richText === "string" ? JSON.parse(richText) : richText;

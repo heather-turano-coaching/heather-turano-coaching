@@ -9,7 +9,6 @@
     "htc"
   ],
   "author": "Drew DeCarme <drewdecarme@gmail.com>",
-  "homepage": "http://N/A",
   "license": "MIT",
   "main": "index.d.ts",
   "directories": {
@@ -32,6 +31,7 @@
   },
   "peerDependencies": {
     "contentful": "^8.5.0",
+    "contentful-management": "^7.34.0",
     "safe-json-stringify": "^1.2.0"
   },
   "devDependencies": {
@@ -43,6 +43,7 @@
     "contentful-management": "^7.34.0",
     "contentful-typescript-codegen": "^3.2.2",
     "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
     "safe-json-stringify": "^1.2.0",
     "typescript": "^4.4.2"
   }

@@ -25,6 +25,7 @@ module.exports = {
     // Next Overrides
     "@next/next/no-img-element": 0,
     // Import Overrides
-    "import/no-anonymous-default-export": 0
+    "import/no-anonymous-default-export": 0,
+    "import/no-extraneous-dependencies": ["error"]
   }
 };

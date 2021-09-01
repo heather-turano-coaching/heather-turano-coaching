@@ -1,10 +1,9 @@
-import { Container } from "@material-ui/core";
 import { darken } from "polished";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
 import { makeColor, makeInset } from "../design-system";
-import { makeDesktopStyles, makeRem, makeTabletStyles } from "../theme";
+import { Container } from "../layout";
 
 const StyledFooterContainer = styled.footer.attrs({
   id: "footer"
@@ -21,8 +20,8 @@ const StyledFooterContainer = styled.footer.attrs({
   }
 
   ${({ theme }) => css`
-    ${makeTabletStyles(theme)} {
-      padding: ${makeRem(48)} 0;
+    ${theme.breakpoints.tablet} {
+      padding: ${theme.size.makeRem(48)} 0;
     }
   `}
 `;
@@ -32,7 +31,7 @@ const StyledFooter = styled.div`
   flex-direction: column-reverse;
 
   ${({ theme }) => css`
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop} {
       flex-direction: row;
       display: flex;
       padding-bottom: 0;
@@ -43,7 +42,7 @@ const StyledFooter = styled.div`
 
 export const Footer: FC = ({ children }) => (
   <StyledFooterContainer>
-    <Container maxWidth="lg">
+    <Container>
       <StyledFooter>{children}</StyledFooter>
     </Container>
   </StyledFooterContainer>
