@@ -3,7 +3,7 @@ import {
   getFutureEventbriteEvents,
   getPastEventbriteEvents
 } from "@htc-website/lib/eventbrite";
-import { getContentfulPageById } from "@htc-website/lib/server/contentful";
+import { getContentfulPageById } from "@htc/contentful";
 import { GetStaticProps } from "next";
 import { EventsPage, EventsPageProps } from "src/features/events";
 

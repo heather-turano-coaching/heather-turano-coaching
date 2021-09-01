@@ -7,7 +7,7 @@ import {
 } from "@htc-website/components";
 import { ProgramContainer } from "@htc-website/components/layout";
 import { CSSImageBorderSmall } from "@htc-website/components/styles";
-import { IServiceFields } from "@htc-website/lib/server/contentful";
+import { IServiceFields } from "@htc/contentful";
 import { Typography } from "@material-ui/core";
 import { FC } from "react";
 import { css } from "styled-components";
@@ -25,12 +25,12 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
         padding: ${theme.size.makeRem(60)} ${theme.size.makeRem(40)};
 
         ${({ theme }) => css`
-          ${theme.breakpoints.mobileOnly(theme)} {
+          ${theme.breakpoints.mobileOnly} {
             flex-direction: column;
             padding: ${theme.size.makeRem(40)} ${theme.size.makeRem(32)};
           }
 
-          ${makeTabletStyles(theme)} {
+          ${theme.breakpoints.tablet} {
             display: flex;
             align-items: flex-start;
             padding: ${theme.size.makeRem(60)} ${theme.size.makeRem(40)};
@@ -52,12 +52,12 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
           }
 
           ${({ theme }) => css`
-            ${theme.breakpoints.mobileOnly(theme)} {
+            ${theme.breakpoints.mobileOnly} {
               width: 100%;
               margin-bottom: ${theme.size.makeRem(32)};
             }
 
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
               margin-right: ${theme.size.makeRem(40)};
               min-width: ${theme.size.makeRem(320)};
             }

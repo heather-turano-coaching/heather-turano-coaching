@@ -1,5 +1,5 @@
 import { theme.size.makeRem } from "@htc-website/components";
-import { IPageCollection } from "@htc-website/lib/server/contentful";
+import { IPageCollection } from "@htc/contentful";
 import { PostOrPage } from "@tryghost/content-api";
 import { NextSeo } from "next-seo";
 import React from "react";

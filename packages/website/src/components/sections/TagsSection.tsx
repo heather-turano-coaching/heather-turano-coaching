@@ -1,4 +1,4 @@
-import { Tag, TagGroup, TagGroupProps } from "@htc-website/components";
+import { Tag, TagGroup, TagGroupProps } from "@htc/components";
 import { Tag as GhostTag } from "@tryghost/content-api";
 import Link from "next/link";
 import React, { FC } from "react";

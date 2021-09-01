@@ -1,10 +1,10 @@
-import { sharedHorizontalBodyPadding } from "@htc-website/components";
 import {
   makeInset,
   makeResponsive,
   makeSize,
-  makeSpace
-} from "@htc-website/design-system";
+  makeSpace,
+  sharedHorizontalBodyPadding
+} from "@htc/components";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 

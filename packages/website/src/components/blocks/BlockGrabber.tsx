@@ -3,7 +3,7 @@ import { IBlockGrabber } from "@htc/contentful";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-import { AweberForm } from "../AweberForm";
+import { AweberForm } from "../forms";
 import { HeroTitle } from "../heros";
 import { BlockContainer, BlockVertSpacing } from "../layout";
 
@@ -19,7 +19,7 @@ const HeaderRow = styled.div`
 
   ${({ theme }) => css`
     margin-bottom: ${theme.size.makeRem(40)};
-    ${theme.breakpoints.laptop(theme)} {
+    ${theme.breakpoints.laptop} {
       height: ${theme.size.makeRem(headerRowHeight)};
     }
   `}
@@ -65,12 +65,12 @@ export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
           css={css`
             display: flex;
             ${({ theme }) => css`
-              ${theme.breakpoints.mobileOnly(theme)} {
+              ${theme.breakpoints.mobileOnly} {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
               }
-              ${theme.breakpoints.laptop(theme)} {
+              ${theme.breakpoints.laptop} {
                 justify-content: flex-end;
               }
             `}
@@ -79,7 +79,7 @@ export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
           <div
             css={css`
               ${({ theme }) => css`
-                ${theme.breakpoints.laptop(theme)} {
+                ${theme.breakpoints.laptop} {
                   display: none;
                 }
               `}
@@ -107,7 +107,7 @@ export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
           <div
             css={css`
               ${({ theme }) => css`
-                ${theme.breakpoints.mobileOnly(theme)} {
+                ${theme.breakpoints.mobileOnly} {
                   display: none;
                 }
               `}

@@ -1,11 +1,6 @@
-import { SectionCopy, SectionFooter, Title } from "@htc-website/components";
-import { RichText } from "@htc-website/components";
-import {
-  theme.breakpoints.laptop,
-  theme.breakpoints.mobileOnly,
-  theme.size.makeRem
-} from "@htc-website/components";
-import { IBlock, IBlockFields } from "@htc-website/lib/server/contentful";
+import { SectionCopy, SectionFooter, Title } from "@htc/components";
+import { RichText } from "@htc/components";
+import { IBlock, IBlockFields } from "@htc/contentful";
 import { Container, Typography } from "@material-ui/core";
 import React, { FC, ReactNode } from "react";
 import styled, { css } from "styled-components";
@@ -22,17 +17,17 @@ import { Forms } from "../forms";
 export const BlockSimpleVariant = styled(Container)<{
   variant: IBlockFields["type"];
 }>`
-  max-width: ${theme.size.makeRem(700)};
-
   ${({ theme, variant }) => {
     switch (variant) {
       case "plain":
         return css`
-          ${theme.breakpoints.mobileOnly(theme)} {
+          max-width: ${theme.size.makeRem(700)};
+
+          ${theme.breakpoints.mobileOnly} {
             margin-top: ${theme.size.makeRem(120)};
             margin-bottom: ${theme.size.makeRem(120)};
           }
-          ${theme.breakpoints.laptop(theme)} {
+          ${theme.breakpoints.laptop} {
             padding-top: ${theme.size.makeRem(160)};
             padding-bottom: ${theme.size.makeRem(160)};
           }
@@ -40,6 +35,8 @@ export const BlockSimpleVariant = styled(Container)<{
 
       case "stacked":
         return css`
+          max-width: ${theme.size.makeRem(700)};
+
           margin-top: ${theme.size.makeRem(200)};
           margin-bottom: ${theme.size.makeRem(200)};
           padding-top: ${theme.size.makeRem(60)};
@@ -47,7 +44,7 @@ export const BlockSimpleVariant = styled(Container)<{
           background-color: ${theme.palette.light.light};
           position: relative;
 
-          ${theme.breakpoints.laptop(theme)} {
+          ${theme.breakpoints.laptop} {
             padding: ${theme.size.makeRem(60)};
 
             &::after {
@@ -75,7 +72,7 @@ export const BlockSimple: FC<IBlock> = ({ fields }) => {
           <RichText
             richText={fields.description}
             copyProps={{
-              variant: "body1"
+              variant: "paragraph"
             }}
           />
         )}

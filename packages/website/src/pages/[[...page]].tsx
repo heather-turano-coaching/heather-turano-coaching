@@ -3,7 +3,7 @@ import {
   IWebPage,
   getAllContentfulPages,
   getContentfulPageBySlug
-} from "@htc-website/lib/server/contentful";
+} from "@htc/contentful";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { DynamicPage, DynamicPageProps } from "src/features/dynamic-page";
 

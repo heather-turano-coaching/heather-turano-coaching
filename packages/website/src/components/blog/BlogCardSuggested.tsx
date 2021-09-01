@@ -27,7 +27,7 @@ export const BlogCardSuggested: FC<PostOrPage> = (props) => {
         transition: all 0.15s ease-in-out;
 
         ${({ theme }) => css`
-          ${theme.breakpoints.laptop(theme)} {
+          ${theme.breakpoints.laptop} {
             flex-direction: column;
             margin-left: ${theme.size.makeRem(12)};
             margin-right: ${theme.size.makeRem(12)};
@@ -48,14 +48,14 @@ export const BlogCardSuggested: FC<PostOrPage> = (props) => {
           object-fit: cover;
 
           ${({ theme }) => css`
-            ${theme.breakpoints.mobileOnly(theme)} {
+            ${theme.breakpoints.mobileOnly} {
               border-top-left-radius: inherit;
               border-bottom-left-radius: inherit;
               max-width: ${theme.size.makeRem(120)};
               height: auto;
             }
 
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
               border-top-left-radius: inherit;
               border-top-right-radius: inherit;
               width: auto;

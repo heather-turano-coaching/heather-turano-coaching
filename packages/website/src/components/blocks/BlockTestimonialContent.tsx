@@ -1,7 +1,7 @@
 import { Image, RichText, SectionCopy } from "@htc-website/components";
 import { flexRow, theme.size.makeRem } from "@htc-website/components";
 import { makeInset, makeResponsive } from "@htc-website/design-system";
-import { ITestimonials } from "@htc-website/lib/server/contentful";
+import { ITestimonials } from "@htc/contentful";
 import { Container } from "@material-ui/core";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";

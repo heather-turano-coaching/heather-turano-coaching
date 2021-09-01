@@ -1,5 +1,5 @@
-import { Title } from "@htc-website/components";
-import { IBlockTestimonial } from "@htc-website/lib/server/contentful";
+import { Title } from "@htc/components";
+import { IBlockTestimonial } from "@htc/contentful";
 import React, { FC } from "react";
 import { css } from "styled-components";
 

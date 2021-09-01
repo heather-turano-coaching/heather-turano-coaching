@@ -1,5 +1,4 @@
-import { theme.size.makeRem } from "@htc-website/components";
-import { FooterNav, HeaderNav } from "@htc-website/components/content";
+import { FooterNav, HeaderNav } from "@htc-website/components/navigation";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { useCallback } from "react";
@@ -23,21 +22,25 @@ export const LayoutRoot: FC<{
         <div
           css={css`
             position: fixed;
-            right: ${theme.size.makeRem(20)};
-            bottom: ${theme.size.makeRem(20)};
+            ${({ theme }) => css`
+              right: ${theme.size.makeRem(20)};
+              bottom: ${theme.size.makeRem(20)};
+              border-radius: ${theme.size.makeRem(8)};
+              padding: ${theme.size.makeRem(32)} ${theme.size.makeRem(32)};
+              border: ${theme.size.makeRem(3)} solid hotpink;
+              max-width: ${theme.size.makeRem(400)};
+            `}
+
             z-index: 1000;
-            border-radius: ${theme.size.makeRem(8)};
-            padding: ${theme.size.makeRem(32)} ${theme.size.makeRem(32)};
+
             background: white;
-            border: ${theme.size.makeRem(3)} solid hotpink;
             font-family: "Muli";
-            max-width: ${theme.size.makeRem(400)};
             text-align: center;
           `}
         >
           <div
             css={css`
-              font-size: ${theme.size.makeRem(18)};
+              font-size: ${({ theme }) => theme.size.makeRem(18)};
             `}
           >
             You are currently viewing this site in <strong>PREVIEW</strong>{" "}

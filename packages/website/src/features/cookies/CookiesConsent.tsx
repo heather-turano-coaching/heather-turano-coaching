@@ -63,7 +63,7 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
 
           ${({ theme }) => css`
             padding: ${theme.size.makeRem(16)} ${theme.size.makeRem(32)};
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
               width: ${theme.size.makeRem(360)};
               left: initial;
               right: ${theme.size.makeRem(40)};
@@ -87,7 +87,7 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
                   margin-bottom: ${theme.size.makeRem(20)};
                   font-weight: ${makeFontWeight("semiBold")};
 
-                  ${theme.breakpoints.mobileOnly(theme)} {
+                  ${theme.breakpoints.mobileOnly} {
                     font-size: ${theme.size.makeRem(18)};
                   }
                 `}
@@ -101,7 +101,7 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
             css={css`
               && {
                 ${({ theme }) => css`
-                  ${theme.breakpoints.mobileOnly(theme)} {
+                  ${theme.breakpoints.mobileOnly} {
                     font-size: ${theme.size.makeRem(12)};
                   }
                 `}

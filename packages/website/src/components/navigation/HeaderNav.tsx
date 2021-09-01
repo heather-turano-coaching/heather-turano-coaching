@@ -1,8 +1,3 @@
-import {
-  theme.breakpoints.laptop,
-  theme.breakpoints.mobileOnly,
-  theme.size.makeRem
-} from "@htc-website/components";
 import Link from "next/link";
 import React, { FC, useEffect, useRef } from "react";
 import { useMemo } from "react";
@@ -11,7 +6,7 @@ import styled, { css } from "styled-components";
 import { ActiveLink } from "./ActiveLink";
 import { SideNav } from "./SideNav";
 
-export const navbarHeight = theme.size.makeRem(84);
+export const navbarHeight = 84;
 export const fullScreenSansNavbar = `calc(100vh - ${navbarHeight})`;
 
 const NavbarContainer = styled.nav`
@@ -30,15 +25,16 @@ const MobileLogo = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: ${theme.size.makeRem(200)};
-
-  img {
-    width: ${theme.size.makeRem(200)};
-  }
 
   ${({ theme }) => {
     return css`
-      ${theme.breakpoints.laptop(theme)} {
+      height: ${theme.size.makeRem(200)};
+
+      img {
+        width: ${theme.size.makeRem(200)};
+      }
+
+      ${theme.breakpoints.laptop} {
         display: none;
       }
     `;
@@ -50,24 +46,19 @@ const DesktopLogo = styled.a`
     cursor: pointer;
     z-index: 100;
 
-    ${theme.breakpoints.mobileOnly(theme)} {
+    ${theme.breakpoints.mobileOnly} {
       display: none;
     }
-  `}
 
-  img {
-    width: ${theme.size.makeRem(200)};
-  }
+    img {
+      width: ${theme.size.makeRem(200)};
+    }
+  `}
 `;
 
 const Navbar = styled.div`
   width: 100%;
   position: sticky;
-  top: -${theme.size.makeRem(1)};
-  margin-top: ${theme.size.makeRem(1)};
-  height: ${navbarHeight};
-
-  padding: 0 ${theme.size.makeRem(24)};
   z-index: 100;
   transition: all 0.2s ease-in-out 0s;
 
@@ -76,7 +67,12 @@ const Navbar = styled.div`
   }
 
   ${({ theme }) => css`
-    ${theme.breakpoints.mobileOnly(theme)} {
+    top: -${theme.size.makeRem(1)};
+    margin-top: ${theme.size.makeRem(1)};
+    height: ${theme.size.makeRem(navbarHeight)};
+    padding: 0 ${theme.size.makeRem(24)};
+
+    ${theme.breakpoints.mobileOnly} {
       background: ${theme.palette.light.light};
 
       &.stuck {
@@ -84,7 +80,7 @@ const Navbar = styled.div`
       }
     }
 
-    ${theme.breakpoints.laptop(theme)} {
+    ${theme.breakpoints.laptop} {
       background: ${theme.palette.common.white};
       display: flex;
       flex-direction: row;
@@ -103,13 +99,13 @@ const NavbarUl = styled.ul`
   right: 0;
 
   ${({ theme }) => css`
-    ${theme.breakpoints.mobileOnly(theme)} {
+    ${theme.breakpoints.mobileOnly} {
       justify-content: space-between;
       height: 100%;
       padding: ${theme.size.makeRem(16)};
     }
 
-    ${theme.breakpoints.laptop(theme)} {
+    ${theme.breakpoints.laptop} {
       justify-content: center;
     }
   `}
@@ -117,7 +113,7 @@ const NavbarUl = styled.ul`
 
 const NavbarLi = styled.li`
   ${({ theme }) => css`
-    ${theme.breakpoints.laptop(theme)} {
+    ${theme.breakpoints.laptop} {
       &:not(:last-child) {
         margin-right: ${theme.size.makeRem(32)};
       }
@@ -126,18 +122,19 @@ const NavbarLi = styled.li`
 `;
 
 const NavLink = styled.a`
-  height: ${theme.size.makeRem(44)};
-  line-height: ${theme.size.makeRem(44)};
   display: block;
   font-family: "Muli";
   text-transform: uppercase;
-  font-size: ${theme.size.makeRem(16)};
   font-weight: 500;
   position: relative;
   transition: all 0.15s ease-in-out 0s;
 
   ${({ theme }) => css`
-    ${theme.breakpoints.mobileOnly(theme)} {
+    height: ${theme.size.makeRem(44)};
+    line-height: ${theme.size.makeRem(44)};
+    font-size: ${theme.size.makeRem(16)};
+
+    ${theme.breakpoints.mobileOnly} {
       flex: 1;
     }
   `}
@@ -148,7 +145,7 @@ const NavLink = styled.a`
     left: 0;
     right: 0;
     bottom: 0;
-    height: ${theme.size.makeRem(1)};
+    height: ${({ theme }) => theme.size.makeRem(1)};
     transition: all 0.15s ease-in-out 0s;
   }
 

@@ -1,4 +1,4 @@
-import {} from "@htc-website/lib/server/contentful/contentful.types.custom";
+import {} from "@htc/contentful/contentful.types.custom";
 
 import { Title } from "@htc-website/components";
 import { theme.size.makeRem } from "@htc-website/components";
@@ -14,7 +14,7 @@ import {
   IServiceContact,
   IServiceQuickAction,
   IServiceTeachable
-} from "@htc-website/lib/server/contentful";
+} from "@htc/contentful";
 import React from "react";
 import { css } from "styled-components";
 

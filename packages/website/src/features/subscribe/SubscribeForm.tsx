@@ -1,4 +1,4 @@
-import { AweberForm } from "@htc-website/components";
+import { AweberForm } from "@htc-website/components/forms";
 import React, { FC } from "react";
 
 import { subscribeFormString } from "./subscribe.form";

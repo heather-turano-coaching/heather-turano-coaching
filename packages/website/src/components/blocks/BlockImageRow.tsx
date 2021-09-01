@@ -1,13 +1,5 @@
-import { IBlockImageRow } from "@htc-website/lib/server/contentful";
-import {
-  Container,
-  RichText,
-  SectionCopy,
-  Title,
-  theme.breakpoints.laptop,
-  theme.size.makeRem,
-  makeTabletStyles
-} from "@htc/components";
+import { Container, RichText, SectionCopy, Title } from "@htc/components";
+import { IBlockImageRow } from "@htc/contentful";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
@@ -24,14 +16,14 @@ export const BlockImageRow: FC<IBlockImageRow> = ({ fields }) => {
           <RichText
             richText={fields.description}
             copyProps={{
-              variant: "body1"
+              variant: "paragraph"
             }}
           />
         )}
       </SectionCopy>
       <div
         css={css`
-          margin-top: ${theme.size.makeRem(64)};
+          margin-top: ${({ theme }) => theme.size.makeRem(64)};
           display: flex;
           justify-content: center;
           align-items: center;
@@ -45,13 +37,13 @@ export const BlockImageRow: FC<IBlockImageRow> = ({ fields }) => {
               width: 50%;
 
               ${({ theme }) => css`
-                ${makeTabletStyles(theme)} {
+                ${theme.breakpoints.tablet} {
                   width: 33.333%;
                 }
               `}
 
               ${({ theme }) => css`
-                ${theme.breakpoints.laptop(theme)} {
+                ${theme.breakpoints.laptop} {
                   width: 20%;
                 }
               `}

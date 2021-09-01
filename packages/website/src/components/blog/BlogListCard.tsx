@@ -72,7 +72,7 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
                 object-position: top left;
 
                 ${({ theme }) => css`
-                  ${makeTabletStyles(theme)} {
+                  ${theme.breakpoints.tablet} {
                     height: ${theme.size.makeRem(400)};
                   }
                 `}

@@ -1,6 +1,5 @@
-import { Footer, FooterSection, FooterText } from "@htc-website/components";
-import { makeColor } from "@htc-website/design-system";
 import { SubscribeForm } from "@htc-website/features/subscribe";
+import { Footer, FooterSection, FooterText, makeColor } from "@htc/components";
 import React, { FC } from "react";
 import { css } from "styled-components";
 

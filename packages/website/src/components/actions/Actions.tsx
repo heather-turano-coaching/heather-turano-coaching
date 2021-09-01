@@ -1,5 +1,5 @@
-import { IAction } from "@htc-website/lib/server/contentful/contentful";
 import { Button, ButtonGroup } from "@htc/components";
+import { IAction } from "@htc/contentful/contentful";
 import Link from "next/link";
 import React, { FC, memo } from "react";
 

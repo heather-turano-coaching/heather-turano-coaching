@@ -24,13 +24,13 @@ const StyledCard = styled.a`
     min-width: 100%;
     transform: scale(1);
 
-    ${theme.breakpoints.mobileOnly(theme)} {
+    ${theme.breakpoints.mobileOnly} {
       & + && {
         margin-top: ${theme.size.makeRem(32)};
       }
     }
 
-    ${theme.breakpoints.laptop(theme)} {
+    ${theme.breakpoints.laptop} {
       min-width: 33.333%;
       margin-left: ${theme.size.makeRem(16)};
       margin-right: ${theme.size.makeRem(16)};
@@ -64,7 +64,7 @@ export const LegalPage: FeaturePageComponent = () => {
         css={css`
           ${({ theme }) => css`
             padding: ${theme.size.makeRem(48)} 0 ${theme.size.makeRem(64)};
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
               display: flex;
               justify-content: center;
             }

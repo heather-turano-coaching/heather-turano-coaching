@@ -7,7 +7,7 @@ import {
   getGhostFeaturedPostEndpoint,
   ghostClient
 } from "@htc-website/lib/ghost";
-import { getContentfulPageById } from "@htc-website/lib/server/contentful";
+import { getContentfulPageById } from "@htc/contentful";
 import { GetStaticProps } from "next";
 
 export const blogPageId = "7inppspqzOyqyHJ9r8viIj";

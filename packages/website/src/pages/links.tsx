@@ -6,10 +6,7 @@ import {
   getGhostLatestPostEndpoint,
   ghostClient
 } from "@htc-website/lib/ghost";
-import {
-  IPageCollection,
-  getContentfulEntryById
-} from "@htc-website/lib/server/contentful";
+import { IPageCollection, getContentfulEntryById } from "@htc/contentful";
 import { GetStaticProps } from "next";
 import { LinksPage, LinksPageProps } from "src/features/links";
 

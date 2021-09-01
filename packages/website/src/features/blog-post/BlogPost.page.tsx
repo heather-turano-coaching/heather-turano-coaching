@@ -156,7 +156,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
           ${({ theme }) => css`
             background: ${theme.palette.accent.light};
 
-            ${theme.breakpoints.mobileOnly(theme)} {
+            ${theme.breakpoints.mobileOnly} {
               padding-top: ${theme.size.makeRem(32)};
               padding-bottom: ${theme.size.makeRem(32)};
             }
@@ -206,7 +206,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
         <ul
           css={css`
             ${({ theme }) => css`
-              ${theme.breakpoints.laptop(theme)} {
+              ${theme.breakpoints.laptop} {
                 display: flex;
                 justify-content: center;
               }
@@ -219,7 +219,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
                 <a
                   css={css`
                     ${({ theme }) => css`
-                      ${theme.breakpoints.mobileOnly(theme)} {
+                      ${theme.breakpoints.mobileOnly} {
                         display: flex;
                         justify-content: center;
                       }

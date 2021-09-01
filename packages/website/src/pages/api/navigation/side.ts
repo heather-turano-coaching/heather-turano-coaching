@@ -1,8 +1,5 @@
 import { throwApiError, validateMethod } from "@htc-website/lib/server";
-import {
-  INavbar,
-  getContentfulEntryById
-} from "@htc-website/lib/server/contentful";
+import { INavbar, getContentfulEntryById } from "@htc/contentful";
 import { NextApiHandler } from "next";
 
 const getSideNav: NextApiHandler<INavbar> = async (req, res) => {

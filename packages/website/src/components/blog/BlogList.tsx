@@ -21,7 +21,7 @@ const SyledBlogList = styled.div`
       margin-bottom: ${theme.size.makeRem(80)};
     }
 
-    ${makeTabletStyles(theme)} {
+    ${theme.breakpoints.tablet} {
       display: flex;
       flex-wrap: wrap;
       & > * {
@@ -32,7 +32,7 @@ const SyledBlogList = styled.div`
       }
     }
 
-    ${theme.breakpoints.laptop(theme)} {
+    ${theme.breakpoints.laptop} {
       display: flex;
       justify-content: center;
       & > * {

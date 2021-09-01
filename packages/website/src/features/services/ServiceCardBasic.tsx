@@ -1,4 +1,4 @@
-import { IServiceBasic } from "@htc-website/lib/server/contentful";
+import { IServiceBasic } from "@htc/contentful";
 import { FC } from "react";
 
 export const ServiceCardBasic: FC<IServiceBasic> = (props) => {

@@ -3,7 +3,7 @@ import {
   IService,
   getContentfulEntriesById,
   getContentfulPageById
-} from "@htc-website/lib/server/contentful";
+} from "@htc/contentful";
 import { GetStaticProps } from "next";
 import { ServicesPage, ServicesPageProps } from "src/features/services";
 

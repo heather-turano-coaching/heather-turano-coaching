@@ -13,7 +13,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
     <div
       css={css`
         ${({ theme }) => css`
-          ${theme.breakpoints.laptop(theme)} {
+          ${theme.breakpoints.laptop} {
             min-height: ${theme.size.makeRem(600)};
             height: ${theme.size.makeRem(600)};
             padding: 0 ${theme.size.makeRem(48)};
@@ -36,7 +36,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
           css={css`
             flex: 1;
             ${({ theme }) => css`
-              ${theme.breakpoints.laptop(theme)} {
+              ${theme.breakpoints.laptop} {
                 margin-right: ${theme.size.makeRem(40)};
                 height: 100%;
                 position: relative;

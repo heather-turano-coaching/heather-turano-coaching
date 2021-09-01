@@ -1,10 +1,9 @@
-import { makeFontWeight, theme.size.makeRem } from "@htc-website/components";
+import { makeFontWeight, themePaletteDefaults } from "@htc/components";
 import { Typography } from "@material-ui/core";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { FC, memo } from "react";
 import { useMemo } from "react";
-import { themePalette } from "src/theme/theme.config.palette";
 import { css } from "styled-components";
 
 import { SideNavVariants } from "./side-nav.utils";
@@ -39,7 +38,7 @@ export const SideNavMenuItem: FC<{
       return {
         whileHover: {
           scale: 0.95,
-          color: themePalette.secondary.dark
+          color: themePaletteDefaults.secondary.dark
         },
         whileTap: { scale: 1.02 }
       };
@@ -89,7 +88,7 @@ export const SideNavMenuItem: FC<{
       {...whileHoverAndTab}
       css={css`
         list-style: none;
-        margin-bottom: ${theme.size.makeRem(20)};
+        margin-bottom: ${({ theme }) => theme.size.makeRem(20)};
         display: flex;
         align-items: center;
         cursor: ${disableLink ? "cursor" : "initial"};

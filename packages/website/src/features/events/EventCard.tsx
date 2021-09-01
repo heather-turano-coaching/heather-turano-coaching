@@ -37,7 +37,7 @@ export const EventCard: FC<EventCardProps> = (props) => {
         padding: ${theme.size.makeRem(32)} 0;
 
         ${({ theme }) => css`
-          ${theme.breakpoints.laptop(theme)} {
+          ${theme.breakpoints.laptop} {
             display: flex;
           }
         `}
@@ -55,11 +55,11 @@ export const EventCard: FC<EventCardProps> = (props) => {
 
           ${({ theme }) => css`
             background-color: ${theme.palette.primary.light};
-            ${theme.breakpoints.mobileOnly(theme)} {
+            ${theme.breakpoints.mobileOnly} {
               margin-bottom: ${theme.size.makeRem(24)};
             }
 
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
               width: ${theme.size.makeRem(144)};
               margin-right: ${theme.size.makeRem(32)};
             }
@@ -70,13 +70,13 @@ export const EventCard: FC<EventCardProps> = (props) => {
         css={css`
           flex: 1;
           ${({ theme }) => css`
-            ${theme.breakpoints.mobileOnly(theme)} {
+            ${theme.breakpoints.mobileOnly} {
               & > .subHeader {
                 margin-bottom: ${theme.size.makeRem(16)};
               }
             }
 
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
               & > .subHeader {
                 margin-bottom: ${theme.size.makeRem(8)};
               }
@@ -102,11 +102,11 @@ export const EventCard: FC<EventCardProps> = (props) => {
           css={css`
             && {
               ${({ theme }) => css`
-                ${theme.breakpoints.mobileOnly(theme)} {
+                ${theme.breakpoints.mobileOnly} {
                   margin-bottom: ${theme.size.makeRem(16)};
                 }
 
-                ${theme.breakpoints.laptop(theme)} {
+                ${theme.breakpoints.laptop} {
                   margin: ${theme.size.makeRem(4)} 0 ${theme.size.makeRem(16)} 0;
                 }
               `}
@@ -120,12 +120,12 @@ export const EventCard: FC<EventCardProps> = (props) => {
       <div
         css={css`
           ${({ theme }) => css`
-            ${theme.breakpoints.mobileOnly(theme)} {
+            ${theme.breakpoints.mobileOnly} {
               text-align: center;
               margin-top: ${theme.size.makeRem(60)};
             }
 
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
             }
           `}
         `}
@@ -150,12 +150,12 @@ export const EventCard: FC<EventCardProps> = (props) => {
         {/* <div
           css={css`
             ${({ theme }) => css`
-              ${theme.breakpoints.mobileOnly(theme)} {
+              ${theme.breakpoints.mobileOnly} {
                 text-align: center;
                 margin-top: ${theme.size.makeRem(32)};
               }
 
-              ${theme.breakpoints.laptop(theme)} {
+              ${theme.breakpoints.laptop} {
               }
             `}
           `}

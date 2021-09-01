@@ -1,4 +1,4 @@
-import { makeFontWeight, theme.size.makeRem } from "@htc/components";
+import { makeFontWeight } from "@htc/components";
 import { FC } from "react";
 import styled, { css } from "styled-components";
 
@@ -11,24 +11,25 @@ export type AweberFormProps = {
 };
 
 const CSSInput = css<AweberFormProps>`
-  border-radius: ${theme.size.makeRem(4)};
-  width: 100%;
-  font-family: "Muli";
-  font-weight: ${makeFontWeight("semiBold")};
-  font-size: ${theme.size.makeRem(16)};
-  padding: 0 ${theme.size.makeRem(16)};
-  color: ${({ theme }) => theme.palette.noir.dark};
-  background-color: ${({ theme, variant }) =>
-    variant === "light"
+  ${({ theme, variant }) => css`
+    border-radius: ${theme.size.makeRem(4)};
+    width: 100%;
+    font-family: "Muli";
+    font-weight: ${makeFontWeight("semiBold")};
+    font-size: ${theme.size.makeRem(16)};
+    padding: 0 ${theme.size.makeRem(16)};
+    color: ${({ theme }) => theme.palette.noir.dark};
+    background-color: ${variant === "light"
       ? theme.palette.light.light
       : theme.palette.common.white};
-  border: 2px solid transparent;
-  transition: all 0.15s ease-in-out;
+    border: 2px solid transparent;
+    transition: all 0.15s ease-in-out;
 
-  &:focus {
-    outline: none;
-    border: 2px solid ${({ theme }) => theme.palette.primary.dark};
-  }
+    &:focus {
+      outline: none;
+      border: 2px solid ${theme.palette.primary.dark};
+    }
+  `}
 `;
 
 const StyledForm = styled.div<AweberFormProps>`
@@ -46,7 +47,7 @@ const StyledForm = styled.div<AweberFormProps>`
     display: flex;
     flex-direction: column;
     &:not(:last-child) {
-      margin-bottom: ${theme.size.makeRem(20)};
+      margin-bottom: ${({ theme }) => theme.size.makeRem(20)};
     }
 
     ${formTextWrap} {
@@ -56,11 +57,13 @@ const StyledForm = styled.div<AweberFormProps>`
     }
 
     label {
-      font-size: ${theme.size.makeRem(16)};
+      ${({ theme }) => css`
+        font-size: ${theme.size.makeRem(16)};
+        margin-bottom: ${theme.size.makeRem(4)};
+      `}
       font-weight: ${makeFontWeight("semiBold")};
       font-family: "Muli";
       display: inline-block;
-      margin-bottom: ${theme.size.makeRem(4)};
       text-align: left;
     }
 
@@ -70,7 +73,7 @@ const StyledForm = styled.div<AweberFormProps>`
     }
 
     input {
-      height: ${theme.size.makeRem(48)};
+      height: ${({ theme }) => theme.size.makeRem(48)};
     }
 
     input[type="submit"] {

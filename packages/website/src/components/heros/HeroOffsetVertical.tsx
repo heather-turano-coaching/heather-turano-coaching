@@ -1,5 +1,4 @@
-import { theme.breakpoints.laptop, makeFlex, theme.size.makeRem } from "@htc-website/components";
-import { Container } from "@material-ui/core";
+import { Container } from "@htc/components";
 import { rgba } from "polished";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
@@ -11,10 +10,12 @@ import {
   HeroWrapper
 } from "./HeroContainer";
 
-const whiteSpaceHeight = theme.size.makeRem(300);
+const whiteSpaceHeight = 300;
 
 const HeroImgContainer = styled.div`
-  height: ${`calc(100% - ${whiteSpaceHeight})`};
+  ${({ theme }) => css`
+    height: ${`calc(100% - ${theme.size.makeRem(whiteSpaceHeight)})`};
+  `}
   position: relative;
   width: 100%;
   flex: 1;
@@ -35,17 +36,16 @@ const HeroImg = styled.img`
 `;
 
 const OpaqueBlock = styled.div`
-  background-color: ${({ theme }) => rgba(theme.palette.light.main, 0.5)};
-  padding: 0 ${theme.size.makeRem(40)};
-  min-height: ${whiteSpaceHeight};
-  ${makeFlex({
-    direction: "row",
-    justify: "center",
-    align: "center"
-  })}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   ${({ theme }) => css`
-    ${theme.breakpoints.laptop(theme)} {
+    min-height: ${theme.size.makeRem(whiteSpaceHeight)};
+    background-color: ${rgba(theme.palette.light.main, 0.5)};
+    padding: 0 ${theme.size.makeRem(40)};
+
+    ${theme.breakpoints.laptop} {
       max-width: 60%;
       width: 60%;
       justify-content: flex-start;
@@ -56,13 +56,10 @@ const OpaqueBlock = styled.div`
 
 const OpaqueBlockContainer = styled.div<{ align: "flex-end" | "flex-start" }>`
   min-height: ${whiteSpaceHeight};
-  ${({ align }) => css`
-    ${makeFlex({
-      direction: "row",
-      justify: "flex-end",
-      align: align
-    })};
-
+  ${({ align, theme }) => css`
+    display: flex;
+    justify-content: flex-end;
+    align-items: align;
     padding-top: ${align === "flex-end" ? theme.size.makeRem(32) : 0};
   `}
 `;
@@ -76,9 +73,8 @@ export const HeroOffsetVertical: FC<HeroProps> = ({
   return (
     <HeroWrapper
       css={css`
-        ${makeFlex({
-          direction: "column"
-        })}
+        display: flex;
+        flex-direction: column;
       `}
     >
       <Container>
@@ -93,7 +89,7 @@ export const HeroOffsetVertical: FC<HeroProps> = ({
           <OpaqueBlockContainer
             align="flex-start"
             css={css`
-              padding-bottom: ${theme.size.makeRem(400)};
+              padding-bottom: ${({ theme }) => theme.size.makeRem(400)};
             `}
           >
             <OpaqueBlock>

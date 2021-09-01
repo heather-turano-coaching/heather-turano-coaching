@@ -1,10 +1,3 @@
-import {
-  theme.breakpoints.laptop,
-  makeFlex,
-  theme.breakpoints.mobileOnly,
-  theme.size.makeRem,
-  makeTabletStyles
-} from "@htc-website/components";
 import { CSSImageBorder } from "@htc-website/components/styles";
 import React, { FC } from "react";
 import { css } from "styled-components";
@@ -26,11 +19,11 @@ export const HeroOffsetHorizontal: FC<HeroProps> = ({
   <HeroWrapper>
     <HeroContainer
       css={css`
-        padding-top: ${theme.size.makeRem(60)};
-        padding-bottom: ${theme.size.makeRem(60)};
-
         ${({ theme }) => css`
-          ${theme.breakpoints.laptop(theme)} {
+          padding-top: ${theme.size.makeRem(60)};
+          padding-bottom: ${theme.size.makeRem(60)};
+
+          ${theme.breakpoints.laptop} {
             padding-top: ${theme.size.makeRem(100)};
             padding-bottom: ${theme.size.makeRem(100)};
           }
@@ -43,42 +36,44 @@ export const HeroOffsetHorizontal: FC<HeroProps> = ({
           top: 0;
           right: 0;
           height: 70%;
-          max-height: ${theme.size.makeRem(600)};
-          background-color: ${({ theme }) => theme.palette.secondary.light};
           z-index: -1;
+
+          ${({ theme }) => css`
+            max-height: ${theme.size.makeRem(600)};
+            background-color: ${theme.palette.secondary.light};
+          `}
         }
       `}
     >
       <div
         css={css`
           ${({ theme }) => css`
-            ${theme.breakpoints.laptop(theme)} {
-              ${makeFlex({
-                direction: "row",
-                justify: "space-between",
-                align: "center"
-              })}
+            ${theme.breakpoints.laptop} {
+              display: flex;
+              justify-content: "space-between";
+              align-items: center;
             }
           `}
         `}
       >
         <div
           css={css`
-            padding: 0 ${theme.size.makeRem(40)};
             z-index: 10;
 
             ${({ theme }) => css`
-              ${theme.breakpoints.mobileOnly(theme)} {
+              padding: 0 ${theme.size.makeRem(40)};
+
+              ${theme.breakpoints.mobileOnly} {
                 width: 100%;
                 padding-bottom: ${theme.size.makeRem(48)};
                 min-height: ${theme.size.makeRem(300)};
               }
 
-              ${makeTabletStyles(theme)} {
+              ${theme.breakpoints.tablet} {
                 height: ${theme.size.makeRem(300)};
               }
 
-              ${theme.breakpoints.laptop(theme)} {
+              ${theme.breakpoints.laptop} {
                 height: 100%;
                 width: 45%;
               }
@@ -93,16 +88,16 @@ export const HeroOffsetHorizontal: FC<HeroProps> = ({
           alt={imageAlt}
           css={css`
             ${({ theme }) => css`
-              ${theme.breakpoints.mobileOnly(theme)} {
+              ${theme.breakpoints.mobileOnly} {
                 width: 100%;
                 height: ${theme.size.makeRem(300)};
               }
 
-              ${makeTabletStyles(theme)} {
+              ${theme.breakpoints.tablet} {
                 height: ${theme.size.makeRem(300)};
               }
 
-              ${theme.breakpoints.laptop(theme)} {
+              ${theme.breakpoints.laptop} {
                 position: absolute;
                 right: ${theme.size.makeRem(24)};
                 top: ${theme.size.makeRem(40)};

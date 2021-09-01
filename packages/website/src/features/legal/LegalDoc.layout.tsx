@@ -33,7 +33,7 @@ export const ActiveLink = styled.a<{ isActive: boolean }>`
         position: absolute;
       }
 
-      ${theme.breakpoints.mobileOnly(theme)} {
+      ${theme.breakpoints.mobileOnly} {
         &::before {
           content: "";
           left: 0;
@@ -43,7 +43,7 @@ export const ActiveLink = styled.a<{ isActive: boolean }>`
         }
       }
 
-      ${theme.breakpoints.laptop(theme)} {
+      ${theme.breakpoints.laptop} {
         padding-left: ${theme.size.makeRem(24)} !important;
         &::before {
           content: "";
@@ -60,7 +60,7 @@ export const ActiveLink = styled.a<{ isActive: boolean }>`
     `}
 
   ${({ theme }) => css`
-    ${theme.breakpoints.laptop(theme)} {
+    ${theme.breakpoints.laptop} {
       justify-content: flex-start;
       padding-left: ${theme.size.makeRem(20)};
       padding-right: ${theme.size.makeRem(20)};
@@ -88,7 +88,7 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
 
           ${({ theme }) => css`
             padding-top: 0;
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
               flex-direction: column;
               justify-content: flex-start;
               min-width: ${theme.size.makeRem(240)};
@@ -105,7 +105,7 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
             css={css`
               width: 100%;
               ${({ theme }) => css`
-                ${theme.breakpoints.laptop(theme)} {
+                ${theme.breakpoints.laptop} {
                   &:not(:first-child) {
                     margin-top: ${theme.size.makeRem(16)};
                   }
@@ -129,7 +129,7 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
             padding-left: ${theme.size.makeRem(36)};
             padding-right: ${theme.size.makeRem(36)};
 
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
               max-width: ${theme.size.makeRem(740)};
             }
           `}

@@ -1,4 +1,3 @@
-import { theme.size.makeRem } from "@htc-website/components";
 import { Menu } from "@htc-website/icons";
 import { SvgIcon } from "@material-ui/core";
 import { motion } from "framer-motion";
@@ -12,7 +11,7 @@ import { SideNavMenu } from "./SideNavMenu";
 
 const sidebar = {
   open: () => ({
-    width: theme.size.makeRem(300),
+    width: "300px",
     boxShadow: "0 0 10px 3px rgb(207 207 207 / 50%)",
     transition: {
       type: "spring",
@@ -76,7 +75,7 @@ export const SideNavContent: FC = () => {
           cursor: pointer;
           position: absolute;
           top: 18px;
-          right: ${theme.size.makeRem(24)};
+          right: ${({ theme }) => theme.size.makeRem(24)};
           width: 50px;
           height: 50px;
           border-radius: 50%;

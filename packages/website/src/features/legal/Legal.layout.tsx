@@ -38,11 +38,11 @@ export const LegalPageLayout: PageLayout = ({ children, ...props }) => {
           height: 100%;
 
           ${({ theme }) => css`
-            ${theme.breakpoints.mobileOnly(theme)} {
+            ${theme.breakpoints.mobileOnly} {
               flex-direction: column;
             }
 
-            ${theme.breakpoints.laptop(theme)} {
+            ${theme.breakpoints.laptop} {
               flex-direction: row;
             }
           `}

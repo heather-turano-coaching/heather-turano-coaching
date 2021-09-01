@@ -1,10 +1,10 @@
-import { TagCard, TagGroup } from "@htc-website/components";
+import { TagCard, TagGroup } from "@htc/components";
 import { Tag } from "@tryghost/content-api";
 import Link from "next/link";
 import React, { FC } from "react";
 import styled from "styled-components";
 
-import { universalHover } from "../../styles";
+import { universalHover } from "../styles";
 
 interface TagCardSectionProps {
   tags: Tag[];

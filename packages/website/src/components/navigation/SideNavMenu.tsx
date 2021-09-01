@@ -1,10 +1,8 @@
-import { theme.size.makeRem } from "@htc-website/components";
 import { getEndpoint } from "@htc-website/lib/endpoint";
-import { INavbar } from "@htc-website/lib/server/contentful";
+import type { INavbar } from "@htc/contentful";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import React, { FC } from "react";
-import { useMemo } from "react";
+import React, { FC, useMemo } from "react";
 import styled, { css } from "styled-components";
 import useSWR from "swr";
 
@@ -21,8 +19,10 @@ const variants: SideNavVariants = {
 };
 
 const StyledMenuSection = styled.div`
-  padding-top: ${theme.size.makeRem(32)};
-  margin-top: ${theme.size.makeRem(32)};
+  ${({ theme }) => css`
+    padding-top: ${theme.size.makeRem(32)};
+    margin-top: ${theme.size.makeRem(32)};
+  `}
 
   &:not(:first-child) {
     border-top: 1px solid ${({ theme }) => theme.palette.noir.light};
@@ -40,15 +40,17 @@ export const SideNavMenu: FC = () => {
   return (
     <div
       css={css`
-        padding-left: ${theme.size.makeRem(20)};
-        padding-right: ${theme.size.makeRem(20)};
+        ${({ theme }) => css`
+          padding-left: ${theme.size.makeRem(20)};
+          padding-right: ${theme.size.makeRem(20)};
+        `}
       `}
     >
       <StyledMenuSection>
         <motion.ul
           variants={variants}
           css={css`
-            width: ${theme.size.makeRem(300)};
+            width: ${({ theme }) => theme.size.makeRem(300)};
           `}
         >
           {data?.fields.group1?.map((page) => (
@@ -72,7 +74,7 @@ export const SideNavMenu: FC = () => {
               <motion.ul
                 variants={variants}
                 css={css`
-                  width: ${theme.size.makeRem(300)};
+                  width: ${({ theme }) => theme.size.makeRem(300)};
                 `}
               >
                 {data?.fields.group2?.map((page) => (
@@ -99,7 +101,7 @@ export const SideNavMenu: FC = () => {
               <motion.ul
                 variants={variants}
                 css={css`
-                  width: ${theme.size.makeRem(300)};
+                  width: ${({ theme }) => theme.size.makeRem(300)};
                 `}
               >
                 {data?.fields.group3?.map((page) => (
@@ -126,7 +128,7 @@ export const SideNavMenu: FC = () => {
               <motion.ul
                 variants={variants}
                 css={css`
-                  width: ${theme.size.makeRem(300)};
+                  width: ${({ theme }) => theme.size.makeRem(300)};
                 `}
               >
                 {data?.fields.group4?.map((page) => (
