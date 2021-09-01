@@ -9,7 +9,9 @@ export const themeSizeDefaults: Omit<ThemeSize, "makeRem"> = {
   baseFontSize: 16
 };
 
-export const createThemeSize = (customThemeSize?: ThemeSize): ThemeSize => {
+export const createThemeSize = (
+  customThemeSize?: Omit<ThemeSize, "makeRem">
+): ThemeSize => {
   const baseFontSize =
     customThemeSize?.baseFontSize || themeSizeDefaults.baseFontSize;
 

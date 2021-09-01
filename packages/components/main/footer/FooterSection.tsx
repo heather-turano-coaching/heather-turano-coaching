@@ -9,7 +9,6 @@ import {
   makeSize
 } from "../design-system";
 import { Typography } from "../display";
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "../theme";
 import { fontColor } from "./Footer.vars";
 
 export type FooterSectionProps = { title: string; sectionSize?: "1" | "2" };
@@ -18,13 +17,13 @@ const StyledFooterSection = styled.div<Pick<FooterSectionProps, "sectionSize">>`
   ${({ sectionSize, theme }) => css`
     flex: ${sectionSize};
 
-    ${makeMobileStyles(theme)} {
-      padding-bottom: ${makeRem(40)};
+    ${theme.breakpoints.mobileOnly} {
+      padding-bottom: ${theme.size.makeRem(40)};
       width: 100%;
     }
 
-    ${makeDesktopStyles(theme)} {
-      padding: 0 ${makeRem(16)};
+    ${theme.breakpoints.laptop} {
+      padding: 0 ${theme.size.makeRem(16)};
     }
   `}
 

@@ -1,13 +1,11 @@
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "../theme";
-
 export const StyledGroup = styled.div`
   ${({ theme }) => css`
     display: flex;
 
-    ${makeMobileStyles(theme)} {
+    ${theme.breakpoints.mobileOnly} {
       text-align: center;
       & > * {
         flex: 1;
@@ -15,7 +13,8 @@ export const StyledGroup = styled.div`
         &:not(:last-child) {
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
-          border-right: ${makeRem(1)} solid ${theme.palette.light.light};
+          border-right: ${theme.size.makeRem(1)} solid
+            ${theme.palette.light.light};
         }
 
         &:not(:first-child) {
@@ -25,10 +24,10 @@ export const StyledGroup = styled.div`
       }
     }
 
-    ${makeDesktopStyles(theme)} {
+    ${theme.breakpoints.laptop} {
       & > * {
         &:not(:last-child) {
-          margin-right: ${makeRem(24)};
+          margin-right: ${theme.size.makeRem(24)};
         }
       }
     }

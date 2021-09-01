@@ -2,7 +2,6 @@ import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 
 import { makeInset } from "../design-system";
-import { flexRow } from "../theme";
 import { Typography } from "./Typography";
 
 export interface ListItemProps {
@@ -12,7 +11,8 @@ export interface ListItemProps {
 }
 
 const StyledListItem = styled.li<{ tight: boolean }>`
-  ${flexRow("flex-start", "center")};
+  display: flex;
+  justify-content: center;
   ${({ tight }) => {
     if (tight) return makeInset({ vertical: 4, horizontal: 8 });
     return makeInset({ vertical: 12, horizontal: 20 });

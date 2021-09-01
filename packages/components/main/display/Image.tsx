@@ -8,7 +8,6 @@ import {
   makeColor,
   makeSize
 } from "../design-system";
-import { flexRow } from "../theme";
 
 type CustomImageSizeValues = number | null;
 
@@ -27,7 +26,10 @@ const StyledImageContainer = styled.div<
   Pick<ImageProps, "manualHeight" | "manualWidth"> &
     Required<Pick<ImageProps, "size">>
 >`
-  ${flexRow("center", "center")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: relative;
 
   & > img {

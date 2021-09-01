@@ -14,7 +14,7 @@ export type HTCTheme = {
 
 export type CreateHTCTheme = {
   palette: ThemePalette;
-  size: ThemeSize;
+  size: Omit<ThemeSize, "makeRem">;
   breakpoints: Pick<ThemeBreakpoints, "values">;
 };
 

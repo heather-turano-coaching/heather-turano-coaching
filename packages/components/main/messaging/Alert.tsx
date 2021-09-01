@@ -3,7 +3,6 @@ import styled, { SimpleInterpolation, css } from "styled-components";
 
 import { makeColor, makeInset, makeOutset, makeSize } from "../design-system";
 import { Typography } from "../display";
-import { flexRow } from "../theme";
 
 interface AlertProps {
   type: "success" | "error" | "warning";
@@ -28,7 +27,8 @@ const StyledAlert = styled.div<AlertProps>`
   ${makeInset({ horizontal: 20, vertical: 20 })};
   ${makeOutset({ vertical: 24 })};
   border-radius: ${makeSize({ custom: 4 })};
-  ${flexRow("flex-start", "center")};
+  display: flex;
+  justify-content: center;
 
   & > * {
     &:first-child {

@@ -1,48 +1,11 @@
 import React, { FC } from "react";
-import styled, { SimpleInterpolation, css } from "styled-components";
+import styled, { css } from "styled-components";
 
 import { makeColor, makeFont, makeReset } from "../design-system";
-import { makeRem } from "../theme";
 
 type TitleProps = {
   size: "lg" | "md" | "sm";
   copy?: string;
-};
-
-const styledTitleStyleMap: {
-  [key in TitleProps["size"]]: SimpleInterpolation;
-} = {
-  lg: css`
-    margin-bottom: ${makeRem(60)};
-    padding: 0 2rem 1.5rem 2rem;
-    &::after {
-      background-color: ${makeColor({
-        scalable: { color: "primary" }
-      })};
-    }
-  `,
-  md: css`
-    margin-bottom: ${makeRem(24)};
-    padding: 0 ${makeRem(16)} ${makeRem(24)} ${makeRem(16)};
-    &::after {
-      width: 14%;
-      margin-left: -7%;
-      background-color: ${makeColor({
-        scalable: { color: "primary" }
-      })};
-    }
-  `,
-  sm: css`
-    margin-bottom: ${makeRem(16)};
-    padding: 0 ${makeRem(8)} ${makeRem(16)} ${makeRem(8)};
-    &::after {
-      width: 10%;
-      margin-left: -5%;
-      background-color: ${makeColor({
-        scalable: { color: "secondary" }
-      })};
-    }
-  `
 };
 
 const BaseTitle = css`
@@ -75,11 +38,31 @@ const StyledTitleLg = styled.h3`
       }
     }
   })};
-  ${styledTitleStyleMap.lg}
+  ${({ theme }) => css`
+    margin-bottom: ${theme.size.makeRem(60)};
+  `}
+  padding: 0 2rem 1.5rem 2rem;
+  &::after {
+    background-color: ${makeColor({
+      scalable: { color: "primary" }
+    })};
+  }
 `;
 const StyledTitleMd = styled.h4`
   ${BaseTitle};
-  ${styledTitleStyleMap.md}
+  ${({ theme }) => css`
+    margin-bottom: ${theme.size.makeRem(24)};
+    padding: 0 ${theme.size.makeRem(16)} ${theme.size.makeRem(24)}
+      ${theme.size.makeRem(16)};
+  `}
+
+  &::after {
+    width: 14%;
+    margin-left: -7%;
+    background-color: ${makeColor({
+      scalable: { color: "primary" }
+    })};
+  }
   ${makeFont({
     fontSize: "h4",
     fontFamily: "Montserrat",
@@ -93,7 +76,19 @@ const StyledTitleMd = styled.h4`
 `;
 const StyledTitleSm = styled.h5`
   ${BaseTitle};
-  ${styledTitleStyleMap.sm}
+  ${({ theme }) => css`
+    margin-bottom: ${theme.size.makeRem(16)};
+    padding: 0 ${theme.size.makeRem(8)} ${theme.size.makeRem(16)}
+      ${theme.size.makeRem(8)};
+  `}
+
+  &::after {
+    width: 10%;
+    margin-left: -5%;
+    background-color: ${makeColor({
+      scalable: { color: "secondary" }
+    })};
+  }
   ${makeFont({
     fontSize: "h5",
     fontFamily: "Montserrat",

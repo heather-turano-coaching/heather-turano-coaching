@@ -7,7 +7,6 @@ import styled, {
 } from "styled-components";
 
 import { Layout } from "../design-system";
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "../theme";
 import { StyledButton } from "./Button";
 
 interface ButtonGroupProps {
@@ -24,19 +23,19 @@ const buttonGroupStyleMap: {
     align-items: center;
 
     ${({ theme }) => css`
-      ${makeMobileStyles(theme)} {
+      ${theme.breakpoints.mobileOnly} {
         display: block;
 
         button,
         a {
           text-align: center;
           &:not(:first-child) {
-            margin-top: ${makeRem(16)};
+            margin-top: ${theme.size.makeRem(16)};
           }
         }
       }
 
-      ${makeDesktopStyles(theme)} {
+      ${theme.breakpoints.laptop} {
         & > ${StyledButton} + ${StyledButton}, & > a + a {
           margin-left: 1rem;
         }
