@@ -1,9 +1,9 @@
-import { withPage } from "@htc/features/page";
+import { withPage } from "@htc-website/features/page";
 import {
   IService,
   getContentfulEntriesById,
   getContentfulPageById
-} from "@htc/lib/server/contentful";
+} from "@htc-website/lib/server/contentful";
 import { GetStaticProps } from "next";
 import { ServicesPage, ServicesPageProps } from "src/features/services";
 

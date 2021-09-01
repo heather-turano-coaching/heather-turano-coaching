@@ -3,18 +3,25 @@ import {
   SectionFooter,
   TextStylesBlog,
   Title
-} from "@htc/components/atomic";
-import { BlockSimpleVariant, BlogCardSuggested } from "@htc/components/content";
-import { CSSImageBorder } from "@htc/components/styles";
-import { FeaturePageComponent, PageProps } from "@htc/features/page";
-import { GhostSeo } from "@htc/features/seo";
+} from "@htc-website/components";
+import {
+  makeDesktopStyles,
+  makeMobileStyles,
+  makeRem
+} from "@htc-website/components";
+import {
+  BlockSimpleVariant,
+  BlogCardSuggested
+} from "@htc-website/components/content";
+import { CSSImageBorder } from "@htc-website/components/styles";
+import { FeaturePageComponent, PageProps } from "@htc-website/features/page";
+import { GhostSeo } from "@htc-website/features/seo";
 import {
   GetSingleGhostPostBySlug,
   getSingleGhostPostBySlugEndpoint,
   ghostClient
-} from "@htc/lib/ghost";
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
-import { formatLongDate } from "@htc/utils";
+} from "@htc-website/lib/ghost";
+import { formatLongDate } from "@htc-website/utils";
 import { Container, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
 import Link from "next/link";

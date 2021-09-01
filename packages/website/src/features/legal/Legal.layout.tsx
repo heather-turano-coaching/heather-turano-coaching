@@ -1,7 +1,11 @@
-import { Container, Title } from "@htc/components/atomic";
-import { LayoutRoot } from "@htc/features/layout";
-import { PageLayout } from "@htc/features/page";
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
+import { Container, Title } from "@htc-website/components";
+import {
+  makeDesktopStyles,
+  makeMobileStyles,
+  makeRem
+} from "@htc-website/components";
+import { LayoutRoot } from "@htc-website/features/layout";
+import { PageLayout } from "@htc-website/features/page";
 import React, { useMemo } from "react";
 import { css } from "styled-components";
 

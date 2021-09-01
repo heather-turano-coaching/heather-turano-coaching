@@ -1,5 +1,5 @@
-import { Title } from "@htc/components/atomic";
-import { makeRem } from "@htc/theme";
+import { Title } from "@htc-website/components";
+import { makeRem } from "@htc-website/components";
 import React, { FC, useMemo } from "react";
 import styled, { css } from "styled-components";
 

@@ -1,5 +1,5 @@
-import { EBEventsResponse } from "@htc/lib/eventbrite";
-import { aggregateListByDay } from "@htc/utils";
+import { EBEventsResponse } from "@htc-website/lib/eventbrite";
+import { aggregateListByDay } from "@htc-website/utils";
 import React, { FC, useMemo } from "react";
 
 import { EventCard } from "./EventCard";

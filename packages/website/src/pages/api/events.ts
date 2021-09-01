@@ -1,5 +1,5 @@
-import { eventbriteApi } from "@htc/lib/eventbrite";
-import { convertParamsToQueryString } from "@htc/utils";
+import { eventbriteApi } from "@htc-website/lib/eventbrite";
+import { convertParamsToQueryString } from "@htc-website/utils";
 import { NextApiHandler } from "next";
 
 const events: NextApiHandler = async (req, res) => {

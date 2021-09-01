@@ -1,5 +1,5 @@
-import { getEndpoint } from "@htc/lib/endpoint";
-import { useQueryString, useUpdateUrl } from "@htc/utils";
+import { getEndpoint } from "@htc-website/lib/endpoint";
+import { useQueryString, useUpdateUrl } from "@htc-website/utils";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { GetAllPostsApiResponse, PaginationQueryParams } from "src/models";
 import useSWR from "swr";

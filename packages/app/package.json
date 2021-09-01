@@ -1,6 +1,7 @@
 {
   "name": "@htc/app",
-  "version": "0.1.0",
+  "private": true,
+  "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -40,6 +41,7 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
     "@htc/eslint-config": "^1.0.0",
     "@htc/typescript": "^1.0.0",
     "@types/react": "17.0.19",

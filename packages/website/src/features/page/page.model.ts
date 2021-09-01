@@ -1,6 +1,6 @@
 import { ParsedUrlQuery } from "querystring";
 
-import { IWebPage } from "@htc/lib/server/contentful";
+import { IWebPage } from "@htc-website/lib/server/contentful";
 import {
   GetServerSideProps,
   GetStaticProps,

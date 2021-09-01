@@ -1,5 +1,5 @@
-import { Actions } from "@htc/components/content";
-import { IServiceQuickAction } from "@htc/lib/contentful/contentful.types";
+import { Actions } from "@htc-website/components/content";
+import { IServiceQuickAction } from "@htc-website/lib/contentful/contentful.types";
 import React, { FC } from "react";
 
 export const ServiceCardQuickAction: FC<IServiceQuickAction> = ({

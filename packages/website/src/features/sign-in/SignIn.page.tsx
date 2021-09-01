@@ -1,5 +1,5 @@
-import { BlockSimplePlain } from "@htc/components/content";
-import { FeaturePageComponent } from "@htc/features/page";
+import { BlockSimplePlain } from "@htc-website/components/content";
+import { FeaturePageComponent } from "@htc-website/features/page";
 import { Button } from "@material-ui/core";
 import { NextSeo } from "next-seo";
 import Link from "next/link";

@@ -1,10 +1,10 @@
-import { PageLayout, withPageLayout } from "@htc/features/page";
 import {
   makeDesktopStyles,
   makeFontWeight,
   makeMobileStyles,
   makeRem
-} from "@htc/theme";
+} from "@htc-website/components";
+import { PageLayout, withPageLayout } from "@htc-website/features/page";
 import { Typography } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";

@@ -1,6 +1,9 @@
-import { Blocks, Hero } from "@htc/components/content";
-import { ContentfulPageProps, FeaturePageComponent } from "@htc/features/page";
-import { ContentfulSeo } from "@htc/features/seo";
+import { Blocks, Hero } from "@htc-website/components/content";
+import {
+  ContentfulPageProps,
+  FeaturePageComponent
+} from "@htc-website/features/page";
+import { ContentfulSeo } from "@htc-website/features/seo";
 import { useRouter } from "next/router";
 import React from "react";
 

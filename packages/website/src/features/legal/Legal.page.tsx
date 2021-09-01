@@ -1,4 +1,8 @@
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
+import {
+  makeDesktopStyles,
+  makeMobileStyles,
+  makeRem
+} from "@htc-website/components";
 import { Container, Typography } from "@material-ui/core";
 import Link from "next/link";
 import React from "react";

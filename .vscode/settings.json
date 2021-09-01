@@ -18,6 +18,10 @@
     {
       "directory": "./packages/components",
       "!cwd": false
+    },
+    {
+      "directory": "./packages/contentful",
+      "!cwd": false
     }
   ]
 }

@@ -1,4 +1,4 @@
-import { makeRem } from "@htc/theme";
+import { makeRem } from "@htc-website/components";
 import styled from "styled-components";
 
 export const EventsSectionDateItem = styled.li`

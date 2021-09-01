@@ -9,7 +9,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "types:generate": "contentful-typescript-codegen --output src/lib/contentful/contentful.types.ts",
     "icons:generate": "yarn svgr --typescript -d src/icons/generated src/icons/svg && prettier --write src/icons/generated/index.tsx"
   },
   "dependencies": {

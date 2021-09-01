@@ -1,6 +1,9 @@
-import { throwApiError, validateMethod } from "@htc/lib/server";
-import { IWebPage, getContentfulEntriesById } from "@htc/lib/server/contentful";
-import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
+import { throwApiError, validateMethod } from "@htc-website/lib/server";
+import {
+  IWebPage,
+  getContentfulEntriesById
+} from "@htc-website/lib/server/contentful";
+import { ContentfulPagination } from "@htc-website/lib/server/contentful/contentful.types.custom";
 import { NextApiHandler } from "next";
 
 const getAllPages: NextApiHandler<ContentfulPagination<IWebPage>> = async (

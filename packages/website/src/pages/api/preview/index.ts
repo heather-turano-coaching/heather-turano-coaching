@@ -1,4 +1,4 @@
-import { getAllContentfulPages } from "@htc/lib/server/contentful";
+import { getAllContentfulPages } from "@htc-website/lib/server/contentful";
 import { NextApiHandler } from "next";
 
 const staticPages = ["events", "free-consult", "services", "blog"];

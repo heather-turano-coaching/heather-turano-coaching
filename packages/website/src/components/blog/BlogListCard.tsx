@@ -1,6 +1,6 @@
-import { Clock } from "@htc/icons";
-import { makeRem, makeTabletStyles } from "@htc/theme";
-import { formatShortDate } from "@htc/utils";
+import { makeRem, makeTabletStyles } from "@htc-website/components";
+import { Clock } from "@htc-website/icons";
+import { formatShortDate } from "@htc-website/utils";
 import { SvgIcon, Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
 import { motion, useAnimation } from "framer-motion";

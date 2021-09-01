@@ -1,4 +1,4 @@
-import { BlogPostPageProps } from "@htc/features/blog-post";
+import { BlogPostPageProps } from "@htc-website/features/blog-post";
 import { NextSeo } from "next-seo";
 import React, { FC } from "react";
 

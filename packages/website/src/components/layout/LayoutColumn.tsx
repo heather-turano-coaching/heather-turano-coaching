@@ -1,4 +1,8 @@
-import { makeOutset, makeResponsive, makeSize } from "@htc/design-system";
+import {
+  makeOutset,
+  makeResponsive,
+  makeSize
+} from "@htc-website/design-system";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 

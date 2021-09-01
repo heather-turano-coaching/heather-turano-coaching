@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { UserProvider } from "@auth0/nextjs-auth0";
-import { CookiesConsent } from "@htc/features/cookies";
-import { SWRProvider } from "@htc/lib/swr";
-import { HTCTheme, makeRem } from "@htc/theme";
+import { HTCTheme, makeRem } from "@htc-website/components";
+import { CookiesConsent } from "@htc-website/features/cookies";
+import { SWRProvider } from "@htc-website/lib/swr";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import Head from "next/head";

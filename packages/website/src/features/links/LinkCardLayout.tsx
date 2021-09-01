@@ -1,4 +1,4 @@
-import { makeRem } from "@htc/theme";
+import { makeRem } from "@htc-website/components";
 import styled, { css } from "styled-components";
 
 export const LinkCardLayout = styled.div<{ orientation: "row" | "column" }>`

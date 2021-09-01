@@ -1,11 +1,11 @@
-import { BlogTagPage, BlogTagPageProps } from "@htc/features/blog-tag";
-import { withPage } from "@htc/features/page";
-import { getEndpoint } from "@htc/lib/endpoint";
+import { BlogTagPage, BlogTagPageProps } from "@htc-website/features/blog-tag";
+import { withPage } from "@htc-website/features/page";
+import { getEndpoint } from "@htc-website/lib/endpoint";
 import {
   GetAllGhostPosts,
   getAllGhostPostsByTagSlugEndpoint,
   ghostClient
-} from "@htc/lib/ghost";
+} from "@htc-website/lib/ghost";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {

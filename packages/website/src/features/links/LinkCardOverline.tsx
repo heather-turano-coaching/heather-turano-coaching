@@ -1,4 +1,4 @@
-import { makeFontWeight, makeRem } from "@htc/theme";
+import { makeFontWeight, makeRem } from "@htc-website/components";
 import { Typography } from "@material-ui/core";
 import React, { FC } from "react";
 import styled from "styled-components";

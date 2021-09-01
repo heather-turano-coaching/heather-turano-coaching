@@ -1,4 +1,4 @@
-import { makeRem } from "@htc/theme";
+import { makeRem } from "@htc-website/components";
 import { css } from "styled-components";
 
 export const BlogCardShadow = css`

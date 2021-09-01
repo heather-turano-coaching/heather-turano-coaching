@@ -1,0 +1,11 @@
+{
+  "extends": "@htc/typescript/tsconfig.next.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src", ".eslintrc.js", "index.d.ts"],
+  "exclude": ["getContentfulEnvironment.js"]
+}

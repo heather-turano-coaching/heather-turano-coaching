@@ -3,7 +3,7 @@ import {
   makeFontWeight,
   makeMobileStyles,
   makeRem
-} from "@htc/theme";
+} from "@htc-website/components";
 import { Button, Typography } from "@material-ui/core";
 import Cookies from "js-cookie";
 import { rgba } from "polished";

@@ -1,5 +1,5 @@
-import { IService, IServiceFields } from "@htc/lib/server/contentful";
-import { ContentfulPagination } from "@htc/lib/server/contentful/contentful.types.custom";
+import { IService, IServiceFields } from "@htc-website/lib/server/contentful";
+import { ContentfulPagination } from "@htc-website/lib/server/contentful/contentful.types.custom";
 import { Entry } from "contentful";
 
 type GroupedServicesType = {

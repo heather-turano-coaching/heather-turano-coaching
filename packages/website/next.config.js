@@ -32,7 +32,6 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       "@htc/components": path.resolve(srcDir, "./components"),
-      "@htc/design-system": path.resolve(srcDir, "./design-system"),
       "@htc/documents": path.resolve(srcDir, "./documents"),
       "@htc/models": path.resolve(srcDir, "./models"),
       "@htc/hooks": path.resolve(srcDir, "./hooks"),

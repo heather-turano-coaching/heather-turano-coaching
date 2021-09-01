@@ -1,8 +1,12 @@
-import {} from "@htc/lib/server/contentful/contentful.types.custom";
+import {} from "@htc-website/lib/server/contentful/contentful.types.custom";
 
-import { Title } from "@htc/components/atomic";
-import { Hero } from "@htc/components/content";
-import { ContentfulPageProps, FeaturePageComponent } from "@htc/features/page";
+import { Title } from "@htc-website/components";
+import { makeRem } from "@htc-website/components";
+import { Hero } from "@htc-website/components/content";
+import {
+  ContentfulPageProps,
+  FeaturePageComponent
+} from "@htc-website/features/page";
 import {
   ContentfulPagination,
   IService,
@@ -10,8 +14,7 @@ import {
   IServiceContact,
   IServiceQuickAction,
   IServiceTeachable
-} from "@htc/lib/server/contentful";
-import { makeRem } from "@htc/theme";
+} from "@htc-website/lib/server/contentful";
 import React from "react";
 import { css } from "styled-components";
 

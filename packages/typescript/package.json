@@ -12,14 +12,12 @@
   "homepage": "http://docs.heatherturanocoaching.com",
   "license": "MIT",
   "main": "tsconfig.json",
-  "files": [
-    "tsconfig.json"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heather-turano-coaching/heather-turano-coaching.git"
   },
   "bugs": {
     "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
-  }
+  },
+  "devDependencies": {}
 }

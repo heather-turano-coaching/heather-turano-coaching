@@ -1,13 +1,13 @@
-import { BlogPage, BlogPageProps } from "@htc/features/blog";
-import { withPage } from "@htc/features/page";
+import { BlogPage, BlogPageProps } from "@htc-website/features/blog";
+import { withPage } from "@htc-website/features/page";
 import {
   GetAllGhostPosts,
   GetFeaturedGhostPost,
   getAllGhostPostsEndpoint,
   getGhostFeaturedPostEndpoint,
   ghostClient
-} from "@htc/lib/ghost";
-import { getContentfulPageById } from "@htc/lib/server/contentful";
+} from "@htc-website/lib/ghost";
+import { getContentfulPageById } from "@htc-website/lib/server/contentful";
 import { GetStaticProps } from "next";
 
 export const blogPageId = "7inppspqzOyqyHJ9r8viIj";

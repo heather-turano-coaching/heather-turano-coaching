@@ -1,5 +1,9 @@
-import { Group } from "@htc/components/atomic";
-import { makeDesktopStyles, makeMobileStyles, makeRem } from "@htc/theme";
+import {
+  Group,
+  makeDesktopStyles,
+  makeMobileStyles,
+  makeRem
+} from "@htc/components";
 import { Button, Typography } from "@material-ui/core";
 import { differenceInHours, format } from "date-fns";
 import { FC } from "react";

@@ -1,4 +1,4 @@
-import { flexRow, makeRem } from "@htc/theme";
+import { flexRow, makeRem } from "@htc-website/components";
 import { Typography } from "@material-ui/core";
 import Image from "next/image";
 import { FC } from "react";

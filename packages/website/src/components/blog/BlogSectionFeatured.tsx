@@ -1,7 +1,7 @@
-import { Tag, TagGroup } from "@htc/components/atomic";
-import { CSSImageBorder } from "@htc/components/styles";
-import { makeDesktopStyles, makeFlex, makeRem } from "@htc/theme";
-import { formatShortDate } from "@htc/utils";
+import { Tag, TagGroup } from "@htc-website/components";
+import { makeDesktopStyles, makeFlex, makeRem } from "@htc-website/components";
+import { CSSImageBorder } from "@htc-website/components/styles";
+import { formatShortDate } from "@htc-website/utils";
 import { Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
 import Link from "next/link";

@@ -1,4 +1,4 @@
-import { makeRem } from "@htc/theme";
+import { makeRem } from "@htc-website/components";
 import Link from "next/link";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";

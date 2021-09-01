@@ -1,9 +1,17 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": [
-    "packages/**"
-  ],
+  "workspaces": {
+    "nohoist": [
+      "@htc/types/**",
+      "**/@htc/types/**",
+      "@htc/types",
+      "*@htc/types*/**"
+    ],
+    "packages": [
+      "packages/**"
+    ]
+  },
   "devDependencies": {
     "lerna": "^3.22.1"
   }

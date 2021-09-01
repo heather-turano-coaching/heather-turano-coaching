@@ -21,6 +21,7 @@ module.exports = {
       "warn",
       { argsIgnorePattern: "^_", ignoreRestSiblings: true }
     ],
+    "@typescript-eslint/triple-slash-reference": 0,
     // Next Overrides
     "@next/next/no-img-element": 0,
     // Import Overrides

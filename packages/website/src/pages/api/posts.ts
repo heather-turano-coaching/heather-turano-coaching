@@ -1,5 +1,5 @@
-import { getEndpoint } from "@htc/lib/endpoint";
-import { GetAllGhostPosts } from "@htc/lib/ghost";
+import { getEndpoint } from "@htc-website/lib/endpoint";
+import { GetAllGhostPosts } from "@htc-website/lib/ghost";
 import axios, { AxiosRequestConfig } from "axios";
 import { NextApiHandler } from "next";
 

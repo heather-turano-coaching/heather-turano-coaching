@@ -1,9 +1,9 @@
-import { withPage } from "@htc/features/page";
+import { withPage } from "@htc-website/features/page";
 import {
   getFutureEventbriteEvents,
   getPastEventbriteEvents
-} from "@htc/lib/eventbrite";
-import { getContentfulPageById } from "@htc/lib/server/contentful";
+} from "@htc-website/lib/eventbrite";
+import { getContentfulPageById } from "@htc-website/lib/server/contentful";
 import { GetStaticProps } from "next";
 import { EventsPage, EventsPageProps } from "src/features/events";
 

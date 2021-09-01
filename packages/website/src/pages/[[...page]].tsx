@@ -1,9 +1,9 @@
-import { withPage } from "@htc/features/page";
+import { withPage } from "@htc-website/features/page";
 import {
   IWebPage,
   getAllContentfulPages,
   getContentfulPageBySlug
-} from "@htc/lib/server/contentful";
+} from "@htc-website/lib/server/contentful";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { DynamicPage, DynamicPageProps } from "src/features/dynamic-page";
 

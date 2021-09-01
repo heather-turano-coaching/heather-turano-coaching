@@ -1,6 +1,6 @@
+import { makeRem } from "@htc-website/components";
 /* eslint-disable @next/next/no-sync-scripts */
-import { FeaturePageComponent } from "@htc/features/page";
-import { makeRem } from "@htc/theme";
+import { FeaturePageComponent } from "@htc-website/features/page";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import React from "react";

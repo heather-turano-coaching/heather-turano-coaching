@@ -1,6 +1,6 @@
-import { Title } from "@htc/components/atomic";
-import { BlogSectionAll } from "@htc/components/content";
-import { GetAllGhostPosts } from "@htc/lib/ghost";
+import { Title } from "@htc-website/components";
+import { BlogSectionAll } from "@htc-website/components/content";
+import { GetAllGhostPosts } from "@htc-website/lib/ghost";
 import { Container } from "@material-ui/core";
 import { NextSeo } from "next-seo";
 import React from "react";

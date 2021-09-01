@@ -1,4 +1,4 @@
-import { makeRem } from "@htc/theme";
+import { makeRem } from "@htc-website/components";
 import { Typography } from "@material-ui/core";
 import { FC } from "react";
 import { css } from "styled-components";

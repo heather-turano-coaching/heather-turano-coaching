@@ -1,0 +1,24 @@
+{
+  "name": "@htc/types",
+  "version": "1.0.0",
+  "description": "Typescript types for all Heather Turano Coaching, LLC Projects",
+  "author": "Drew DeCarme <drewdecarme@gmail.com>",
+  "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heather-turano-coaching/heather-turano-coaching.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.10",
+    "react": "^17.0.2",
+    "styled-components": "^5.3.1",
+    "typescript": "^4.4.2"
+  }
+}

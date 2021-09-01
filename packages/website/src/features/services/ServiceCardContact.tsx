@@ -1,5 +1,5 @@
-import { Forms } from "@htc/components/content";
-import { IServiceContact } from "@htc/lib/server/contentful";
+import { Forms } from "@htc-website/components/content";
+import { IServiceContact } from "@htc-website/lib/server/contentful";
 import { FC } from "react";
 
 export const ServiceCardContact: FC<IServiceContact> = ({

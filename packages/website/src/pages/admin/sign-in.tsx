@@ -1,4 +1,4 @@
-import { withPage } from "@htc/features/page";
-import { SignInPage } from "@htc/features/sign-in";
+import { withPage } from "@htc-website/features/page";
+import { SignInPage } from "@htc-website/features/sign-in";
 
 export default withPage(SignInPage);

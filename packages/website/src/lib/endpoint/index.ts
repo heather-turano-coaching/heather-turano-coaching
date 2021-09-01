@@ -1,4 +1,4 @@
-import { convertParamsToQueryString } from "@htc/utils";
+import { convertParamsToQueryString } from "@htc-website/utils";
 import { Params } from "@tryghost/content-api";
 
 type ApiRoutes =

@@ -1,6 +1,11 @@
-import { Heading } from "@htc/components/atomic";
-import { makeColor, makeFont, makeOutset, makeSize } from "@htc/design-system";
-import { flexRow } from "@htc/theme";
+import { Heading } from "@htc-website/components";
+import { flexRow } from "@htc-website/components";
+import {
+  makeColor,
+  makeFont,
+  makeOutset,
+  makeSize
+} from "@htc-website/design-system";
 import React, { FC } from "react";
 import styled from "styled-components";
 

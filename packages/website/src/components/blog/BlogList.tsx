@@ -1,4 +1,8 @@
-import { makeDesktopStyles, makeRem, makeTabletStyles } from "@htc/theme";
+import {
+  makeDesktopStyles,
+  makeRem,
+  makeTabletStyles
+} from "@htc-website/components";
 import { PostOrPage } from "@tryghost/content-api";
 import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";

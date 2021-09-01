@@ -1,13 +1,16 @@
-import { BlogPostPage, BlogPostPageProps } from "@htc/features/blog-post";
-import { withPage } from "@htc/features/page";
-import { getEndpoint } from "@htc/lib/endpoint";
+import {
+  BlogPostPage,
+  BlogPostPageProps
+} from "@htc-website/features/blog-post";
+import { withPage } from "@htc-website/features/page";
+import { getEndpoint } from "@htc-website/lib/endpoint";
 import {
   GetGhostPostsWithFilter,
   GetSingleGhostPostBySlug,
   getAllGhostPostsByTagSlugEndpoint,
   getSingleGhostPostBySlugEndpoint,
   ghostClient
-} from "@htc/lib/ghost";
+} from "@htc-website/lib/ghost";
 import { PostOrPage } from "@tryghost/content-api";
 import { GetStaticPaths, GetStaticProps } from "next";
 

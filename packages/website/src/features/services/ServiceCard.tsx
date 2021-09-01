@@ -1,13 +1,13 @@
-import { RichText } from "@htc/components/atomic";
-import { ProgramContainer } from "@htc/components/layout";
-import { CSSImageBorderSmall } from "@htc/components/styles";
-import { IServiceFields } from "@htc/lib/server/contentful";
+import { RichText } from "@htc-website/components";
 import {
   makeDesktopStyles,
   makeMobileStyles,
   makeRem,
   makeTabletStyles
-} from "@htc/theme";
+} from "@htc-website/components";
+import { ProgramContainer } from "@htc-website/components/layout";
+import { CSSImageBorderSmall } from "@htc-website/components/styles";
+import { IServiceFields } from "@htc-website/lib/server/contentful";
 import { Typography } from "@material-ui/core";
 import { FC } from "react";
 import { css } from "styled-components";

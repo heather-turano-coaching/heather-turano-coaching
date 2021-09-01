@@ -1,5 +1,5 @@
-import { LayoutRoot } from "@htc/features/layout";
-import { WithPageLayout } from "@htc/features/page";
+import { LayoutRoot } from "@htc-website/features/layout";
+import { WithPageLayout } from "@htc-website/features/page";
 import React from "react";
 
 import { BlogPageProps } from "./Blog.page";

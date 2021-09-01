@@ -3,8 +3,8 @@ import {
   makeFontWeight,
   makeMobileStyles,
   makeRem
-} from "@htc/theme";
-import { formatShortDate } from "@htc/utils";
+} from "@htc-website/components";
+import { formatShortDate } from "@htc-website/utils";
 import { Typography } from "@material-ui/core";
 import { PostOrPage } from "@tryghost/content-api";
 import { FC } from "react";

@@ -1,0 +1,48 @@
+{
+  "name": "@htc/contentful",
+  "version": "1.0.0",
+  "description": "Contentful API and Types for all Heather Turano Coaching projects that use the Contentful CMS",
+  "keywords": [
+    "contentful",
+    "heather-turano-coaching",
+    "htc"
+  ],
+  "workspaces": {
+    "nohoist": [
+      "*@htc/types*",
+      "*@htc/types*/**"
+    ]
+  },
+  "author": "Drew DeCarme <drewdecarme@gmail.com>",
+  "homepage": "http://N/A",
+  "license": "MIT",
+  "main": "index.d.ts",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heather-turano-coaching/heather-turano-coaching.git"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "generate": "contentful-typescript-codegen --output src/contentful.types.ts",
+    "build": "yarn clean && yarn generate && yarn tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
+  },
+  "devDependencies": {
+    "@htc/eslint-config": "^1.0.0",
+    "@htc/types": "^1.0.0",
+    "@htc/typescript": "^1.0.0",
+    "@types/node": "^16.7.10",
+    "contentful-management": "^7.34.0",
+    "contentful-typescript-codegen": "^3.2.2",
+    "dotenv": "^10.0.0",
+    "typescript": "^4.4.2"
+  }
+}

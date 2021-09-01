@@ -1,5 +1,5 @@
-import { FooterNav, HeaderNav } from "@htc/components/content";
-import { makeRem } from "@htc/theme";
+import { makeRem } from "@htc-website/components";
+import { FooterNav, HeaderNav } from "@htc-website/components/content";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { useCallback } from "react";

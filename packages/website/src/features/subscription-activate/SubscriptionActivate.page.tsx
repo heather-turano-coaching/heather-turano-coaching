@@ -1,5 +1,5 @@
-import { BlockSimplePlain } from "@htc/components/content/blocks/BlockSimple";
-import { FeaturePageComponent } from "@htc/features/page";
+import { BlockSimplePlain } from "@htc-website/components/content/blocks/BlockSimple";
+import { FeaturePageComponent } from "@htc-website/features/page";
 import { NextSeo } from "next-seo";
 import React from "react";
 

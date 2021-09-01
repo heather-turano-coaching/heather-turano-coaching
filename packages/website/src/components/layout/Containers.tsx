@@ -1,7 +1,8 @@
-import { makeRem } from "@htc/theme";
 import { Container, ContainerProps } from "@material-ui/core";
 import { FC } from "react";
 import { css } from "styled-components";
+
+import { makeRem } from "../theme";
 
 export const BlockVertSpacing = 100;
 export const ProgramVertSpacing = 60;
