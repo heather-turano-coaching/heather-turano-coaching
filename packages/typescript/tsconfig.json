@@ -31,5 +31,6 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true
   },
+  "include": ["index.d.ts"],
   "exclude": ["node_modules"]
 }

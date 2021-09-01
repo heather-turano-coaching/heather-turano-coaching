@@ -1,8 +1,5 @@
 {
   "extends": "@htc/typescript/tsconfig.next.json",
-  "compilerOptions": {
-    "baseUrl": "./" // import directly from the root directory
-  },
   "include": [
     "next-env.d.ts",
     "main/**/*.ts",
@@ -10,7 +7,7 @@
     ".eslintrc.js",
     "next.config.js",
     "babel.config.js",
-    "types/**/*.d.ts"
+    "index.d.ts"
   ],
   "exclude": ["node_modules"]
 }

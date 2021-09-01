@@ -16,6 +16,7 @@
     "@contentful/rich-text-react-renderer": "^15.2.0",
     "@contentful/rich-text-types": "^15.1.0",
     "@htc/components": "^0.1.0",
+    "@htc/contentful": "^1.0.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/lab": "^4.0.0-alpha.60",
     "@tryghost/content-api": "^1.5.12",
@@ -48,7 +49,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@htc/contentful": "^1.0.0",
     "@htc/eslint-config": "^1.0.0",
+    "@htc/types": "^1.0.0",
     "@htc/typescript": "^1.0.0",
     "@svgr/cli": "^5.5.0",
     "@svgr/webpack": "^5.5.0",

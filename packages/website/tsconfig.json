@@ -20,7 +20,7 @@
     ".eslintrc.js",
     "next.config.js",
     "babel.config.js",
-    "types/**/*.d.ts"
+    "index.d.ts"
   ],
   "exclude": ["node_modules"]
 }

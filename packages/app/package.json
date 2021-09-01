@@ -36,6 +36,7 @@
     "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
   },
   "dependencies": {
+    "@htc/contentful": "^1.0.0",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -43,6 +44,7 @@
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@htc/eslint-config": "^1.0.0",
+    "@htc/types": "^1.0.0",
     "@htc/typescript": "^1.0.0",
     "@types/react": "17.0.19",
     "eslint": "7.32.0",

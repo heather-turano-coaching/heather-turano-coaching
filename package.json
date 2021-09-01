@@ -2,12 +2,6 @@
   "name": "root",
   "private": true,
   "workspaces": {
-    "nohoist": [
-      "@htc/types/**",
-      "**/@htc/types/**",
-      "@htc/types",
-      "*@htc/types*/**"
-    ],
     "packages": [
       "packages/**"
     ]

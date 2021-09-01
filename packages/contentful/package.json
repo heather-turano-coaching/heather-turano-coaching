@@ -1,18 +1,13 @@
 {
   "name": "@htc/contentful",
   "version": "1.0.0",
+  "private": true,
   "description": "Contentful API and Types for all Heather Turano Coaching projects that use the Contentful CMS",
   "keywords": [
     "contentful",
     "heather-turano-coaching",
     "htc"
   ],
-  "workspaces": {
-    "nohoist": [
-      "*@htc/types*",
-      "*@htc/types*/**"
-    ]
-  },
   "author": "Drew DeCarme <drewdecarme@gmail.com>",
   "homepage": "http://N/A",
   "license": "MIT",

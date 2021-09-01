@@ -5,7 +5,7 @@
     "**/.git/subtree-cache/**": true,
     "**/.hg/store/**": true
   },
-  "cSpell.words": ["Contentful", "LLC's", "eventbrite"],
+  "cSpell.words": ["Contentful", "LLC's", "eventbrite", "matomo"],
   "eslint.workingDirectories": [
     {
       "directory": "./packages/app",
