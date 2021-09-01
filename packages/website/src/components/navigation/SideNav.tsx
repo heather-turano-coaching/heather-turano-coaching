@@ -1,5 +1,5 @@
 import { Menu } from "@htc-website/icons";
-import { SvgIcon } from "@material-ui/core";
+import { SvgIcon } from "@htc/components";
 import { motion } from "framer-motion";
 import { lighten } from "polished";
 import React, { FC, useRef } from "react";

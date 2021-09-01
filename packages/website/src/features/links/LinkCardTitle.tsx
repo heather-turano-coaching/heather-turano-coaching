@@ -1,5 +1,4 @@
-import { makeFontWeight, theme.size.makeRem } from "@htc-website/components";
-import { Typography } from "@material-ui/core";
+import { Typography, makeFontWeight } from "@htc/components";
 import React, { FC } from "react";
 import styled from "styled-components";
 
@@ -10,7 +9,7 @@ const StyledLinkCardTitle = styled(Typography)<LinkCardTitleProps>`
   color: ${({ theme, important }) =>
     important ? "#fff" : theme.palette.primary.dark};
   margin: 0;
-  font-size: ${theme.size.makeRem(16)};
+  font-size: ${({ theme }) => theme.size.makeRem(16)};
   font-family: "Muli";
   font-weight: ${makeFontWeight("extraBold")};
 `;

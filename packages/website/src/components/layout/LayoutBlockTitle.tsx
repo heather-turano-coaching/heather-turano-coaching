@@ -1,11 +1,10 @@
-import { Heading } from "@htc-website/components";
-import { flexRow } from "@htc-website/components";
 import {
+  Heading,
   makeColor,
   makeFont,
   makeOutset,
   makeSize
-} from "@htc-website/design-system";
+} from "@htc/components";
 import React, { FC } from "react";
 import styled from "styled-components";
 
@@ -16,7 +15,9 @@ interface LayoutBlockTitleProps {
 const StyledLayoutBlockTitle = styled.header`
   width: 100%;
   position: relative;
-  ${flexRow("space-between", "center")};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   ${makeOutset({ bottom: 16 })};
 
   &::after {

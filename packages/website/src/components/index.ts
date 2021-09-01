@@ -4,3 +4,7 @@ export * from "./heros";
 export * from "./forms";
 export * from "./blocks";
 export * from "./actions";
+export * from "./blog";
+export * from "./blocks";
+export * from "./styles";
+export * from "./actions";

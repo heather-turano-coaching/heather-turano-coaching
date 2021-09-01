@@ -1,9 +1,4 @@
-import {
-  theme.breakpoints.laptop,
-  theme.breakpoints.mobileOnly,
-  theme.size.makeRem
-} from "@htc-website/components";
-import { Container, Typography } from "@material-ui/core";
+import { Container, Typography } from "@htc/components";
 import Link from "next/link";
 import React from "react";
 import styled, { css } from "styled-components";
@@ -12,15 +7,15 @@ import { FeaturePageComponent } from "../page";
 import { withLegalPageLayout } from "./Legal.layout";
 
 const StyledCard = styled.a`
-  padding: ${theme.size.makeRem(32)};
   box-shadow: 0 0 17px rgb(205, 215, 216);
-  min-height: ${theme.size.makeRem(180)};
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: ${theme.size.makeRem(4)};
 
   ${({ theme }) => css`
+    padding: ${theme.size.makeRem(32)};
+    border-radius: ${theme.size.makeRem(4)};
+    min-height: ${theme.size.makeRem(180)};
     min-width: 100%;
     transform: scale(1);
 
@@ -51,7 +46,7 @@ export const LegalPage: FeaturePageComponent = () => {
         css={css`
           && {
             text-align: center;
-            max-width: ${theme.size.makeRem(700)};
+            max-width: ${({ theme }) => theme.size.makeRem(700)};
             margin: 0 auto;
           }
         `}
@@ -73,16 +68,12 @@ export const LegalPage: FeaturePageComponent = () => {
       >
         <Link href="/legal/privacy-policy" passHref>
           <StyledCard>
-            <Typography variant="h5" component="div">
-              Privacy Policy
-            </Typography>
+            <Typography variant="h5">Privacy Policy</Typography>
           </StyledCard>
         </Link>
         <Link href="/legal/terms-of-service" passHref>
           <StyledCard>
-            <Typography variant="h5" component="div">
-              Terms of Service
-            </Typography>
+            <Typography variant="h5">Terms of Service</Typography>
           </StyledCard>
         </Link>
       </div>

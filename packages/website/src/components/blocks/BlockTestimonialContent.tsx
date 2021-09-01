@@ -1,8 +1,5 @@
-import { Image, RichText, SectionCopy } from "@htc-website/components";
-import { flexRow, theme.size.makeRem } from "@htc-website/components";
-import { makeInset, makeResponsive } from "@htc-website/design-system";
+import { Container, Image, RichText, SectionCopy } from "@htc/components";
 import { ITestimonials } from "@htc/contentful";
-import { Container } from "@material-ui/core";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
@@ -11,9 +8,14 @@ const StyledTestimonialContent = styled.div`
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding-left: ${theme.size.makeRem(32)};
-  padding-right: ${theme.size.makeRem(32)};
-  ${flexRow("center", "center")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${({ theme }) => css`
+    padding-left: ${theme.size.makeRem(32)};
+    padding-right: ${theme.size.makeRem(32)};
+  `}
 
   & > .image {
     position: absolute;
@@ -36,12 +38,11 @@ const StyledTesimonialTextConatiner = styled(Container)`
     padding-top: ${theme.size.makeRem(32)};
     padding-bottom: ${theme.size.makeRem(32)};
     border-bottom: ${theme.size.makeRem(2)} solid ${theme.palette.common.white};
-  `}
 
-  ${makeResponsive({
-    beginAt: "tabletPortrait",
-    style: makeInset({ vertical: 40, horizontal: 40 })
-  })}
+    ${theme.breakpoints.tablet} {
+      padding: ${theme.size.makeRem(40)} ${theme.size.makeRem(40)};
+    }
+  `}
 
   p {
     font-style: italic !important;
@@ -61,7 +62,7 @@ export const TestimonialContent: FC<ITestimonials> = ({
       maskOpacity={maskingOpacity / 100}
     />
     <SectionCopy>
-      <StyledTesimonialTextConatiner disableGutters>
+      <StyledTesimonialTextConatiner>
         <RichText
           richText={testimonialDescription}
           copyProps={{

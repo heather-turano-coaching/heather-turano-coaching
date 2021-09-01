@@ -23,7 +23,7 @@ type ButtonStyleTypes = Extract<
 >;
 
 type ButtonProps = HTMLButton & {
-  label: string;
+  label?: string;
   styleType?: ButtonStyleTypes;
   loading?: boolean;
 };

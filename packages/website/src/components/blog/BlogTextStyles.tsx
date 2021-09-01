@@ -1,6 +1,5 @@
+import { TextStyles } from "@htc/components";
 import styled, { css } from "styled-components";
-
-import { TextStyles } from "./TextStyles";
 
 export const TextStylesBlog = styled(TextStyles)`
   ${({ theme }) => css`

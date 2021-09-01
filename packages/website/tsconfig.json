@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./", // import directly from the root directory
     "paths": {
-      "@htc-website/components/*": ["src/components/*"],
+      "@htc-website/components": ["src/components/index.ts"],
       "@htc-website/features/*": ["src/features/*"],
       "@htc-website/hooks": ["src/hooks"],
       "@htc-website/icons": ["src/icons/index.ts"],

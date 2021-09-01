@@ -1,5 +1,4 @@
-import { Blocks } from "@htc-website/components/blocks";
-import { Hero } from "@htc-website/components/heros";
+import { Blocks, Hero } from "@htc-website/components";
 import {
   ContentfulPageProps,
   FeaturePageComponent

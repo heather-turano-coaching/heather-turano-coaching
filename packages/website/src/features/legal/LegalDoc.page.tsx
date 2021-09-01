@@ -1,5 +1,5 @@
-import { RichTextHTML } from "@htc-website/components";
 import { FeaturePageComponent } from "@htc-website/features/page";
+import { RichTextHTML } from "@htc/components";
 import { useRouter } from "next/router";
 
 import { withLegalDocPageLayout } from "./LegalDoc.layout";

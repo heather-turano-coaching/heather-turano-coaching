@@ -1,7 +1,6 @@
 import { ChevronLeft, ChevronRight } from "@htc-website/icons";
-import { RichText } from "@htc/components";
+import { RichText, SvgIcon, Typography } from "@htc/components";
 import { ITestimonials } from "@htc/contentful";
-import { SvgIcon, Typography } from "@material-ui/core";
 import { AnimatePresence, motion } from "framer-motion";
 import { wrap } from "popmotion";
 import React, { FC, useState } from "react";

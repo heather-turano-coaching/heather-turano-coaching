@@ -1,11 +1,5 @@
-import {
-  theme.breakpoints.laptop,
-  makeFontWeight,
-  theme.breakpoints.mobileOnly,
-  theme.size.makeRem
-} from "@htc-website/components";
 import { PageLayout, withPageLayout } from "@htc-website/features/page";
-import { Typography } from "@material-ui/core";
+import { Typography, makeFontWeight } from "@htc/components";
 import Link from "next/link";
 import React from "react";
 import styled, { css } from "styled-components";
@@ -17,7 +11,7 @@ export const ActiveLink = styled.a<{ isActive: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: ${theme.size.makeRem(50)};
+  height: ${({ theme }) => theme.size.makeRem(50)};
   width: 100%;
   text-transform: capitalize;
 
@@ -81,13 +75,14 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
       <ul
         css={css`
           width: 100%;
-          padding: ${theme.size.makeRem(20)};
           display: flex;
           justify-content: space-evenly;
-          margin-bottom: ${theme.size.makeRem(40)};
 
           ${({ theme }) => css`
+            padding: ${theme.size.makeRem(20)};
             padding-top: 0;
+            margin-bottom: ${theme.size.makeRem(40)};
+
             ${theme.breakpoints.laptop} {
               flex-direction: column;
               justify-content: flex-start;
@@ -115,9 +110,7 @@ const LegalDocPageLayout: PageLayout<LegalDocProps> = ({
           >
             <Link href={route.href} passHref>
               <ActiveLink isActive={route.href.includes(props.legalDoc.slug)}>
-                <Typography variant="body1" component="div">
-                  {route.title}
-                </Typography>
+                <Typography variant="body1">{route.title}</Typography>
               </ActiveLink>
             </Link>
           </li>

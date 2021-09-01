@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-css-tags */
-import { ServerStyleSheets as MaterialUiServerStyleSheets } from "@material-ui/core/styles";
 import Document, {
   DocumentContext,
   Head,
@@ -8,7 +7,7 @@ import Document, {
   NextScript
 } from "next/document";
 import React, { Fragment, ReactElement } from "react";
-import { ServerStyleSheet as StyledComponentSheets } from "styled-components";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<{
@@ -16,8 +15,7 @@ export default class MyDocument extends Document {
     html: string;
     head?: JSX.Element[];
   }> {
-    const styledComponentSheet = new StyledComponentSheets();
-    const materialUiSheets = new MaterialUiServerStyleSheets();
+    const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
     try {
@@ -25,9 +23,7 @@ export default class MyDocument extends Document {
         originalRenderPage({
           enhanceApp: (App) =>
             function EnchanceApp(props) {
-              return styledComponentSheet.collectStyles(
-                materialUiSheets.collect(<App {...props} />)
-              );
+              return sheet.collectStyles(<App {...props} />);
             }
         });
       const initialProps = await Document.getInitialProps(ctx);
@@ -38,13 +34,12 @@ export default class MyDocument extends Document {
         styles: [
           <Fragment key="doc-styles">
             {React.Children.toArray(initialProps.styles)}
-            {materialUiSheets.getStyleElement()}
-            {styledComponentSheet.getStyleElement()}
+            {sheet.getStyleElement()}
           </Fragment>
         ]
       };
     } finally {
-      styledComponentSheet.seal();
+      sheet.seal();
     }
   }
 

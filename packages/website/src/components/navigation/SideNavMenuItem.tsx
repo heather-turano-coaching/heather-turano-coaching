@@ -1,5 +1,8 @@
-import { makeFontWeight, themePaletteDefaults } from "@htc/components";
-import { Typography } from "@material-ui/core";
+import {
+  Typography,
+  makeFontWeight,
+  themePaletteDefaults
+} from "@htc/components";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { FC, memo } from "react";
@@ -49,7 +52,7 @@ export const SideNavMenuItem: FC<{
   const PlainContent = useMemo(
     () => (
       <Typography
-        variant="body2"
+        variant="label"
         css={css`
           font-weight: ${makeFontWeight("bold")};
           text-transform: uppercase;
@@ -66,8 +69,7 @@ export const SideNavMenuItem: FC<{
     () => (
       <Link href={href} passHref>
         <Typography
-          variant="body2"
-          component="a"
+          variant="label"
           onClick={handleToggle}
           css={css`
             font-weight: inherit;

@@ -1,12 +1,6 @@
-import {
-  Group,
-  theme.breakpoints.laptop,
-  theme.breakpoints.mobileOnly,
-  theme.size.makeRem
-} from "@htc/components";
-import { Button, Typography } from "@material-ui/core";
+import { Button, Group, Typography } from "@htc/components";
 import { differenceInHours, format } from "date-fns";
-import { FC } from "react";
+import React, { FC } from "react";
 import { css } from "styled-components";
 
 export type EventCardProps = {
@@ -34,9 +28,9 @@ export const EventCard: FC<EventCardProps> = (props) => {
   return (
     <div
       css={css`
-        padding: ${theme.size.makeRem(32)} 0;
-
         ${({ theme }) => css`
+          padding: ${theme.size.makeRem(32)} 0;
+
           ${theme.breakpoints.laptop} {
             display: flex;
           }
@@ -49,12 +43,14 @@ export const EventCard: FC<EventCardProps> = (props) => {
         css={css`
           display: block;
           width: 100%;
-          height: ${theme.size.makeRem(144)};
-          border-radius: ${theme.size.makeRem(4)};
+
           object-fit: cover;
 
           ${({ theme }) => css`
+            height: ${theme.size.makeRem(144)};
+            border-radius: ${theme.size.makeRem(4)};
             background-color: ${theme.palette.primary.light};
+
             ${theme.breakpoints.mobileOnly} {
               margin-bottom: ${theme.size.makeRem(24)};
             }
@@ -89,7 +85,6 @@ export const EventCard: FC<EventCardProps> = (props) => {
           variant="subtitle2"
           color="textSecondary"
           className="subHeader"
-          component="p"
           css={css`
             font-weight: 700 !important;
           `}
@@ -136,9 +131,7 @@ export const EventCard: FC<EventCardProps> = (props) => {
           </Button> */}
           {!props.isPastEvent && (
             <Button
-              variant="contained"
               color="primary"
-              size="medium"
               href={props.reserveLink}
               target="_blank"
               rel="noopener noreferrer"

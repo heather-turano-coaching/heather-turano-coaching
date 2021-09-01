@@ -1,19 +1,9 @@
 import {
-  SectionCopy,
-  SectionFooter,
-  TextStylesBlog,
-  Title
-} from "@htc-website/components";
-import {
-  theme.breakpoints.laptop,
-  theme.breakpoints.mobileOnly,
-  theme.size.makeRem
-} from "@htc-website/components";
-import {
   BlockSimpleVariant,
-  BlogCardSuggested
-} from "@htc-website/components/content";
-import { CSSImageBorder } from "@htc-website/components/styles";
+  BlogCardSuggested,
+  CSSImageBorder,
+  TextStylesBlog
+} from "@htc-website/components";
 import { FeaturePageComponent, PageProps } from "@htc-website/features/page";
 import { GhostSeo } from "@htc-website/features/seo";
 import {
@@ -22,7 +12,13 @@ import {
   ghostClient
 } from "@htc-website/lib/ghost";
 import { formatLongDate } from "@htc-website/utils";
-import { Container, Typography } from "@material-ui/core";
+import {
+  Container,
+  SectionCopy,
+  SectionFooter,
+  Title,
+  Typography
+} from "@htc/components";
 import { PostOrPage } from "@tryghost/content-api";
 import Link from "next/link";
 import React from "react";
@@ -59,7 +55,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
       <Container>
         <div
           css={css`
-            margin-top: ${theme.size.makeRem(40)};
+            margin-top: ${({ theme }) => theme.size.makeRem(40)};
             & > * {
               font-weight: 400 !important;
             }
@@ -74,14 +70,14 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
         >
           <header
             css={css`
-              margin: ${theme.size.makeRem(80)} auto;
+              margin: ${({ theme }) => theme.size.makeRem(80)} auto;
             `}
           >
             <Typography
               variant="h2"
               component="h1"
               css={css`
-                max-width: ${theme.size.makeRem(640)};
+                max-width: ${({ theme }) => theme.size.makeRem(640)};
                 && {
                   margin-left: auto;
                   margin-right: auto;
@@ -96,7 +92,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
                 && {
                   margin-left: auto;
                   margin-right: auto;
-                  max-width: ${theme.size.makeRem(976)};
+                  max-width: ${({ theme }) => theme.size.makeRem(976)};
                   line-height: 2;
                 }
               `}
@@ -112,7 +108,6 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
         alt="hero"
         css={css`
           width: 100%;
-          margin-bottom: ${theme.size.makeRem(64)};
           max-height: 80vh;
           object-fit: cover;
           object-position: top;
@@ -120,13 +115,16 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
           margin-left: auto;
           margin-right: auto;
           display: block;
-          max-width: ${theme.size.makeRem(1400)};
+          ${({ theme }) => css`
+            margin-bottom: ${theme.size.makeRem(64)};
+            max-width: ${theme.size.makeRem(1400)};
+          `}
         `}
       />
       <Container>
         <section
           css={css`
-            max-width: ${theme.size.makeRem(680)};
+            max-width: ${({ theme }) => theme.size.makeRem(680)};
             margin: 0 auto;
           `}
         >
@@ -180,7 +178,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
           <SectionFooter>
             <div
               css={css`
-                max-width: ${theme.size.makeRem(400)};
+                max-width: ${({ theme }) => theme.size.makeRem(400)};
                 margin: 0 auto;
               `}
             >

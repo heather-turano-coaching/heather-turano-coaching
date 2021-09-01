@@ -1,7 +1,6 @@
-import { Title } from "@htc-website/components";
-import { BlogSectionAll } from "@htc-website/components/content";
+import { BlogSectionAll } from "@htc-website/components";
 import { GetAllGhostPosts } from "@htc-website/lib/ghost";
-import { Container } from "@material-ui/core";
+import { Container, Title } from "@htc/components";
 import { NextSeo } from "next-seo";
 import React from "react";
 
@@ -23,7 +22,7 @@ export const BlogTagPage: FeaturePageComponent<BlogTagPageProps> = ({
         title={slug}
         description={`Read the latest posts from Heather that are tagged with "${slug}"`}
       />
-      <Container maxWidth="lg">
+      <Container>
         <Title size="lg">{slug}</Title>
         <BlogSectionAll {...data} />
       </Container>

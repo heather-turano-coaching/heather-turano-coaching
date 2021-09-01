@@ -1,4 +1,4 @@
-import { CSSImageBorder } from "@htc-website/components/styles";
+import { CSSImageBorder } from "@htc-website/components";
 import React, { FC } from "react";
 import { css } from "styled-components";
 

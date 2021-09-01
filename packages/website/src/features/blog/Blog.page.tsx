@@ -3,14 +3,14 @@ import {
   BlogSectionAll,
   BlogSectionFeatured,
   Hero
-} from "@htc-website/components/content";
+} from "@htc-website/components";
 import {
   ContentfulPageProps,
   FeaturePageComponent
 } from "@htc-website/features/page";
 import { ContentfulSeo } from "@htc-website/features/seo";
 import { GetAllGhostPosts, GetFeaturedGhostPost } from "@htc-website/lib/ghost";
-import { Container } from "@material-ui/core";
+import { Container } from "@htc/components";
 import React from "react";
 
 import { withBlogPageLayout } from "./Blog.layout";

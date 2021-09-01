@@ -1,12 +1,11 @@
-import { Tag, TagGroup } from "@htc-website/components";
-import { theme.breakpoints.laptop, makeFlex, theme.size.makeRem } from "@htc-website/components";
-import { CSSImageBorder } from "@htc-website/components/styles";
 import { formatShortDate } from "@htc-website/utils";
-import { Typography } from "@material-ui/core";
+import { Tag, TagGroup, Typography } from "@htc/components";
 import { PostOrPage } from "@tryghost/content-api";
 import Link from "next/link";
 import React, { FC } from "react";
 import { css } from "styled-components";
+
+import { CSSImageBorder } from "../styles";
 
 export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
   return (
@@ -17,11 +16,9 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
             min-height: ${theme.size.makeRem(600)};
             height: ${theme.size.makeRem(600)};
             padding: 0 ${theme.size.makeRem(48)};
-            ${makeFlex({
-              direction: "row",
-              justify: "space-evenly",
-              align: "center"
-            })};
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
             margin-bottom: ${theme.size.makeRem(100)};
 
             img {
@@ -63,7 +60,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
             src={featuredPost.feature_image as string | undefined}
             css={css`
               width: 100%;
-              border-radius: ${theme.size.makeRem(4)};
+              border-radius: ${({ theme }) => theme.size.makeRem(4)};
               object-fit: cover;
               height: 100%;
               ${CSSImageBorder};
@@ -78,7 +75,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
           display: flex;
           flex-direction: column;
           height: 100%;
-          padding: ${theme.size.makeRem(16)} 0;
+          padding: ${({ theme }) => theme.size.makeRem(16)} 0;
         `}
       >
         {featuredPost.published_at && (
@@ -90,7 +87,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
         <Typography
           variant="h3"
           css={css`
-            margin-bottom: ${theme.size.makeRem(24)} !important;
+            margin-bottom: ${({ theme }) => theme.size.makeRem(24)} !important;
           `}
         >
           {featuredPost.title}
@@ -103,7 +100,8 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
           <Typography
             variant="subtitle2"
             css={css`
-              margin-bottom: ${theme.size.makeRem(48)} !important;
+              margin-bottom: ${({ theme }) =>
+                theme.size.makeRem(48)} !important;
             `}
           >
             {featuredPost.custom_excerpt || featuredPost.excerpt}

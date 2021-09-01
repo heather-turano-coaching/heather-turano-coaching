@@ -1,4 +1,4 @@
-import { Forms } from "@htc-website/components/forms";
+import { Forms } from "@htc-website/components";
 import { IServiceContact } from "@htc/contentful";
 import { FC } from "react";
 

@@ -1,11 +1,6 @@
-import { Container, Title } from "@htc-website/components";
-import {
-  theme.breakpoints.laptop,
-  theme.breakpoints.mobileOnly,
-  theme.size.makeRem
-} from "@htc-website/components";
 import { LayoutRoot } from "@htc-website/features/layout";
 import { PageLayout } from "@htc-website/features/page";
+import { Container, Title } from "@htc/components";
 import React, { useMemo } from "react";
 import { css } from "styled-components";
 
@@ -18,7 +13,7 @@ export const LegalPageLayout: PageLayout = ({ children, ...props }) => {
         () => (
           <div
             css={css`
-              margin-top: ${theme.size.makeRem(48)};
+              margin-top: ${({ theme }) => theme.size.makeRem(48)};
               text-align: center;
             `}
           >

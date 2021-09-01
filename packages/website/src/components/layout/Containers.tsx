@@ -1,18 +1,12 @@
-import { Container, ContainerProps } from "@material-ui/core";
-import { FC } from "react";
+import { Container } from "@htc/components";
+import React, { FC } from "react";
 import { css } from "styled-components";
 
 export const BlockVertSpacing = 100;
 export const ProgramVertSpacing = 60;
 
-export const BlockContainer: FC<ContainerProps> = ({
-  children,
-  maxWidth = "md",
-  ...restProps
-}) => (
+export const BlockContainer: FC = ({ children }) => (
   <Container
-    maxWidth={maxWidth}
-    {...restProps}
     css={css`
       padding-top: ${({ theme }) => theme.size.makeRem(BlockVertSpacing)};
       padding-bottom: ${({ theme }) => theme.size.makeRem(BlockVertSpacing)};
@@ -22,14 +16,8 @@ export const BlockContainer: FC<ContainerProps> = ({
   </Container>
 );
 
-export const ProgramContainer: FC<ContainerProps> = ({
-  children,
-  maxWidth = "md",
-  ...restProps
-}) => (
+export const ProgramContainer: FC = ({ children }) => (
   <Container
-    maxWidth={maxWidth}
-    {...restProps}
     css={css`
       &:not(:last-child) {
         padding-bottom: ${({ theme }) =>

@@ -1,15 +1,7 @@
-import { RichText } from "@htc-website/components";
-import {
-  theme.breakpoints.laptop,
-  theme.breakpoints.mobileOnly,
-  theme.size.makeRem,
-  makeTabletStyles
-} from "@htc-website/components";
-import { ProgramContainer } from "@htc-website/components/layout";
-import { CSSImageBorderSmall } from "@htc-website/components/styles";
+import { CSSImageBorderSmall, ProgramContainer } from "@htc-website/components";
+import { RichText, Typography } from "@htc/components";
 import { IServiceFields } from "@htc/contentful";
-import { Typography } from "@material-ui/core";
-import { FC } from "react";
+import React, { FC } from "react";
 import { css } from "styled-components";
 
 export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
@@ -21,10 +13,11 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
       css={css`
         background: ${({ theme }) => theme.palette.common.white};
         box-shadow: 0 0 17px 11px rgba(218, 218, 218, 0.5);
-        border-radius: ${theme.size.makeRem(4)};
-        padding: ${theme.size.makeRem(60)} ${theme.size.makeRem(40)};
 
         ${({ theme }) => css`
+          border-radius: ${theme.size.makeRem(4)};
+          padding: ${theme.size.makeRem(60)} ${theme.size.makeRem(40)};
+
           ${theme.breakpoints.mobileOnly} {
             flex-direction: column;
             padding: ${theme.size.makeRem(40)} ${theme.size.makeRem(32)};
@@ -44,14 +37,14 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
     >
       <div
         css={css`
-          width: ${theme.size.makeRem(320)};
-
           & > img {
             width: 100%;
             ${CSSImageBorderSmall};
           }
 
           ${({ theme }) => css`
+            width: ${theme.size.makeRem(320)};
+
             ${theme.breakpoints.mobileOnly} {
               width: 100%;
               margin-bottom: ${theme.size.makeRem(32)};
@@ -75,7 +68,7 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
           css={css`
             text-transform: uppercase;
             margin-top: 0;
-            margin-bottom: ${theme.size.makeRem(8)};
+            margin-bottom: ${({ theme }) => theme.size.makeRem(8)};
           `}
         >
           {restProps.title}
@@ -84,7 +77,7 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
           variant="subtitle2"
           color="textSecondary"
           css={css`
-            margin-bottom: ${theme.size.makeRem(32)};
+            margin-bottom: ${({ theme }) => theme.size.makeRem(32)};
           `}
         >
           {restProps.subTitle}
@@ -92,7 +85,7 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
         <div
           css={css`
             & + * {
-              margin-top: ${theme.size.makeRem(32)};
+              margin-top: ${({ theme }) => theme.size.makeRem(32)};
             }
           `}
         >

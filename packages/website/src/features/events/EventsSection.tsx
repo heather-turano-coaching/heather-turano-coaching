@@ -1,5 +1,4 @@
-import { Title } from "@htc-website/components";
-import { theme.size.makeRem } from "@htc-website/components";
+import { Title } from "@htc/components";
 import React, { FC, useMemo } from "react";
 import styled, { css } from "styled-components";
 
@@ -16,12 +15,14 @@ export const EventsSection: FC<{ title: string }> = ({ title, children }) => {
       )}
       <ul
         css={css`
-          &:not(:last-child) {
-            margin-bottom: ${theme.size.makeRem(200)};
-          }
-          &:last-of-type {
-            margin-bottom: ${theme.size.makeRem(300)};
-          }
+          ${({ theme }) => css`
+            &:not(:last-child) {
+              margin-bottom: ${theme.size.makeRem(200)};
+            }
+            &:last-of-type {
+              margin-bottom: ${theme.size.makeRem(300)};
+            }
+          `}
         `}
       >
         {children}

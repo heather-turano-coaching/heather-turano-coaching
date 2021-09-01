@@ -1,4 +1,3 @@
-import { theme.size.makeRem } from "@htc-website/components";
 import { IPageCollection } from "@htc/contentful";
 import { PostOrPage } from "@tryghost/content-api";
 import { NextSeo } from "next-seo";
@@ -33,11 +32,11 @@ export const LinksPage: FeaturePageComponent<LinksPageProps> = ({
         css={css`
           ${({ theme }) => css`
             background-color: ${theme.palette.light.main};
+            padding-top: ${theme.size.makeRem(28)};
+            padding-bottom: ${theme.size.makeRem(28)};
+            padding-left: ${theme.size.makeRem(16)};
+            padding-right: ${theme.size.makeRem(16)};
           `}
-          padding-top: ${theme.size.makeRem(28)};
-          padding-bottom: ${theme.size.makeRem(28)};
-          padding-left: ${theme.size.makeRem(16)};
-          padding-right: ${theme.size.makeRem(16)};
         `}
       >
         {contentfulData.fields.items.map(({ fields }) => {

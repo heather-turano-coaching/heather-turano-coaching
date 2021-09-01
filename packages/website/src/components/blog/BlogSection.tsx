@@ -1,5 +1,4 @@
-import { Title } from "@htc-website/components";
-import { theme.size.makeRem } from "@htc-website/components";
+import { Title } from "@htc/components";
 import React, { useMemo } from "react";
 import { FC } from "react";
 import { css } from "styled-components";
@@ -9,7 +8,7 @@ export const BlogSection: FC<{ title: string }> = ({ title, children }) => {
     <div
       css={css`
         & + & {
-          margin-top: ${theme.size.makeRem(200)};
+          margin-top: ${({ theme }) => theme.size.makeRem(200)};
         }
       `}
     >

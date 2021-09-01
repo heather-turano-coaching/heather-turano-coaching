@@ -1,5 +1,5 @@
-type ColorKeys = "primary" | "secondary" | "accent" | "dark" | "light";
-type ColorVariants = "dark" | "light" | "main" | "contrast";
+export type ColorKeys = "primary" | "secondary" | "accent" | "dark" | "light";
+export type ColorVariants = "dark" | "light" | "main" | "contrast";
 
 export type ThemePalette = {
   [key in ColorKeys]: { [key in ColorVariants]: string };

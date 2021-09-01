@@ -1,12 +1,9 @@
-import {} from "@htc/contentful/contentful.types.custom";
-
-import { Title } from "@htc-website/components";
-import { theme.size.makeRem } from "@htc-website/components";
-import { Hero } from "@htc-website/components/content";
+import { Hero } from "@htc-website/components";
 import {
   ContentfulPageProps,
   FeaturePageComponent
 } from "@htc-website/features/page";
+import { Title } from "@htc/components";
 import {
   ContentfulPagination,
   IService,
@@ -50,11 +47,13 @@ export const ServicesPage: FeaturePageComponent<ServicesPageProps> = ({
           <div
             key={`${servicesTitle}_${i}`}
             css={css`
-              margin-top: ${theme.size.makeRem(120)};
+              ${({ theme }) => css`
+                margin-top: ${theme.size.makeRem(120)};
 
-              &:last-of-type {
-                margin-bottom: ${theme.size.makeRem(120)};
-              }
+                &:last-of-type {
+                  margin-bottom: ${theme.size.makeRem(120)};
+                }
+              `}
             `}
           >
             <Title size="lg">{servicesTitle}</Title>

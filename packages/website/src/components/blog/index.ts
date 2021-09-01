@@ -5,3 +5,4 @@ export * from "./BlogSectionAll";
 export * from "./BlogSectionFeatured";
 export * from "./blog.useInfiniteBlogs";
 export * from "./BlogCardSuggested";
+export * from "./BlogTextStyles";

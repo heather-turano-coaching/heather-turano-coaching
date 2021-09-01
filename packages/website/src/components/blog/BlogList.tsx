@@ -1,8 +1,3 @@
-import {
-  theme.breakpoints.laptop,
-  theme.size.makeRem,
-  makeTabletStyles
-} from "@htc-website/components";
 import { PostOrPage } from "@tryghost/content-api";
 import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";

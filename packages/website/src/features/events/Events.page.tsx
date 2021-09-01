@@ -1,11 +1,10 @@
-import { theme.size.makeRem } from "@htc-website/components";
-import { Hero } from "@htc-website/components/content";
+import { Hero } from "@htc-website/components";
 import {
   ContentfulPageProps,
   FeaturePageComponent
 } from "@htc-website/features/page";
 import { EBEventsResponse } from "@htc-website/lib/eventbrite";
-import { Container } from "@material-ui/core";
+import { Container } from "@htc/components";
 import React from "react";
 import { css } from "styled-components";
 
@@ -34,12 +33,14 @@ export const EventsPage: FeaturePageComponent<EventsPageProps> = ({
       {hero && <Hero {...hero.fields} hideGradient />}
       <div
         css={css`
-          background-color: ${({ theme }) => theme.palette.light.light};
-          padding-top: ${theme.size.makeRem(60)};
-          padding-bottom: ${theme.size.makeRem(60)};
+          ${({ theme }) => css`
+            background-color: ${theme.palette.light.light};
+            padding-top: ${theme.size.makeRem(60)};
+            padding-bottom: ${theme.size.makeRem(60)};
+          `}
         `}
       >
-        <Container maxWidth="md">
+        <Container>
           <EventsSection title="Upcoming Events">
             <EventsFuture events={futureEvents} />
           </EventsSection>

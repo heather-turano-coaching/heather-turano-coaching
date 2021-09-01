@@ -1,6 +1,6 @@
 import { BlockSimplePlain } from "@htc-website/components";
 import { FeaturePageComponent } from "@htc-website/features/page";
-import { Button } from "@material-ui/core";
+import { Button } from "@htc/components";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import React from "react";
@@ -21,9 +21,7 @@ export const SubscriptionSuccessful: FeaturePageComponent = () => {
         type="plain"
         footer={
           <Link href="/" passHref>
-            <Button variant="contained" color="primary">
-              Back to Home Page
-            </Button>
+            <Button styleType="primary">Back to Home Page</Button>
           </Link>
         }
       >

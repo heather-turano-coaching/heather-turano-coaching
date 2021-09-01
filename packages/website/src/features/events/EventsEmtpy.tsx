@@ -1,7 +1,6 @@
-import { flexRow, theme.size.makeRem } from "@htc-website/components";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@htc/components";
 import Image from "next/image";
-import { FC } from "react";
+import React, { FC } from "react";
 import { css } from "styled-components";
 
 export const EventsEmtpy: FC = () => {
@@ -9,12 +8,13 @@ export const EventsEmtpy: FC = () => {
     <div
       css={css`
         box-sizing: border-box;
-        min-height: ${theme.size.makeRem(260)};
+        ${({ theme }) => css`
+          min-height: ${theme.size.makeRem(260)};
+          background: ${theme.palette.common.white};
+          padding: ${theme.size.makeRem(32)};
+        `}
         width: 100%;
-        background: ${({ theme }) => theme.palette.common.white};
-        ${flexRow("center", "center")};
         text-align: center;
-        padding: ${theme.size.makeRem(32)};
       `}
     >
       <div>
@@ -29,7 +29,6 @@ export const EventsEmtpy: FC = () => {
         </Typography>
         <Typography
           variant="body1"
-          component="p"
           css={css`
             max-width: 50ch;
           `}

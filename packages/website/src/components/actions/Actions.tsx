@@ -1,5 +1,5 @@
 import { Button, ButtonGroup } from "@htc/components";
-import { IAction } from "@htc/contentful/contentful";
+import type { IAction } from "@htc/contentful";
 import Link from "next/link";
 import React, { FC, memo } from "react";
 
@@ -17,7 +17,6 @@ export const Actions: FC<{ actions: IAction[] | undefined }> = memo(
           }
           const Btn = (
             <Button
-              size="large"
               key={action.label}
               variant={action?.type === "primary" ? "contained" : "outlined"}
               color={action.type}

@@ -16,3 +16,4 @@ export * from "./rich-text";
 export * from "./tag";
 export * from "./theme";
 export * from "./types";
+export * from "./svg";
