@@ -30,7 +30,12 @@
   "bugs": {
     "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
   },
+  "peerDependencies": {
+    "contentful": "^8.5.0",
+    "safe-json-stringify": "^1.2.0"
+  },
   "devDependencies": {
+    "@contentful/rich-text-types": "^15.1.0",
     "@htc/eslint-config": "^1.0.0",
     "@htc/types": "^1.0.0",
     "@htc/typescript": "^1.0.0",
@@ -38,6 +43,7 @@
     "contentful-management": "^7.34.0",
     "contentful-typescript-codegen": "^3.2.2",
     "dotenv": "^10.0.0",
+    "safe-json-stringify": "^1.2.0",
     "typescript": "^4.4.2"
   }
 }

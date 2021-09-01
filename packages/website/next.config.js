@@ -1,5 +1,6 @@
 const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, "../../.env") });
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 const srcDir = path.resolve(__dirname, "./src");
 
@@ -10,23 +11,11 @@ module.exports = {
       config.plugins.push(new webpack.IgnorePlugin(/\/src\/lib\/server\//));
     }
 
+    config.plugins.push(new ESLintPlugin());
+
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"]
-    });
-
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      enforce: "pre",
-      use: [
-        {
-          options: {
-            eslintPath: require.resolve("eslint")
-          },
-          loader: require.resolve("eslint-loader")
-        }
-      ],
-      exclude: /node_modules/
     });
 
     config.resolve.alias = {
