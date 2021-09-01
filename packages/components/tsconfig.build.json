@@ -6,5 +6,6 @@
     "outDir": "dist",
     "target": "ES5"
   },
+  "include": ["main/index.ts"],
   "exclude": ["next.config.js", ".eslintrc.js"]
 }

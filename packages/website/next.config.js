@@ -4,6 +4,7 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 
 const srcDir = path.resolve(__dirname, "./src");
 
+/** @type {import('next').NextConfig} */
 module.exports = {
   webpack(config, { isServer, webpack }) {
     // Don't bundle anything in the server utils

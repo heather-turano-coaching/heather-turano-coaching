@@ -5,7 +5,7 @@
     "docs:dev": "next dev",
     "docs:build": "next build",
     "docs:start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --dir src --dir main",
     "build": "yarn lint && rm -rf dist && tsc --project ./tsconfig.build.json"
   },
   "keywords": [
