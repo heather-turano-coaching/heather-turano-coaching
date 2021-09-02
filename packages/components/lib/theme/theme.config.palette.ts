@@ -21,8 +21,8 @@ export type ThemePalette = {
 export const themePaletteDefaults: ThemePalette = {
   // Deep Blue/Green
   primary: {
-    dark: "#4E8588",
-    main: "#88ADAF",
+    dark: "#3e686a",
+    main: "#4e8588",
     light: "#C2D5D6",
     contrast: "#fff"
   },

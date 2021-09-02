@@ -9,7 +9,7 @@ import { Typography } from "../typography2";
 
 type ButtonColors = Extract<
   ColorKeys,
-  "primary" | "secondary" | "accent" | "warning" | "danger"
+  "primary" | "dark" | "accent" | "warning" | "danger"
 >;
 
 type ButtonProps = HTMLButton & {
@@ -36,10 +36,10 @@ const buttonStyleMap: {
     borderColorHover: "primary",
     borderColorActive: "primary"
   },
-  secondary: {
-    bgColor: "secondary",
-    bgColorHover: "secondary",
-    bgColorActive: "secondary",
+  dark: {
+    bgColor: "dark",
+    bgColorHover: "dark",
+    bgColorActive: "dark",
     borderColor: "dark",
     borderColorHover: "dark",
     borderColorActive: "dark"
@@ -73,11 +73,11 @@ const buttonStyleMap: {
 export const StyledButton = styled.button<
   Required<
     Pick<Omit<ButtonProps, "color">, "disabled" | "variant"> & {
-      fontColor: ButtonColors;
+      buttonColor: ButtonColors;
     }
   >
 >`
-  ${({ theme, fontColor, variant }) => css`
+  ${({ theme, buttonColor, variant }) => css`
     height: ${theme.size.makeRem(buttonAndInputHeight)};
     border-radius: ${theme.size.makeRem(2)};
     transition: all ease-in-out 0.15s;
@@ -87,31 +87,50 @@ export const StyledButton = styled.button<
     padding-right: ${theme.size.makeRem(12)};
     min-width: ${theme.size.makeRem(12)};
     cursor: pointer;
+    min-width: ${theme.size.makeRem(120)};
 
     &:not(:disabled) {
-      background-color: ${theme.palette[buttonStyleMap[fontColor].bgColor]
-        .main};
-      border-color: ${theme.palette[buttonStyleMap[fontColor].borderColor]
-        .main};
+      background-color: ${variant === "filled"
+        ? theme.palette[buttonStyleMap[buttonColor].bgColor].main
+        : "transparent"};
+      border-color: ${variant !== "text"
+        ? theme.palette[buttonStyleMap[buttonColor].borderColor].main
+        : "transparent"};
 
       &:hover {
-        background-color: ${theme.palette[
-          buttonStyleMap[fontColor].bgColorHover
-        ].dark};
-        border-color: ${theme.palette[
-          buttonStyleMap[fontColor].borderColorHover
-        ].dark};
+        background-color: ${variant === "filled"
+          ? theme.palette[buttonStyleMap[buttonColor].bgColorHover].dark
+          : "transparent"};
+        border-color: ${variant !== "text"
+          ? theme.palette[buttonStyleMap[buttonColor].borderColorHover].dark
+          : "transparent"};
+
+        ${variant === "text" &&
+        css`
+          color: ${theme.palette[buttonColor].dark};
+          transform: scale(1.1);
+        `}
       }
 
       &:active {
-        background-color: ${darken(
-          0.2,
-          theme.palette[buttonStyleMap[fontColor].bgColorActive].dark
-        )};
-        border-color: ${darken(
-          0.2,
-          theme.palette[buttonStyleMap[fontColor].borderColorActive].dark
-        )};
+        background-color: ${variant === "filled"
+          ? darken(
+              0.2,
+              theme.palette[buttonStyleMap[buttonColor].bgColorActive].dark
+            )
+          : "transparent"};
+        border-color: ${variant !== "text"
+          ? darken(
+              0.2,
+              theme.palette[buttonStyleMap[buttonColor].borderColorActive].dark
+            )
+          : "transparent"};
+        transform: scale(0.9);
+
+        ${variant === "text" &&
+        css`
+          color: ${darken(0.2, theme.palette[buttonColor].dark)};
+        `}
       }
     }
 
@@ -120,6 +139,9 @@ export const StyledButton = styled.button<
       pointer-events: none;
       background: ${theme.palette.dark.light};
       border-color: ${theme.palette.dark.light};
+      & > * {
+        color: ${theme.palette.dark.main} !important;
+      }
     }
   `}
 `;
@@ -133,12 +155,15 @@ export const Button: FC<ButtonProps> = ({
 }) => {
   return (
     <StyledButton
-      fontColor={color}
+      buttonColor={color}
       variant={variant}
       disabled={restProps.disabled || loading}
       {...restProps}
     >
-      <Typography variant="body1" color={[color, "contrast"]}>
+      <Typography
+        variant="body1"
+        color={[color, variant === "filled" ? "contrast" : "main"]}
+      >
         {children}
       </Typography>
     </StyledButton>

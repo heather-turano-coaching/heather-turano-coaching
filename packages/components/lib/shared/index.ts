@@ -1,1 +1,1 @@
-export const buttonAndInputHeight = 48;
+export const buttonAndInputHeight = 44;
