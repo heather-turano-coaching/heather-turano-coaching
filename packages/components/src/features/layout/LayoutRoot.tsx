@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-export const Layout: FC = ({ children }) => (
+export const LayoutRoot: FC = ({ children }) => (
   <div>
     layout
     {children}
