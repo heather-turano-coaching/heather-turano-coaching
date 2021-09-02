@@ -61,9 +61,7 @@ export const AvatarListItem: FC<AvatarListItemProps> = ({
       <Avatar alt={alt} image={image} size={{ custom: 60 }} />
     </div>
     <div>
-      <Typography variant="label" fontSize="sm">
-        {name}
-      </Typography>
+      <Typography variant="body2">{name}</Typography>
       {/* {bio && (
         <Typography type="paragraph" fontSize="xs">
           {bio.length > 196 ? `${bio.substring(0, 196)} ...` : bio}

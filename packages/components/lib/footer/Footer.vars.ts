@@ -1,5 +1,3 @@
-import { ColorProperties } from "../design-system";
+import { ColorKeys } from "../theme";
 
-export const fontColor: ColorProperties = {
-  fixed: "light"
-};
+export const fontColor: ColorKeys = "light";

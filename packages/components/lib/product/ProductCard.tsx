@@ -10,7 +10,8 @@ import {
   makeResponsive,
   makeSize
 } from "../design-system";
-import { Heading, Line, List, ListItem, Typography } from "../display";
+import { Line, List, ListItem } from "../display";
+import { Typography } from "../typography2";
 
 export interface HTCPackagePrice {
   id: string;
@@ -115,52 +116,36 @@ export const ProductCard: FC<ProductCardProps> = ({
     <StyledProductCard>
       {img && <StyledProductImage src={img} alt={imgAlt} />}
       <StyledProductHeader productColor={color}>
-        <Heading fontSize="h5">{name}</Heading>
-        {description && (
-          <Typography variant="paragraph" fontSize="xs">
-            {description}
-          </Typography>
-        )}
+        <Typography variant="h5">{name}</Typography>
+        {description && <Typography>{description}</Typography>}
       </StyledProductHeader>
       <StyledProductPrice productColor={color} strike={!!couponPrice?.id}>
         <div>
           {basePrice.unit_amount === 0 && (
-            <Typography variant="paragraph" fontSize="h2">
-              FREE!
-            </Typography>
+            <Typography variant="h2">FREE!</Typography>
           )}
           {basePrice.unit_amount !== 0 && (
             <>
-              <Typography variant="paragraph" fontSize="xs">
-                $
-              </Typography>
-              <Typography variant="paragraph" fontSize="h2">
+              <Typography variant="caption">$</Typography>
+              <Typography variant="h2">
                 {basePrice.unit_amount / 100}
               </Typography>
-              <Typography variant="paragraph" fontSize="xs">
-                .00
-              </Typography>
+              <Typography variant="caption">.00</Typography>
             </>
           )}
         </div>
         {couponPrice?.id && (
           <div>
             {couponPrice.unit_amount === 0 && (
-              <Typography variant="paragraph" fontSize="h2">
-                FREE!
-              </Typography>
+              <Typography variant="h2">FREE!</Typography>
             )}
             {couponPrice.unit_amount !== 0 && (
               <>
-                <Typography variant="paragraph" fontSize="xs">
-                  $
-                </Typography>
-                <Typography variant="paragraph" fontSize="h2">
+                <Typography variant="caption">$</Typography>
+                <Typography variant="h2">
                   {couponPrice.unit_amount / 100}
                 </Typography>
-                <Typography variant="paragraph" fontSize="xs">
-                  .00
-                </Typography>
+                <Typography variant="caption">.00</Typography>
               </>
             )}
           </div>
@@ -179,11 +164,9 @@ export const ProductCard: FC<ProductCardProps> = ({
         )}
       </List>
       <StyledProductFooter>
-        <Button
-          label={basePrice.unit_amount === 0 ? "Sign up" : "Purchase"}
-          onClick={() => onClick()}
-          styleType="secondary"
-        />
+        <Button onClick={() => onClick()} color="dark" variant="outlined">
+          {basePrice.unit_amount === 0 ? "Sign up" : "Purchase"}
+        </Button>
       </StyledProductFooter>
     </StyledProductCard>
   );

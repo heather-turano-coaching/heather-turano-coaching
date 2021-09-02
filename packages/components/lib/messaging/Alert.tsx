@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styled, { SimpleInterpolation, css } from "styled-components";
 
 import { makeColor, makeInset, makeOutset, makeSize } from "../design-system";
-import { Typography } from "../display";
+import { Typography } from "../typography2";
 
 interface AlertProps {
   type: "success" | "error" | "warning";
@@ -44,9 +44,8 @@ export const Alert: FC<AlertProps> = ({ type, children }) => {
     <div>
       <StyledAlert type={type}>
         <Typography
-          variant="text"
-          fontSize="xs"
-          fontColor={{ fixed: type !== "warning" ? "light" : "dark" }}
+          variant="body1"
+          color={type !== "warning" ? "light" : "dark"}
         >
           {children}
         </Typography>

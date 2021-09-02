@@ -22,8 +22,6 @@ const StyledListItem = styled.li<{ tight: boolean }>`
 export const ListItem: FC<ListItemProps> = ({ label, tight = false, icon }) => (
   <StyledListItem tight={tight}>
     {icon}
-    <Typography variant="paragraph" fontSize="xs">
-      {label}
-    </Typography>
+    <Typography variant="body1">{label}</Typography>
   </StyledListItem>
 );

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 
 import { makeOutset } from "../design-system";
-import { Typography } from "../display";
+import { Typography } from "../typography2";
 
 export interface InputErrorProps {
   errorMessage?: string;
@@ -14,18 +14,16 @@ const StyledInputError = styled.div`
 
 export const InputError: FC<InputErrorProps> = ({
   errorMessage = undefined
-}) => (
-  <>
-    {errorMessage && (
-      <StyledInputError>
-        <Typography
-          variant="label"
-          fontSize="xs"
-          fontColor={{ scalable: { color: "error" } }}
-        >
-          {errorMessage}
-        </Typography>
-      </StyledInputError>
-    )}
-  </>
-);
+}) => {
+  return (
+    <>
+      {errorMessage && (
+        <StyledInputError>
+          <Typography variant="body2" color="danger">
+            {errorMessage}
+          </Typography>
+        </StyledInputError>
+      )}
+    </>
+  );
+};

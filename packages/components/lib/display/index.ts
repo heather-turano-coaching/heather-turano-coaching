@@ -8,7 +8,6 @@ export * from "./CardTitle";
 export * from "./Carousel";
 export * from "./Content";
 export * from "./ContentfulRichText";
-export * from "./Heading";
 export * from "./Hero";
 export * from "./Image";
 export * from "./Line";

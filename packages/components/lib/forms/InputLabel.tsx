@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import styled from "styled-components";
 
 import { makeOutset } from "../design-system";
-import { Typography } from "../display";
 import { HTMLLabel } from "../types";
+import { Typography } from "../typography2";
 
 export type InputLabelProps = HTMLLabel & {
   label?: string;
@@ -19,22 +19,16 @@ export const InputLabel: FC<InputLabelProps> = ({
   label = undefined,
   htmlFor,
   isValid = true
-}) => (
-  <>
-    {label && (
-      <StyledInputLabel htmlFor={htmlFor}>
-        <Typography
-          variant="label"
-          fontSize="sm"
-          fontColor={{
-            scalable: {
-              color: isValid ? "secondary" : "error"
-            }
-          }}
-        >
-          {label}
-        </Typography>
-      </StyledInputLabel>
-    )}
-  </>
-);
+}) => {
+  return (
+    <>
+      {label && (
+        <StyledInputLabel htmlFor={htmlFor}>
+          <Typography variant="body2" color={isValid ? "secondary" : "danger"}>
+            {label}
+          </Typography>
+        </StyledInputLabel>
+      )}
+    </>
+  );
+};

@@ -14,7 +14,6 @@ import {
 import { RandomColor, generateRandomColor } from "../theme";
 import { Typography } from "../typography2";
 import { Avatar } from "./Avatar";
-import { Heading } from "./Heading";
 
 interface AvatarCardProps {
   avatarImg?: string;
@@ -86,8 +85,8 @@ export const AvatarCard: FC<AvatarCardProps> = ({
       />
       <StyledAvatarSection>
         <Avatar image={avatarImg} alt={authorName} size={headerHeight} />
-        <Heading fontSize="h3">{authorName}</Heading>
-        <Typography variant="text">{bio}</Typography>
+        <Typography variant="h3">{authorName}</Typography>
+        <Typography variant="body1">{bio}</Typography>
       </StyledAvatarSection>
     </StyledAvatarCard>
   );

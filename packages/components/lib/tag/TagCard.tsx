@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styled, { SimpleInterpolation, css } from "styled-components";
 
 import { makeColor, makeInset, makeRhythm, makeSize } from "../design-system";
-import { Heading, Typography } from "../display";
+import { Typography } from "../typography2";
 
 export type TagTypes = "tag" | "category";
 
@@ -58,12 +58,10 @@ const StyledContent = styled.div<{ hasDescription: boolean }>`
 
 export const TagCard: FC<TagCardProps> = ({ type, name, description }) => (
   <StyledTagCard type={type}>
-    <Heading fontSize="h4">{name}</Heading>
+    <Typography variant="h4">{name}</Typography>
     {description && (
       <StyledContent hasDescription={typeof description !== "undefined"}>
-        <Typography variant="paragraph" fontSize="sm">
-          {description}
-        </Typography>
+        <Typography variant="body1">{description}</Typography>
       </StyledContent>
     )}
   </StyledTagCard>

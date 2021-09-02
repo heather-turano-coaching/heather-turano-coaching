@@ -2,7 +2,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, Document, MARKS } from "@contentful/rich-text-types";
 import React, { FC, ReactNode } from "react";
 
-import { Typography, TypographyProps } from "../display";
+import { Typography, TypographyProps } from "../typography2";
 import { TextStyles } from "./TextStyles";
 
 export const RichText: FC<{

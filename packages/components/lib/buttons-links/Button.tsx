@@ -1,5 +1,5 @@
 import { darken } from "polished";
-import React, { FC } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 
 import { buttonAndInputHeight } from "../shared";
@@ -7,7 +7,7 @@ import { ColorKeys } from "../theme";
 import { HTMLButton } from "../types";
 import { Typography } from "../typography2";
 
-type ButtonColors = Extract<
+export type ButtonColors = Extract<
   ColorKeys,
   "primary" | "dark" | "accent" | "warning" | "danger"
 >;
@@ -16,6 +16,9 @@ type ButtonProps = HTMLButton & {
   color?: ButtonColors;
   loading?: boolean;
   variant?: "filled" | "text" | "outlined";
+  component?: "button" | "a";
+  onClick?: () => void;
+  href?: string;
 };
 
 const buttonStyleMap: {
@@ -72,7 +75,7 @@ const buttonStyleMap: {
 
 export const StyledButton = styled.button<
   Required<
-    Pick<Omit<ButtonProps, "color">, "disabled" | "variant"> & {
+    Pick<Omit<ButtonProps, "color">, "disabled" | "variant" | "href"> & {
       buttonColor: ButtonColors;
     }
   >
@@ -146,26 +149,41 @@ export const StyledButton = styled.button<
   `}
 `;
 
-export const Button: FC<ButtonProps> = ({
-  children,
-  variant = "filled",
-  color = "primary",
-  loading = false,
-  ...restProps
-}) => {
-  return (
-    <StyledButton
-      buttonColor={color}
-      variant={variant}
-      disabled={restProps.disabled || loading}
-      {...restProps}
-    >
-      <Typography
-        variant="body1"
-        color={[color, variant === "filled" ? "contrast" : "main"]}
+export const Button = React.forwardRef<HTMLAnchorElement, ButtonProps>(
+  function Button(
+    {
+      onClick,
+      href,
+      children,
+      variant = "filled",
+      color = "primary",
+      loading = false,
+      component = "button",
+      ...restProps
+    },
+    ref
+  ) {
+    return (
+      <StyledButton
+        ref={ref}
+        buttonColor={color}
+        variant={variant}
+        disabled={restProps.disabled || loading}
+        as={component}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        href={href}
+        onClick={onClick}
+        {...restProps}
       >
-        {children}
-      </Typography>
-    </StyledButton>
-  );
-};
+        <Typography
+          variant="body1"
+          color={color}
+          colorVariant={variant === "filled" ? "contrast" : "main"}
+        >
+          {children}
+        </Typography>
+      </StyledButton>
+    );
+  }
+);

@@ -1,8 +1,7 @@
 import React, { FC, ReactNode, memo } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import { makeSize } from "../design-system";
-import { Typography } from "../display";
+import { Typography } from "../typography2";
 import { fontColor } from "./Footer.vars";
 
 const StyledFooterText = styled.span`
@@ -14,18 +13,15 @@ const StyledFooterText = styled.span`
   }
 `;
 
-const typographyStyle: React.CSSProperties = {
-  marginBottom: makeSize({ custom: 12 })
-};
-
 export const FooterText: FC<{ children: ReactNode }> = memo(
   function FooterText({ children }) {
     return (
       <Typography
-        fontSize="xs"
-        fontColor={fontColor}
-        variant="paragraph"
-        style={typographyStyle}
+        color={fontColor}
+        variant="body2"
+        css={css`
+          margin-bottom: ${({ theme }) => theme.size.makeRem(12)};
+        `}
       >
         <StyledFooterText>{children}</StyledFooterText>
       </Typography>

@@ -8,7 +8,7 @@ import {
   makeReset,
   makeSize
 } from "../design-system";
-import { Typography } from "../display";
+import { Typography } from "../typography2";
 import { fontColor } from "./Footer.vars";
 
 export type FooterSectionProps = { title: string; sectionSize?: "1" | "2" };
@@ -78,12 +78,7 @@ export const FooterSection: FC<FooterSectionProps> = ({
     {useMemo(
       () => (
         <StyledFooterSectionTitle>
-          <Typography
-            variant="label"
-            fontSize="xs"
-            fontColor={fontColor}
-            className="heading"
-          >
+          <Typography variant="body2" color={fontColor} className="heading">
             {title}
           </Typography>
         </StyledFooterSectionTitle>

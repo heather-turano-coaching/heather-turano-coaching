@@ -1,90 +1,88 @@
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli Bold'), local('Muli-Bold'),
-        url('hinted-Muli-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli Bold"), local("Muli-Bold"),
+    url("hinted-Muli-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli Light Italic'), local('Muli-LightItalic'),
-        url('hinted-Muli-LightItalic.ttf') format('truetype');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli Light Italic"), local("Muli-LightItalic"),
+    url("hinted-Muli-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli Extra-Light Italic'), local('Muli-ExtraLightItalic'),
-        url('hinted-Muli-ExtraLightItalic.ttf') format('truetype');
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli Extra-Light Italic"), local("Muli-ExtraLightItalic"),
+    url("hinted-Muli-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli'),
-        url('hinted-Muli.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli"), url("hinted-Muli.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli Italic'), local('Muli-Italic'),
-        url('hinted-Muli-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli Italic"), local("Muli-Italic"),
+    url("hinted-Muli-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli SemiBold'), local('Muli-SemiBold'),
-        url('hinted-Muli-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli SemiBold"), local("Muli-SemiBold"),
+    url("hinted-Muli-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli Bold Italic'), local('Muli-BoldItalic'),
-        url('hinted-Muli-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli Bold Italic"), local("Muli-BoldItalic"),
+    url("hinted-Muli-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli Light'), local('Muli-Light'),
-        url('hinted-Muli-Light.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli Light"), local("Muli-Light"),
+    url("hinted-Muli-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli ExtraLight'), local('Muli-ExtraLight'),
-        url('hinted-Muli-ExtraLight.ttf') format('truetype');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli ExtraLight"), local("Muli-ExtraLight"),
+    url("hinted-Muli-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Muli';
-    src: local('Muli Semi-Bold Italic'), local('Muli-Semi-BoldItalic'),
-        url('hinted-Muli-Semi-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Muli";
+  src: local("Muli Semi-Bold Italic"), local("Muli-Semi-BoldItalic"),
+    url("hinted-Muli-Semi-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
 }
-

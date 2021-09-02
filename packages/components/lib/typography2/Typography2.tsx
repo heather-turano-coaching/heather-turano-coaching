@@ -6,11 +6,13 @@ import styled, {
   css
 } from "styled-components";
 
-import { ColorKeys, ColorVariants } from "../theme/theme.config.palette";
-import {
+import type {
+  ColorKeys,
+  ColorVariants,
   TypographyHeadingVariants,
   TypographyVariants
-} from "../theme/theme.config.typ";
+} from "../theme";
+import { HTMLElementProps } from "../types";
 import {
   CSSBody1,
   CSSBody2,
@@ -26,11 +28,11 @@ import {
   CSSSubtitle2
 } from "./typography.styles";
 
-export type TypographyProps = {
+export type TypographyProps = HTMLElementProps & {
   /**
    * @default body1
    */
-  variant: TypographyVariants;
+  variant?: TypographyVariants;
   /**
    * @default div
    */
@@ -38,7 +40,11 @@ export type TypographyProps = {
   /**
    * @default inherit
    */
-  color?: [ColorKeys, ColorVariants] | "inherit";
+  color?: ColorKeys;
+  /**
+   * @default main
+   */
+  colorVariant?: ColorVariants;
   /**
    * @default inherit
    */
@@ -63,24 +69,29 @@ const typographyVariantStyleMap: {
 };
 
 const StyledTypography = styled.div<
-  Required<
-    Omit<TypographyProps, "component" | "color"> & {
-      fontColor: TypographyProps["color"];
-    }
-  >
+  Omit<TypographyProps, "component" | "color" | "colorVariant"> & {
+    fontColor: ColorKeys;
+    fontColorVariant: ColorVariants;
+  }
 >`
-  ${({ theme, variant, fontColor = "inherit" }) => css`
+  ${({
+    theme,
+    variant = "body1",
+    fontColor = "inherit",
+    fontColorVariant = "main"
+  }) => css`
     ${typographyVariantStyleMap[variant]};
     color: ${fontColor === "inherit"
       ? "inherit"
-      : theme.palette[fontColor[0]][fontColor[1]]};
+      : theme.palette[fontColor as ColorKeys][fontColorVariant]};
   `}
 `;
 
 export const Typography: FC<TypographyProps> = ({
-  variant,
+  variant = "body1",
   component = "div",
-  color = "inherit",
+  color = "dark",
+  colorVariant = "main",
   align = "inherit",
   children,
   ...restProps
@@ -88,6 +99,7 @@ export const Typography: FC<TypographyProps> = ({
   <StyledTypography
     as={component}
     fontColor={color}
+    fontColorVariant={colorVariant}
     align={align}
     variant={variant}
     {...restProps}

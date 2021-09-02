@@ -1,12 +1,8 @@
 import React, { FC, ReactNode, useCallback, useState } from "react";
 import styled from "styled-components";
 
-import {
-  ColorProperties,
-  makeColor,
-  makeOutset,
-  makeSize
-} from "../design-system";
+import { makeColor, makeOutset, makeSize } from "../design-system";
+import { ColorKeys } from "../theme";
 import { Typography } from "../typography2";
 
 export interface Step {
@@ -84,24 +80,18 @@ const StyledProgressLine = styled.div<{
   z-index: -1;
 `;
 
-const createFontColor = ({
-  isActive,
-  isPassed
-}: DerrivedValue): ColorProperties => {
-  if (isActive) {
-    return { scalable: { color: "secondary" } };
-  }
-  if (isPassed) {
-    return { scalable: { color: "secondary" } };
-  }
-  return { scalable: { color: "gray" } };
-};
-
 export const Stepper: FC<StepperProps> = ({ steps, children }) => {
   const [currentStep, setCurrentStep] = useState<number>(0);
 
   const goToEntry = useCallback((index: number): void => {
     setCurrentStep(index);
+  }, []);
+
+  const createFontColor = useCallback((isActive, isPassed): ColorKeys => {
+    if (isActive || isPassed) {
+      return "secondary";
+    }
+    return "dark";
   }, []);
 
   return (
@@ -116,8 +106,7 @@ export const Stepper: FC<StepperProps> = ({ steps, children }) => {
               <StyledStepLabel>
                 <Typography
                   variant="caption"
-                  fontSize="sm"
-                  fontColor={createFontColor({ isActive, isPassed })}
+                  color={createFontColor(isActive, isPassed)}
                 >
                   {label}
                 </Typography>

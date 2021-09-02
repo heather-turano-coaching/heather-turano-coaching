@@ -8,7 +8,7 @@ import {
   makeSize,
   makeSpace
 } from "../design-system";
-import { Typography } from "../display";
+import { Typography } from "../typography2";
 
 export type TagType = "category" | "tag" | "list";
 
@@ -74,12 +74,7 @@ export const StyledTag = styled.div<Required<Pick<TagProps, "tagType">>>`
 
 export const Tag: FC<TagProps> = ({ tagType = "tag", text }) => (
   <StyledTag tagType={tagType}>
-    <Typography
-      variant="label"
-      fontSize="xs"
-      fontColor={{ fixed: "dark" }}
-      lineHeight="md"
-    >
+    <Typography variant="body2" color="dark">
       {text}
     </Typography>
   </StyledTag>
