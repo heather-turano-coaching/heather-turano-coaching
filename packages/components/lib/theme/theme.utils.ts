@@ -9,14 +9,14 @@ import {
   makeColor,
   makeSpace
 } from "../design-system";
-import { FontWeights, fontWeightValues } from "./theme.config.fonts";
+import { TypographyFontWeights, fontWeightValues } from "./theme.config.typ";
 
 /**
  * Returns the number font weight associated with
  * the semantic name
  *
  */
-export const makeFontWeight = (weight: FontWeights): number =>
+export const makeFontWeight = (weight: TypographyFontWeights): number =>
   fontWeightValues[weight];
 
 export type RandomColor = Extract<Color, "primary" | "secondary" | "accent">;

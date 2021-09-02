@@ -4,7 +4,7 @@ import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 
 import { makeRhythm } from "../design-system";
-import { Typography, TypographyProps } from "./Typography";
+import { Typography, TypographyProps } from "../typography2";
 
 const StyledRichText = styled.div`
   strong {

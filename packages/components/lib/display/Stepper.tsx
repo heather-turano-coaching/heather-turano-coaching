@@ -7,7 +7,7 @@ import {
   makeOutset,
   makeSize
 } from "../design-system";
-import { Typography } from "./Typography";
+import { Typography } from "../typography2";
 
 export interface Step {
   label: string;

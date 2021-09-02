@@ -12,9 +12,9 @@ import {
   makeSize
 } from "../design-system";
 import { RandomColor, generateRandomColor } from "../theme";
+import { Typography } from "../typography2";
 import { Avatar } from "./Avatar";
 import { Heading } from "./Heading";
-import { Typography } from "./Typography";
 
 interface AvatarCardProps {
   avatarImg?: string;

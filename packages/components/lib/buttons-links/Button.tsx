@@ -2,156 +2,145 @@ import { darken } from "polished";
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-import {
-  Color,
-  ColorProperties,
-  makeColor,
-  makeInset,
-  makeReset,
-  makeSpace
-} from "../design-system";
-import { Typography } from "../display";
-import {
-  shareButtonAndInputFontSize,
-  sharedButtonAndInputVerticalPadding
-} from "../theme";
+import { buttonAndInputHeight } from "../shared";
+import { ColorKeys } from "../theme";
 import { HTMLButton } from "../types";
+import { Typography } from "../typography2";
 
-type ButtonStyleTypes = Extract<
-  Color,
-  "primary" | "secondary" | "accent" | "warning" | "error"
+type ButtonColors = Extract<
+  ColorKeys,
+  "primary" | "secondary" | "accent" | "warning" | "danger"
 >;
 
 type ButtonProps = HTMLButton & {
-  label?: string;
-  styleType?: ButtonStyleTypes;
+  color?: ButtonColors;
   loading?: boolean;
+  variant?: "filled" | "text" | "outlined";
 };
 
 const buttonStyleMap: {
-  [key in ButtonStyleTypes]: {
-    bgColor: string;
-    bgColorHover: string;
-    bgColorActive: string;
-    borderColor: string;
-    borderColorHover: string;
-    borderColorActive: string;
+  [key in ButtonColors]: {
+    bgColor: ColorKeys;
+    bgColorHover: ColorKeys;
+    bgColorActive: ColorKeys;
+    borderColor: ColorKeys;
+    borderColorHover: ColorKeys;
+    borderColorActive: ColorKeys;
   };
 } = {
   primary: {
-    bgColor: makeColor({ fixed: "light" }),
-    bgColorHover: makeColor({ scalable: { color: "secondary", scale: 3 } }),
-    bgColorActive: makeColor({ scalable: { color: "secondary", scale: 2 } }),
-    borderColor: makeColor({ scalable: { color: "gray" } }),
-    borderColorHover: makeColor({ scalable: { color: "gray" } }),
-    borderColorActive: makeColor({ scalable: { color: "gray" } })
+    bgColor: "primary",
+    bgColorHover: "primary",
+    bgColorActive: "primary",
+    borderColor: "primary",
+    borderColorHover: "primary",
+    borderColorActive: "primary"
   },
   secondary: {
-    bgColor: makeColor({ scalable: { color: "secondary" } }),
-    bgColorHover: darken(0.05, makeColor({ scalable: { color: "secondary" } })),
-    bgColorActive: darken(0.1, makeColor({ scalable: { color: "secondary" } })),
-    borderColor: makeColor({ scalable: { color: "secondary" } }),
-    borderColorHover: makeColor({ scalable: { color: "secondary" } }),
-    borderColorActive: makeColor({ scalable: { color: "secondary" } })
+    bgColor: "secondary",
+    bgColorHover: "secondary",
+    bgColorActive: "secondary",
+    borderColor: "dark",
+    borderColorHover: "dark",
+    borderColorActive: "dark"
   },
   accent: {
-    bgColor: makeColor({ scalable: { color: "accent" } }),
-    bgColorHover: makeColor({ scalable: { color: "accent", scale: 3 } }),
-    bgColorActive: makeColor({ scalable: { color: "accent", scale: 2 } }),
-    borderColor: makeColor({ scalable: { color: "accent" } }),
-    borderColorHover: makeColor({ scalable: { color: "accent" } }),
-    borderColorActive: makeColor({ scalable: { color: "accent" } })
+    bgColor: "accent",
+    bgColorHover: "accent",
+    bgColorActive: "accent",
+    borderColor: "accent",
+    borderColorHover: "accent",
+    borderColorActive: "accent"
   },
   warning: {
-    bgColor: makeColor({ scalable: { color: "warning" } }),
-    bgColorHover: darken(0.05, makeColor({ scalable: { color: "warning" } })),
-    bgColorActive: darken(0.1, makeColor({ scalable: { color: "warning" } })),
-    borderColor: makeColor({ scalable: { color: "warning" } }),
-    borderColorHover: makeColor({ scalable: { color: "warning" } }),
-    borderColorActive: makeColor({ scalable: { color: "warning" } })
+    bgColor: "warning",
+    bgColorHover: "warning",
+    bgColorActive: "warning",
+    borderColor: "warning",
+    borderColorHover: "warning",
+    borderColorActive: "warning"
   },
-  error: {
-    bgColor: makeColor({ scalable: { color: "error" } }),
-    bgColorHover: darken(0.05, makeColor({ scalable: { color: "error" } })),
-    bgColorActive: darken(0.1, makeColor({ scalable: { color: "error" } })),
-    borderColor: makeColor({ scalable: { color: "error" } }),
-    borderColorHover: makeColor({ scalable: { color: "error" } }),
-    borderColorActive: makeColor({ scalable: { color: "error" } })
+  danger: {
+    bgColor: "warning",
+    bgColorHover: "warning",
+    bgColorActive: "warning",
+    borderColor: "warning",
+    borderColorHover: "warning",
+    borderColorActive: "warning"
   }
 };
 
 export const StyledButton = styled.button<
-  Required<Pick<ButtonProps, "styleType" | "disabled">>
+  Required<
+    Pick<Omit<ButtonProps, "color">, "disabled" | "variant"> & {
+      fontColor: ButtonColors;
+    }
+  >
 >`
-  ${makeReset("button")}
-  ${makeInset({
-    vertical: sharedButtonAndInputVerticalPadding,
-    horizontal: 28
-  })};
-  border-radius: ${makeSpace({ custom: 2 })};
-  transition: all ease-in-out 0.15s;
-  border-width: 1px;
-  border-style: solid;
+  ${({ theme, fontColor, variant }) => css`
+    height: ${theme.size.makeRem(buttonAndInputHeight)};
+    border-radius: ${theme.size.makeRem(2)};
+    transition: all ease-in-out 0.15s;
+    border-width: 1px;
+    border-style: solid;
+    padding-left: ${theme.size.makeRem(12)};
+    padding-right: ${theme.size.makeRem(12)};
+    min-width: ${theme.size.makeRem(12)};
+    cursor: pointer;
 
-  &:not(:disabled) {
-    ${({ styleType }) => css`
-      background-color: ${buttonStyleMap[styleType].bgColor};
-      border-color: ${buttonStyleMap[styleType].borderColor};
-    `}
+    &:not(:disabled) {
+      background-color: ${theme.palette[buttonStyleMap[fontColor].bgColor]
+        .main};
+      border-color: ${theme.palette[buttonStyleMap[fontColor].borderColor]
+        .main};
 
-    &:hover {
-      ${({ styleType }) => css`
-        background-color: ${buttonStyleMap[styleType].bgColorHover};
-        border-color: ${buttonStyleMap[styleType].borderColorHover};
-      `}
+      &:hover {
+        background-color: ${theme.palette[
+          buttonStyleMap[fontColor].bgColorHover
+        ].dark};
+        border-color: ${theme.palette[
+          buttonStyleMap[fontColor].borderColorHover
+        ].dark};
+      }
+
+      &:active {
+        background-color: ${darken(
+          0.2,
+          theme.palette[buttonStyleMap[fontColor].bgColorActive].dark
+        )};
+        border-color: ${darken(
+          0.2,
+          theme.palette[buttonStyleMap[fontColor].borderColorActive].dark
+        )};
+      }
     }
 
-    &:active {
-      ${({ styleType }) => css`
-        background-color: ${buttonStyleMap[styleType].bgColorActive};
-        border-color: ${buttonStyleMap[styleType].borderColorActive};
-      `}
+    &:disabled {
+      cursor: initial;
+      pointer-events: none;
+      background: ${theme.palette.dark.light};
+      border-color: ${theme.palette.dark.light};
     }
-  }
-
-  &:disabled {
-    cursor: initial;
-    pointer-events: none;
-    background: ${makeColor({ scalable: { color: "gray", scale: 3 } })};
-    border-color: ${makeColor({ scalable: { color: "gray", scale: 2 } })};
-  }
+  `}
 `;
 
 export const Button: FC<ButtonProps> = ({
   children,
-  label = undefined,
-  styleType = "primary",
+  variant = "filled",
+  color = "primary",
   loading = false,
   ...restProps
-}) => (
-  <StyledButton
-    styleType={styleType}
-    disabled={restProps.disabled || loading}
-    {...restProps}
-  >
-    <Typography
-      variant="label"
-      fontSize={shareButtonAndInputFontSize}
-      fontColor={((): ColorProperties => {
-        if (
-          styleType !== "primary" &&
-          styleType !== "warning" &&
-          styleType !== "accent"
-        ) {
-          return { fixed: "light" };
-        }
-        if (restProps.disabled || loading) {
-          return { scalable: { color: "gray", scale: 2 } };
-        }
-        return { scalable: { color: "gray" } };
-      })()}
+}) => {
+  return (
+    <StyledButton
+      fontColor={color}
+      variant={variant}
+      disabled={restProps.disabled || loading}
+      {...restProps}
     >
-      {label || children}
-    </Typography>
-  </StyledButton>
-);
+      <Typography variant="body1" color={[color, "contrast"]}>
+        {children}
+      </Typography>
+    </StyledButton>
+  );
+};

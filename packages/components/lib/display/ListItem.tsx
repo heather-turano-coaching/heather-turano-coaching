@@ -2,7 +2,7 @@ import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 
 import { makeInset } from "../design-system";
-import { Typography } from "./Typography";
+import { Typography } from "../typography2";
 
 export interface ListItemProps {
   label: string;

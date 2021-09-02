@@ -4,7 +4,6 @@ import styled from "styled-components";
 import {
   FontProperties,
   makeColor,
-  makeFont,
   makeInset,
   makeReset,
   makeRhythm,
@@ -12,19 +11,9 @@ import {
   makeSpace
 } from "../design-system";
 import { createImageBorder } from "../theme";
-import { CSSH2, CSSH4 } from "./Heading";
-import { typVariantMap } from "./Typography";
+import { CSSBody1, CSSCaption, CSSH2, CSSH4 } from "../typography2";
 
 const contentLineHeight: FontProperties["fontSize"] = "sm";
-
-const copyFontStyle = makeFont({
-  ...typVariantMap["text"],
-  fontFamily: "Muli",
-  fontWeight: "regular",
-  fontSize: "sm",
-  fontColor: { scalable: { color: "gray", scale: 0 } },
-  lineHeight: contentLineHeight
-});
 
 const StyledContent = styled.section`
   display: block;
@@ -56,7 +45,7 @@ const StyledContent = styled.section`
     }
 
     p {
-      ${copyFontStyle}
+      ${CSSBody1}
       ${makeRhythm({ fontSize: contentLineHeight, top: 1, bottom: 0 })};
     }
 
@@ -90,7 +79,7 @@ const StyledContent = styled.section`
     }
 
     li {
-      ${copyFontStyle}
+      ${CSSBody1};
     }
 
     img {
@@ -106,12 +95,7 @@ const StyledContent = styled.section`
       figcaption {
         ${makeInset({ top: 16, bottom: 16 })};
         text-align: center;
-        ${makeFont({
-          ...typVariantMap["paragraph"],
-          fontSize: contentLineHeight,
-          fontColor: { scalable: { color: "primary" } },
-          fontStyle: "italic"
-        })}
+        ${CSSCaption};
       }
     }
 
@@ -123,30 +107,8 @@ const StyledContent = styled.section`
       ${makeInset({ horizontal: 32, vertical: 32 })};
       margin-left: ${makeSpace("md")};
       margin-right: ${makeSpace("md")};
-      ${makeFont({
-        ...typVariantMap["paragraph"],
-        fontSize: contentLineHeight,
-        fontColor: { scalable: { color: "gray" } },
-        fontStyle: "italic"
-      })};
+      ${CSSCaption};
       overflow: hidden;
-
-      /* Add this back in for the quotation in the background of the quoteblock */
-      /* &::before {
-        position: absolute;
-        top: -8px;
-        left: 20px;
-        ${makeFont({
-        fontSize: "h1",
-        fontColor: { scalable: { color: "primary" } }
-      })};
-        font-family: "Font Awesome 5 Pro";
-        font-weight: 900;
-        font-size: 5rem;
-        content: "\f10d";
-        opacity: 0.1;
-        pointer-events: none;
-      } */
 
       &::after {
         content: "";

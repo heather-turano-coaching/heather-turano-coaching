@@ -16,4 +16,3 @@ export * from "./List";
 export * from "./ListItem";
 export * from "./Stepper";
 export * from "./Title";
-export * from "./Typography";

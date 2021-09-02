@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import { makeColor, makeInset, makeOutset, makeSize } from "../design-system";
 import { RandomColor } from "../theme";
+import { Typography } from "../typography2";
 import { Avatar, AvatarProps } from "./Avatar";
-import { Typography } from "./Typography";
 
 type AvatarListItemProps = Omit<AvatarProps, "size"> & {
   accentColor?: RandomColor;

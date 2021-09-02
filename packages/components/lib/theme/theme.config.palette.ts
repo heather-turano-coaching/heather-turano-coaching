@@ -1,4 +1,12 @@
-export type ColorKeys = "primary" | "secondary" | "accent" | "dark" | "light";
+export type ColorKeys =
+  | "primary"
+  | "secondary"
+  | "accent"
+  | "dark"
+  | "light"
+  | "danger"
+  | "warning"
+  | "success";
 export type ColorVariants = "dark" | "light" | "main" | "contrast";
 
 export type ThemePalette = {
@@ -30,7 +38,7 @@ export const themePaletteDefaults: ThemePalette = {
     dark: "#9AC371",
     main: "#BBD69F",
     light: "#DCEACE",
-    contrast: "#4E8588"
+    contrast: "#4A4A4A"
   },
   // darkscale
   dark: {
@@ -41,6 +49,24 @@ export const themePaletteDefaults: ThemePalette = {
   },
   // lightscale
   light: {
+    dark: "#EAECEC",
+    main: "#F0F2F2",
+    light: "#F7F8F8",
+    contrast: "#4E8588"
+  },
+  danger: {
+    dark: "#EAECEC",
+    main: "#F0F2F2",
+    light: "#F7F8F8",
+    contrast: "#4E8588"
+  },
+  warning: {
+    dark: "#EAECEC",
+    main: "#F0F2F2",
+    light: "#F7F8F8",
+    contrast: "#4E8588"
+  },
+  success: {
     dark: "#EAECEC",
     main: "#F0F2F2",
     light: "#F7F8F8",
@@ -75,6 +101,18 @@ export const createThemePalette = (
     light: {
       ...themePaletteDefaults.light,
       ...(themePaletteCustom?.light || {})
+    },
+    danger: {
+      ...themePaletteDefaults.danger,
+      ...(themePaletteCustom?.danger || {})
+    },
+    warning: {
+      ...themePaletteDefaults.warning,
+      ...(themePaletteCustom?.warning || {})
+    },
+    success: {
+      ...themePaletteDefaults.success,
+      ...(themePaletteCustom?.success || {})
     },
     common: {
       ...themePaletteDefaults.common,
