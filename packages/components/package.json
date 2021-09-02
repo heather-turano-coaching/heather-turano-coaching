@@ -36,6 +36,7 @@
     "@contentful/rich-text-react-renderer": "^15.2.0",
     "@contentful/rich-text-types": "^15.1.0",
     "@htc/contentful": "^1.0.0",
+    "@mdx-js/react": "^1.6.22",
     "glob": "^7.1.7",
     "gray-matter": "^4.0.3",
     "next": "11.1.2",
@@ -58,6 +59,7 @@
   "devDependencies": {
     "@htc/eslint-config": "^1.0.0",
     "@htc/typescript": "^1.0.0",
+    "@types/mdx-js__react": "^1.5.4",
     "@types/react": "17.0.19",
     "dotenv": "10.0.0",
     "eslint": "^7.32.0",

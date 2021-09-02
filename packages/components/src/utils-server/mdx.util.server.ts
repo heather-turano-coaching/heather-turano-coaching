@@ -79,12 +79,17 @@ export const getDocNav = (_category: string): DocNav => {
   return nav;
 };
 
-export const getDocBySlug = (slug: string[]) => {
+export const getDocBySlug = (slug: string[] | undefined) => {
   const allDocs = getAllDocs();
   console.log(allDocs, slug);
   return allDocs.reduce((accum, doc) => {
-    const parsedSlug = slug;
-    if (doc.data.path === parsedSlug) {
+    if (typeof slug === "undefined" && doc.data.path.join("_") === "index") {
+      return doc;
+    }
+    if (
+      typeof slug !== "undefined" &&
+      doc.data.path.join("_") === slug.join("_")
+    ) {
       return doc;
     }
     return accum;

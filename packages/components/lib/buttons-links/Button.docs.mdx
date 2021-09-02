@@ -4,3 +4,91 @@ path:
   - components
   - button
 ---
+
+import { Button } from "./Button";
+
+# Hello, _world_!
+
+Below is an example of JSX embedded in Markdown. <br /> **Try and change
+the background color!**
+
+### Different variants, default color
+
+<Button variant="text">text</Button>
+<Button variant="filled">filled</Button>
+<Button variant="outlined">outlined</Button>
+
+### Text variant, different colors
+
+<Button variant="text">default</Button>
+<Button variant="text" color="primary">
+  primary
+</Button>
+<Button variant="text" color="secondary">
+  secondary
+</Button>
+<Button variant="text" color="accent">
+  accent
+</Button>
+<Button variant="text" color="warning">
+  warning
+</Button>
+<Button variant="text" color="error">
+  test
+</Button>
+
+### Filled variant, different colors
+
+<Button variant="filled">test</Button>
+<Button variant="filled" color="primary">
+  test
+</Button>
+<Button variant="filled" color="secondary">
+  test
+</Button>
+<Button variant="filled" color="accent">
+  test
+</Button>
+<Button variant="filled" color="warning">
+  test
+</Button>
+<Button variant="filled" color="error">
+  error
+</Button>
+
+### Outlined variant, different colors
+
+<Button variant="outlined">test</Button>
+<Button variant="outlined" color="primary">
+  primary
+</Button>
+<Button variant="outlined" color="secondary">
+  secondary
+</Button>
+<Button variant="outlined" color="accent">
+  accent
+</Button>
+<Button variant="outlined" color="warning">
+  warning
+</Button>
+<Button variant="outlined" color="error">
+  error
+</Button>
+
+### Outlined Loading
+
+<Button variant="outlined" loading>
+  label
+</Button>
+
+### Disabled
+
+<Button variant="text" disabled>
+  text - disabled
+</Button>
+<Button variant="filled" disabled>
+  filled - disabled
+</Button>
+<Button variant="outlined" disabled>
+  outlined - disabled
+</Button>

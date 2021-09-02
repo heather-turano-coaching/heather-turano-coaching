@@ -22,6 +22,7 @@ const StyledComponentsGolbalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     min-height: 100%;
+    height: 100%;
   }
 
   ul,

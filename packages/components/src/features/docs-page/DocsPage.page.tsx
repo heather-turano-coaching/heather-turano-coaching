@@ -1,23 +1,22 @@
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import React from "react";
 
-import { FeaturePageComponent } from "../../../lib";
+import { FeaturePageComponent, ThemeProvider } from "../../../lib";
 import { Doc, DocNav } from "../../types";
 import { withDocsPageLayout } from "./DocsPage.layout";
 
 export type DocsPageProps = {
   nav: DocNav;
   doc: Doc;
+  source: MDXRemoteSerializeResult<Record<string, unknown>>;
 };
 
-export const HomePage: FeaturePageComponent<DocsPageProps> = ({ doc }) => {
-  console.log(doc);
-
+export const DocsPage: FeaturePageComponent<DocsPageProps> = ({ source }) => {
   return (
-    <div>
-      <span>{doc.data.path.join(" / ")}</span>
-      <h1>{doc.data.title}</h1>
-    </div>
+    <ThemeProvider>
+      <MDXRemote {...source} />
+    </ThemeProvider>
   );
 };
 
-HomePage.withPageLayout = withDocsPageLayout;
+DocsPage.withPageLayout = withDocsPageLayout;
