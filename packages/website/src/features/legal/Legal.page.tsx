@@ -1,9 +1,8 @@
-import { Container, Typography } from "@htc/components";
+import { Container, FeaturePageComponent, Typography } from "@htc/components";
 import Link from "next/link";
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { FeaturePageComponent } from "../page";
 import { withLegalPageLayout } from "./Legal.layout";
 
 const StyledCard = styled.a`

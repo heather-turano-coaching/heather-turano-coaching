@@ -52,7 +52,7 @@ export const SideNavMenuItem: FC<{
   const PlainContent = useMemo(
     () => (
       <Typography
-        variant="label"
+        variant="body2"
         css={css`
           font-weight: ${makeFontWeight("bold")};
           text-transform: uppercase;
@@ -67,18 +67,19 @@ export const SideNavMenuItem: FC<{
 
   const LinkContent = useMemo(
     () => (
-      <Link href={href} passHref>
-        <Typography
-          variant="label"
-          onClick={handleToggle}
-          css={css`
-            font-weight: inherit;
-            text-transform: uppercase;
-            width: 100%;
-          `}
-        >
-          {label}
-        </Typography>
+      <Link href={href}>
+        <a onClick={handleToggle}>
+          <Typography
+            variant="body2"
+            css={css`
+              font-weight: inherit;
+              text-transform: uppercase;
+              width: 100%;
+            `}
+          >
+            {label}
+          </Typography>
+        </a>
       </Link>
     ),
     [handleToggle, href, label]

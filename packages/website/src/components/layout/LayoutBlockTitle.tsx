@@ -1,5 +1,5 @@
 import {
-  Heading,
+  Typography,
   makeColor,
   makeFont,
   makeOutset,
@@ -48,9 +48,9 @@ export const LayoutBlockTitle: FC<LayoutBlockTitleProps> = ({
   children
 }) => (
   <StyledLayoutBlockTitle>
-    <Heading fontSize="h5" fontColor={{ fixed: "dark" }}>
+    <Typography variant="h5" color="dark">
       {title}
-    </Heading>
+    </Typography>
     {children}
   </StyledLayoutBlockTitle>
 );

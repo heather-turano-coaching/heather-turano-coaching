@@ -83,7 +83,7 @@ export const EventCard: FC<EventCardProps> = (props) => {
       >
         <Typography
           variant="subtitle2"
-          color="textSecondary"
+          color="dark"
           className="subHeader"
           css={css`
             font-weight: 700 !important;
@@ -131,6 +131,7 @@ export const EventCard: FC<EventCardProps> = (props) => {
           </Button> */}
           {!props.isPastEvent && (
             <Button
+              component="a"
               color="primary"
               href={props.reserveLink}
               target="_blank"

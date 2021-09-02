@@ -188,7 +188,7 @@ export const TestimonialCarousel: FC<{ testimonials: ITestimonials[] }> = ({
                       testimonials[imageIndex].fields.testimonialDescription
                     }
                     copyProps={{
-                      variant: "paragraph"
+                      variant: "body2"
                     }}
                   />
                 </div>

@@ -40,7 +40,7 @@ export type TypographyProps = HTMLElementProps & {
   /**
    * @default inherit
    */
-  color?: ColorKeys;
+  color?: ColorKeys | "inherit";
   /**
    * @default main
    */
@@ -70,7 +70,7 @@ const typographyVariantStyleMap: {
 
 const StyledTypography = styled.div<
   Omit<TypographyProps, "component" | "color" | "colorVariant"> & {
-    fontColor: ColorKeys;
+    fontColor: ColorKeys | "inherit";
     fontColorVariant: ColorVariants;
   }
 >`

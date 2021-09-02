@@ -94,7 +94,7 @@ export const BlockGrabber: FC<IBlockGrabber> = ({ fields }) => {
             <RichText
               richText={fields.description}
               copyProps={{
-                variant: "paragraph"
+                variant: "body1"
               }}
             />
             <br />

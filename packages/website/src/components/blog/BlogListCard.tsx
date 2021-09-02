@@ -13,6 +13,8 @@ export const blogCardSpacing = 24;
 const blogCardSidePadding = 24;
 
 const StyledIcon = styled(SvgIcon)`
+  font-size: ${({ theme }) => theme.size.makeRem(16)};
+
   &:not(:first-child) {
     margin-left: ${({ theme }) => theme.size.makeRem(24)};
   }
@@ -101,7 +103,7 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
           </Link>
           <Typography
             variant="body2"
-            color="textPrimary"
+            color="dark"
             css={css`
               margin-bottom: ${({ theme }) =>
                 theme.size.makeRem(28)} !important;
@@ -137,7 +139,7 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
               <Heart />
             </StyledIcon>
             <StyledIconText variant="overline">0</StyledIconText> */}
-            <StyledIcon fontSize="small" color="action">
+            <StyledIcon color="accent">
               <Clock />
             </StyledIcon>
             <StyledIconText variant="overline">

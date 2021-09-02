@@ -18,7 +18,9 @@ type ButtonProps = HTMLButton & {
   variant?: "filled" | "text" | "outlined";
   component?: "button" | "a";
   onClick?: () => void;
+  target?: string;
   href?: string;
+  rel?: string;
 };
 
 const buttonStyleMap: {

@@ -21,7 +21,7 @@ export const SubscriptionSuccessful: FeaturePageComponent = () => {
         type="plain"
         footer={
           <Link href="/" passHref>
-            <Button styleType="primary">Back to Home Page</Button>
+            <Button color="primary">Back to Home Page</Button>
           </Link>
         }
       >

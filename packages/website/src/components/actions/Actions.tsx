@@ -18,8 +18,8 @@ export const Actions: FC<{ actions: IAction[] | undefined }> = memo(
           const Btn = (
             <Button
               key={action.label}
-              variant={action?.type === "primary" ? "contained" : "outlined"}
-              color={action.type}
+              variant={action?.type === "primary" ? "filled" : "outlined"}
+              color={action.type === "secondary" ? "dark" : action.type}
             >
               {action.label}
             </Button>

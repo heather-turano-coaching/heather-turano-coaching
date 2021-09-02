@@ -4,13 +4,13 @@ import styled, { css } from "styled-components";
 import { ColorKeys, ColorVariants } from "../theme/theme.config.palette";
 
 export type SVGIconProps = {
-  color?: ColorKeys;
+  color?: ColorKeys | "inherit";
   variant?: ColorVariants;
 };
 
 const StyledSVGIcon = styled.svg<Required<SVGIconProps>>`
-  ${({ theme, color, variant }) => css`
-    color: ${theme.palette[color][variant]};
+  ${({ theme, color = "dark", variant }) => css`
+    color: ${color === "inherit" ? "inherit" : theme.palette[color][variant]};
   `}
 `;
 

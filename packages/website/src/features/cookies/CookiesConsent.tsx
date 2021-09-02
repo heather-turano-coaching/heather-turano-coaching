@@ -80,7 +80,6 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
         >
           <Typography
             variant="h4"
-            component="div"
             css={css`
               && {
                 ${({ theme }) => css`
@@ -97,7 +96,7 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
             {title}
           </Typography>
           <Typography
-            variant="paragraph"
+            variant="body1"
             css={css`
               && {
                 ${({ theme }) => css`
@@ -121,10 +120,10 @@ export const CookiesConsent: FC<CookiesConsentProps> = ({
             }
           `}
         >
-          <Button onClick={handleDecline} styleType="text">
+          <Button onClick={handleDecline} variant="text" color="dark">
             Decline
           </Button>
-          <Button onClick={handleAccept} styleType="primary">
+          <Button onClick={handleAccept} variant="filled" color="primary">
             Accept
           </Button>
         </div>

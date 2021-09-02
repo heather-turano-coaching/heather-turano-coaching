@@ -1,7 +1,12 @@
-import { SectionCopy, SectionFooter, Title } from "@htc/components";
+import {
+  Container,
+  SectionCopy,
+  SectionFooter,
+  Title,
+  Typography
+} from "@htc/components";
 import { RichText } from "@htc/components";
 import { IBlock, IBlockFields } from "@htc/contentful";
-import { Container, Typography } from "@material-ui/core";
 import React, { FC, ReactNode } from "react";
 import styled, { css } from "styled-components";
 
@@ -72,7 +77,7 @@ export const BlockSimple: FC<IBlock> = ({ fields }) => {
           <RichText
             richText={fields.description}
             copyProps={{
-              variant: "paragraph"
+              variant: "body2"
             }}
           />
         )}

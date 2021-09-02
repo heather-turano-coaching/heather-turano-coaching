@@ -1,10 +1,10 @@
+import { FeaturePageComponent } from "@htc/components";
 import { IPageCollection } from "@htc/contentful";
 import { PostOrPage } from "@tryghost/content-api";
 import { NextSeo } from "next-seo";
 import React from "react";
 import { css } from "styled-components";
 
-import { FeaturePageComponent } from "../page";
 import { BasicLinkCard } from "./BasicLinkCard";
 import { BlogLinkCard } from "./BlogLinkCard";
 import { withLinksPageLayout } from "./Links.layout";

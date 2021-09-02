@@ -1,10 +1,8 @@
 import { LayoutRoot } from "@htc-website/features/layout";
-import { PageLayout } from "@htc/components";
+import { PageLayout, withPageLayout } from "@htc/components";
 import { Container, Title } from "@htc/components";
 import React, { useMemo } from "react";
 import { css } from "styled-components";
-
-import { withPageLayout } from "../page/page.withPageLayout";
 
 export const LegalPageLayout: PageLayout = ({ children, ...props }) => {
   return (

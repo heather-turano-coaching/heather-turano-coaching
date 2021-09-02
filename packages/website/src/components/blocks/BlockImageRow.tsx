@@ -16,7 +16,7 @@ export const BlockImageRow: FC<IBlockImageRow> = ({ fields }) => {
           <RichText
             richText={fields.description}
             copyProps={{
-              variant: "paragraph"
+              variant: "body1"
             }}
           />
         )}

@@ -75,7 +75,7 @@ export const ServiceCard: FC<Omit<IServiceFields, "type">> = ({
         </Typography>
         <Typography
           variant="subtitle2"
-          color="textSecondary"
+          color="dark"
           css={css`
             margin-bottom: ${({ theme }) => theme.size.makeRem(32)};
           `}

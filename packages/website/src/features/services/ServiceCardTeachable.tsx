@@ -1,4 +1,4 @@
-import { Actions } from "@htc-website/components/actions";
+import { Actions } from "@htc-website/components";
 import { IServiceTeachable } from "@htc/contentful";
 import React, { FC } from "react";
 
