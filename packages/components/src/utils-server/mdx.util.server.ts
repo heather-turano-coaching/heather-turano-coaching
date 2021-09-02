@@ -5,6 +5,8 @@ import glob from "glob";
 import matter from "gray-matter";
 import getConfig from "next/config";
 
+import { Doc, DocNav } from "../types";
+
 const { serverRuntimeConfig } = getConfig();
 
 export const CATEGORY_DOCS_PATH = join(
@@ -36,5 +38,55 @@ export const getCategoryDocs = () => {
       },
       filePath
     };
+  });
+};
+
+export const getAllDocs = (): Doc[] => {
+  return glob.sync(`${LIB_DOCS_PATH}/**/*.mdx`).map((filePath) => {
+    const source = fs.readFileSync(filePath);
+    const { content, data } = matter(source);
+
+    return {
+      content,
+      data: {
+        title: data.title,
+        path: data.path,
+        ...data
+      },
+      filePath
+    };
+  });
+};
+
+export const getDocNav = (_category: string): DocNav => {
+  const allDocs = getAllDocs();
+  const nav = allDocs.reduce<DocNav>((accum, doc) => {
+    if (accum[doc.data.path[0]]) {
+      return {
+        ...accum,
+        [doc.data.path[0]]: [
+          ...accum[doc.data.path[0]],
+          { label: doc.data.title, path: doc.data.path }
+        ]
+      };
+    }
+    return {
+      ...accum,
+      [doc.data.path[0]]: [{ label: doc.data.title, path: doc.data.path }]
+    };
+  }, {});
+
+  return nav;
+};
+
+export const getDocBySlug = (slug: string[]) => {
+  const allDocs = getAllDocs();
+  console.log(allDocs, slug);
+  return allDocs.reduce((accum, doc) => {
+    const parsedSlug = slug;
+    if (doc.data.path === parsedSlug) {
+      return doc;
+    }
+    return accum;
   });
 };

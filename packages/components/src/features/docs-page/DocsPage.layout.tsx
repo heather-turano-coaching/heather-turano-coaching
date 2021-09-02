@@ -2,12 +2,13 @@ import React from "react";
 
 import { WithPageLayout } from "../../../lib";
 import { LayoutRoot } from "../layout";
-import { HomePageProps } from "./Home.page";
+import type { DocsPageProps } from "./DocsPage.page";
 
-export const withHomePageLayout: WithPageLayout<HomePageProps> = (
+export const withDocsPageLayout: WithPageLayout<DocsPageProps> = (
   PageComponent
 ) => {
-  return function HomePageLayout(props) {
+  return function DocsPageLayout(props) {
+    console.log("layout", props);
     return (
       <LayoutRoot {...props}>
         <PageComponent {...props} />
