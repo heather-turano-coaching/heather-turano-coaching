@@ -1,4 +1,4 @@
-import { FeaturePageComponent } from "@htc-website/features/page";
+import { FeaturePageComponent } from "@htc/components";
 import { RichTextHTML } from "@htc/components";
 import { useRouter } from "next/router";
 

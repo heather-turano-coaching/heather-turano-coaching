@@ -1,9 +1,6 @@
 import { Hero } from "@htc-website/components";
-import {
-  ContentfulPageProps,
-  FeaturePageComponent
-} from "@htc-website/features/page";
 import { EBEventsResponse } from "@htc-website/lib/eventbrite";
+import { ContentfulPageProps, FeaturePageComponent } from "@htc/components";
 import { Container } from "@htc/components";
 import React from "react";
 import { css } from "styled-components";

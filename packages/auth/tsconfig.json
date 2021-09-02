@@ -1,0 +1,15 @@
+{
+  "extends": "@htc/typescript/tsconfig.next.json",
+  "include": [
+    "next-env.d.ts",
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".eslintrc.js",
+    "next.config.js",
+    "babel.config.js",
+    "index.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}

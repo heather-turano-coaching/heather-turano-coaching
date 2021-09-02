@@ -1,5 +1,6 @@
 import { AdminPage } from "@htc-website/features/admin";
-import { withPage, withSSRAuthentication } from "@htc-website/features/page";
+import { withSSRAuthentication } from "@htc/auth";
+import { withPage } from "@htc/components";
 import { GetServerSideProps } from "next";
 
 export default withPage(AdminPage);

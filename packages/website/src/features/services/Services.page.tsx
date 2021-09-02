@@ -1,8 +1,5 @@
 import { Hero } from "@htc-website/components";
-import {
-  ContentfulPageProps,
-  FeaturePageComponent
-} from "@htc-website/features/page";
+import { ContentfulPageProps, FeaturePageComponent } from "@htc/components";
 import { Title } from "@htc/components";
 import {
   ContentfulPagination,

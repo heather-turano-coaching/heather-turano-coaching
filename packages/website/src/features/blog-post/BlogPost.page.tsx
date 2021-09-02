@@ -4,7 +4,6 @@ import {
   CSSImageBorder,
   TextStylesBlog
 } from "@htc-website/components";
-import { FeaturePageComponent, PageProps } from "@htc-website/features/page";
 import { GhostSeo } from "@htc-website/features/seo";
 import {
   GetSingleGhostPostBySlug,
@@ -12,6 +11,7 @@ import {
   ghostClient
 } from "@htc-website/lib/ghost";
 import { formatLongDate } from "@htc-website/utils";
+import { FeaturePageComponent, PageProps } from "@htc/components";
 import {
   Container,
   SectionCopy,

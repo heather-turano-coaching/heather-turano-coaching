@@ -1,4 +1,4 @@
-import { withPage } from "@htc-website/features/page";
+import { withPage } from "@htc/components";
 import {
   IService,
   getContentfulEntriesById,

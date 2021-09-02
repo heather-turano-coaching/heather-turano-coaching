@@ -1,11 +1,11 @@
-import { withPage } from "@htc-website/features/page";
+import { EventsPage, EventsPageProps } from "@htc-website/features/events";
 import {
   getFutureEventbriteEvents,
   getPastEventbriteEvents
 } from "@htc-website/lib/eventbrite";
+import { withPage } from "@htc/components";
 import { getContentfulPageById } from "@htc/contentful";
 import { GetStaticProps } from "next";
-import { EventsPage, EventsPageProps } from "src/features/events";
 
 export const getStaticProps: GetStaticProps<EventsPageProps> = async ({
   preview = false

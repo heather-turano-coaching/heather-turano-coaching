@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-sync-scripts */
-import { FeaturePageComponent } from "@htc-website/features/page";
+import { FeaturePageComponent } from "@htc/components";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import React from "react";

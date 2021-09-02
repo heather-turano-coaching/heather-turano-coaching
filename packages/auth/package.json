@@ -1,0 +1,36 @@
+{
+  "name": "@htc/auth",
+  "version": "1.0.0",
+  "description": "Page utils for Heather Turano Coaching, LLC NextJs applications",
+  "author": "Drew DeCarme <drewdecarme@gmail.com>",
+  "homepage": "https://github.com/heather-turano-coaching/heather-turano-coaching#readme",
+  "license": "MIT",
+  "main": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heather-turano-coaching/heather-turano-coaching.git"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.build.json"
+  },
+  "bugs": {
+    "url": "https://github.com/heather-turano-coaching/heather-turano-coaching/issues"
+  },
+  "dependencies": {
+    "@auth0/nextjs-auth0": "^1.5.0",
+    "@htc/components": "^0.1.0",
+    "next": "^11.1.2",
+    "react": "^17.0.2"
+  },
+  "peerDependencies": {
+    "@auth0/nextjs-auth0": "^1.5.0",
+    "next": "^11.1.2",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@htc/eslint-config": "^1.0.0",
+    "@htc/types": "^1.0.0",
+    "@htc/typescript": "^1.0.0",
+    "eslint": "^7.32.0"
+  }
+}

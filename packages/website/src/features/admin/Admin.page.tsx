@@ -1,5 +1,5 @@
 import { useUser } from "@auth0/nextjs-auth0";
-import { FeaturePageComponent } from "@htc-website/features/page";
+import { FeaturePageComponent } from "@htc/components";
 
 import { withAdminPageLayout } from "./Admin.layout";
 

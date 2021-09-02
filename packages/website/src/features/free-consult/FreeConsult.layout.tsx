@@ -1,5 +1,5 @@
 import { LayoutRoot } from "@htc-website/features/layout";
-import { WithPageLayout } from "@htc-website/features/page";
+import { WithPageLayout } from "@htc/components";
 import React from "react";
 
 export const withFreeConsultPageLayout: WithPageLayout = (PageComponent) => {

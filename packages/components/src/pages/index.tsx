@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 
 import matter from "gray-matter";
-import { NextPage } from "next";
 import Link from "next/link";
 
 import { DOCS_PATH, docsFilePath } from "../lib";
@@ -22,7 +21,7 @@ export function getStaticProps() {
   return { props: { posts } };
 }
 
-const Page: NextPage<> = ({}) => {
+const Page = ({}) => {
   return (
     <>
       <h1>Home Page</h1>
@@ -42,3 +41,5 @@ const Page: NextPage<> = ({}) => {
     </>
   );
 };
+
+export default Page;

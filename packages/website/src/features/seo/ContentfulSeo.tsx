@@ -1,5 +1,5 @@
-import { ContentfulPageData } from "@htc-website/features/page";
 import { capitalize } from "@htc-website/utils";
+import { ContentfulPageData } from "@htc/components";
 import { NextSeo } from "next-seo";
 import { FC } from "react";
 

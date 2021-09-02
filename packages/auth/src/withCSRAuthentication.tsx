@@ -3,11 +3,13 @@ import {
   WithPageAuthRequiredProps,
   withPageAuthRequired
 } from "@auth0/nextjs-auth0";
+import {
+  FeaturePageComponent,
+  PageLoading,
+  PageProps,
+  withPage
+} from "@htc/components";
 import React, { FC } from "react";
-
-import { FeaturePageComponent, PageProps } from "./page.model";
-import { withPage } from "./page.withPage";
-import { PageLoading } from "./PageLoading";
 
 export const withCSRAuthentication = <
   P extends PageProps & WithPageAuthRequiredProps = PageProps & {

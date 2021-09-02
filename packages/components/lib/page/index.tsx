@@ -4,5 +4,3 @@ export * from "./page.withPageLayout";
 export * from "./page.model";
 export * from "./PageLoading";
 export * from "./PageStandalone";
-export * from "./page.withCSRAuthentication";
-export * from "./page.withSSRAuthentication";

@@ -1,4 +1,3 @@
-import { withPage } from "@htc-website/features/page";
 import {
   GetFeaturedGhostPost,
   GetLatestGhostPost,
@@ -6,6 +5,7 @@ import {
   getGhostLatestPostEndpoint,
   ghostClient
 } from "@htc-website/lib/ghost";
+import { withPage } from "@htc/components";
 import { IPageCollection, getContentfulEntryById } from "@htc/contentful";
 import { GetStaticProps } from "next";
 import { LinksPage, LinksPageProps } from "src/features/links";

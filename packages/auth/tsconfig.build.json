@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "outDir": "dist",
+    "target": "ES5",
+    "jsx": "preserve"
+  },
+  "include": ["src/index.ts"],
+  "exclude": [".eslintrc.js"]
+}

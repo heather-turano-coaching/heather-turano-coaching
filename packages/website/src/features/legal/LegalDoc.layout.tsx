@@ -1,4 +1,4 @@
-import { PageLayout, withPageLayout } from "@htc-website/features/page";
+import { PageLayout, withPageLayout } from "@htc/components";
 import { Typography, makeFontWeight } from "@htc/components";
 import Link from "next/link";
 import React from "react";

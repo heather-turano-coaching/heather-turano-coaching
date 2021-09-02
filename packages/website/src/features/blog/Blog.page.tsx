@@ -4,12 +4,9 @@ import {
   BlogSectionFeatured,
   Hero
 } from "@htc-website/components";
-import {
-  ContentfulPageProps,
-  FeaturePageComponent
-} from "@htc-website/features/page";
 import { ContentfulSeo } from "@htc-website/features/seo";
 import { GetAllGhostPosts, GetFeaturedGhostPost } from "@htc-website/lib/ghost";
+import { ContentfulPageProps, FeaturePageComponent } from "@htc/components";
 import { Container } from "@htc/components";
 import React from "react";
 

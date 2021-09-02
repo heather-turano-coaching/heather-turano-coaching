@@ -35,6 +35,7 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.2.0",
     "@contentful/rich-text-types": "^15.1.0",
+    "@htc/contentful": "^1.0.0",
     "gray-matter": "^4.0.3",
     "next": "11.1.2",
     "next-mdx-remote": "^3.0.4",

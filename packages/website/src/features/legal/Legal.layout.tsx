@@ -1,5 +1,5 @@
 import { LayoutRoot } from "@htc-website/features/layout";
-import { PageLayout } from "@htc-website/features/page";
+import { PageLayout } from "@htc/components";
 import { Container, Title } from "@htc/components";
 import React, { useMemo } from "react";
 import { css } from "styled-components";

@@ -22,6 +22,10 @@
     {
       "directory": "./packages/contentful",
       "!cwd": false
+    },
+    {
+      "directory": "./packages/auth",
+      "!cwd": false
     }
   ]
 }

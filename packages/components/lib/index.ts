@@ -17,3 +17,4 @@ export * from "./tag";
 export * from "./theme";
 export * from "./types";
 export * from "./svg";
+export * from "./page";

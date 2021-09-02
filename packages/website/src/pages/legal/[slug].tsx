@@ -1,10 +1,10 @@
 import { LegalDocPage, LegalDocProps } from "@htc-website/features/legal";
-import { withPage } from "@htc-website/features/page";
 import {
   getLegalDocBySlug,
   getLegalDocSlugs
 } from "@htc-website/lib/server/lib.legal";
 import markdownToHtml from "@htc-website/lib/server/lib.markdown-to-html";
+import { withPage } from "@htc/components";
 import { GetStaticPaths, GetStaticProps } from "next";
 
 export const getStaticPaths: GetStaticPaths = () => {

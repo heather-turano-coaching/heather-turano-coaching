@@ -1,5 +1,4 @@
 import { BlogPage, BlogPageProps } from "@htc-website/features/blog";
-import { withPage } from "@htc-website/features/page";
 import {
   GetAllGhostPosts,
   GetFeaturedGhostPost,
@@ -7,6 +6,7 @@ import {
   getGhostFeaturedPostEndpoint,
   ghostClient
 } from "@htc-website/lib/ghost";
+import { withPage } from "@htc/components";
 import { getContentfulPageById } from "@htc/contentful";
 import { GetStaticProps } from "next";
 
