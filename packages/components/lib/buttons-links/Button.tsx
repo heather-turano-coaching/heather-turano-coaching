@@ -9,7 +9,7 @@ import { Typography } from "../typography2";
 
 export type ButtonColors = Extract<
   ColorKeys,
-  "primary" | "dark" | "accent" | "warning" | "danger"
+  "primary" | "gray" | "accent" | "warning" | "danger"
 >;
 
 type ButtonProps = HTMLButton & {
@@ -21,58 +21,6 @@ type ButtonProps = HTMLButton & {
   target?: string;
   href?: string;
   rel?: string;
-};
-
-const buttonStyleMap: {
-  [key in ButtonColors]: {
-    bgColor: ColorKeys;
-    bgColorHover: ColorKeys;
-    bgColorActive: ColorKeys;
-    borderColor: ColorKeys;
-    borderColorHover: ColorKeys;
-    borderColorActive: ColorKeys;
-  };
-} = {
-  primary: {
-    bgColor: "primary",
-    bgColorHover: "primary",
-    bgColorActive: "primary",
-    borderColor: "primary",
-    borderColorHover: "primary",
-    borderColorActive: "primary"
-  },
-  dark: {
-    bgColor: "dark",
-    bgColorHover: "dark",
-    bgColorActive: "dark",
-    borderColor: "dark",
-    borderColorHover: "dark",
-    borderColorActive: "dark"
-  },
-  accent: {
-    bgColor: "accent",
-    bgColorHover: "accent",
-    bgColorActive: "accent",
-    borderColor: "accent",
-    borderColorHover: "accent",
-    borderColorActive: "accent"
-  },
-  warning: {
-    bgColor: "warning",
-    bgColorHover: "warning",
-    bgColorActive: "warning",
-    borderColor: "warning",
-    borderColorHover: "warning",
-    borderColorActive: "warning"
-  },
-  danger: {
-    bgColor: "warning",
-    bgColorHover: "warning",
-    bgColorActive: "warning",
-    borderColor: "warning",
-    borderColorHover: "warning",
-    borderColorActive: "warning"
-  }
 };
 
 export const StyledButton = styled.button<
@@ -100,18 +48,18 @@ export const StyledButton = styled.button<
 
     &:not(:disabled) {
       background-color: ${variant === "filled"
-        ? theme.palette[buttonStyleMap[buttonColor].bgColor].main
+        ? theme.palette[buttonColor].main
         : "transparent"};
       border-color: ${variant !== "text"
-        ? theme.palette[buttonStyleMap[buttonColor].borderColor].main
+        ? theme.palette[buttonColor].main
         : "transparent"};
 
       &:hover {
         background-color: ${variant === "filled"
-          ? theme.palette[buttonStyleMap[buttonColor].bgColorHover].dark
+          ? theme.palette[buttonColor].dark
           : "transparent"};
         border-color: ${variant !== "text"
-          ? theme.palette[buttonStyleMap[buttonColor].borderColorHover].dark
+          ? theme.palette[buttonColor].dark
           : "transparent"};
 
         ${variant === "text" &&
@@ -123,16 +71,10 @@ export const StyledButton = styled.button<
 
       &:active {
         background-color: ${variant === "filled"
-          ? darken(
-              0.2,
-              theme.palette[buttonStyleMap[buttonColor].bgColorActive].dark
-            )
+          ? darken(0.2, theme.palette[buttonColor].dark)
           : "transparent"};
         border-color: ${variant !== "text"
-          ? darken(
-              0.2,
-              theme.palette[buttonStyleMap[buttonColor].borderColorActive].dark
-            )
+          ? darken(0.2, theme.palette[buttonColor].dark)
           : "transparent"};
         transform: scale(0.9);
 
@@ -146,10 +88,10 @@ export const StyledButton = styled.button<
     &:disabled {
       cursor: initial;
       pointer-events: none;
-      background: ${theme.palette.dark.light};
-      border-color: ${theme.palette.dark.light};
+      background: ${theme.palette.gray.light};
+      border-color: ${theme.palette.gray.light};
       & > * {
-        color: ${theme.palette.dark.main} !important;
+        color: ${theme.palette.gray.main} !important;
       }
     }
   `}

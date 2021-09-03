@@ -91,7 +91,7 @@ export const Stepper: FC<StepperProps> = ({ steps, children }) => {
     if (isActive || isPassed) {
       return "secondary";
     }
-    return "dark";
+    return "gray";
   }, []);
 
   return (
@@ -116,7 +116,7 @@ export const Stepper: FC<StepperProps> = ({ steps, children }) => {
                 isPassed={isPassed}
                 key={index.toString()}
                 onClick={() => goToEntry(index)}
-              ></StyledStepBubble>
+              />
             </div>
           );
         })}

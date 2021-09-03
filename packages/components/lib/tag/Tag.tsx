@@ -74,8 +74,6 @@ export const StyledTag = styled.div<Required<Pick<TagProps, "tagType">>>`
 
 export const Tag: FC<TagProps> = ({ tagType = "tag", text }) => (
   <StyledTag tagType={tagType}>
-    <Typography variant="body2" color="dark">
-      {text}
-    </Typography>
+    <Typography variant="body2">{text}</Typography>
   </StyledTag>
 );

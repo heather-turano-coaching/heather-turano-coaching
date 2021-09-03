@@ -10,13 +10,13 @@ export type SVGIconProps = {
 };
 
 const StyledSVGIcon = styled.svg<Required<SVGIconProps>>`
-  ${({ theme, color = "dark", variant }) => css`
+  ${({ theme, color = "gray", variant }) => css`
     color: ${color === "inherit" ? "inherit" : theme.palette[color][variant]};
   `}
 `;
 
 export const SvgIcon: FC<SVGIconProps> = ({
-  color = "dark",
+  color = "gray",
   variant = "main",
   children
 }) => {

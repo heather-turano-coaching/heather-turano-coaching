@@ -45,7 +45,7 @@ export const Alert: FC<AlertProps> = ({ type, children }) => {
       <StyledAlert type={type}>
         <Typography
           variant="body1"
-          color={type !== "warning" ? "light" : "dark"}
+          color={type !== "warning" ? "light" : "gray"}
         >
           {children}
         </Typography>

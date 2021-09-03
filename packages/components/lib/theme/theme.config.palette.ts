@@ -2,7 +2,7 @@ export type ColorKeys =
   | "primary"
   | "secondary"
   | "accent"
-  | "dark"
+  | "gray"
   | "light"
   | "danger"
   | "warning"
@@ -41,7 +41,7 @@ export const themePaletteDefaults: ThemePalette = {
     contrast: "#4A4A4A"
   },
   // darkscale
-  dark: {
+  gray: {
     dark: "#4A4A4A",
     main: "#858585",
     light: "#C1C1C1",
@@ -94,9 +94,9 @@ export const createThemePalette = (
       ...themePaletteDefaults.accent,
       ...(themePaletteCustom?.accent || {})
     },
-    dark: {
-      ...themePaletteDefaults.dark,
-      ...(themePaletteCustom?.dark || {})
+    gray: {
+      ...themePaletteDefaults.gray,
+      ...(themePaletteCustom?.gray || {})
     },
     light: {
       ...themePaletteDefaults.light,

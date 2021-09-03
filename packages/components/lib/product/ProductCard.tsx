@@ -164,7 +164,7 @@ export const ProductCard: FC<ProductCardProps> = ({
         )}
       </List>
       <StyledProductFooter>
-        <Button onClick={() => onClick()} color="dark" variant="outlined">
+        <Button onClick={() => onClick()} color="gray" variant="outlined">
           {basePrice.unit_amount === 0 ? "Sign up" : "Purchase"}
         </Button>
       </StyledProductFooter>

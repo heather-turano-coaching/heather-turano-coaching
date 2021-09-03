@@ -90,7 +90,7 @@ const StyledTypography = styled.div<
 export const Typography: FC<TypographyProps> = ({
   variant = "body1",
   component = "div",
-  color = "dark",
+  color = "gray",
   colorVariant = "dark",
   align = "inherit",
   children,

@@ -15,7 +15,7 @@ const LinkTyp: FC<{ children: string }> = ({ children }) => {
   return (
     <Typography
       variant="body2"
-      color="dark"
+      color="gray"
       colorVariant="dark"
       css={css`
         font-weight: ${makeFontWeight("bold")};
