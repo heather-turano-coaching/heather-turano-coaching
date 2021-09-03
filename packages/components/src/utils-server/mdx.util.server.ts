@@ -81,7 +81,6 @@ export const getDocNav = (_category: string): DocNav => {
 
 export const getDocBySlug = (slug: string[] | undefined) => {
   const allDocs = getAllDocs();
-  console.log(allDocs, slug);
   return allDocs.reduce((accum, doc) => {
     if (typeof slug === "undefined" && doc.data.path.join("_") === "index") {
       return doc;
