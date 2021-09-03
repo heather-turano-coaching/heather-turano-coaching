@@ -71,16 +71,16 @@ export const StyledButton = styled.button<
 
       &:active {
         background-color: ${variant === "filled"
-          ? darken(0.2, theme.palette[buttonColor].dark)
+          ? darken(0.1, theme.palette[buttonColor].dark)
           : "transparent"};
         border-color: ${variant !== "text"
-          ? darken(0.2, theme.palette[buttonColor].dark)
+          ? darken(0.1, theme.palette[buttonColor].dark)
           : "transparent"};
         transform: scale(0.9);
 
         ${variant === "text" &&
         css`
-          color: ${darken(0.2, theme.palette[buttonColor].dark)};
+          color: ${darken(0.1, theme.palette[buttonColor].dark)};
         `}
       }
     }
@@ -88,10 +88,10 @@ export const StyledButton = styled.button<
     &:disabled {
       cursor: initial;
       pointer-events: none;
-      background: ${theme.palette.gray.light};
-      border-color: ${theme.palette.gray.light};
+      background: ${theme.palette.light.light};
+      border-color: ${theme.palette.light.light};
       & > * {
-        color: ${theme.palette.gray.main} !important;
+        color: ${theme.palette.light.dark} !important;
       }
     }
   `}

@@ -21,39 +21,40 @@ export type ThemePalette = {
 export const themePaletteDefaults: ThemePalette = {
   // Deep Blue/Green
   primary: {
-    dark: "#3e686a",
+    dark: "#2f5052",
     main: "#4e8588",
-    light: "#C2D5D6",
+    light: "#8EBCBE",
     contrast: "#fff"
   },
   // Tan
   secondary: {
-    dark: "#BF9F5A",
-    main: "#D4BE90",
-    light: "#E9DEC6",
+    dark: "#79622f",
+    main: "#BF9F5A",
+    light: "#E5d9bd",
     contrast: "#fff"
   },
   // Light green
   accent: {
-    dark: "#9AC371",
-    main: "#BBD69F",
-    light: "#DCEACE",
-    contrast: "#4A4A4A"
+    dark: "#5c8136",
+    main: "#9ac371",
+    light: "#c2dba9",
+    contrast: "#fff"
   },
   // darkscale
   gray: {
-    dark: "#4A4A4A",
-    main: "#858585",
-    light: "#C1C1C1",
+    dark: "#1f1f1f",
+    main: "#333333",
+    light: "#858585",
     contrast: "#FFF"
   },
   // lightscale
   light: {
-    dark: "#EAECEC",
-    main: "#F0F2F2",
-    light: "#F7F8F8",
-    contrast: "#4E8588"
+    dark: "#879292",
+    main: "#EAECEC",
+    light: "#f2f3f3",
+    contrast: "#000"
   },
+
   danger: {
     dark: "#EAECEC",
     main: "#F0F2F2",
