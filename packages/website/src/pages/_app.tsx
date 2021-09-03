@@ -2,7 +2,7 @@
 import { UserProvider } from "@auth0/nextjs-auth0";
 import { CookiesConsent } from "@htc-website/features/cookies";
 import { SWRProvider } from "@htc-website/lib/swr";
-import { ThemeProvider } from "@htc/components";
+import { HTCThemeProvider, createHTCTheme } from "@htc/components";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import Head from "next/head";
@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import React, { ReactElement, useEffect } from "react";
+import { useMemo } from "react";
 import { defaultSeoConfig } from "src/features/seo";
 import { css } from "styled-components";
 
@@ -41,8 +42,10 @@ export default function MyApp({
   // @ts-ignore
   const preview = pageProps.preview || false;
 
+  const theme = useMemo(() => createHTCTheme(), []);
+
   return (
-    <ThemeProvider>
+    <HTCThemeProvider theme={theme}>
       <SWRProvider>
         <UserProvider>
           <Head>
@@ -104,6 +107,6 @@ export default function MyApp({
           </CookiesConsent>
         </UserProvider>
       </SWRProvider>
-    </ThemeProvider>
+    </HTCThemeProvider>
   );
 }

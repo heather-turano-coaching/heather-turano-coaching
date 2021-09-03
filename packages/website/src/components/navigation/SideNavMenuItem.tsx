@@ -12,6 +12,8 @@ import { css } from "styled-components";
 import { SideNavVariants } from "./side-nav.utils";
 import { useSideNavContext } from "./SideNav.context";
 
+console.log(Typography, makeFontWeight, themePaletteDefaults, motion);
+
 const variants: SideNavVariants = {
   open: {
     y: 0,

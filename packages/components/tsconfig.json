@@ -1,5 +1,8 @@
 {
   "extends": "@htc/typescript/tsconfig.next.json",
+  "compilerOptions": {
+    "target": "ESNext"
+  },
   "include": [
     "next-env.d.ts",
     "lib/**/*.ts",

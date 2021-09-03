@@ -4,7 +4,7 @@ import {
   createGlobalStyle
 } from "styled-components";
 
-import { createTheme } from "./theme.config";
+import { HTCTheme } from "./theme.config";
 
 const StyledComponentsGolbalStyle = createGlobalStyle`
     html {
@@ -62,12 +62,18 @@ const StyledComponentsGolbalStyle = createGlobalStyle`
   }
 `;
 
-export const ThemeProvider: FC = ({ children }) => {
-  const theme = useMemo(() => createTheme(), []);
-
+export const HTCThemeProvider: FC<{ theme: HTCTheme }> = ({
+  children,
+  theme
+}) => {
   return (
     <StyledComponentsThemeProvider theme={theme}>
-      <StyledComponentsGolbalStyle />
+      {useMemo(
+        () => (
+          <StyledComponentsGolbalStyle />
+        ),
+        []
+      )}
       {children}
     </StyledComponentsThemeProvider>
   );

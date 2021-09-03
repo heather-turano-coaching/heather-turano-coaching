@@ -26,7 +26,7 @@ declare module "styled-components" {
   export interface DefaultTheme extends HTCTheme {}
 }
 
-export const createTheme = (customHTCTheme?: HTCTheme): HTCTheme => {
+export const createHTCTheme = (customHTCTheme?: HTCTheme): HTCTheme => {
   return {
     palette: createThemePalette(customHTCTheme?.palette),
     breakpoints: createThemeBreakpoints(customHTCTheme?.breakpoints),

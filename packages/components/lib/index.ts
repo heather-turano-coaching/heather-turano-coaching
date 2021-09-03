@@ -1,11 +1,5 @@
 export * from "./buttons-links";
 export * from "./carousel";
-/**
- * This will be replaced soon with `@htc/components/theme`
- * @deprecated
- */
-export * from "./design-system";
-
 export * from "./display";
 export * from "./footer";
 export * from "./forms";
@@ -19,3 +13,5 @@ export * from "./types";
 export * from "./svg";
 export * from "./page";
 export * from "./typography2";
+
+export * from "./design-system";

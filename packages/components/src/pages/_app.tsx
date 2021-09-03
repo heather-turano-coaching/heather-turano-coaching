@@ -6,11 +6,11 @@ import * as Components from "../../lib";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Components.ThemeProvider>
+    <Components.HTCThemeProvider>
       <MDXProvider components={Components}>
         <Component {...pageProps} />
       </MDXProvider>
-    </Components.ThemeProvider>
+    </Components.HTCThemeProvider>
   );
 }
 export default MyApp;
