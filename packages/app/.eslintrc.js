@@ -7,9 +7,7 @@ module.exports = {
     "import/no-extraneous-dependencies": [
       "error",
       {
-        devDependencies: true,
-        peerDependencies: true,
-        packageDir: [path.join(__dirname, "./packages/app")]
+        packageDir: __dirname
       }
     ]
   }

@@ -1,24 +1,26 @@
 {
+  "extends": "@htc/typescript/tsconfig.next.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve"
+    "baseUrl": "./", // import directly from the root directory
+    "paths": {
+      "@htc-website/components": ["src/components/index.ts"],
+      "@htc-website/features/*": ["src/features/*"],
+      "@htc-website/hooks": ["src/hooks"],
+      "@htc-website/icons": ["src/icons/index.ts"],
+      "@htc-website/images": ["src/images"],
+      "@htc-website/lib/*": ["src/lib/*"],
+      "@htc-website/models": ["src/models/index.ts"],
+      "@htc-website/utils": ["src/utils/index.ts"]
+    }
   },
   "include": [
     "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "index.d.ts",
-    ".eslintrc.js"
-  ]
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".eslintrc.js",
+    "next.config.js",
+    "babel.config.js",
+    "index.d.ts"
+  ],
+  "exclude": ["node_modules"]
 }
