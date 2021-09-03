@@ -1,6 +1,7 @@
 import { FeaturePageComponent } from "@htc/components";
 import { RichTextHTML } from "@htc/components";
 import { useRouter } from "next/router";
+import React from "react";
 
 import { withLegalDocPageLayout } from "./LegalDoc.layout";
 

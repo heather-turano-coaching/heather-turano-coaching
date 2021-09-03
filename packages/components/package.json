@@ -2,11 +2,11 @@
   "name": "@htc/components",
   "version": "0.1.0",
   "scripts": {
-    "clean": "rm -rf dist",
     "docs:dev": "next dev",
     "docs:build": "next build",
     "docs:start": "next start",
     "lint": "next lint --dir src --dir lib",
+    "clean": "rm -rf dist",
     "types:generate": " tsc --project tsconfig.types.json",
     "build:cjs": "node ./esbuild.cjs.js",
     "build:esm": "node ./esbuild.esm.js",

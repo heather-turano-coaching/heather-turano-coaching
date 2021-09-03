@@ -41,15 +41,15 @@ const createMediaQuery =
       return `@media (min-width: 0)`;
     }
     if (min && !max) {
-      return `@media (min-width: ${values[min]})`;
+      return `@media (min-width: ${values[min]}px)`;
     }
     if (!min && max) {
-      return `@media (min-width: ${values[min]})`;
+      return `@media (min-width: ${values[min]}px)`;
     }
     if (min && max) {
-      return `@media (min-width: ${values[min]}) and (max-width: ${
+      return `@media (min-width: ${values[min]}px) and (max-width: ${
         values[max] - 1
-      })`;
+      }px)`;
     }
     throw "You should not be seeing this error. Breakpoints we're configured wrong. Check the theme";
   };
