@@ -18,7 +18,7 @@ const CSSInput = css<AweberFormProps>`
     font-weight: ${makeFontWeight("semiBold")};
     font-size: ${theme.size.makeRem(16)};
     padding: 0 ${theme.size.makeRem(16)};
-    color: ${({ theme }) => theme.palette.noir.dark};
+    color: ${({ theme }) => theme.palette.dark.dark};
     background-color: ${variant === "light"
       ? theme.palette.light.light
       : theme.palette.common.white};

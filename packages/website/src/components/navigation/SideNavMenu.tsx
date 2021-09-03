@@ -25,7 +25,7 @@ const StyledMenuSection = styled.div`
   `}
 
   &:not(:first-child) {
-    border-top: 1px solid ${({ theme }) => theme.palette.noir.light};
+    border-top: 1px solid ${({ theme }) => theme.palette.dark.light};
   }
 `;
 

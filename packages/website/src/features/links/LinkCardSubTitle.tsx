@@ -6,7 +6,7 @@ export type LinkCardSubTitleProps = { important: boolean };
 
 const StyledLinkCardSubTitle = styled(Typography)<LinkCardSubTitleProps>`
   color: ${({ theme, important }) =>
-    important ? theme.palette.primary.light : theme.palette.noir.dark};
+    important ? theme.palette.primary.light : theme.palette.dark.dark};
   margin-top: ${({ theme }) => theme.size.makeRem(8)};
   font-size: ${({ theme }) => theme.size.makeRem(12)};
 `;

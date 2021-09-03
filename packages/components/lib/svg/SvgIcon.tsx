@@ -1,4 +1,5 @@
 import { FC } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 
 import { ColorKeys, ColorVariants } from "../theme/theme.config.palette";
