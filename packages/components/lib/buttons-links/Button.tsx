@@ -94,6 +94,10 @@ export const StyledButton = styled.button<
     cursor: pointer;
     min-width: ${theme.size.makeRem(120)};
 
+    & + & {
+      margin-left: ${theme.size.makeRem(20)};
+    }
+
     &:not(:disabled) {
       background-color: ${variant === "filled"
         ? theme.palette[buttonStyleMap[buttonColor].bgColor].main

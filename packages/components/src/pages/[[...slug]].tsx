@@ -18,7 +18,6 @@ export const getStaticPaths: GetStaticPaths<{ slug: string[] | undefined }> =
         }
       })
     );
-    console.log(paths);
 
     return {
       paths,

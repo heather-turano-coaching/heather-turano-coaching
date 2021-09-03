@@ -8,7 +8,6 @@ export const withDocsPageLayout: WithPageLayout<DocsPageProps> = (
   PageComponent
 ) => {
   return function DocsPageLayout(props) {
-    console.log("layout", props);
     return (
       <LayoutRoot {...props}>
         <PageComponent {...props} />

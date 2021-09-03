@@ -2,11 +2,30 @@ import Link from "next/link";
 import React, { FC } from "react";
 import { css } from "styled-components";
 
+import { Typography, makeFontWeight } from "../../../lib";
 import { DocsPageProps } from "../docs-page";
 
 const headerHeight = 100;
 const navWidth = 260;
-const titleHeight = 72;
+const titleHeight = 80;
+const liHeight = 56;
+const liItemHeight = 36;
+
+const LinkTyp: FC<{ children: string }> = ({ children }) => {
+  return (
+    <Typography
+      variant="body2"
+      color="dark"
+      colorVariant="dark"
+      css={css`
+        font-weight: ${makeFontWeight("bold")};
+        text-transform: capitalize;
+      `}
+    >
+      {children.replace("-", " ")}
+    </Typography>
+  );
+};
 
 export const LayoutRoot: FC<DocsPageProps> = ({ nav, doc, children }) => (
   <div
@@ -72,31 +91,43 @@ export const LayoutRoot: FC<DocsPageProps> = ({ nav, doc, children }) => (
                     align-items: center;
                     justify-content: flex-start;
                     ${({ theme }) => css`
-                      min-height: ${theme.size.makeRem(40)};
+                      min-height: ${theme.size.makeRem(liHeight)};
                       padding-left: ${theme.size.makeRem(24)};
                     `}
                   `}
                 >
-                  <Link href={`/${value[0].path.join("/")}`}>{key}</Link>
+                  <Link href={`/${value[0].path.join("/")}`}>
+                    <a>
+                      <LinkTyp>
+                        {value.length === 1 ? value[0].label : key}
+                      </LinkTyp>
+                    </a>
+                  </Link>
                 </div>
-                <ul>
-                  {value.map((item, i) => (
-                    <li
-                      key={`${item.path.join("/")}_${i}`}
-                      css={css`
-                        ${({ theme }) => css`
-                          padding-left: ${theme.size.makeRem(44)};
-                          min-height: ${theme.size.makeRem(40)};
-                          display: flex;
-                          align-items: center;
-                          justify-content: flex-start;
+                {value.length > 1 && (
+                  <ul>
+                    {value.map((item, i) => (
+                      <li
+                        key={`${item.path.join("/")}_${i}`}
+                        css={css`
+                          ${({ theme }) => css`
+                            padding-left: ${theme.size.makeRem(44)};
+                            min-height: ${theme.size.makeRem(liItemHeight)};
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                          `}
                         `}
-                      `}
-                    >
-                      <Link href={`/${item.path.join("/")}`}>{item.label}</Link>
-                    </li>
-                  ))}
-                </ul>
+                      >
+                        <Link href={`/${item.path.join("/")}`}>
+                          <a>
+                            <LinkTyp>{item.label}</LinkTyp>
+                          </a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             );
           })}
@@ -163,7 +194,19 @@ export const LayoutRoot: FC<DocsPageProps> = ({ nav, doc, children }) => (
               `}
             `}
           >
-            {doc.data.path[0]}
+            <Typography
+              variant="subtitle2"
+              component="div"
+              color="primary"
+              colorVariant="contrast"
+              css={css`
+                margin: 0;
+                text-transform: uppercase;
+                font-weight: ${makeFontWeight("extraBold")};
+              `}
+            >
+              {doc.data.path[0].replace("-", " ")}
+            </Typography>
           </span>
         </header>
       </div>
@@ -205,7 +248,18 @@ export const LayoutRoot: FC<DocsPageProps> = ({ nav, doc, children }) => (
               `}
             `}
           >
-            <h2>{doc.data.title}</h2>
+            <Typography
+              variant="h4"
+              component="h4"
+              css={css`
+                text-transform: capitalize;
+                margin: 0;
+                font-weight: ${makeFontWeight("semiBold")};
+                color: ${({ theme }) => theme.palette.common.black};
+              `}
+            >
+              {doc.data.title}
+            </Typography>
           </header>
           <article
             css={css`

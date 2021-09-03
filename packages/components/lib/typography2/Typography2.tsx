@@ -91,7 +91,7 @@ export const Typography: FC<TypographyProps> = ({
   variant = "body1",
   component = "div",
   color = "dark",
-  colorVariant = "main",
+  colorVariant = "dark",
   align = "inherit",
   children,
   ...restProps
