@@ -1,17 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { UserProvider } from "@auth0/nextjs-auth0";
-import { CookiesConsent } from "@htc/features/cookies";
 import { SWRProvider } from "@htc/lib/swr";
 import { HTCTheme, makeRem } from "@htc/theme";
 import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import React, { ReactElement, useEffect } from "react";
 import { defaultSeoConfig } from "src/features/seo";
-import { css } from "styled-components";
 
 export default function MyApp({
   Component,
@@ -60,32 +56,11 @@ export default function MyApp({
           </Head>
           <DefaultSeo {...defaultSeoConfig} />
           <Component {...pageProps} />
-          {/* Matoma */}
-          <CookiesConsent
-            namespace="heatherturanocoaching"
-            description={
-              <div>
-                All of our cookies are utilized to provide you{" "}
-                <strong>the best user experience</strong> possible. We never
-                have and <strong>never will</strong> collect and/or sell your
-                personal data. Read more about our use of cookies in our{" "}
-                <Link href="/legal/privacy-policy">
-                  <a
-                    css={css`
-                      text-decoration: underline;
-                    `}
-                  >
-                    privacy policy
-                  </a>
-                </Link>
-                <span>.</span>
-              </div>
-            }
-          >
-            {process.env.NODE_ENV === "production" && (
-              <Script
-                dangerouslySetInnerHTML={{
-                  __html: `
+          {process.env.NODE_ENV === "production" && (
+            <Script
+              id="matomo"
+              dangerouslySetInnerHTML={{
+                __html: `
   var _paq = window._paq = window._paq || [];
   /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(['trackPageView']);
@@ -97,10 +72,9 @@ export default function MyApp({
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.src='//cdn.matomo.cloud/heatherturanocoaching.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
   })();`
-                }}
-              />
-            )}
-          </CookiesConsent>
+              }}
+            />
+          )}
         </UserProvider>
       </SWRProvider>
     </HTCTheme>
