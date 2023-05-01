@@ -1,5 +1,5 @@
 import { formatError } from "@htc/utils";
-import { createClient } from "contentful";
+import { Entry, createClient } from "contentful";
 import safeJsonStringify from "safe-json-stringify";
 
 import {
@@ -146,5 +146,27 @@ export const getContentfulPageBySlug = async (
   });
 };
 
+/**
+ * Gets a contentful entry by a single nested string
+ */
+export const getContentfulEntryByField = async <
+  E extends Entry<T>,
+  T,
+  FV extends keyof T
+>(
+  params: {
+    content_type: E["sys"]["contentType"]["sys"]["id"];
+    field: FV;
+    fieldValue: T[FV];
+  } & ContentfulApiOptions
+) => {
+  const apiClient = getContentfulApiClient(params.preview);
+
+  return apiClient.getEntries<E>({
+    content_type: params.content_type,
+    [`fields.${String(params.field)}`]: params.fieldValue,
+    include: 10
+  });
+};
 export const getAllServices = async (options: ContentfulApiOptions) =>
   await getContentfulEntriesById<IService>("service", options);
