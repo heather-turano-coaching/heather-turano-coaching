@@ -208,7 +208,7 @@ export const BlogPostPage: FeaturePageComponent<BlogPostPageProps> = (
         >
           {props.suggestedBlogPosts?.map((blogPost) => (
             <li key={blogPost.id}>
-              <Link href={`/blog/${blogPost.slug}`} passHref>
+              <Link href={`/blog/${blogPost.slug}`} passHref legacyBehavior>
                 <a
                   css={css`
                     ${({ theme }) => css`

@@ -16,12 +16,6 @@ export default function MyApp({
   const router = useRouter();
 
   useEffect(() => {
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles && jssStyles.parentNode)
-      jssStyles.parentNode.removeChild(jssStyles);
-  }, []);
-
-  useEffect(() => {
     if (process.env.NODE_ENV === "production") {
       router.events.on("routeChangeStart", (url) => {
         if (window && window._paq) {
@@ -59,6 +53,7 @@ export default function MyApp({
           {process.env.NODE_ENV === "production" && (
             <Script
               id="matomo"
+              defer
               dangerouslySetInnerHTML={{
                 __html: `
   var _paq = window._paq = window._paq || [];

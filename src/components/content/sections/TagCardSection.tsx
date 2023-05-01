@@ -28,7 +28,7 @@ export const TagCardSection: FC<TagCardSectionProps> = ({
   <StyledTagCardSection>
     <TagGroup>
       {tags.map((tag) => (
-        <Link key={tag.id} href={`/${page}/${tag.slug}`}>
+        <Link key={tag.id} href={`/${page}/${tag.slug}`} legacyBehavior>
           <a>
             <TagCard type={tagType} name={tag.name as string} />
           </a>

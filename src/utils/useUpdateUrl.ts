@@ -12,7 +12,9 @@ import { useQueryString } from "./useQueryString";
  * Any component that needs search should use that query string to
  * then parse and get it's values it needs for the API.
  */
-export const useUpdateUrl = <P = Record<string, unknown>>(params?: {
+export const useUpdateUrl = <
+  P extends Record<string, unknown> = Record<string, unknown>
+>(params?: {
   /**
    * The base URL that you want the parameters to be attached to
    * If the baseUrl doesn't exist, then it will use the existing
@@ -27,14 +29,18 @@ export const useUpdateUrl = <P = Record<string, unknown>>(params?: {
    * ```
    */
   preventHistoryEntry?: boolean;
-}): (<Params = P>(queryStringParams: Params) => void) => {
+}): (<Params extends Record<string, unknown> = P>(
+  queryStringParams: Params
+) => void) => {
   const { queryString: existingSearch } = useQueryString();
   const { push, replace, pathname } = useRouter();
 
   const urlControl = params?.preventHistoryEntry ? replace : push;
 
   const pushUrlState = useCallback(
-    <Params = Record<string, unknown>>(queryStringParams: Params) => {
+    <Params extends Record<string, unknown> = Record<string, unknown>>(
+      queryStringParams: Params
+    ) => {
       const newSearch = convertParamsToQueryString(queryStringParams);
       if (existingSearch !== newSearch) {
         urlControl(`${pathname}${newSearch}`, undefined, {

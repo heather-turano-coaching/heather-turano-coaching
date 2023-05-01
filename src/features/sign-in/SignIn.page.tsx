@@ -27,7 +27,7 @@ export const SignInPage: FeaturePageComponent = () => {
           </div>
           <br />
           <br />
-          <Link href="/api/auth/login?returnTo=/admin" passHref>
+          <Link href="/api/auth/login?returnTo=/admin" passHref legacyBehavior>
             <Button component="a" variant="outlined" color="primary">
               Sign in
             </Button>

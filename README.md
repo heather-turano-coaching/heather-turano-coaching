@@ -1,8 +1,8 @@
 <h1 align="center" style="padding-bottom: 30px">
-  <img align="center" width="50%" src="https://blog.livelifemindful.com/static/htc-logo-stacked.dfb758d4.svg" />
+  <img align="center" width="50%" src="./public/logo-stacked.png" />
 </h1 >
   <p align="center" style="font-size: 1.2rem">Typescript based mono-repository to manage all of the digital assets that make up the Heather Turano Coaching brand</p>
-  <p align="center" style="font-size: 1.2rem">
+  <!-- <p align="center" style="font-size: 1.2rem">
     <strong>Live Life Mindful</strong>
     <a align="center"  href="https://livelifemindful.com" style="font-size: 1.2rem; text-align: center;">https://livelifemindful.com</a>
   </p>
@@ -13,10 +13,8 @@
     <p align="center" style="font-size: 1.2rem">
     <strong>Design System</strong>
     <a align="center"  href="https://design.livelifemindful.com" style="font-size: 1.2rem; text-align: center;">https://design.livelifemindful.com</a>
-  </p>
+  </p> -->
 <hr />
-
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 # Overview
 

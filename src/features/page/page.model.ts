@@ -36,7 +36,7 @@ export type FeaturePageComponent<P = PageProps> = React.FC<P> & {
 
 // utils
 export type GetAuthenticatedServerSideProps<
-  P = Record<string, unknown>,
+  P extends { [key: string]: unknown },
   UrlQuery extends ParsedUrlQuery = ParsedUrlQuery
 > = GetServerSideProps<P, UrlQuery>;
 

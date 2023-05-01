@@ -67,14 +67,14 @@ export const LegalPage: FeaturePageComponent = () => {
           `}
         `}
       >
-        <Link href="/legal/privacy-policy" passHref>
+        <Link href="/legal/privacy-policy" passHref legacyBehavior>
           <StyledCard>
             <Typography variant="h5" component="div">
               Privacy Policy
             </Typography>
           </StyledCard>
         </Link>
-        <Link href="/legal/terms-of-service" passHref>
+        <Link href="/legal/terms-of-service" passHref legacyBehavior>
           <StyledCard>
             <Typography variant="h5" component="div">
               Terms of Service

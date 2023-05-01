@@ -54,7 +54,7 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
           flex-direction: column;
         `}
       >
-        <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
+        <Link href="/blog/[slug]" as={`/blog/${post.slug}`} legacyBehavior>
           <a
             css={css`
               width: 100%;
@@ -94,7 +94,7 @@ export const BlogListCard: FC<PostOrPage & { index: number }> = memo(
             </Typography>
           )}
 
-          <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
+          <Link href="/blog/[slug]" as={`/blog/${post.slug}`} legacyBehavior>
             <a>
               <Typography variant="h5">{post.title}</Typography>
             </a>

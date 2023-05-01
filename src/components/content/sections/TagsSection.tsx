@@ -35,7 +35,7 @@ export const TagsSection: FC<TagSectionProps> = ({
             return !tag.name?.includes("category-");
           })
           .map((tag) => (
-            <Link key={tag.id} href={`/${filter}/${tag.slug}`}>
+            <Link key={tag.id} href={`/${filter}/${tag.slug}`} legacyBehavior>
               <a>
                 <Tag
                   tagType={filter === "categories" ? "category" : "tag"}

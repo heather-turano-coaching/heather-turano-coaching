@@ -20,7 +20,7 @@ export const SubscriptionSuccessful: FeaturePageComponent = () => {
         title="Yassss! You're all signed up!"
         type="plain"
         footer={
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <Button variant="contained" color="primary">
               Back to Home Page
             </Button>

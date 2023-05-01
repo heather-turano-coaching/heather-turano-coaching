@@ -57,7 +57,7 @@ export const getContentfulEntryById = async <T>(
     throw new Error(
       formatError(
         `There was a problem when trying to fetch page with ID "${id}"`,
-        error
+        error as string
       )
     );
   }
@@ -87,7 +87,7 @@ export const getContentfulEntriesById = async <T>(
     throw new Error(
       formatError(
         `There was a problem when trying to fetch the entries of" ${id}"`,
-        error
+        error as string
       )
     );
   }

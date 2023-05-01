@@ -179,7 +179,7 @@ export const HeaderNav: FC<{ hideNavBar: boolean }> = ({ hideNavBar }) => {
     () =>
       !hideNavBar && (
         <Navbar ref={stickyRef}>
-          <Link href="/" passHref>
+          <Link href="/" passHref legacyBehavior>
             <DesktopLogo>
               <img src="/logo-inline.svg" alt="htc-logo-inline" />
             </DesktopLogo>

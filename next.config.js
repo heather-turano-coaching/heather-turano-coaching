@@ -4,30 +4,33 @@ require("dotenv").config({ path: path.resolve(__dirname, "./.env") });
 const srcDir = path.resolve(__dirname, "./src");
 
 module.exports = {
+  compiler: {
+    styledComponents: true
+  },
   webpack(config, { isServer, webpack }) {
     // Don't bundle anything in the server utils
-    if (!isServer) {
-      config.plugins.push(new webpack.IgnorePlugin(/\/src\/lib\/server\//));
-    }
+    // if (!isServer) {
+    //   config.plugins.push(new webpack.IgnorePlugin(/\/src\/lib\/server\//));
+    // }
 
     config.module.rules.push({
       test: /\.svg$/,
       use: ["@svgr/webpack"]
     });
 
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      enforce: "pre",
-      use: [
-        {
-          options: {
-            eslintPath: require.resolve("eslint")
-          },
-          loader: require.resolve("eslint-loader")
-        }
-      ],
-      exclude: /node_modules/
-    });
+    // config.module.rules.push({
+    //   test: /\.(ts|tsx)$/,
+    //   enforce: "pre",
+    //   use: [
+    //     {
+    //       options: {
+    //         eslintPath: require.resolve("eslint")
+    //       },
+    //       loader: require.resolve("eslint-loader")
+    //     }
+    //   ],
+    //   exclude: /node_modules/
+    // });
 
     config.resolve.alias = {
       ...config.resolve.alias,
