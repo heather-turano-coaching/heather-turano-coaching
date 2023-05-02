@@ -28,7 +28,7 @@ export const Actions: FC<{ actions: IAction[] | undefined }> = memo(
           );
           if (action.internalExternal === "internal") {
             return (
-              <Link href={action.url} key={action.url} passHref>
+              <Link href={action.url} key={action.url} passHref legacyBehavior>
                 {Btn}
               </Link>
             );

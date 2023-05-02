@@ -65,7 +65,7 @@ export const SideNavMenuItem: FC<{
 
   const LinkContent = useMemo(
     () => (
-      <Link href={href} passHref>
+      <Link href={href} passHref legacyBehavior>
         <Typography
           variant="body2"
           component="a"

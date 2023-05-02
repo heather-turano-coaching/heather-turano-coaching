@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
     html: string;
     head?: JSX.Element[];
   }> {
-    const styledComponentSheet = new StyledComponentSheets();
+    const sheet = new StyledComponentSheets();
     const materialUiSheets = new MaterialUiServerStyleSheets();
     const originalRenderPage = ctx.renderPage;
 
@@ -24,9 +24,7 @@ export default class MyDocument extends Document {
       ctx.renderPage = () =>
         originalRenderPage({
           enhanceApp: (App) => (props) =>
-            styledComponentSheet.collectStyles(
-              materialUiSheets.collect(<App {...props} />)
-            )
+            sheet.collectStyles(materialUiSheets.collect(<App {...props} />))
         });
       const initialProps = await Document.getInitialProps(ctx);
 
@@ -37,12 +35,12 @@ export default class MyDocument extends Document {
           <Fragment key="doc-styles">
             {React.Children.toArray(initialProps.styles)}
             {materialUiSheets.getStyleElement()}
-            {styledComponentSheet.getStyleElement()}
+            {sheet.getStyleElement()}
           </Fragment>
         ]
       };
     } finally {
-      styledComponentSheet.seal();
+      sheet.seal();
     }
   }
 

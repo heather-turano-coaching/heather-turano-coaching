@@ -437,6 +437,63 @@ export interface IPageCollection extends Entry<IPageCollectionFields> {
   };
 }
 
+export interface IPromotionFields {
+  /** ID */
+  id?: string | undefined;
+
+  /** Title */
+  title: string;
+
+  /** Start Date */
+  startDate: string;
+
+  /** End Date */
+  endDate: string;
+
+  /** URL */
+  url: string;
+
+  /** Image */
+  image: Asset;
+
+  /** Description */
+  description: Document;
+
+  /** Original Price */
+  originalPrice?: string | undefined;
+
+  /** New Price */
+  newPrice?: string | undefined;
+
+  /** Audienceful - POST Action URL */
+  audiencefulPostActionUrl: string;
+
+  /** Thank you - Title */
+  thankYouTitle: string;
+
+  /** Thank you - Description */
+  thankYouDescription: Document;
+}
+
+/** Allows you to create one off pages that can be used to gather email addresses or offer products a discounted rates */
+
+export interface IPromotion extends Entry<IPromotionFields> {
+  sys: {
+    id: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    locale: string;
+    contentType: {
+      sys: {
+        id: "promotion";
+        linkType: "ContentType";
+        type: "Link";
+      };
+    };
+  };
+}
+
 export interface ISeoFields {
   /** title */
   title: string;
@@ -727,6 +784,7 @@ export type CONTENT_TYPE =
   | "navbar"
   | "navbarItem"
   | "pageCollection"
+  | "promotion"
   | "seo"
   | "service"
   | "serviceBasic"

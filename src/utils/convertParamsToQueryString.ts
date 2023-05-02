@@ -9,7 +9,11 @@
  * the ampersand will prepend whatever the reductions output
  * originally was
  */
-export const convertParamsToQueryString = <Params>(params: Params): string => {
+export const convertParamsToQueryString = <
+  Params extends Record<string, unknown>
+>(
+  params: Params
+): string => {
   const stringified = Object.entries(params).reduce(
     (accum, [key, value], index) => {
       if (!value || value === "") {

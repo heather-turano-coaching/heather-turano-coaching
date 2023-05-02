@@ -36,7 +36,7 @@ export const LinkCard: FC<LinkCardProps> = ({
   flushRight = false
 }) => {
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <StyledLinkCard
         important={important}
         flushLeft={flushLeft}

@@ -31,7 +31,11 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
         `}
       `}
     >
-      <Link href="/blog/[slug]" as={`/blog/${featuredPost.slug}`}>
+      <Link
+        href="/blog/[slug]"
+        as={`/blog/${featuredPost.slug}`}
+        legacyBehavior
+      >
         <a
           css={css`
             flex: 1;
@@ -117,6 +121,7 @@ export const BlogSectionFeatured: FC<PostOrPage> = (featuredPost) => {
                   href={"/blog/tag/[slug]"}
                   as={`/blog/tag/${tag.slug}`}
                   key={tag.id}
+                  legacyBehavior
                 >
                   <a>
                     <Tag text={tag.name} key={tag.id} />
