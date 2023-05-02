@@ -3009,7 +3009,7 @@ __metadata:
     contentful-management: ^7.32.0
     contentful-typescript-codegen: ^3.2.2
     core-js: ^3.16.2
-    date-fns: ^2.23.0
+    date-fns: ^2.30.0
     dotenv: ^10.0.0
     eslint: 7.32.0
     eslint-config-next: 11.1.0
@@ -7991,10 +7991,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:^2.23.0":
-  version: 2.23.0
-  resolution: "date-fns@npm:2.23.0"
-  checksum: 485216d550255a548552db16379e7a5cd440e262b90fbdc0362f63ee71d0e74bd00ce29ca8d76b343f6df36c1ecb6f22edba0b72848a4c32674e755619695c1f
+"date-fns@npm:^2.30.0":
+  version: 2.30.0
+  resolution: "date-fns@npm:2.30.0"
+  dependencies:
+    "@babel/runtime": ^7.21.0
+  checksum: f7be01523282e9bb06c0cd2693d34f245247a29098527d4420628966a2d9aad154bd0e90a6b1cf66d37adcb769cd108cf8a7bd49d76db0fb119af5cdd13644f4
   languageName: node
   linkType: hard
 
