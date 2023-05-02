@@ -5,10 +5,11 @@ import React, { FC, ReactNode } from "react";
 import styled from "styled-components";
 
 import { Typography, TypographyProps } from "./Typography";
+import { makeFontWeight } from "@htc/theme";
 
 const StyledRichText = styled.div`
   strong {
-    font-weight: 500;
+    font-weight: ${makeFontWeight("black")};
   }
 
   p {
@@ -39,7 +40,16 @@ export const ContentfulRichText: FC<{
             _node: unknown,
             children: ReactNode
           ) {
-            return <Typography {...copyProps}>{children}</Typography>;
+            return (
+              <Typography
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                as="p"
+                {...copyProps}
+              >
+                {children}
+              </Typography>
+            );
           }
         }
       })}

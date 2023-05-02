@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { FeaturePageComponent } from "@htc/features/page";
 import { useRouter } from "next/router";
-import React, { FC, useRef } from "react";
+import React, { useRef } from "react";
 
 import { withPromotionPageLayout } from "./Promotion.layout";
 import { IPromotion } from "@htc/lib/contentful/contentful.types";
@@ -10,8 +10,7 @@ import {
   Container,
   ContentfulRichText,
   Input,
-  Title,
-  Typography
+  Title
 } from "@htc/components/atomic";
 import styled, { css } from "styled-components";
 import {
@@ -23,41 +22,11 @@ import {
 import isBefore from "date-fns/isBefore";
 import isAfter from "date-fns/isAfter";
 import img from "@htc/images/032-chakra.png";
+import { AudiencefulForm } from "../form";
+import { Catch } from "@htc/components/atomic/molecules";
 
 export type PromotionPageProps = {
   promotion: IPromotion;
-};
-
-const SCatch = styled("div")`
-  display: grid;
-  padding: ${makeRem(32)};
-  height: 80vh;
-
-  & > * {
-    place-self: center;
-    max-width: 80ch;
-    text-align: center;
-  }
-
-  img {
-    max-width: ${makeRem(200)};
-    height: auto;
-    margin-bottom: ${makeRem(32)};
-  }
-`;
-
-const Catch: FC<{ children: string }> = ({ children }) => {
-  return (
-    <SCatch>
-      <div>
-        {/* @ts-ignore */}
-        <img src={img.src} alt="namaste" />
-        <Typography variant="paragraph" fontSize={"h5"}>
-          {children}
-        </Typography>
-      </div>
-    </SCatch>
-  );
 };
 
 const SGrid = styled("div")`
@@ -104,14 +73,28 @@ export const PromotionPage: FeaturePageComponent<PromotionPageProps> = ({
 
   if (isBefore(todayRef.current, startDateRef.current)) {
     return (
-      <Catch>
-        We&apos;re sorry. This promotion is not active yet. Check back soon!
+      <Catch
+        // @ts-ignore
+        imgSrc={img.src}
+        imgAlt="not available yet"
+        signUpCopy="Check back soon or sign up for the HTC newsletter below to get notified when new promotions become available!"
+      >
+        We&apos;re sorry. This promotion is not active yet.
       </Catch>
     );
   }
 
   if (isAfter(todayRef.current, endDateRef.current)) {
-    return <Catch>We&apos;re sorry. This promotion has expired.</Catch>;
+    return (
+      <Catch
+        // @ts-ignore
+        imgSrc={img.src}
+        imgAlt="expired"
+        signUpCopy="Sign up for the HTC newsletter below to get notified when new promotions become available!"
+      >
+        We&apos;re sorry. This promotion has expired.
+      </Catch>
+    );
   }
 
   return (
@@ -127,10 +110,7 @@ export const PromotionPage: FeaturePageComponent<PromotionPageProps> = ({
             }}
           />
           <br />
-          <form
-            method="POST"
-            action={promotion.fields.audiencefulPostActionUrl}
-          >
+          <AudiencefulForm action={promotion.fields.audiencefulPostActionUrl}>
             <Input
               label="Email Address"
               type="text"
@@ -138,25 +118,19 @@ export const PromotionPage: FeaturePageComponent<PromotionPageProps> = ({
               id="email"
               placeholder="youremail@yourdomain.com"
               required
-            />
-            <div
               style={{
-                position: "absolute",
-                left: -5000
+                marginBottom: makeRem(16)
               }}
-              aria-hidden="true"
-            >
-              <input
-                type="text"
-                name="b28-ft"
-                tabIndex={-1}
-                value=""
-                readOnly
-              />
-            </div>
-            <br />
-            <Button type="submit" label="Sign up!" styleType="secondary" />
-          </form>
+            />
+            <Button
+              type="submit"
+              label="Sign up!"
+              styleType="secondary"
+              style={{
+                width: "100%"
+              }}
+            />
+          </AudiencefulForm>
         </Container>
       </SDiv>
       <SLeft>

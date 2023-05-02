@@ -4,6 +4,7 @@ import React from "react";
 
 import { withPromotionPageThankYouLayout } from "./PromotionThankYou.layout";
 import { IPromotion } from "@htc/lib/contentful/contentful.types";
+import { ThankYou } from "../thank-you/ThankYou";
 import { ContentfulRichText } from "@htc/components/atomic";
 
 export type PromotionPageThankYouProps = {
@@ -19,15 +20,14 @@ export const PromotionPageThankYou: FeaturePageComponent<PromotionPageThankYouPr
     }
 
     return (
-      <div>
-        <h1>{promotion.fields.thankYouTitle}</h1>
+      <ThankYou title={promotion.fields.thankYouTitle}>
         <ContentfulRichText
           richText={promotion.fields.thankYouDescription}
           copyProps={{
             variant: "paragraph"
           }}
         />
-      </div>
+      </ThankYou>
     );
   };
 
