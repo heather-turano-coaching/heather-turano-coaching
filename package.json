@@ -45,6 +45,7 @@
     "remark": "^14.0.1",
     "remark-html": "^14.0.0",
     "safe-json-stringify": "^1.2.0",
+    "sharp": "^0.32.1",
     "styled-components": "^5.3.10",
     "swr": "^0.5.6"
   },

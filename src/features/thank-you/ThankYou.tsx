@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 
-import { ContentfulRichText, Title, Typography } from "@htc/components/atomic";
+import { Title } from "@htc/components/atomic";
 import styled from "styled-components";
 import { makeRem } from "@htc/theme";
 import { Container } from "@material-ui/core";
