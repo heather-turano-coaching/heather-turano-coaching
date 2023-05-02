@@ -18,7 +18,17 @@ export const PromotionPage: FeaturePageComponent<PromotionPageProps> = ({
     return <div>Loading...</div>;
   }
 
-  return <pre>{JSON.stringify(promotion, null, 2)}</pre>;
+  return (
+    <form method="POST" action={promotion.fields.audiencefulPostActionUrl}>
+      <input
+        name="email"
+        type="email"
+        id="email"
+        placeholder="youremail@yourdomain.com"
+        required
+      />
+    </form>
+  );
 };
 
 PromotionPage.withPageLayout = withPromotionPageLayout;

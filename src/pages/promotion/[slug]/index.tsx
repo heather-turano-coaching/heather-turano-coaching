@@ -8,7 +8,7 @@ import {
 } from "@htc/lib/server/contentful";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-type PromotionPaths = { slug: string | undefined };
+export type PromotionPaths = { slug: string | undefined };
 
 export const getStaticPaths: GetStaticPaths<PromotionPaths> = async () => {
   const promotions = await getContentfulEntriesById<IPromotion>("promotion", {

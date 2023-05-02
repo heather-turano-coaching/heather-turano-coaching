@@ -438,23 +438,41 @@ export interface IPageCollection extends Entry<IPageCollectionFields> {
 }
 
 export interface IPromotionFields {
+  /** ID */
+  id?: string | undefined;
+
+  /** Title */
+  title: string;
+
   /** Start Date */
   startDate: string;
 
   /** End Date */
   endDate: string;
 
-  /** Title */
-  title: string;
-
   /** URL */
   url: string;
+
+  /** Image */
+  image: Asset;
 
   /** Description */
   description: Document;
 
-  /** Image */
-  image: Asset;
+  /** Original Price */
+  originalPrice?: string | undefined;
+
+  /** New Price */
+  newPrice?: string | undefined;
+
+  /** Audienceful - POST Action URL */
+  audiencefulPostActionUrl: string;
+
+  /** Thank you - Title */
+  thankYouTitle: string;
+
+  /** Thank you - Description */
+  thankYouDescription: Document;
 }
 
 /** Allows you to create one off pages that can be used to gather email addresses or offer products a discounted rates */
